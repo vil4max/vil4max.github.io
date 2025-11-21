@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maksim Vilchevskiy — iOS Software Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #fafafa;
+      --bg-elevated: #ffffff;
+      --fg: #222222;
+      --muted: #666666;
+      --border-subtle: #e5e5e5;
+      --accent: #0070f3;
+      --shadow-soft: 0 2px 5px rgba(0,0,0,0.05);
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #05060a;
+        --bg-elevated: #11131a;
+        --fg: #f5f5f7;
+        --muted: #a0a4b5;
+        --border-subtle: #252836;
+        --accent: #4ea8ff;
+        --shadow-soft: 0 2px 10px rgba(0,0,0,0.5);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-main);
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, rgba(0,112,243,0.06), transparent 55%), var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: transparent;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    header-inner {
+      display: block;
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    header img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .header-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .header-text h2 {
+      margin: 4px 0 6px;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .header-meta {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .header-meta a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-left: 6px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 8px 14px;
+      background: var(--accent);
+      color: #ffffff !important;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    main {
+      padding: 24px 20px 40px;
+    }
+
+    section {
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin: 0 0 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      padding: 4px 10px;
+      font-size: 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: color-mix(in srgb, var(--bg-elevated) 80%, var(--accent) 5%);
+      color: var(--muted);
+    }
+
+    .experience-item,
+    .project-card,
+    .shot-card {
+      background: var(--bg-elevated);
+      padding: 16px 16px 14px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+
+    .experience-item {
+      margin-bottom: 16px;
+    }
+
+    .exp-header {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .exp-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .experience-item ul {
+      padding-left: 18px;
+      margin: 6px 0 0;
+      font-size: 13px;
+    }
+
+    .experience-item li {
+      margin-bottom: 3px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .project-card h4 {
+      margin: 0 0 4px;
+      font-size: 14px;
+    }
+
+    .project-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .project-card ul {
+      padding-left: 16px;
+      margin: 4px 0 0;
+      font-size: 13px;
+    }
+
+    .project-card li {
+      margin-bottom: 2px;
+    }
+
+    .shot-card {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .shot-card img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      display: block;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .shot-caption {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 16px 20px 24px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (min-width: 720px) {
+      main {
+        padding-top: 28px;
+      }
+      .grid-two {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 16px;
+      }
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media print {
+      header {
+        position: static;
+        border-bottom: 1px solid #000;
+        box-shadow: none;
+      }
+      body {
+        background: #ffffff !important;
+      }
+      .experience-item,
+      .project-card,
+      .shot-card {
+        box-shadow: none;
+        border: 1px solid #cccccc;
+      }
+      .download-btn {
+        display: none !important;
+      }
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/profile.png" alt="Maksim Vilchevskiy">
+
+        <div class="header-text">
+          <h1>Maksim Vilchevskiy</h1>
+          <h2>iOS Software Engineer · Swift · SwiftUI · SDK Architecture</h2>
+          <div class="header-meta">
+            📍 Kyiv, Ukraine ·
+            <a href="mailto:vil4max@gmail.com">Email</a> ·
+            <a href="https://www.linkedin.com/in/vil4max/">LinkedIn</a> ·
+            <a href="https://t.me/vil4max">Telegram</a>
+          </div>
+        </div>
+        <a class="download-btn" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Maksim_Vilchevskiy_Resume.pdf">Download CV (PDF)</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="grid-two">
+        <div>
+          <h3>About Me</h3>
+          <p>
+            iOS Software Engineer with strong experience in building scalable, user-focused mobile products in fintech,
+            e-commerce, and real-time services. I work with Swift, SwiftUI, UIKit and modular SDK architectures, and have
+            experience in both startups and complex multi-app ecosystems, often owning features end-to-end from early
+            versions to reusable SDK modules.
+          </p>
+          <p>
+            I'm focused on architecture, performance and product impact, with a strong interest in modern finance, digital
+            assets and multi-product ecosystems (subscriptions, loyalty, high-load feature modules). I also actively explore
+            how AI and new development tools can improve engineering workflows.
+          </p>
+        </div>
+        <div>
+          <h3>Core Focus</h3>
+          <div class="pill-row">
+            <span class="pill">Swift · SwiftUI · UIKit</span>
+            <span class="pill">Modular SDKs (SPM)</span>
+            <span class="pill">Premium Subscription</span>
+            <span class="pill">Fintech & Digital Assets</span>
+            <span class="pill">Architecture & Clean Code</span>
+            <span class="pill">Performance & UX</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Experience</h3>
+
+        <div class="experience-item">
+          <div class="exp-header">Shared SDK Ecosystem, Birmarket · Birbank · M10 (Kapital Bank)</div>
+          <div class="exp-meta">iOS Software Engineer · Feb 2025 – Present · Kyiv, Ukraine (Remote)</div>
+          <ul>
+            <li>Owner of the Premium Subscription module (UIKit → SwiftUI rewrite)</li>
+            <li>Extracted feature into a shared SDK for three apps (multi-brand theming + localisation)</li>
+            <li>Delivered reusable SwiftUI components via SPM</li>
+            <li>Implemented Clean Architecture, SOLID, tests and UI automation</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="exp-header">Umico / Birmarket — Super App / Marketplace (CompetoLLC)</div>
+          <div class="exp-meta">iOS Software Engineer · Apr 2022 – Feb 2025 · Kyiv, Ukraine (Remote)</div>
+          <ul>
+            <li>Worked on Premium Subscription area, later moved into Kapital Bank's shared SDK</li>
+            <li>Contributed to transition from monolith to SPM-based modular architecture</li>
+            <li>Migrated key flows from UIKit to SwiftUI and optimised networking (caching, background refresh)</li>
+            <li>Used Firebase Remote Config and analytics for controlled feature rollout</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="exp-header">Drinkit — Coffee Ordering App (Dodo Engineering)</div>
+          <div class="exp-meta">iOS Software Engineer · Feb 2020 – Feb 2022 · Kyiv, Ukraine (Remote)</div>
+          <ul>
+            <li>Core team building Drinkit from early versions to a stable ordering platform</li>
+            <li>Developed full ordering flow with rich drink customisation (milk types, syrups, add-ons, timing)</li>
+            <li>Integrated Apple Pay and loyalty logic</li>
+            <li>Implemented reliable order progress tracking using polling and clear status updates</li>
+            <li>Applied MVVM-C for separation of concerns and testability</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="exp-header">Alchemy — Digital Assets & Precious Metals Platform</div>
+          <div class="exp-meta">iOS Software Engineer · 2022 · Kyiv, Ukraine (Remote)</div>
+          <ul>
+            <li>Contributed to an iOS platform for buying physical gold backed by blockchain contracts</li>
+            <li>Implemented onboarding, basic wallet and transaction flows, and Stripe payment integration</li>
+            <li>Integrated AWS Cognito, KYC services, and secure storage of sensitive data with Keychain</li>
+            <li>Configured multiple environments and chart integration for asset pricing</li>
+          </ul>
+        </div>
+
+
+        <div class="experience-item">
+          <div class="exp-header">Other / Earlier Projects</div>
+          <div class="exp-meta">2013 – 2020 · Kyiv, Ukraine (Remote)</div>
+          <ul>
+            <li>The Clovis Culture — online store (catalog, filtering, adaptive UI, image performance)</li>
+            <li>Eastern Union — broker tool (real-time prices, responsive UI, local caching)</li>
+            <li>Acucharting — 3D acupuncture planner (SceneKit, Core Data sync)</li>
+            <li>Flip Taxi & Tap4Parking — navigation, geofencing, booking flows</li>
+            <li>Marketing & news apps — REST APIs, push notifications, live feeds</li>
+            <li>PlayHera — gaming tournaments platform (teams, chats, progress tracking, notifications)</li>
+            <li>Electus — crypto wallet MVP for non-technical users (onboarding, wallet basics, secure storage &amp; biometrics)</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section>
+        <h3>Selected Projects</h3>
+        <div class="grid">
+
+          <div class="project-card">
+            <h4>Umico → Birmarket — Super App / Marketplace</h4>
+            <div class="project-meta">
+              Swift, SwiftUI, UIKit, SPM, Firebase<br>
+              <a href="https://apps.apple.com/ru/app/umico-%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B8-%D0%B8-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id1458111389?l=uk">App Store</a>
+            </div>
+            <ul>
+              <li>Super app / marketplace that became a key online store in Azerbaijan</li>
+              <li>Premium Subscription logic later extracted into Kapital Bank's shared SDK</li>
+              <li>Contribution to modularisation, SwiftUI migration and networking optimisation</li>
+            </ul>
+          </div>
+
+
+          <div class="project-card">
+            <h4>Drinkit — Coffee Ordering App</h4>
+            <div class="project-meta">
+              Swift, UIKit, MVVM-C, Apple Pay<br>
+              <a href="https://apps.apple.com/us/app/drinkit-order-your-coffee/id1495622004">App Store</a>
+            </div>
+            <ul>
+              <li>Coffee ordering app with rich customisation and clear preparation progress</li>
+              <li>Apple Pay integration and loyalty logic</li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <h4>Alchemy — Digital Assets & Precious Metals</h4>
+            <div class="project-meta">
+              Swift, MVVM, Swinject, Stripe, AWS Cognito, Firebase
+            </div>
+            <ul>
+              <li>iOS client for buying physical gold via APIs backed by blockchain-based contracts</li>
+              <li>Onboarding, wallet and transaction flows, KYC, secure storage</li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <h4>PlayHera — Gaming Tournaments</h4>
+            <div class="project-meta">
+              Swift, UIKit, REST, WebSockets<br>
+              <span>App Store (no longer available)</span>
+            </div>
+            <ul>
+              <li>Gaming tournaments platform with teams, brackets, leaderboards, and real-time match results</li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <h4>Eastern Union — Broker Tool</h4>
+            <div class="project-meta">
+              Swift, UIKit, Charts, REST<br>
+              <a href="https://apps.apple.com/us/app/eastern-union/id1125123079">App Store</a>
+            </div>
+            <ul>
+              <li>Mobile broker tool with real-time prices and local caching</li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <h4>Green Riding Hood — Interactive Book</h4>
+            <div class="project-meta">
+              Core Animation, Core Graphics<br>
+              <a href="https://apps.apple.com/us/app/green-riding-hood-read-aloud/id977242839">App Store</a>
+            </div>
+            <ul>
+              <li>Interactive children's book with custom animation engine and gestures</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <section>
+        <h3>Screenshots</h3>
+
+        <div class="grid">
+
+          <!-- Birmarket -->
+          <div class="shot-card">
+            <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/screens/kapital/birmarket/birmarket-1.webp" alt="Birmarket Screenshot">
+            <div class="shot-caption"><strong>Birmarket</strong> — marketplace home screen</div>
+          </div>
+
+          <div class="shot-card">
+            <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/screens/kapital/birmarket/birmarket-2.webp" alt="Birmarket Screenshot">
+            <div class="shot-caption"><strong>Birmarket</strong> — product details & installments</div>
+          </div>
+
+          <!-- Birbank -->
+          <div class="shot-card">
+            <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/screens/kapital/birbank/birbank-1.webp" alt="Birbank Screenshot">
+            <div class="shot-caption"><strong>Birbank</strong> — accounts & cards</div>
+          </div>
+
+          <div class="shot-card">
+            <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/screens/kapital/birbank/birbank-2.webp" alt="Birbank Screenshot">
+            <div class="shot-caption"><strong>Birbank</strong> — payments & transfers</div>
+          </div>
+
+          <!-- Drinkit -->
+          <div class="shot-card">
+            <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/screens/drinkit/drinkit-1.webp" alt="Drinkit Screenshot">
+            <div class="shot-caption"><strong>Drinkit</strong> — drink customisation</div>
+          </div>
+
+          <div class="shot-card">
+            <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/screens/drinkit/drinkit-2.webp" alt="Drinkit Screenshot">
+            <div class="shot-caption"><strong>Drinkit</strong> — menu & food ordering</div>
+          </div>
+
+          <!-- PlayHera -->
+          <div class="shot-card">
+            <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/screens/ph/ph-1.webp" alt="PlayHera Screenshot">
+            <div class="shot-caption"><strong>PlayHera</strong> — tournaments & matches</div>
+          </div>
+
+          <!-- Eastern Union -->
+          <div class="shot-card">
+            <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/screens/eu/eu-1.webp" alt="Eastern Union Screenshot">
+            <div class="shot-caption"><strong>Eastern Union</strong> — broker tools & rates</div>
+          </div>
+
+          <!-- Green Riding Hood -->
+          <div class="shot-card">
+            <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/screens/grh/grh-1.webp" alt="Green Riding Hood Screenshot">
+            <div class="shot-caption"><strong>Green Riding Hood</strong> — interactive story</div>
+          </div>
+
+          <div class="shot-card">
+            <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/screens/grh/grh-2.webp" alt="Green Riding Hood Screenshot">
+            <div class="shot-caption"><strong>Green Riding Hood</strong> — animated scenes</div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      © Maksim Vilchevskiy · <a href="https://vil4max.github.io">vil4max.github.io</a>
+    </footer>
+
+  </div>
+</body>
+</html>
