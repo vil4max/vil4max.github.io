@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "name": "Max Vilchevskiy",
+    "title": "Senior iOS Engineer",
+    "tagline": "Swift · SwiftUI · iOS SDK",
+    "location": "Kyiv, Ukraine",
+    "pitch": "Native iOS — UIKit/SwiftUI, SPM, networking, Apple platform services.",
+    "headerTldr": "Native iOS — UIKit/SwiftUI, SPM, networking, Apple platform services. Kyiv · open to remote.",
+    "syncRule": "Edit this file first, then update index.html (displayFull) and index-short.html (displayShort) in the same session."
+  },
+  "roles": [
+    {
+      "id": "globallogic",
+      "company": "GlobalLogic",
+      "location": "Kyiv, Ukraine",
+      "title": "Senior iOS Engineer",
+      "start": "2026-02",
+      "end": "present",
+      "displayFull": "Feb 2026 – Present",
+      "displayShort": "2026 – Present",
+      "project": "Apple Watch companion app",
+      "featured": false,
+      "technologies": ["Swift", "WatchKit", "WatchConnectivity", "AVFoundation", "AVPlayer"]
+    },
+    {
+      "id": "pasha",
+      "company": "PASHA Holding",
+      "location": "Kyiv, Ukraine · Remote",
+      "title": "Senior iOS Engineer",
+      "start": "2022-04",
+      "end": "2026-01",
+      "displayFull": "Apr 2022 – Jan 2026",
+      "displayShort": "2022 – 2026",
+      "project": "Umico / Birmarket — marketplace & loyalty super app and shared iOS SDK ecosystem",
+      "featured": true,
+      "technologies": ["Swift", "SwiftUI", "UIKit", "SPM", "Firebase", "Remote Config", "XCTest", "URLSession"]
+    },
+    {
+      "id": "dodo",
+      "company": "Dodo Brands",
+      "location": "Kyiv, Ukraine · Remote",
+      "title": "Senior iOS Engineer",
+      "start": "2020-02",
+      "end": "2022-02",
+      "displayFull": "Feb 2020 – Feb 2022",
+      "displayShort": "2020 – 2022",
+      "project": "Drinkit — coffee ordering app",
+      "featured": false,
+      "technologies": ["Swift", "UIKit", "SPM", "WebSockets", "Apple Pay", "URLSession"]
+    },
+    {
+      "id": "solvve",
+      "company": "SOLVVE",
+      "location": "Remote",
+      "title": "iOS Developer",
+      "start": "2019-01",
+      "end": "2020-02",
+      "displayFull": "Jan 2019 – Feb 2020",
+      "displayShort": "2019 – 2020",
+      "project": "PLAYHERA — esports & gaming tournaments",
+      "featured": false,
+      "technologies": ["Swift", "UIKit", "Combine", "WebSockets", "REST", "Auto Layout"]
+    },
+    {
+      "id": "electus",
+      "company": "Electus",
+      "location": "Kyiv, Ukraine",
+      "title": "iOS Developer",
+      "start": "2018-07",
+      "end": "2018-11",
+      "displayFull": "Jul 2018 – Nov 2018",
+      "displayShort": "2018",
+      "project": "Electus — crypto market info & wallet MVP",
+      "featured": false,
+      "technologies": ["Swift", "UIKit", "Keychain", "TestFlight"]
+    },
+    {
+      "id": "gbksoft",
+      "company": "GBKSoft",
+      "location": "Kyiv, Ukraine",
+      "title": "iOS Developer",
+      "start": "2017-06",
+      "end": "2018-06",
+      "displayFull": "Jun 2017 – Jun 2018",
+      "displayShort": "2017 – 2018",
+      "project": "Eastern Union — Broker Tool",
+      "featured": false,
+      "technologies": ["Swift", "UIKit", "REST", "Core Bluetooth", "Core Location"]
+    },
+    {
+      "id": "early-career",
+      "company": "Early career — learning, freelance & independent delivery",
+      "location": "Kyiv, Ukraine",
+      "title": "iOS Developer",
+      "start": "2013-12",
+      "end": "2017-05",
+      "displayFull": "Dec 2013 – May 2017",
+      "displayShort": "2013 – 2017",
+      "project": "Self-study, trainee & junior roles, freelance-style and indie App Store work",
+      "featured": false,
+      "technologies": ["Swift", "Objective-C", "UIKit"]
+    }
+  ],
+  "featuredProject": {
+    "id": "birmarket",
+    "name": "Umico → Birmarket — Super App / Marketplace",
+    "employerRoleId": "pasha"
+  }
+}
