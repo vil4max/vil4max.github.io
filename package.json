@@ -1,0 +1,28 @@
+{
+  "name": "vil4max.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "resume:pdf": "node scripts/generate-resume-pdf.mjs",
+    "resume:pdf:full": "node scripts/generate-resume-pdf.mjs index.html ../vil4max/assets/iOS_Vilchevskiy_CV.pdf",
+    "resume:pdf:short": "node scripts/generate-resume-pdf.mjs index-short.html ../vil4max/assets/iOS_Vilchevskiy_CV_short.pdf",
+    "resume:pdf:all": "npm run resume:pdf:full && npm run resume:pdf:short",
+    "resume:pdf:install": "npx playwright install chromium"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vil4max/vil4max.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vil4max/vil4max.github.io/issues"
+  },
+  "homepage": "https://github.com/vil4max/vil4max.github.io#readme",
+  "devDependencies": {
+    "playwright": "^1.58.2"
+  }
+}
