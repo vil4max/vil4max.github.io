@@ -6,7 +6,7 @@ Source for my public CV/portfolio website.
 
 | URL | Purpose |
 |-----|---------|
-| `index.html` | Landing — pitch, expertise, featured Birmarket |
+| `index.html` | Landing — pitch, expertise, featured watchOS AI assistant |
 | `experience.html` | Experience timeline (years) |
 | `projects.html` | Project case studies + screenshots |
 | `cv.html` | Full CV (months) — source for PDF full |
