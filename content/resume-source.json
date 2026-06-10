@@ -15,12 +15,12 @@
       "location": "Kyiv, Ukraine",
       "title": "Senior iOS Engineer",
       "start": "2026-02",
-      "end": "present",
-      "displayFull": "Feb 2026 – Present",
-      "displayShort": "2026 – Present",
-      "project": "Apple Watch companion app",
-      "featured": false,
-      "technologies": ["Swift", "WatchKit", "WatchConnectivity", "AVFoundation", "AVPlayer"]
+      "end": "2026-06",
+      "displayFull": "Feb 2026 – Jun 2026",
+      "displayShort": "2026",
+      "project": "watchOS AI voice assistant — client project (NDA)",
+      "featured": true,
+      "technologies": ["Swift", "WatchKit", "WebSockets", "SwiftUI", "AVFoundation"]
     },
     {
       "id": "pasha",
@@ -102,8 +102,8 @@
     }
   ],
   "featuredProject": {
-    "id": "birmarket",
-    "name": "Umico → Birmarket — Super App / Marketplace",
-    "employerRoleId": "pasha"
+    "id": "watch-ai-assistant",
+    "name": "watchOS AI Voice Assistant — Apple Watch (NDA)",
+    "employerRoleId": "globallogic"
   }
 }
