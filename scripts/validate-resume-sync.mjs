@@ -16,12 +16,20 @@ const experienceHtml = fs.readFileSync(experienceHtmlPath, "utf8");
 
 const errors = [];
 
+const shortMergedEarlyRoleIds = new Set(["electus", "gbksoft", "early-career"]);
+
 for (const role of source.roles) {
     if (!fullHtml.includes(role.displayFull)) {
         errors.push(`cv.html missing displayFull for ${role.id}: ${role.displayFull}`);
     }
-    if (!shortHtml.includes(role.displayShort)) {
-        errors.push(`index-short.html missing displayShort for ${role.id}: ${role.displayShort}`);
+    if (shortMergedEarlyRoleIds.has(role.id)) {
+        if (role.id === "early-career" && !shortHtml.includes("Dec 2013 – Nov 2018")) {
+            errors.push(`index-short.html missing merged early-career dates: Dec 2013 – Nov 2018`);
+        }
+        continue;
+    }
+    if (!shortHtml.includes(role.displayFull)) {
+        errors.push(`index-short.html missing displayFull for ${role.id}: ${role.displayFull}`);
     }
     if (!experienceHtml.includes(role.displayShort)) {
         errors.push(`experience.html missing displayShort for ${role.id}: ${role.displayShort}`);

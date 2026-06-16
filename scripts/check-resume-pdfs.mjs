@@ -1,11 +1,14 @@
 import { stat } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 
 const repoRoot = process.cwd();
-const iCloudResumeDir =
-    "/Users/maksym.vilchevskyi/Library/Mobile Documents/com~apple~CloudDocs/pdf-resume";
+const iCloudResumeDir = path.join(
+    os.homedir(),
+    "Library/Mobile Documents/com~apple~CloudDocs/pdf-resume",
+);
 
-const fullHtml = path.resolve(repoRoot, "index.html");
+const fullHtml = path.resolve(repoRoot, "cv.html");
 const shortHtml = path.resolve(repoRoot, "index-short.html");
 
 const fullPdfAssets = path.resolve(repoRoot, "../vil4max/assets/iOS_Vilchevskiy_CV.pdf");
@@ -38,13 +41,20 @@ async function ensureUpToDate({ label, pdfPath, sourceHtmlPath }) {
 const checks = [
     { label: "assets/full", pdfPath: fullPdfAssets, sourceHtmlPath: fullHtml },
     { label: "assets/short", pdfPath: shortPdfAssets, sourceHtmlPath: shortHtml },
-    { label: "iCloud/full", pdfPath: fullPdfICloud, sourceHtmlPath: fullHtml },
-    { label: "iCloud/short", pdfPath: shortPdfICloud, sourceHtmlPath: shortHtml },
+    { label: "iCloud/full", pdfPath: fullPdfICloud, sourceHtmlPath: fullHtml, optional: true },
+    { label: "iCloud/short", pdfPath: shortPdfICloud, sourceHtmlPath: shortHtml, optional: true },
 ];
 
 try {
     for (const check of checks) {
-        await ensureUpToDate(check);
+        try {
+            await ensureUpToDate(check);
+        } catch (error) {
+            if (check.optional && error?.code === "ENOENT") {
+                continue;
+            }
+            throw error;
+        }
     }
     process.stdout.write("OK: PDFs are up to date.\n");
 } catch (error) {

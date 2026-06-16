@@ -1,4 +1,5 @@
 import { copyFile, mkdir } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { chromium } from "playwright";
@@ -22,7 +23,15 @@ if (args.length === 0) {
 
 await mkdir(path.dirname(outputPath), { recursive: true });
 
-const browser = await chromium.launch();
+async function launchBrowser() {
+    try {
+        return await chromium.launch();
+    } catch {
+        return await chromium.launch({ channel: "chrome" });
+    }
+}
+
+const browser = await launchBrowser();
 const page = await browser.newPage({
     viewport: { width: 1440, height: 2200 },
 });
@@ -48,8 +57,15 @@ await page.pdf({
 
 await browser.close();
 
-const iCloudResumeDir = "/Users/maksym.vilchevskyi/Library/Mobile Documents/com~apple~CloudDocs/pdf-resume";
-await mkdir(iCloudResumeDir, { recursive: true });
-await copyFile(outputPath, path.resolve(iCloudResumeDir, path.basename(outputPath)));
+const iCloudResumeDir = path.join(
+    os.homedir(),
+    "Library/Mobile Documents/com~apple~CloudDocs/pdf-resume",
+);
+try {
+    await mkdir(iCloudResumeDir, { recursive: true });
+    await copyFile(outputPath, path.resolve(iCloudResumeDir, path.basename(outputPath)));
+} catch {
+    // iCloud copy is optional when the folder is unavailable
+}
 
 console.log(`PDF generated: ${outputPath}`);

@@ -4,21 +4,32 @@
     "title": "Senior iOS Engineer",
     "tagline": "Swift · SwiftUI · iOS SDK",
     "location": "Kyiv, Ukraine",
-    "pitch": "Native iOS — UIKit/SwiftUI, SPM, networking, Apple platform services.",
-    "headerTldr": "Native iOS — UIKit/SwiftUI, SPM, networking, Apple platform services. Kyiv · open to remote.",
-    "syncRule": "Edit this file first, then update index.html (displayFull) and index-short.html (displayShort) in the same session."
+    "pitch": "Senior iOS — UIKit/SwiftUI, SPM, shared SDKs, marketplace delivery. Kyiv · open to remote.",
+    "headerTldr": "Senior iOS — UIKit/SwiftUI, SPM, shared SDKs, marketplace delivery. Kyiv · open to remote.",
+    "summary": "Senior iOS engineer with 10+ years in production mobile apps. UIKit/SwiftUI, SPM, shared SDKs, Apple Pay, and real-time features (REST, WebSockets). Built shared marketplace/loyalty SDK across 3 production apps (7–10 iOS engineers); owned Premium Subscription from requirements to App Store release. Stable delivery: step-by-step rollouts, Remote Config, 99–100% crash-free sessions; unit tests for critical business modules.",
+    "summaryShort": "Senior iOS engineer with 10+ years in production mobile apps. UIKit/SwiftUI, SPM, shared SDKs, Apple Pay, and real-time features (REST, WebSockets). Built shared marketplace/loyalty SDK across 3 production apps (7–10 iOS engineers); owned Premium Subscription from requirements to App Store release. Stable delivery: step-by-step rollouts, Remote Config, 99–100% crash-free sessions.",
+    "syncRule": "Edit this file first, then update cv.html (displayFull), index-short.html (displayFull for ATS short CV), experience.html (displayShort) in the same session."
   },
+  "education": [
+    {
+      "institution": "Donetsk State University of Management (DSUM)",
+      "location": "Donetsk, Ukraine",
+      "degree": "Bachelor's degree",
+      "field": "Production sector management",
+      "displayFull": "Donetsk State University of Management (DSUM) · Donetsk, Ukraine — Bachelor's degree, Production sector management"
+    }
+  ],
   "roles": [
     {
       "id": "globallogic",
       "company": "GlobalLogic",
-      "location": "Kyiv, Ukraine",
+      "location": "Kyiv, Ukraine · Remote",
       "title": "Senior iOS Engineer",
-      "start": "2026-02",
+      "start": "2026-01",
       "end": "2026-06",
-      "displayFull": "Feb 2026 – Jun 2026",
+      "displayFull": "Jan 2026 – Jun 2026",
       "displayShort": "2026",
-      "project": "watchOS AI voice assistant — client project (NDA)",
+      "project": "watchOS AI voice assistant — R&D client project (NDA)",
       "featured": true,
       "technologies": ["Swift", "WatchKit", "WebSockets", "SwiftUI", "AVFoundation"]
     },
@@ -36,6 +47,19 @@
       "technologies": ["Swift", "SwiftUI", "UIKit", "SPM", "Firebase", "Remote Config", "XCTest", "URLSession"]
     },
     {
+      "id": "alchemy",
+      "company": "Alchemy (outsourced contract)",
+      "location": "Remote",
+      "title": "Senior iOS Engineer (Contract)",
+      "start": "2022-06",
+      "end": "2022-12",
+      "displayFull": "Jun 2022 – Dec 2022",
+      "displayShort": "2022",
+      "project": "Alchemy — digital gold MVP, R&D contract (Australian client, outsourced)",
+      "featured": false,
+      "technologies": ["Swift", "SPM", "Keychain", "LocalAuthentication", "Firebase", "Stripe SDK"]
+    },
+    {
       "id": "dodo",
       "company": "Dodo Brands",
       "location": "Kyiv, Ukraine · Remote",
@@ -45,7 +69,7 @@
       "displayFull": "Feb 2020 – Feb 2022",
       "displayShort": "2020 – 2022",
       "project": "Drinkit — coffee ordering app",
-      "featured": false,
+      "featured": true,
       "technologies": ["Swift", "UIKit", "SPM", "WebSockets", "Apple Pay", "URLSession"]
     },
     {
@@ -101,9 +125,21 @@
       "technologies": ["Swift", "Objective-C", "UIKit"]
     }
   ],
-  "featuredProject": {
-    "id": "watch-ai-assistant",
-    "name": "watchOS AI Voice Assistant — Apple Watch (NDA)",
-    "employerRoleId": "globallogic"
-  }
+  "featuredProjects": [
+    {
+      "id": "watch-ai-assistant",
+      "name": "watchOS AI Voice Assistant — Apple Watch (NDA)",
+      "employerRoleId": "globallogic"
+    },
+    {
+      "id": "umico-birmarket",
+      "name": "Umico / Birmarket — marketplace & loyalty super app",
+      "employerRoleId": "pasha"
+    },
+    {
+      "id": "drinkit",
+      "name": "Drinkit — coffee ordering app",
+      "employerRoleId": "dodo"
+    }
+  ]
 }

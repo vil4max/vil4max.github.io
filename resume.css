@@ -141,6 +141,24 @@
       margin: 0 0 8px;
     }
 
+    .cv-summary {
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 72ch;
+      margin: 0;
+    }
+
+    .education-line {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .education-detail {
+      font-size: 14px;
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
     .landing-cta {
       display: flex;
       flex-wrap: wrap;
@@ -150,6 +168,18 @@
 
     .featured-project-card {
       margin-top: 4px;
+    }
+
+    .featured-projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 900px) {
+      .featured-projects-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
     .download-btn {
