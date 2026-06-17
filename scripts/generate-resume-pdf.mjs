@@ -61,11 +61,13 @@ const iCloudResumeDir = path.join(
     os.homedir(),
     "Library/Mobile Documents/com~apple~CloudDocs/pdf-resume",
 );
+const iCloudDestPath = path.resolve(iCloudResumeDir, path.basename(outputPath));
 try {
     await mkdir(iCloudResumeDir, { recursive: true });
-    await copyFile(outputPath, path.resolve(iCloudResumeDir, path.basename(outputPath)));
-} catch {
-    // iCloud copy is optional when the folder is unavailable
+    await copyFile(outputPath, iCloudDestPath);
+    console.log(`iCloud copy: ${iCloudDestPath}`);
+} catch (error) {
+    console.warn(`iCloud copy skipped: ${error?.message ?? String(error)}`);
 }
 
 console.log(`PDF generated: ${outputPath}`);
