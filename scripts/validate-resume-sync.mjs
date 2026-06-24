@@ -17,12 +17,13 @@ const experienceHtml = fs.readFileSync(experienceHtmlPath, "utf8");
 const errors = [];
 
 const shortMergedEarlyRoleIds = new Set(["electus", "gbksoft", "early-career"]);
+const shortOmittedRoleIds = new Set(["alchemy"]);
 
 for (const role of source.roles) {
     if (!fullHtml.includes(role.displayFull)) {
         errors.push(`cv.html missing displayFull for ${role.id}: ${role.displayFull}`);
     }
-    if (shortMergedEarlyRoleIds.has(role.id)) {
+    if (shortMergedEarlyRoleIds.has(role.id) || shortOmittedRoleIds.has(role.id)) {
         if (role.id === "early-career" && !shortHtml.includes("Dec 2013 – Nov 2018")) {
             errors.push(`index-short.html missing merged early-career dates: Dec 2013 – Nov 2018`);
         }

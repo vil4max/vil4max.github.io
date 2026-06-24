@@ -1,21 +1,27 @@
 :root {
-  --bg: #fafafa;
-  --fg: #222222;
-  --muted: #666666;
-  --border-subtle: #e5e5e5;
-  --accent: #0070f3;
-  --shadow-soft: 0 2px 5px rgba(0, 0, 0, 0.05);
+  --bg: #f6f8fa;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #f6f8fa;
+  --fg: #1f2328;
+  --fg-heading: #1f2328;
+  --muted: #656d76;
+  --border-subtle: #d0d7de;
+  --accent: #0969da;
+  --shadow-soft: 0 1px 0 rgba(27, 31, 36, 0.04);
   --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #05060a;
-    --fg: #f5f5f7;
-    --muted: #a0a4b5;
-    --border-subtle: #252836;
-    --accent: #4ea8ff;
-    --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.5);
+    --bg: #2c2c2c;
+    --bg-elevated: #424242;
+    --bg-subtle: #323232;
+    --fg: #d4d4d4;
+    --fg-heading: #e2e2e2;
+    --muted: #a8a8a8;
+    --border-subtle: #525252;
+    --accent: #9ec9f5;
+    --shadow-soft: 0 0 0 1px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -27,7 +33,7 @@ body.short-cv {
   font-family: var(--font-main);
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top, rgba(0, 112, 243, 0.06), transparent 55%), var(--bg);
+  background: var(--bg);
   color: var(--fg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -42,7 +48,7 @@ body.short-cv {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: transparent;
+  background: color-mix(in srgb, var(--bg-subtle) 92%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -73,6 +79,7 @@ body.short-cv {
   margin: 0;
   font-size: 22px;
   font-weight: 600;
+  color: var(--fg-heading);
 }
 
 .short-cv .header-text h2 {
@@ -95,6 +102,17 @@ body.short-cv {
   line-height: 1.45;
   max-width: 72ch;
   margin: 0;
+}
+
+.short-cv .highlights-list {
+  padding-left: 18px;
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.short-cv .highlights-list li {
+  margin-bottom: 2px;
 }
 
 .short-cv .skills-ats,
@@ -182,6 +200,7 @@ body.short-cv {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  color: var(--fg-heading);
 }
 
 .short-cv h3::before {

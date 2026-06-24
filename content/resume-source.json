@@ -2,21 +2,21 @@
   "meta": {
     "name": "Max Vilchevskiy",
     "title": "Senior iOS Engineer",
-    "tagline": "Swift · SwiftUI · iOS SDK",
+    "tagline": "SDK & Platform · Swift · SwiftUI · AI/mobile",
     "location": "Kyiv, Ukraine",
-    "pitch": "Senior iOS — UIKit/SwiftUI, SPM, shared SDKs, marketplace delivery. Kyiv · open to remote.",
-    "headerTldr": "Senior iOS — UIKit/SwiftUI, SPM, shared SDKs, marketplace delivery. Kyiv · open to remote.",
-    "summary": "Senior iOS engineer with 10+ years in production mobile apps. UIKit/SwiftUI, SPM, shared SDKs, Apple Pay, and real-time features (REST, WebSockets). Built shared marketplace/loyalty SDK across 3 production apps (7–10 iOS engineers); owned Premium Subscription from requirements to App Store release. Stable delivery: step-by-step rollouts, Remote Config, 99–100% crash-free sessions; unit tests for critical business modules.",
-    "summaryShort": "Senior iOS engineer with 10+ years in production mobile apps. UIKit/SwiftUI, SPM, shared SDKs, Apple Pay, and real-time features (REST, WebSockets). Built shared marketplace/loyalty SDK across 3 production apps (7–10 iOS engineers); owned Premium Subscription from requirements to App Store release. Stable delivery: step-by-step rollouts, Remote Config, 99–100% crash-free sessions.",
-    "syncRule": "Edit this file first, then update cv.html (displayFull), index-short.html (displayFull for ATS short CV), experience.html (displayShort) in the same session."
+    "pitch": "Senior iOS — shared SDKs, marketplace & loyalty platform, voice AI on watchOS. Kyiv · open to remote.",
+    "headerTldr": "Senior iOS — shared SDKs, marketplace & loyalty platform, voice AI on watchOS. Kyiv · open to remote.",
+    "summary": "Senior iOS Engineer with 10+ years building production mobile applications across marketplaces, loyalty, subscriptions, and real-time products. Recently delivered an Apple Watch voice AI prototype with real-time backend communication, intent-driven navigation, and hands-free workflows (R&D, NDA). Built and maintained a shared marketplace/loyalty SDK across 3 production host applications, enabling parallel delivery for 7–10 iOS engineers; owned Premium Subscription end-to-end with 99–100% crash-free staged releases.",
+    "summaryShort": "Apple Watch voice AI prototype (R&D, NDA). Shared marketplace/loyalty SDK across 3 production apps (7–10 iOS engineers); Premium Subscription end-to-end; 99–100% crash-free staged releases. Swift, SwiftUI, SPM, WebSockets, XCTest, Remote Config.",
+    "syncRule": "Edit this file first, then update cv.html (displayFull), index-short.html (displayFull for ATS short CV; omit alchemy), experience.html (displayShort) in the same session."
   },
   "education": [
     {
-      "institution": "Donetsk State University of Management (DSUM)",
+      "institution": "Donetsk State University of Management",
       "location": "Donetsk, Ukraine",
       "degree": "Bachelor's degree",
       "field": "Production sector management",
-      "displayFull": "Donetsk State University of Management (DSUM) · Donetsk, Ukraine — Bachelor's degree, Production sector management"
+      "displayFull": "Donetsk State University of Management · Donetsk, Ukraine — Bachelor's degree, Production sector management"
     }
   ],
   "roles": [
@@ -31,7 +31,7 @@
       "displayShort": "2026",
       "project": "watchOS AI voice assistant — R&D client project (NDA)",
       "featured": true,
-      "technologies": ["Swift", "WatchKit", "WebSockets", "SwiftUI", "AVFoundation"]
+      "technologies": ["Swift", "WatchKit", "WebSockets", "SwiftUI", "WatchConnectivity", "AVFoundation"]
     },
     {
       "id": "pasha",
