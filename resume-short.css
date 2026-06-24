@@ -231,6 +231,23 @@ body.short-cv {
   margin-bottom: 6px;
 }
 
+.short-cv .exp-full-timeline {
+  margin: 4px 0 0 14px;
+  padding-left: 18px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.short-cv .exp-full-timeline a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.short-cv .exp-full-timeline a:hover {
+  text-decoration: underline;
+}
+
 .short-cv .exp-summary {
   font-size: 13px;
   color: var(--fg);

@@ -8,7 +8,7 @@
     "headerTldr": "Senior iOS — shared SDKs, marketplace & loyalty platform, voice AI on watchOS. Kyiv · open to remote.",
     "summary": "Senior iOS Engineer with 10+ years building production mobile applications across marketplaces, loyalty, subscriptions, and real-time products. Recently delivered an Apple Watch voice AI prototype with real-time backend communication, intent-driven navigation, and hands-free workflows (R&D, NDA). Built and maintained a shared marketplace/loyalty SDK across 3 production host applications, enabling parallel delivery for 7–10 iOS engineers; owned Premium Subscription end-to-end with 99–100% crash-free staged releases.",
     "summaryShort": "Apple Watch voice AI prototype (R&D, NDA). Shared marketplace/loyalty SDK across 3 production apps (7–10 iOS engineers); Premium Subscription end-to-end; 99–100% crash-free staged releases. Swift, SwiftUI, SPM, WebSockets, XCTest, Remote Config.",
-    "syncRule": "Edit this file first, then update cv.html (displayFull), index-short.html (displayFull for ATS short CV; omit alchemy), experience.html (displayShort) in the same session."
+    "syncRule": "Edit this file first, then update cv.html (displayFull), index-short.html (displayFull for senior roles only; omit alchemy, solvve, early career; link full timeline), experience.html (displayShort) in the same session."
   },
   "education": [
     {

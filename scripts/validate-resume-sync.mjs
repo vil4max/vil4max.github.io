@@ -16,17 +16,19 @@ const experienceHtml = fs.readFileSync(experienceHtmlPath, "utf8");
 
 const errors = [];
 
-const shortMergedEarlyRoleIds = new Set(["electus", "gbksoft", "early-career"]);
-const shortOmittedRoleIds = new Set(["alchemy"]);
+const shortOmittedRoleIds = new Set([
+    "alchemy",
+    "solvve",
+    "electus",
+    "gbksoft",
+    "early-career",
+]);
 
 for (const role of source.roles) {
     if (!fullHtml.includes(role.displayFull)) {
         errors.push(`cv.html missing displayFull for ${role.id}: ${role.displayFull}`);
     }
-    if (shortMergedEarlyRoleIds.has(role.id) || shortOmittedRoleIds.has(role.id)) {
-        if (role.id === "early-career" && !shortHtml.includes("Dec 2013 – Nov 2018")) {
-            errors.push(`index-short.html missing merged early-career dates: Dec 2013 – Nov 2018`);
-        }
+    if (shortOmittedRoleIds.has(role.id)) {
         continue;
     }
     if (!shortHtml.includes(role.displayFull)) {
@@ -35,6 +37,10 @@ for (const role of source.roles) {
     if (!experienceHtml.includes(role.displayShort)) {
         errors.push(`experience.html missing displayShort for ${role.id}: ${role.displayShort}`);
     }
+}
+
+if (!shortHtml.includes("vil4max.github.io/cv.html")) {
+    errors.push("index-short.html missing full CV timeline link");
 }
 
 if (!fullHtml.includes(source.meta.title)) {
