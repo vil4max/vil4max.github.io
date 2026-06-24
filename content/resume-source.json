@@ -4,11 +4,13 @@
     "title": "Senior iOS Engineer",
     "tagline": "SDK & Platform · Swift · SwiftUI · AI/mobile",
     "location": "Kyiv, Ukraine",
-    "pitch": "Senior iOS — shared SDKs, marketplace & loyalty platform, voice AI on watchOS. Kyiv · open to remote.",
-    "headerTldr": "Senior iOS — shared SDKs, marketplace & loyalty platform, voice AI on watchOS. Kyiv · open to remote.",
+    "pitch": "Senior iOS — shared SDKs, marketplace & loyalty platform, voice AI on watchOS. Kyiv · open to work.",
+    "headerTldr": "Senior iOS — shared SDKs, marketplace & loyalty platform, voice AI on watchOS. Kyiv · open to work.",
     "summary": "Senior iOS Engineer with 10+ years building production mobile applications across marketplaces, loyalty, subscriptions, and real-time products. Recently delivered an Apple Watch voice AI prototype with real-time backend communication, intent-driven navigation, and hands-free workflows (R&D, NDA). Built and maintained a shared marketplace/loyalty SDK across 3 production host applications, enabling parallel delivery for 7–10 iOS engineers; owned Premium Subscription end-to-end with 99–100% crash-free staged releases.",
     "summaryShort": "Recently delivered an Apple Watch voice AI prototype (R&D, NDA). Senior iOS engineer, 10+ years — marketplaces, shared SDK ecosystems, loyalty, subscriptions. Shared marketplace/loyalty SDK in 3 apps (7–10 engineers); Premium Subscription end-to-end; 99–100% crash-free staged releases.",
-    "syncRule": "Edit this file first, then update cv.html (displayFull for timeline roles), index-short.html (senior timeline roles only), experience.html (displayShort for timeline roles). Alchemy lives in Other projects only — not in roles[]."
+    "landingAboutLead": "Recently delivered an Apple Watch voice AI prototype with real-time backend communication, intent-driven navigation, and hands-free workflows (R&D, NDA).",
+    "landingAboutBody": "Senior iOS engineer with 10+ years building production mobile apps across marketplaces, shared SDK ecosystems, loyalty, subscriptions, and real-time products. Strong in UIKit/SwiftUI, SPM, shared SDKs, Apple Pay, and WebSockets.",
+    "syncRule": "Edit this file first, then update cv.html (displayFull for timeline roles), index.html (landing About = landingAbout* + LinkedIn bullets), index-short.html (senior timeline roles only), experience.html (displayShort for timeline roles). Alchemy lives in Other projects only — not in roles[]."
   },
   "education": [
     {
