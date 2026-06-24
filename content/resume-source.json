@@ -7,8 +7,8 @@
     "pitch": "Senior iOS — shared SDKs, marketplace & loyalty platform, voice AI on watchOS. Kyiv · open to remote.",
     "headerTldr": "Senior iOS — shared SDKs, marketplace & loyalty platform, voice AI on watchOS. Kyiv · open to remote.",
     "summary": "Senior iOS Engineer with 10+ years building production mobile applications across marketplaces, loyalty, subscriptions, and real-time products. Recently delivered an Apple Watch voice AI prototype with real-time backend communication, intent-driven navigation, and hands-free workflows (R&D, NDA). Built and maintained a shared marketplace/loyalty SDK across 3 production host applications, enabling parallel delivery for 7–10 iOS engineers; owned Premium Subscription end-to-end with 99–100% crash-free staged releases.",
-    "summaryShort": "Apple Watch voice AI prototype (R&D, NDA). Shared marketplace/loyalty SDK across 3 production apps (7–10 iOS engineers); Premium Subscription end-to-end; 99–100% crash-free staged releases. Swift, SwiftUI, SPM, WebSockets, XCTest, Remote Config.",
-    "syncRule": "Edit this file first, then update cv.html (displayFull), index-short.html (displayFull for senior roles only; omit alchemy, solvve, early career; link full timeline), experience.html (displayShort) in the same session."
+    "summaryShort": "Recently delivered an Apple Watch voice AI prototype (R&D, NDA). Senior iOS engineer, 10+ years — marketplaces, shared SDK ecosystems, loyalty, subscriptions. Shared marketplace/loyalty SDK in 3 apps (7–10 engineers); Premium Subscription end-to-end; 99–100% crash-free staged releases.",
+    "syncRule": "Edit this file first, then update cv.html (displayFull for timeline roles), index-short.html (senior timeline roles only), experience.html (displayShort for timeline roles). Alchemy lives in Other projects only — not in roles[]."
   },
   "education": [
     {
@@ -45,19 +45,6 @@
       "project": "Umico / Birmarket — marketplace & loyalty super app and shared iOS SDK ecosystem",
       "featured": true,
       "technologies": ["Swift", "SwiftUI", "UIKit", "SPM", "Firebase", "Remote Config", "XCTest", "URLSession"]
-    },
-    {
-      "id": "alchemy",
-      "company": "Alchemy (outsourced contract)",
-      "location": "Remote",
-      "title": "Senior iOS Engineer (Contract)",
-      "start": "2022-06",
-      "end": "2022-12",
-      "displayFull": "Jun 2022 – Dec 2022",
-      "displayShort": "2022",
-      "project": "Alchemy — digital gold MVP, R&D contract (Australian client, outsourced)",
-      "featured": false,
-      "technologies": ["Swift", "SPM", "Keychain", "LocalAuthentication", "Firebase", "Stripe SDK"]
     },
     {
       "id": "dodo",
@@ -123,6 +110,14 @@
       "project": "Self-study, trainee & junior roles, freelance-style and indie App Store work",
       "featured": false,
       "technologies": ["Swift", "Objective-C", "UIKit"]
+    }
+  ],
+  "otherProjects": [
+    {
+      "id": "alchemy",
+      "name": "Alchemy — Digital Assets & Precious Metals",
+      "blurb": "R&D contract. Internal MVP for Australian gold client (TestFlight, no App Store): KYC, wallet, buy/sell flows. Multi-env builds.",
+      "technologies": ["Swift", "Stripe iOS SDK", "Keychain", "LocalAuthentication", "MVVM", "Swinject", "SPM", "Firebase"]
     }
   ],
   "featuredProjects": [

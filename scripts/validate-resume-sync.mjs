@@ -17,7 +17,6 @@ const experienceHtml = fs.readFileSync(experienceHtmlPath, "utf8");
 const errors = [];
 
 const shortOmittedRoleIds = new Set([
-    "alchemy",
     "solvve",
     "electus",
     "gbksoft",
@@ -39,8 +38,8 @@ for (const role of source.roles) {
     }
 }
 
-if (!shortHtml.includes("vil4max.github.io/cv.html")) {
-    errors.push("index-short.html missing full CV timeline link");
+if (!shortHtml.includes("https://vil4max.github.io/")) {
+    errors.push("index-short.html missing full timeline link to vil4max.github.io");
 }
 
 if (!fullHtml.includes(source.meta.title)) {

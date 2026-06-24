@@ -48,11 +48,10 @@ await page.pdf({
     margin: {
         top: "10mm",
         right: "10mm",
-        bottom: "12mm",
+        bottom: "10mm",
         left: "10mm",
     },
-    /* Short CV: uniform scale keeps the same proportions as full, fits ~2 pages */
-    scale: isShort ? 0.9 : 1,
+    scale: 1,
 });
 
 await browser.close();
