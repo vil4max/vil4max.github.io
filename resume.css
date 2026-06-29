@@ -212,15 +212,24 @@
       margin-bottom: 0;
     }
 
-    .landing-highlights {
+    .landing-about ul.landing-highlights {
       margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .landing-availability {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 0 0 10px;
     }
 
     .landing-langs {
       font-size: 13px;
       line-height: 1.5;
       color: var(--muted);
-      margin: 14px 0 0;
+      margin: 16px 0 0;
+      padding-top: 0;
     }
 
     .section-lead {
