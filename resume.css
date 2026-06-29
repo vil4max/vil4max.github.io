@@ -69,8 +69,8 @@
     }
 
     header img {
-      width: 72px;
-      height: 72px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       object-fit: cover;
       box-shadow: var(--shadow-soft);
