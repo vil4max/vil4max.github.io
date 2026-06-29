@@ -120,6 +120,23 @@
       max-width: 72ch;
     }
 
+    .header-status {
+      margin: 2px 0 6px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .header-availability {
+      color: var(--fg);
+      font-weight: 500;
+    }
+
+    .header-current-role {
+      display: block;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
     .header-meta {
       font-size: 12px;
       color: var(--muted);
@@ -215,13 +232,6 @@
     .landing-about ul.landing-highlights {
       margin-top: 12px;
       margin-bottom: 16px;
-    }
-
-    .landing-availability {
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--muted);
-      margin: 0 0 10px;
     }
 
     .landing-langs {
