@@ -58,28 +58,38 @@ body.short-cv {
   margin: 0 auto;
   padding: 16px 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
 }
 
+.short-cv .header-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.short-cv .header-identity img,
 .short-cv header img {
   width: 96px;
   height: 96px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: var(--shadow-soft);
+  flex-shrink: 0;
+}
+
+.short-cv .header-identity h1 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--fg-heading);
+  font-size: clamp(18px, 4.5vw, 22px);
+  line-height: 1.2;
 }
 
 .short-cv .header-text {
   flex: 1;
   min-width: 0;
-}
-
-.short-cv .header-text h1 {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--fg-heading);
 }
 
 .short-cv .header-text h2 {
@@ -179,20 +189,33 @@ body.short-cv {
 }
 
 .short-cv .site-nav a {
-  color: var(--accent);
+  color: var(--muted);
   text-decoration: none;
   margin-left: 0;
+}
+
+.short-cv .site-nav a:hover {
+  color: var(--fg);
+  text-decoration: underline;
 }
 
 .short-cv .site-nav a[aria-current="page"] {
   font-weight: 600;
   color: var(--fg);
+  text-decoration: none;
 }
 
 .short-cv .site-nav-sep {
   color: var(--muted);
   margin: 0 4px;
   user-select: none;
+}
+
+.short-cv .landing-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
 }
 
 .short-cv .header-actions {
@@ -556,9 +579,27 @@ body.short-cv {
   color: var(--accent);
 }
 
+@media (max-width: 639px) {
+  .short-cv .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .short-cv .header-actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .short-cv .header-identity img,
+  .short-cv header img {
+    width: 72px;
+    height: 72px;
+  }
+}
+
 /*
   Print: readable type (~10–11pt body), scale 1 in generate-resume-pdf.mjs.
-*/
+ */
 @media print {
   .short-cv {
     --fg: #111111;
@@ -614,6 +655,7 @@ body.short-cv {
   .short-cv .site-nav,
   .short-cv .header-actions,
   .short-cv header img,
+  .short-cv .header-identity img,
   .short-cv footer {
     display: none !important;
   }
