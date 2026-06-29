@@ -11,14 +11,14 @@ const iCloudResumeDir = path.join(
 const fullHtml = path.resolve(repoRoot, "cv.html");
 const shortHtml = path.resolve(repoRoot, "index-short.html");
 
-const fullPdfAssets = path.resolve(repoRoot, "../vil4max/assets/iOS_Vilchevskiy_CV.pdf");
-const shortPdfAssets = path.resolve(
+const primaryPdfAssets = path.resolve(repoRoot, "../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf");
+const detailedPdfAssets = path.resolve(
     repoRoot,
-    "../vil4max/assets/iOS_Vilchevskiy_CV_short.pdf"
+    "../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer_detailed.pdf"
 );
 
-const fullPdfICloud = path.resolve(iCloudResumeDir, "iOS_Vilchevskiy_CV.pdf");
-const shortPdfICloud = path.resolve(iCloudResumeDir, "iOS_Vilchevskiy_CV_short.pdf");
+const primaryPdfICloud = path.resolve(iCloudResumeDir, "Max_Vilchevskiy_Senior_iOS_Engineer.pdf");
+const detailedPdfICloud = path.resolve(iCloudResumeDir, "Max_Vilchevskiy_Senior_iOS_Engineer_detailed.pdf");
 
 async function getMtimeMs(filePath) {
     const stats = await stat(filePath);
@@ -39,10 +39,10 @@ async function ensureUpToDate({ label, pdfPath, sourceHtmlPath }) {
 }
 
 const checks = [
-    { label: "assets/full", pdfPath: fullPdfAssets, sourceHtmlPath: fullHtml },
-    { label: "assets/short", pdfPath: shortPdfAssets, sourceHtmlPath: shortHtml },
-    { label: "iCloud/full", pdfPath: fullPdfICloud, sourceHtmlPath: fullHtml, optional: true },
-    { label: "iCloud/short", pdfPath: shortPdfICloud, sourceHtmlPath: shortHtml, optional: true },
+    { label: "assets/primary", pdfPath: primaryPdfAssets, sourceHtmlPath: shortHtml },
+    { label: "assets/detailed", pdfPath: detailedPdfAssets, sourceHtmlPath: fullHtml },
+    { label: "iCloud/primary", pdfPath: primaryPdfICloud, sourceHtmlPath: shortHtml, optional: true },
+    { label: "iCloud/detailed", pdfPath: detailedPdfICloud, sourceHtmlPath: fullHtml, optional: true },
 ];
 
 try {
