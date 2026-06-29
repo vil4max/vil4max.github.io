@@ -9,8 +9,8 @@
     "availability": "Available from Jul 2026 · Senior iOS · remote or hybrid Kyiv",
     "summary": "Senior iOS Engineer with 12+ years building production mobile applications across marketplaces, loyalty, subscriptions, and real-time products. 4+ years in Senior iOS roles at PASHA Holding (Birmarket — shared marketplace/loyalty iOS SDK across 3 host apps; Loyalty squad; technical lead on Premium Subscription) and GlobalLogic (watchOS voice AI R&D project). Strong in UIKit/SwiftUI, SPM, and shared SDK/platform delivery.",
     "summaryShort": "Senior iOS Engineer · 4+ years in Senior roles · 12+ years on Apple platforms. At PASHA Holding — Birmarket marketplace & loyalty: contributed to shared marketplace/loyalty iOS SDK across 3 host apps; technical lead on Premium Subscription module extraction; high crash-free sessions during staged rollouts. UIKit/SwiftUI · SPM · SDK delivery.",
-    "landingAboutLead": "Senior iOS Engineer · 4+ years in Senior roles · 12+ years on Apple platforms.",
-    "landingAboutBody": "At PASHA Holding — Birmarket marketplace & loyalty on the Loyalty squad: contributed to shared marketplace/loyalty iOS SDK across 3 host apps (Birmarket, Birbank, M10); technical lead on Premium Subscription. Strong in UIKit/SwiftUI, SPM, shared SDKs, Apple Pay, and WebSockets.",
+    "landingAboutLead": "4+ years in Senior roles · 12+ years on Apple platforms.",
+    "landingAboutBody": "At PASHA Holding — Birmarket marketplace & loyalty on the Loyalty squad. Strong in UIKit/SwiftUI, SPM, shared SDKs, Apple Pay, and WebSockets.",
     "skillsLine": "Swift · SwiftUI · UIKit · SPM · XCTest · Swift Testing · WebSockets · Apple Pay · Firebase Remote Config · TestFlight",
     "languagesLine": "English B1 · Ukrainian fluent · Russian native",
     "syncRule": "Edit this file first, then update all surfaces in the same session: index-short.html, cv.html, experience.html, projects.html, index.html, career/linkedin-profile.md, career/djinni-profile.md, vil4max/README.md."
