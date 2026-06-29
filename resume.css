@@ -156,6 +156,10 @@
       color: var(--accent);
     }
 
+    .header-meta-portfolio {
+      color: var(--muted);
+    }
+
     .contact-sep {
       color: var(--muted);
     }
