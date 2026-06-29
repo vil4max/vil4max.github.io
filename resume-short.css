@@ -180,18 +180,12 @@ body.short-cv {
   text-decoration: none;
 }
 
-.short-cv .contact-email {
-  color: var(--fg);
-  font-weight: 500;
+.short-cv .header-meta-contacts--screen a {
+  color: var(--accent);
 }
 
-.short-cv .contact-email:hover {
-  color: var(--accent);
+.short-cv .header-meta-contacts--screen a:hover {
   text-decoration: underline;
-}
-
-.short-cv .header-meta-contacts--screen a:not(.contact-email) {
-  color: var(--accent);
 }
 
 .short-cv .contact-sep {

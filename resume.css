@@ -159,22 +159,12 @@
       text-decoration: none;
     }
 
-    .contact-email {
-      color: var(--fg);
-      font-weight: 500;
+    .header-meta-contacts--screen a {
+      color: var(--accent);
     }
 
-    .contact-email:hover {
-      color: var(--accent);
+    .header-meta-contacts--screen a:hover {
       text-decoration: underline;
-    }
-
-    .header-meta-contacts--screen a:not(.contact-email) {
-      color: var(--accent);
-    }
-
-    .header-meta-portfolio {
-      color: var(--muted);
     }
 
     .contact-sep {
