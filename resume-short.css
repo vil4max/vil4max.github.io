@@ -107,6 +107,23 @@ body.short-cv {
   max-width: 72ch;
 }
 
+.short-cv .header-status {
+  margin: 2px 0 6px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.short-cv .header-availability {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.short-cv .header-current-role {
+  display: block;
+  color: var(--muted);
+  font-weight: 400;
+}
+
 .short-cv .cv-summary {
   font-size: 12.5px;
   line-height: 1.45;
