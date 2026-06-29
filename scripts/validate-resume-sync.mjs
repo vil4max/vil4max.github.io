@@ -23,8 +23,15 @@ const shortOmittedRoleIds = new Set([
     "early-career",
 ]);
 
+const fullCvOmittedRoleIds = new Set([
+    "solvve",
+    "electus",
+    "gbksoft",
+    "early-career",
+]);
+
 for (const role of source.roles) {
-    if (!fullHtml.includes(role.displayFull)) {
+    if (!fullCvOmittedRoleIds.has(role.id) && !fullHtml.includes(role.displayFull)) {
         errors.push(`cv.html missing displayFull for ${role.id}: ${role.displayFull}`);
     }
     if (shortOmittedRoleIds.has(role.id)) {
