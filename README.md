@@ -9,8 +9,8 @@ Source for my public CV/portfolio website.
 | `index.html` | Landing — pitch, expertise, featured watchOS AI assistant |
 | `experience.html` | Experience timeline (years) |
 | `projects.html` | Project case studies + screenshots |
-| `cv.html` | Full CV (months) — source for PDF full |
-| `index-short.html` | Short CV (years) — source for PDF short |
+| `cv.html` | Detailed CV (months) — PDF `*_detailed.pdf` |
+| `index-short.html` | Primary CV (years) — PDF without suffix |
 
 ## Edit content
 
