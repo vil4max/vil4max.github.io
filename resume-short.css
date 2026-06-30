@@ -190,6 +190,11 @@ body.short-cv {
   color: var(--muted);
 }
 
+.short-cv .language-name {
+  font-weight: 600;
+  color: var(--fg);
+}
+
 .short-cv .header-meta {
   font-size: 12px;
   color: var(--muted);
