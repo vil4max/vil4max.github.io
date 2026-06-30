@@ -4,16 +4,31 @@
     "title": "Senior iOS Engineer",
     "tagline": "Swift · SwiftUI · UIKit",
     "location": "Kyiv, Ukraine",
-    "pitch": "Senior iOS Engineer · Swift · SwiftUI · UIKit",
-    "headerTldr": "Senior iOS Engineer · Swift · SwiftUI · UIKit",
+    "pitch": "Senior iOS Engineer",
+    "headerTldr": "Senior iOS Engineer",
     "availability": "Available from Jul 2026 · Senior iOS · remote or hybrid Kyiv",
-    "summary": "12+ years of iOS development, including 4+ years in Senior iOS roles at PASHA Holding (Birmarket — shared marketplace/loyalty iOS SDK across 3 host apps; Loyalty squad; technical lead on Premium Subscription) and GlobalLogic (watchOS voice AI R&D project). Strong in UIKit/SwiftUI, SPM, and shared SDK/platform delivery.",
-    "summaryShort": "12+ years of iOS development, including 4+ years in Senior roles. At PASHA Holding — Birmarket marketplace & loyalty: contributed to shared marketplace/loyalty iOS SDK across 3 host apps; technical lead on Premium Subscription module extraction; high crash-free sessions during staged rollouts. UIKit/SwiftUI · SPM · SDK delivery.",
-    "landingAbout": "Senior iOS Engineer with 12+ years of experience building consumer and fintech products. Recently worked on watchOS voice AI R&D at GlobalLogic. Previously developed marketplace and loyalty features at PASHA Holding, including a shared iOS SDK used across multiple apps, and earlier contributed to the Drinkit mobile app. Experienced in taking features from architecture to production, collaborating with cross-functional teams, and delivering scalable iOS solutions.",
     "headerAvailability": "Available Jul 2026 · remote or hybrid",
-    "skillsLine": "Swift · SwiftUI · UIKit · SPM · XCTest · Swift Testing · WebSockets · Apple Pay · Firebase Remote Config · TestFlight",
-    "languagesLine": "English B1 · Ukrainian fluent · Russian native",
-    "syncRule": "Edit this file first, then update all surfaces in the same session: index-short.html, cv.html, experience.html, projects.html, index.html, career/linkedin-profile.md, career/djinni-profile.md, vil4max/README.md."
+    "summary": "12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; technical lead on Premium Subscription for marketplace loyalty; SDK module extraction.",
+    "summaryBullets": [
+      "Built a voice AI assistant on Apple Watch — hands-free conversational flows",
+      "Technical lead on Premium Subscription — full cycle through App Store release",
+      "Extracted Premium into an independent SDK module inside the loyalty platform"
+    ],
+    "summaryShort": "12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; Premium Subscription technical lead on marketplace loyalty.",
+    "landingAbout": "Senior iOS Engineer with 12+ years building consumer and fintech products. Built a voice AI assistant on Apple Watch. Shipped marketplace commerce and led Premium Subscription through App Store release, including SDK module extraction. Earlier owned ordering and checkout in a coffee ordering app.",
+    "skillsLine": "Swift · SwiftUI · UIKit · Swift Concurrency · Combine · WatchKit · Apple platform SDKs",
+    "skillsLineDetailed": "Swift · SwiftUI · UIKit · Swift Concurrency · Combine · WatchKit · Apple platform SDKs",
+    "languagesLine": "English — Intermediate",
+    "apply": {
+      "primarySkill": "iOS Swift",
+      "yearsExperience": "12+",
+      "englishLevel": "Intermediate",
+      "noticePeriod": "Available now",
+      "country": "Ukraine",
+      "city": "Kyiv",
+      "preferredWorkCountries": "Ukraine"
+    },
+    "syncRule": "Edit this file first, then update all surfaces in the same session: index-short.html, cv.html, experience.html, projects.html, index.html, career/linkedin-profile.md (LinkedIn + Djinni), vil4max/README.md."
   },
   "contacts": {
     "email": "vil4max@gmail.com",
@@ -23,11 +38,11 @@
     "telegram": "https://t.me/vil4max"
   },
   "highlights": [
-    "Contributed to shared marketplace/loyalty iOS SDK across 3 production host apps",
-    "Technical lead on Premium Subscription — extraction into a dedicated SDK module; App Store release",
-    "High crash-free sessions during staged rollouts and Firebase Remote Config experiments",
-    "Unit test coverage for critical business modules (XCTest · Swift Testing)"
+    "Built a voice AI assistant on Apple Watch — hands-free conversational flows",
+    "Technical lead on Premium Subscription — full cycle through App Store release",
+    "Extracted Premium into an independent SDK module inside the loyalty platform"
   ],
+  "earlyCareerShort": "2014–2017: junior iOS in product companies and indie App Store apps — full timeline at vil4max.github.io.",
   "education": [
     {
       "institution": "Donetsk State University of Management",
@@ -48,15 +63,21 @@
       "end": "2026-06",
       "displayFull": "Jan 2026 – Jun 2026",
       "displayShort": "2026",
-      "project": "watchOS Voice AI — R&D project",
-      "context": "R&D prototype with 2 iOS engineers, Flutter, designers, BAs, and an external AI agent team.",
+      "project": "Apple Watch Voice AI — R&D project",
       "featured": true,
+      "shortInclude": true,
       "technologies": ["Swift", "WatchKit", "WebSockets", "SwiftUI", "WatchConnectivity", "AVFoundation"],
+      "technologiesLine": "Swift · WatchKit · SwiftUI · WebSockets · WatchConnectivity · AVFoundation",
       "bullets": [
-        "Prototyped a voice-driven AI assistant on Apple Watch with a live backend over WebSockets and WatchConnectivity.",
-        "Built an on-device intent parser so AI commands update screens, navigation, and forms in real time.",
-        "Connected server-side intents to watchOS flows so users could complete tasks hands-free.",
-        "Shipped internal TestFlight builds; designed flows within watchOS constraints (connectivity, background execution, audio sessions)."
+        "Built a production watchOS voice AI app — full on-watch flows, not a thin remote UI.",
+        "iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices.",
+        "Split features across Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity).",
+        "Built on-device intent handling so commands update navigation and forms without unnecessary round-trips."
+      ],
+      "bulletsShort": [
+        "Built a production watchOS voice AI app — full on-watch flows, not a thin remote UI.",
+        "iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices.",
+        "Split features across Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity)."
       ]
     },
     {
@@ -69,15 +90,15 @@
       "end": "2026-01",
       "displayFull": "Apr 2022 – Jan 2026",
       "displayShort": "2022 – 2026",
-      "project": "Birmarket — online marketplace & loyalty; Loyalty squad; shared iOS SDK in host apps (Birmarket, Birbank, M10)",
-      "context": "Loyalty squad (~5 developers) within ~20-person Birmarket product org (Marketplace squad ~10–15).",
+      "project": "Birmarket — online marketplace & loyalty · Loyalty squad",
       "featured": true,
-      "technologies": ["Swift", "SwiftUI", "UIKit", "SPM", "Firebase", "Remote Config", "XCTest", "URLSession"],
+      "shortInclude": true,
+      "technologies": ["Swift", "SwiftUI", "UIKit", "SPM", "URLSession"],
+      "technologiesLine": "Swift · SwiftUI · UIKit · SPM · URLSession",
       "bullets": [
-        "Contributed to shared marketplace/loyalty iOS SDK used in 3 production host apps, enabling parallel delivery across multiple squads.",
-        "Technical lead on Premium Subscription — requirements, implementation, localization, and App Store release (cashback/bonus logic); extracted Premium into a dedicated SDK module.",
-        "Maintained high crash-free sessions during staged rollouts and Firebase Remote Config experiments.",
-        "Delivered new product screens in SwiftUI while keeping legacy UIKit modules stable."
+        "Shipped core marketplace commerce in a production online store — catalog, search, cart, checkout, and orders — across App Store releases.",
+        "Technical lead on Premium Subscription — full cycle: feature definition through implementation, TestFlight, debug, and App Store release (cashback/bonus logic).",
+        "Migrated Premium from the main app into an independent SDK module with per-host-app configuration inside the shared loyalty platform."
       ],
       "projectsDetail": [
         { "name": "Birmarket", "summary": "Consumer marketplace & loyalty app (App Store)" },
@@ -96,13 +117,14 @@
       "displayFull": "Feb 2020 – Feb 2022",
       "displayShort": "2020 – 2022",
       "project": "Drinkit — coffee ordering app",
-      "context": "One of three iOS engineers on a cross-functional product team (~10 people).",
       "featured": true,
+      "shortInclude": true,
       "technologies": ["Swift", "UIKit", "SPM", "WebSockets", "Apple Pay", "URLSession"],
+      "technologiesLine": "Swift · UIKit · SPM · WebSockets · Apple Pay · URLSession",
       "bullets": [
-        "Built ordering and drink customization flows and shipped App Store releases as one of three iOS engineers.",
-        "Split the app into SPM modules with MVP (Presenter) for new features.",
-        "Integrated Apple Pay and loyalty into checkout and implemented live order tracking over WebSockets with a polling fallback."
+        "Owned ordering and drink-customization flows; shipped App Store releases on a three-person iOS team.",
+        "Delivered checkout with Apple Pay and loyalty integration in production.",
+        "Implemented live order tracking over WebSockets with polling fallback when the connection drops."
       ]
     },
     {
@@ -117,10 +139,12 @@
       "displayShort": "2019 – 2020",
       "project": "PLAYHERA — esports & gaming tournaments",
       "featured": false,
-      "technologies": ["Swift", "UIKit", "Combine", "WebSockets", "REST", "Auto Layout"],
+      "shortInclude": false,
+      "technologies": ["Swift", "UIKit", "RxSwift", "REST", "Auto Layout"],
+      "technologiesLine": "Swift · UIKit · RxSwift · REST · Auto Layout",
       "bullets": [
-        "Built tournament flows for teams and solo players: brackets, scores, chat, leaderboards.",
-        "Live match and bracket updates over WebSockets with disconnect handling."
+        "Built a gamer ecosystem in production — teams, tournaments, brackets, and player tables across complex UIKit surfaces.",
+        "Introduced RxSwift for tournament and table state when reactive patterns were new — managed non-trivial async UI across the product."
       ]
     },
     {
@@ -135,9 +159,12 @@
       "displayShort": "2018",
       "project": "Electus — crypto market info & wallet MVP",
       "featured": false,
+      "shortInclude": false,
       "technologies": ["Swift", "UIKit", "Keychain", "TestFlight"],
+      "technologiesLine": "Swift · UIKit · Keychain · TestFlight",
       "bullets": [
-        "iOS Developer on crypto wallet MVP — market info and wallet flows; TestFlight builds."
+        "Lead iOS engineer on a crypto wallet MVP — market info and wallet flows; mentored a junior engineer on implementation.",
+        "Stored credentials and wallet state in Keychain; shipped TestFlight builds through MVP release."
       ]
     },
     {
@@ -145,17 +172,19 @@
       "company": "GBKSoft",
       "location": "Kyiv, Ukraine",
       "title": "iOS Developer",
-      "level": "junior",
+      "level": "developer",
       "start": "2017-06",
       "end": "2018-06",
       "displayFull": "Jun 2017 – Jun 2018",
       "displayShort": "2017 – 2018",
-      "project": "Eastern Union — Broker Tool",
+      "project": "Eastern Union — Broker Tool & client delivery apps",
       "featured": false,
+      "shortInclude": false,
       "technologies": ["Swift", "UIKit", "REST", "Core Bluetooth", "Core Location"],
+      "technologiesLine": "Swift · UIKit · REST · Core Bluetooth · Core Location",
       "bullets": [
-        "Built underwriting UI with calculator-style flows for a broker tool.",
-        "Shipped additional client apps — e-commerce shop flows and a Bluetooth/iBeacon location app."
+        "Built Eastern Union — production broker tool for traders with calculator-heavy deal flows (cap rates, mortgage, IRR) and substantial business logic.",
+        "Kept calculator and quote screens responsive under frequent data updates; shipped App Store releases."
       ],
       "projectsDetail": [
         { "name": "Eastern Union — Broker Tool", "summary": "Real-estate broker app with financial calculators (App Store)" },
@@ -164,27 +193,30 @@
     },
     {
       "id": "early-career",
-      "company": "Early career — learning, freelance & independent delivery",
+      "company": "Early career — junior iOS at product companies & indie delivery",
       "location": "Kyiv, Ukraine",
-      "title": "iOS Developer",
-      "level": "learning",
+      "title": "Junior iOS Developer",
+      "level": "junior",
       "start": "2013-12",
       "end": "2017-05",
-      "displayFull": "Dec 2013 – May 2017",
+      "displayFull": "2014 – 2017",
       "displayShort": "2014 – 2017",
-      "project": "Junior iOS from Dec 2013; trainee, freelance & indie App Store work",
+      "project": "Junior iOS at product companies & indie App Store delivery — mobility, wellness, commerce, interactive content",
       "featured": false,
+      "shortInclude": false,
       "technologies": ["Swift", "Objective-C", "UIKit"],
+      "technologiesLine": "Swift · Objective-C · UIKit",
       "bullets": [
-        "Junior iOS developer from Dec 2013.",
-        "Shipped indie and client App Store apps across mobility, wellness, commerce, and games."
+        "Junior iOS developer — product company roles and indie App Store delivery.",
+        "Owned indie and client apps end-to-end: implementation through App Store submission and iteration.",
+        "Production apps across mobility, wellness, and health before full-time iOS Developer role in 2017."
       ],
       "projectsDetail": [
         { "name": "Tap4Parking", "summary": "Parking app for Kyiv — search, navigation, booking, and payments (App Store)" },
+        { "name": "Acucharting", "summary": "iPad app for acupuncture doctors — notes, calendar, 3D needle-point model" },
+        { "name": "Alert Meditation", "summary": "Meditation app for NY police workers — guided audio and shift reminders" },
         { "name": "Green Riding Hood", "summary": "Interactive read-aloud book with animations and iMessage extension (App Store)" },
         { "name": "Flip Taxi", "summary": "Taxi MVP for Latvia — order a ride and live map tracking" },
-        { "name": "Alert Meditation", "summary": "Meditation app for NY police workers — guided audio and shift reminders" },
-        { "name": "Acucharting", "summary": "iPad app for acupuncture doctors — notes, calendar, 3D needle-point model" },
         { "name": "News reader", "summary": "Ukrainian news feed with read/unread state and read-later list" }
       ]
     }
@@ -200,7 +232,7 @@
   "featuredProjects": [
     {
       "id": "watch-ai-assistant",
-      "name": "watchOS Voice AI — R&D project",
+      "name": "Apple Watch Voice AI — R&D project",
       "employerRoleId": "globallogic"
     },
     {

@@ -13,14 +13,16 @@
         <div class="header-text">
           <div class="header-identity">
             <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/profile.png" alt="Max Vilchevskiy">
-            <h1>Max Vilchevskiy</h1>
+            <div class="header-identity-text">
+              <h1>Max Vilchevskiy</h1>
+              <span class="header-location">Kyiv, Ukraine</span>
+            </div>
           </div>
-          <h2>Senior iOS Engineer · Swift · SwiftUI · UIKit</h2>
+          <h2 class="header-role">Senior iOS Engineer</h2>
           <div class="header-status">
-            <span class="header-availability">Available Jul 2026 · remote or hybrid</span>
+            <span class="header-availability">🟢 Available Jul 2026 · remote or hybrid</span>
           </div>
           <div class="header-meta">
-            <span class="header-meta-location">Kyiv, Ukraine</span>
             <span class="header-meta-contacts header-meta-contacts--screen">
               <a href="mailto:vil4max@gmail.com" class="contact-email">vil4max@gmail.com</a><span class="contact-sep" aria-hidden="true"> · </span><a href="tel:"></a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://t.me/vil4max">@vil4max</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/vil4max/">LinkedIn</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://github.com/vil4max">GitHub</a>
             </span>
@@ -41,27 +43,27 @@
 
     <main>
       <section>
-        <h3>About</h3>
+        <h3><span class="section-heading-text">About</span><span class="section-mark" aria-hidden="true">👤</span></h3>
         <div class="landing-about">
-          <p>Senior iOS Engineer with 12+ years of experience building consumer and fintech products. Recently worked on watchOS voice AI R&amp;D at GlobalLogic. Previously developed marketplace and loyalty features at PASHA Holding, including a shared iOS SDK used across multiple apps, and earlier contributed to the Drinkit mobile app. Experienced in taking features from architecture to production, collaborating with cross-functional teams, and delivering scalable iOS solutions.</p>
-          <p class="landing-langs"><strong>Languages:</strong> English B1 · Ukrainian fluent · Russian native</p>
+          <p>Senior iOS Engineer with 12+ years building consumer and fintech products. Built a voice AI assistant on Apple Watch. Shipped marketplace commerce and led Premium Subscription through App Store release, including SDK module extraction. Earlier owned ordering and checkout in a coffee ordering app.</p>
+          <p class="landing-langs"><strong>🌐 Languages:</strong> English — Intermediate</p>
         </div>
       </section>
 
       <section>
-        <h3>Projects</h3>
+        <h3><span class="section-heading-text">Projects</span><span class="section-mark" aria-hidden="true">📱</span></h3>
         <p class="section-lead">Production apps and client work — more on <a href="experience.html">Experience</a> and <a href="projects.html">Projects</a>.</p>
         <div class="featured-projects-grid">
           <div class="project-card featured-project-card">
             <div class="project-title-line">
-              <h4>watchOS Voice AI — R&amp;D project</h4>
+              <h4>Apple Watch Voice AI — R&amp;D project</h4>
             </div>
             <div class="project-era">GlobalLogic · 2026</div>
             <div class="project-meta">Swift · WatchKit · WebSockets · SwiftUI · WatchConnectivity</div>
-            <p class="project-card-blurb">R&amp;D prototype: voice-controlled AI on Apple Watch with live backend over WebSockets.</p>
+            <p class="project-card-blurb">Voice AI assistant on Apple Watch — hands-free conversational flows.</p>
             <ul>
-              <li>On-device intent parser for screens, navigation, and forms.</li>
-              <li>Hands-free prototype flows; internal TestFlight builds.</li>
+              <li>Built full on-watch voice AI flows on Apple Watch.</li>
+              <li>Shipped internal TestFlight builds within watchOS constraints.</li>
             </ul>
             <p class="exp-meta"><a href="projects.html#project-watch-ai-assistant">Details →</a></p>
           </div>
@@ -71,12 +73,11 @@
               <h4>Birmarket — Marketplace &amp; Loyalty</h4>
             </div>
             <div class="project-era">PASHA Holding · 2022 – 2026</div>
-            <div class="project-meta">Swift · SwiftUI · UIKit · SPM · Firebase · Remote Config</div>
-            <p class="project-card-blurb">Shared marketplace/loyalty iOS SDK in 3 host apps (Birmarket, Birbank, M10).</p>
+            <div class="project-meta">Swift · SwiftUI · UIKit · SPM · URLSession</div>
+            <p class="project-card-blurb">Online marketplace — core commerce and Premium Subscription technical lead.</p>
             <ul>
-              <li>Contributed to shared SDK across multiple squads.</li>
-              <li>Technical lead on Premium Subscription module extraction.</li>
-              <li>High crash-free sessions during staged rollouts.</li>
+              <li>Shipped catalog through checkout across App Store releases.</li>
+              <li>Technical lead on Premium Subscription; SDK module extraction.</li>
             </ul>
             <p class="exp-meta"><a href="projects.html#project-birmarket">Details →</a></p>
           </div>
@@ -87,10 +88,10 @@
             </div>
             <div class="project-era">Dodo Brands · 2020 – 2022</div>
             <div class="project-meta">Swift · UIKit · SPM · WebSockets · Apple Pay</div>
-            <p class="project-card-blurb">Coffee ordering app. One of three iOS engineers on a ~10-person product team.</p>
+            <p class="project-card-blurb">Coffee ordering app — owned ordering, checkout, and live tracking.</p>
             <ul>
-              <li>App Store releases; SPM modules with MVP (Presenter).</li>
-              <li>Apple Pay, loyalty, live order tracking over WebSockets.</li>
+              <li>Ordering and customization flows; App Store releases.</li>
+              <li>Apple Pay checkout; live order tracking with WebSocket fallback.</li>
             </ul>
             <p class="exp-meta"><a href="projects.html#project-drinkit">Details →</a></p>
           </div>
@@ -100,11 +101,11 @@
               <h4>PLAYHERA — Gaming Tournaments</h4>
             </div>
             <div class="project-era">SOLVVE · 2019 – 2020</div>
-            <div class="project-meta">Swift · UIKit · Combine · WebSockets · REST</div>
-            <p class="project-card-blurb">Tournament platform with brackets, scores, chat, and live match updates.</p>
+            <div class="project-meta">Swift · UIKit · RxSwift · REST</div>
+            <p class="project-card-blurb">Gamer ecosystem — teams, tournaments, and player tables.</p>
             <ul>
-              <li>Tournament flows for teams and solo players.</li>
-              <li>Live scores and brackets over WebSockets with reconnect logic.</li>
+              <li>Teams, tournaments, brackets, and player tables in UIKit.</li>
+              <li>RxSwift for tournament and table state.</li>
             </ul>
             <p class="exp-meta"><a href="projects.html#project-playhera">Details →</a></p>
           </div>
@@ -115,10 +116,10 @@
             </div>
             <div class="project-era">GBKSoft · 2017 – 2018</div>
             <div class="project-meta">Swift · UIKit · REST</div>
-            <p class="project-card-blurb">Real-estate broker tool with calculator-style modules for quick deal checks.</p>
+            <p class="project-card-blurb">Production broker tool — calculator-heavy deal flows for traders.</p>
             <ul>
-              <li>Deal UI with financial calculators (cap rates, mortgage, IRR).</li>
-              <li>App Store releases with focus on stability on data-heavy screens.</li>
+              <li>Financial calculators (cap rates, mortgage, IRR).</li>
+              <li>Responsive data-dense screens; App Store releases.</li>
             </ul>
             <p class="exp-meta"><a href="projects.html#project-eastern-union">Details →</a></p>
           </div>
@@ -126,7 +127,7 @@
       </section>
 
       <section>
-        <h3>Personal demo projects</h3>
+        <h3><span class="section-heading-text">Personal demo projects</span><span class="section-mark" aria-hidden="true">🧪</span></h3>
         <p class="section-lead">Side experiments — not production client work. Repos on GitHub.</p>
         <ul class="languages-list">
           <li><strong>RoomScanner</strong> — LiDAR technical demo: ARKit mesh capture, RealityKit placement with depth occlusion, and live scan metrics on Pro hardware. Repo: <a href="https://github.com/vil4max/room-scanner-ios">vil4max/room-scanner-ios</a></li>
