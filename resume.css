@@ -448,6 +448,35 @@
       color: var(--fg);
     }
 
+    .exp-projects-block {
+      margin: 8px 0 10px;
+    }
+
+    .exp-projects-block > .exp-project-label {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .exp-projects-list {
+      margin: 0 0 0 14px;
+      padding-left: 18px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .exp-projects-list li {
+      margin-bottom: 4px;
+    }
+
+    .exp-projects-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-project-name-inline {
+      font-weight: 600;
+      color: var(--fg);
+    }
+
     .exp-role {
       display: flex;
       flex-wrap: wrap;

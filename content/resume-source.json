@@ -79,6 +79,11 @@
         "Technical lead on Premium Subscription — requirements, implementation, localization, and App Store release (cashback/bonus logic); extracted Premium into a dedicated SDK module.",
         "Maintained high crash-free sessions during staged rollouts and Firebase Remote Config experiments.",
         "Delivered new product screens in SwiftUI while keeping legacy UIKit modules stable."
+      ],
+      "projectsDetail": [
+        { "name": "Birmarket", "summary": "Consumer marketplace & loyalty app (App Store)" },
+        { "name": "Shared loyalty SDK", "summary": "Marketplace/loyalty iOS SDK embedded in Birbank and M10 host apps" },
+        { "name": "Premium Subscription", "summary": "Cashback/bonus tier — extracted into a dedicated SDK module; App Store release" }
       ]
     },
     {
@@ -151,7 +156,11 @@
       "technologies": ["Swift", "UIKit", "REST", "Core Bluetooth", "Core Location"],
       "bullets": [
         "Built underwriting UI with calculator-style flows for a broker tool.",
-        "Shipped client apps including shop flows and a Bluetooth/iBeacon location app."
+        "Shipped additional client apps — e-commerce shop flows and a Bluetooth/iBeacon location app."
+      ],
+      "projectsDetail": [
+        { "name": "Eastern Union — Broker Tool", "summary": "Real-estate broker app with financial calculators (App Store)" },
+        { "name": "Client shop & location apps", "summary": "E-commerce flows and Bluetooth/iBeacon location features for client delivery" }
       ]
     },
     {
@@ -170,6 +179,14 @@
       "bullets": [
         "Junior iOS developer from Dec 2013.",
         "Shipped indie and client App Store apps across mobility, wellness, commerce, and games."
+      ],
+      "projectsDetail": [
+        { "name": "Tap4Parking", "summary": "Parking app for Kyiv — search, navigation, booking, and payments (App Store)" },
+        { "name": "Green Riding Hood", "summary": "Interactive read-aloud book with animations and iMessage extension (App Store)" },
+        { "name": "Flip Taxi", "summary": "Taxi MVP for Latvia — order a ride and live map tracking" },
+        { "name": "Alert Meditation", "summary": "Meditation app for NY police workers — guided audio and shift reminders" },
+        { "name": "Acucharting", "summary": "iPad app for acupuncture doctors — notes, calendar, 3D needle-point model" },
+        { "name": "News reader", "summary": "Ukrainian news feed with read/unread state and read-later list" }
       ]
     }
   ],
