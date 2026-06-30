@@ -13,14 +13,16 @@
         <div class="header-text">
           <div class="header-identity">
             <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/profile.png" alt="Max Vilchevskiy">
-            <h1>Max Vilchevskiy</h1>
+            <div class="header-identity-text">
+              <h1>Max Vilchevskiy</h1>
+              <span class="header-location">Kyiv, Ukraine</span>
+            </div>
           </div>
-          <h2>Senior iOS Engineer · Swift · SwiftUI · UIKit</h2>
+          <h2 class="header-role">Senior iOS Engineer</h2>
           <div class="header-status">
-            <span class="header-availability">Available Jul 2026 · remote or hybrid</span>
+            <span class="header-availability">🟢 Available Jul 2026 · remote or hybrid</span>
           </div>
           <div class="header-meta">
-            <span class="header-meta-location">Kyiv, Ukraine</span>
             <span class="header-meta-contacts header-meta-contacts--screen">
               <a href="mailto:vil4max@gmail.com" class="contact-email">vil4max@gmail.com</a><span class="contact-sep" aria-hidden="true"> · </span><a href="tel:+380509864522">+380509864522</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://t.me/vil4max">@vil4max</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/vil4max/">LinkedIn</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://github.com/vil4max">GitHub</a><span class="contact-sep" aria-hidden="true"> · </span><a href="index.html">vil4max.github.io</a>
             </span>
@@ -37,21 +39,20 @@
     </header>
     <main>
       <section>
-        <h3>Projects</h3>
+        <h3><span class="section-heading-text">Projects</span><span class="section-mark" aria-hidden="true">📱</span></h3>
         <div class="grid-projects">
 
           <div class="project-card">
             <div class="project-title-line">
-              <h4 id="project-watch-ai-assistant">watchOS Voice AI — R&amp;D project</h4>
+              <h4 id="project-watch-ai-assistant">Apple Watch Voice AI — R&amp;D project</h4>
             </div>
             <div class="project-era"><a href="experience.html#exp-globallogic">GlobalLogic</a> · R&amp;D project</div>
             <div class="project-meta">Swift · WatchKit · WebSockets · SwiftUI · WatchConnectivity · AVFoundation</div>
-            <p class="project-card-blurb">R&amp;D prototype: voice-controlled AI on Apple Watch with live backend over WebSockets and on-device intent parsing.</p>
+            <p class="project-card-blurb">Voice AI assistant on Apple Watch — hands-free interaction with a conversational AI agent.</p>
             <ul>
-              <li>Prototyped voice AI on Apple Watch with live backend over WebSockets and WatchConnectivity.</li>
-              <li>Built on-device intent parser: AI commands update screens, navigation, and forms in real time.</li>
-              <li>Connected server-side intents to watchOS flows for hands-free prototype flows.</li>
-              <li>Shipped internal TestFlight builds within watchOS constraints.</li>
+              <li>Built production watchOS voice AI app — full on-watch flows.</li>
+              <li>iPhone backend relay where WebSocket is not available on Watch; shared state and deduplication across devices.</li>
+              <li>On-device intent handling; internal TestFlight within watchOS constraints.</li>
             </ul>
           </div>
 
@@ -61,13 +62,12 @@
               <div class="project-links"><a href="https://apps.apple.com/ru/app/birmarket/id1458111389?l=uk">App Store</a></div>
             </div>
             <div class="project-era"><a href="experience.html#exp-pasha">PASHA Holding</a></div>
-            <div class="project-meta">Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Remote Config · XCTest</div>
-            <p class="project-card-blurb">Shared marketplace/loyalty iOS SDK across 3 production host apps (Birmarket, Birbank, M10). Loyalty squad within ~20-person Birmarket org.</p>
+            <div class="project-meta">Swift · SwiftUI · UIKit · SPM · URLSession</div>
+            <p class="project-card-blurb">Azerbaijan online marketplace — core commerce and Premium Subscription technical lead in Loyalty squad.</p>
             <ul>
-              <li>Contributed to shared SDK used across 3 host apps; parallel delivery across multiple squads.</li>
-              <li>Technical lead on Premium Subscription; extracted Premium into a dedicated SDK module.</li>
-              <li>High crash-free sessions during staged rollouts and Firebase Remote Config experiments.</li>
-              <li>New screens in SwiftUI; legacy UIKit modules remained stable.</li>
+              <li>Shipped catalog, search, cart, checkout, and orders across App Store releases.</li>
+              <li>Technical lead on Premium Subscription — full cycle through App Store release.</li>
+              <li>Migrated Premium into an independent SDK module inside the loyalty platform.</li>
             </ul>
             <div class="project-shots" aria-label="Birmarket screenshots">
               <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/85/61/cc/8561ccb3-d030-fcc7-4e44-35cd30aaa471/App_Store__1284__U0445_2778_1.1.png/600x1300bb.webp" alt="Birmarket screenshot — 1">
@@ -83,11 +83,11 @@
             </div>
             <div class="project-era"><a href="experience.html#exp-dodo">Dodo Brands</a></div>
             <div class="project-meta">Swift · UIKit · SPM · URLSession · WebSockets · Apple Pay</div>
-            <p class="project-card-blurb">Coffee ordering app. One of three iOS engineers on a cross-functional product team (~10 people).</p>
+            <p class="project-card-blurb">Production coffee ordering app — owned ordering, checkout, and live tracking on a three-person iOS team.</p>
             <ul>
-              <li>Built ordering flows and shipped App Store releases as one of three iOS engineers.</li>
-              <li>SPM modules with MVP (Presenter) for new features.</li>
-              <li>Apple Pay, loyalty, and live order tracking with WebSockets and polling backup.</li>
+              <li>Owned ordering and drink-customization flows; App Store releases.</li>
+              <li>Apple Pay and loyalty checkout in production.</li>
+              <li>Live order tracking over WebSockets with polling fallback.</li>
             </ul>
             <div class="project-shots" aria-label="Drinkit screenshots">
               <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a4/ba/7b/a4ba7b1e-8b4e-51db-0910-975cac31622f/01.png/600x1300bb.webp" alt="Drinkit screenshot — 1">
@@ -102,13 +102,11 @@
               <div class="project-links"><a href="https://apps.apple.com/ua/app/playhera/id1449021935">App Store</a></div>
             </div>
             <div class="project-era"><a href="experience.html#exp-solvve">Solvve</a></div>
-            <div class="project-meta">Swift · UIKit · Auto Layout · Combine · URLSession · REST · WebSockets</div>
-            <p class="project-card-blurb">Tournament platform with brackets, scores, and live match updates.</p>
+            <div class="project-meta">Swift · UIKit · RxSwift · REST · Auto Layout</div>
+            <p class="project-card-blurb">Gamer ecosystem — teams, tournaments, brackets, and player tables in a production App Store app.</p>
             <ul>
-              <li>Tournament flows for teams and solo players: setup, brackets, scores, progress.</li>
-              <li>Multi-step tournament screens and leaderboards in UIKit.</li>
-              <li>Combine view models for live tournament events, chat, and scores.</li>
-              <li>Live scores and brackets over WebSockets with reconnect logic.</li>
+              <li>Built teams, tournaments, brackets, and player tables across complex UIKit surfaces.</li>
+              <li>Introduced RxSwift for tournament and table state when reactive patterns were new.</li>
             </ul>
             <div class="project-shots" aria-label="PlayHera screenshots">
               <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/09/75/8d/09758de1-772a-dd1a-bb2f-112a83ab832b/11594ffd-5a8a-4988-8449-76a21e3a1122_screen1.png/392x696bb.png" alt="PlayHera screenshot — 1">
@@ -124,11 +122,11 @@
             </div>
             <div class="project-era"><a href="experience.html#exp-gbksoft">GBKSoft</a></div>
             <div class="project-meta">Swift · UIKit · REST · Foundation</div>
-            <p class="project-card-blurb">Real-estate broker tool with calculator-style modules for quick deal checks.</p>
+            <p class="project-card-blurb">Production broker tool for traders — calculator-heavy deal flows and substantial business logic.</p>
             <ul>
-              <li>Built deal UI with financial calculators (cap rates, mortgage, IRR).</li>
-              <li>Loaded data and ran calculations on device for quick “what-if” checks.</li>
-              <li>Shipped App Store updates with focus on stability on data-heavy screens.</li>
+              <li>Built Eastern Union with financial calculators (cap rates, mortgage, IRR).</li>
+              <li>Kept calculator and quote screens responsive under frequent data updates.</li>
+              <li>Shipped App Store releases.</li>
             </ul>
             <div class="project-shots" aria-label="Eastern Union screenshots">
               <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/85/79/37/85793713-7c9e-ddfb-3587-aa43cb03d6a6/pr_source.png/392x696bb.png" alt="Eastern Union screenshot — 1">
@@ -141,7 +139,7 @@
       </section>
 
       <section id="demo-projects">
-        <h3>Personal demo projects</h3>
+        <h3><span class="section-heading-text">Personal demo projects</span><span class="section-mark" aria-hidden="true">🧪</span></h3>
         <p class="exp-meta">Side experiments — not production client work.</p>
         <div class="grid-projects-earlier">
 
@@ -181,7 +179,7 @@
       </section>
 
       <section>
-        <h3>Other projects</h3>
+        <h3><span class="section-heading-text">Other projects</span><span class="section-mark" aria-hidden="true">📂</span></h3>
         <div class="grid-projects-earlier">
 
           <div class="project-card project-card--compact">

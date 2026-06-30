@@ -25,6 +25,32 @@ const shortOmittedRoleIds = new Set([
 
 const fullCvOmittedRoleIds = new Set([]);
 
+const forbiddenPhrases = [
+    "crash-free",
+    "host apps (Birmarket",
+    "3 host apps",
+    "3 production host",
+    "contributed to shared marketplace",
+    "UIKit modules stable",
+    "SPM modules with MVP",
+    "Firebase Remote Config experiments",
+];
+
+const surfaces = [
+    { name: "resume-source.json", content: fs.readFileSync(sourcePath, "utf8") },
+    { name: "cv.html", content: fullHtml },
+    { name: "index-short.html", content: shortHtml },
+    { name: "experience.html", content: experienceHtml },
+];
+
+for (const phrase of forbiddenPhrases) {
+    for (const surface of surfaces) {
+        if (surface.content.includes(phrase)) {
+            errors.push(`${surface.name} contains forbidden phrase: ${phrase}`);
+        }
+    }
+}
+
 for (const role of source.roles) {
     if (!fullCvOmittedRoleIds.has(role.id) && !fullHtml.includes(role.displayFull)) {
         errors.push(`cv.html missing displayFull for ${role.id}: ${role.displayFull}`);
@@ -42,6 +68,47 @@ for (const role of source.roles) {
 
 if (!shortHtml.includes("exp-full-timeline")) {
     errors.push("index-short.html missing web-only detailed CV link (.exp-full-timeline)");
+}
+
+if (source.earlyCareerShort && !shortHtml.includes(source.earlyCareerShort.slice(0, 40))) {
+    errors.push("index-short.html missing earlyCareerShort snippet");
+}
+
+for (const role of source.roles) {
+    if (!role.technologiesLine) {
+        errors.push(`resume-source.json missing technologiesLine for ${role.id}`);
+        continue;
+    }
+    if (!role.bullets || role.bullets.length < 2) {
+        errors.push(`resume-source.json needs at least 2 bullets for ${role.id}`);
+    }
+    if (!fullHtml.includes(role.technologiesLine)) {
+        errors.push(`cv.html missing technologiesLine for ${role.id}`);
+    }
+    if (role.shortInclude && !shortHtml.includes(role.technologiesLine)) {
+        errors.push(`index-short.html missing technologiesLine for ${role.id}`);
+    }
+}
+
+const globallogic = source.roles.find((role) => role.id === "globallogic");
+if (globallogic?.bulletsShort) {
+    for (const bullet of globallogic.bulletsShort) {
+        if (!shortHtml.includes(bullet)) {
+            errors.push(`index-short.html missing bulletsShort item for globallogic`);
+            break;
+        }
+    }
+    const parserOnly = globallogic.bullets.find(
+        (bullet) => bullet.includes("on-device intent handling"),
+    );
+    if (parserOnly && shortHtml.includes(parserOnly)) {
+        errors.push("index-short.html should not include globallogic parser bullet (detailed CV only)");
+    }
+}
+
+const dodo = source.roles.find((role) => role.id === "dodo");
+if (dodo?.bullets?.[2] && shortHtml.includes(dodo.bullets[2])) {
+    errors.push("index-short.html should omit Drinkit live-tracking bullet (detailed CV only)");
 }
 
 if (!fullHtml.includes(source.meta.title)) {
