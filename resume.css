@@ -259,6 +259,11 @@
       padding-top: 0;
     }
 
+    .language-name {
+      font-weight: 600;
+      color: var(--fg);
+    }
+
     .section-lead {
       font-size: 13px;
       line-height: 1.5;
@@ -1114,6 +1119,10 @@
       .header-meta-languages {
         color: #000000;
         font-size: 11px;
+      }
+
+      .language-name {
+        color: #000000;
       }
 
       .header-location {
