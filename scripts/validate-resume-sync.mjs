@@ -23,12 +23,7 @@ const shortOmittedRoleIds = new Set([
     "early-career",
 ]);
 
-const fullCvOmittedRoleIds = new Set([
-    "solvve",
-    "electus",
-    "gbksoft",
-    "early-career",
-]);
+const fullCvOmittedRoleIds = new Set([]);
 
 for (const role of source.roles) {
     if (!fullCvOmittedRoleIds.has(role.id) && !fullHtml.includes(role.displayFull)) {
@@ -45,8 +40,8 @@ for (const role of source.roles) {
     }
 }
 
-if (!shortHtml.includes("https://vil4max.github.io/")) {
-    errors.push("index-short.html missing full timeline link to vil4max.github.io");
+if (!shortHtml.includes("exp-full-timeline")) {
+    errors.push("index-short.html missing web-only detailed CV link (.exp-full-timeline)");
 }
 
 if (!fullHtml.includes(source.meta.title)) {

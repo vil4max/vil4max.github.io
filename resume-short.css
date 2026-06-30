@@ -667,6 +667,7 @@ body.short-cv {
   .short-cv .header-actions,
   .short-cv header img,
   .short-cv .header-identity img,
+  .short-cv .exp-full-timeline,
   .short-cv footer {
     display: none !important;
   }

@@ -163,12 +163,12 @@
       "start": "2013-12",
       "end": "2017-05",
       "displayFull": "Dec 2013 – May 2017",
-      "displayShort": "2013 – 2017",
-      "project": "Self-study, trainee & junior roles, freelance-style and indie App Store work",
+      "displayShort": "2014 – 2017",
+      "project": "Junior iOS from Dec 2013; trainee, freelance & indie App Store work",
       "featured": false,
       "technologies": ["Swift", "Objective-C", "UIKit"],
       "bullets": [
-        "Self-study from 2013, then trainee and junior roles with hands-on delivery.",
+        "Junior iOS developer from Dec 2013.",
         "Shipped indie and client App Store apps across mobility, wellness, commerce, and games."
       ]
     }
@@ -198,26 +198,5 @@
       "employerRoleId": "dodo"
     }
   ],
-  "cvProjects": [
-    {
-      "id": "watch-ai-assistant",
-      "name": "watchOS Voice AI — R&D project",
-      "link": "projects.html#project-watch-ai-assistant"
-    },
-    {
-      "id": "alchemy",
-      "name": "Alchemy — Digital Assets & Precious Metals",
-      "link": "projects.html#project-alchemy"
-    },
-    {
-      "id": "room-scanner",
-      "name": "RoomScanner",
-      "link": "https://github.com/vil4max/room-scanner-ios"
-    },
-    {
-      "id": "pitstop-ios",
-      "name": "pitstop-ios",
-      "link": "https://github.com/vil4max/pitstop-ios"
-    }
-  ]
+  "cvProjects": []
 }
