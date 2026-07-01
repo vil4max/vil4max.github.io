@@ -25,9 +25,9 @@
           <div class="header-meta">
             <span class="header-meta-languages">🌐 <strong class="language-name">English</strong> — Intermediate</span>
             <span class="header-meta-contacts header-meta-contacts--screen">
-              <a href="mailto:vil4max@gmail.com" class="contact-email">vil4max@gmail.com</a><span class="contact-sep" aria-hidden="true"> · </span><a href="tel:+380509864522">+380509864522</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://t.me/vil4max">@vil4max</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/vil4max/">LinkedIn</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://github.com/vil4max">GitHub</a>
+              <a href="mailto:vil4max@gmail.com" class="contact-email">vil4max@gmail.com</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://t.me/vil4max">@vil4max</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/vil4max/">LinkedIn</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://github.com/vil4max">GitHub</a>
             </span>
-            <span class="header-meta-contacts header-meta-contacts--print" aria-hidden="true">vil4max@gmail.com · +380509864522 · linkedin.com/in/vil4max · github.com/vil4max · @vil4max</span>
+            <span class="header-meta-contacts header-meta-contacts--print" aria-hidden="true">vil4max@gmail.com · linkedin.com/in/vil4max · github.com/vil4max · @vil4max</span>
           </div>
           <nav class="site-nav" aria-label="Site">
             <a href="index.html">About me</a><span class="site-nav-sep">·</span>
@@ -42,7 +42,7 @@
     <main>
       <section>
         <h3><span class="section-heading-text">Summary</span><span class="section-mark" aria-hidden="true">📋</span></h3>
-        <p class="cv-summary">12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; technical lead on Premium Subscription for marketplace loyalty; SDK module extraction.</p>
+        <p class="cv-summary">12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; technical lead on Premium Subscription for marketplace loyalty; SDK module extraction. Stack: Swift Concurrency, async/await, Combine, SwiftData.</p>
         <ul class="cv-summary-bullets">
           <li>Built a voice AI assistant on Apple Watch — hands-free conversational flows</li>
           <li>Technical lead on Premium Subscription — full cycle through App Store release</li>
@@ -52,7 +52,7 @@
 
       <section>
         <h3><span class="section-heading-text">Skills</span><span class="section-mark" aria-hidden="true">🛠</span></h3>
-        <p class="skills-ats">Swift · SwiftUI · UIKit · Swift Concurrency · Combine · WatchKit · Apple platform SDKs</p>
+        <p class="skills-ats">Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · SwiftData · SPM · WatchKit · Apple platform SDKs</p>
       </section>
 
       <section>
@@ -68,9 +68,15 @@
         <p class="exp-meta" style="margin-top:-8px;margin-bottom:16px;">Newest first</p>
         <div class="experience-timeline">
 
-        <div class="experience-item" id="exp-globallogic">
-          <div class="exp-company-line"><span class="exp-company-name">GlobalLogic</span> <span class="exp-company-loc">Kyiv, Ukraine · Remote</span></div>
-          <div class="exp-role"><span class="exp-role-title">Senior iOS Engineer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Jan 2026 – Jun 2026</span></div>
+        <div class="experience-item experience-item--highlight" id="exp-globallogic">
+          <div class="exp-role-head">
+            <span class="exp-company-name">GlobalLogic</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-title">Senior iOS Engineer</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-dates">Jan 2026 – Jun 2026</span>
+          </div>
+          <div class="exp-company-loc-line">Kyiv, Ukraine · Remote</div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Apple Watch Voice AI — R&amp;D project</span></div>
           <ul>
             <li>Built a production watchOS voice AI app — full on-watch flows, not a thin remote UI.</li>
@@ -78,12 +84,18 @@
             <li>Split features across Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity).</li>
             <li>Built on-device intent handling so commands update navigation and forms without unnecessary round-trips.</li>
           </ul>
-          <p class="exp-tech-line">Swift · WatchKit · SwiftUI · WebSockets · WatchConnectivity · AVFoundation</p>
+          <p class="exp-tech-line">Swift · WatchKit · SwiftUI · WebSockets · WatchConnectivity · AVFoundation · Swift Concurrency · async/await</p>
         </div>
 
-        <div class="experience-item" id="exp-pasha">
-          <div class="exp-company-line"><span class="exp-company-name">PASHA Holding</span> <span class="exp-company-loc">Kyiv, Ukraine · Remote</span></div>
-          <div class="exp-role"><span class="exp-role-title">Senior iOS Engineer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Apr 2022 – Jan 2026</span></div>
+        <div class="experience-item experience-item--highlight" id="exp-pasha">
+          <div class="exp-role-head">
+            <span class="exp-company-name">PASHA Holding</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-title">Senior iOS Engineer</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-dates">Apr 2022 – Jan 2026</span>
+          </div>
+          <div class="exp-company-loc-line">Kyiv, Ukraine · Remote</div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Birmarket — online marketplace &amp; loyalty · Loyalty squad</span></div>
           <div class="exp-projects-block">
             <span class="exp-project-label">Projects</span>
@@ -98,7 +110,7 @@
             <li>Technical lead on Premium Subscription — full cycle: feature definition through implementation, TestFlight, debug, and App Store release (cashback/bonus logic).</li>
             <li>Migrated Premium from the main app into an independent SDK module with per-host-app configuration inside the shared loyalty platform.</li>
           </ul>
-          <p class="exp-tech-line">Swift · SwiftUI · UIKit · SPM · URLSession</p>
+          <p class="exp-tech-line">Swift · SwiftUI · UIKit · SPM · URLSession · Swift Concurrency · async/await · Combine</p>
         </div>
 
         <div class="experience-item" id="exp-dodo">
@@ -113,7 +125,7 @@
           <p class="exp-tech-line">Swift · UIKit · SPM · WebSockets · Apple Pay · URLSession</p>
         </div>
 
-        <div class="experience-item" id="exp-solvve">
+        <div class="experience-item experience-item--compact" id="exp-solvve">
           <div class="exp-company-line"><span class="exp-company-name">SOLVVE</span> <span class="exp-company-loc">Remote</span></div>
           <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Jan 2019 – Feb 2020</span></div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">PLAYHERA — esports &amp; gaming tournaments</span></div>
@@ -124,7 +136,7 @@
           <p class="exp-tech-line">Swift · UIKit · RxSwift · REST · Auto Layout</p>
         </div>
 
-        <div class="experience-item" id="exp-electus">
+        <div class="experience-item experience-item--compact" id="exp-electus">
           <div class="exp-company-line"><span class="exp-company-name">Electus</span> <span class="exp-company-loc">Kyiv, Ukraine</span></div>
           <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Jul 2018 – Nov 2018</span></div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Electus — crypto market info &amp; wallet MVP</span></div>
@@ -135,7 +147,7 @@
           <p class="exp-tech-line">Swift · UIKit · Keychain · TestFlight</p>
         </div>
 
-        <div class="experience-item" id="exp-gbksoft">
+        <div class="experience-item experience-item--compact" id="exp-gbksoft">
           <div class="exp-company-line"><span class="exp-company-name">GBKSoft</span> <span class="exp-company-loc">Kyiv, Ukraine</span></div>
           <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Jun 2017 – Jun 2018</span></div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Eastern Union — Broker Tool &amp; client delivery apps</span></div>
@@ -153,7 +165,7 @@
           <p class="exp-tech-line">Swift · UIKit · REST · Core Bluetooth · Core Location</p>
         </div>
 
-        <div class="experience-item" id="exp-early-career">
+        <div class="experience-item experience-item--compact" id="exp-early-career">
           <div class="exp-company-line"><span class="exp-company-name">Early career — junior iOS at product companies &amp; indie delivery</span> <span class="exp-company-loc">Kyiv, Ukraine</span></div>
           <div class="exp-role"><span class="exp-role-title">Junior iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Dec 2013 – May 2017</span></div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Junior iOS at product companies &amp; indie App Store delivery — mobility, wellness, commerce, interactive content</span></div>
