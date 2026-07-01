@@ -534,6 +534,44 @@ body.short-cv {
   color: var(--muted);
 }
 
+.short-cv .exp-role-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.35em;
+  margin-bottom: 4px;
+  line-height: 1.45;
+}
+
+.short-cv .exp-role-head .exp-company-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.short-cv .exp-role-head .exp-role-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.short-cv .exp-company-loc-line {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.45;
+  margin: 0 0 8px;
+}
+
+.short-cv .experience-item--highlight {
+  padding: 10px 12px 10px 18px;
+  margin-left: 8px;
+  background: var(--bg-elevated);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border-subtle));
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
 .short-cv .experience-timeline .experience-item {
   position: relative;
   margin-left: 14px;
