@@ -74,13 +74,13 @@ Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · Swif
 **Replace:**
 
 ```
-12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; technical lead on Premium Subscription for marketplace loyalty; SDK module extraction. Stack: Swift Concurrency, async/await, Combine, SwiftData.
+iOS Software Engineer with ownership across watchOS R&D and large production apps. Voice AI assistant on Apple Watch; technical lead on Premium Subscription for marketplace loyalty; SDK module extraction. Stack: Swift Concurrency (async/await), SwiftUI/UIKit, SPM, SwiftData, Combine.
 ```
 
 **With:**
 
 ```
-12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; technical lead on Premium Subscription for marketplace loyalty; Premium iOS SDK (SPM) for Birmarket, Birbank, and M10 with 80%+ XCTest coverage. Stack: Swift Concurrency, async/await, Combine, SwiftData, XCTest.
+iOS Software Engineer with ownership across watchOS R&D and large production apps. Voice AI assistant on Apple Watch; technical lead on Premium Subscription for marketplace loyalty; Premium iOS SDK (SPM) for Birmarket, Birbank, and M10 with 80%+ XCTest coverage. Stack: Swift Concurrency (async/await), SwiftUI/UIKit, SPM, SwiftData, Combine, XCTest.
 ```
 
 ### Summary short (`meta.summaryShort` — one-page resume)
@@ -88,13 +88,13 @@ Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · Swif
 **Replace:**
 
 ```
-12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; Premium Subscription technical lead on marketplace loyalty.
+iOS Software Engineer. Voice AI assistant on Apple Watch; Premium Subscription technical lead on marketplace loyalty.
 ```
 
 **With:**
 
 ```
-12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; Premium Subscription SDK lead — SPM module, 80%+ XCTest coverage, three host apps (Birmarket, Birbank, M10).
+iOS Software Engineer. Voice AI assistant on Apple Watch; Premium Subscription SDK lead — SPM module, 80%+ XCTest coverage, three host apps (Birmarket, Birbank, M10).
 ```
 
 > Note: `three host apps` is OK; forbidden is only `3 host apps` (digit 3).
@@ -174,7 +174,7 @@ Migrated Premium from the main app into an independent SDK module with per-host-
 ```
 Extracted Premium into an independent Swift SDK (SPM) with per-host configuration for Birmarket, Birbank, and M10 inside the shared loyalty platform.
 Raised XCTest coverage of the Premium Subscription SDK from ~50% to 80%+; optimized and regression-tested host-specific branches across the three host apps.
-Published SDK integration and API documentation for host teams; AI-assisted structure and draft, validated against production Swift code.
+Published SDK integration and API documentation for host teams.
 ```
 
 ### Experience bullets — SHORT (`bulletsShort` — new field, index-short.html only)
@@ -233,7 +233,7 @@ Azerbaijan online marketplace — core commerce and Premium Subscription technic
 <li>Technical lead on Premium Subscription — full cycle through App Store release.</li>
 <li>Extracted Premium into an independent Swift SDK (SPM) for Birmarket, Birbank, and M10.</li>
 <li>Raised XCTest coverage 50% → 80%+; regression-tested host-specific logic across host apps.</li>
-<li>Published SDK integration documentation (AI-assisted draft, code-reviewed).</li>
+<li>Published SDK integration documentation.</li>
 ```
 
 ### `index.html` — Birmarket featured card
@@ -263,7 +263,7 @@ Add under PASHA / Premium (English, LinkedIn style):
 ```
 - Extracted Premium Subscription into a Swift SDK (SPM) embedded in Birmarket, Birbank, and M10
 - Raised XCTest coverage from ~50% to 80%+; optimized and regression-tested host-specific logic
-- Published SDK integration and API documentation (AI-assisted draft, validated against code)
+- Published SDK integration and API documentation
 ```
 
 Do **not** list ChatGPT/Claude in Skills on LinkedIn.
@@ -321,4 +321,4 @@ Do not use forbidden phrases from the spec. Keep one-page resume (index-short.ht
 | Surface | After |
 |---------|--------|
 | **Short (1 bullet)** | Extracted Premium into an independent Swift SDK (SPM) for Birmarket, Birbank, and M10; raised XCTest coverage 50% → 80%+, regression-tested host-specific logic, and published SDK integration documentation. |
-| **Full (+2 bullets)** | Bullet 4: coverage + host-specific optimization. Bullet 5: SDK docs + AI-assisted draft. |
+| **Full (+2 bullets)** | Bullet 4: coverage + host-specific optimization. Bullet 5: SDK docs. |

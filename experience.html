@@ -18,7 +18,7 @@
               <span class="header-location">Kyiv, Ukraine</span>
             </div>
           </div>
-          <h2 class="header-role">Senior iOS Engineer</h2>
+          <h2 class="header-role">iOS Software Engineer</h2>
           <div class="header-status">
             <span class="header-availability">🟢 Available Jul 2026 · remote or hybrid</span>
           </div>
@@ -56,7 +56,7 @@
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name"><a href="projects.html#project-watch-ai-assistant">Apple Watch Voice AI — R&amp;D project</a></span></div>
           <ul>
             <li>Built a production watchOS voice AI app — full on-watch flows, not a thin remote UI.</li>
-            <li>iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices.</li>
+            <li>iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices (URLSessionWebSocketTask).</li>
             <li>Split features across Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity).</li>
             <li>Built on-device intent handling so commands update navigation and forms without unnecessary round-trips.</li>
           </ul>
@@ -65,10 +65,10 @@
             <div class="exp-tech-tags">
               <span class="exp-tech-tag">Swift</span>
               <span class="exp-tech-tag">WatchKit</span>
-              <span class="exp-tech-tag">WebSockets</span>
+              <span class="exp-tech-tag">URLSessionWebSocketTask</span>
               <span class="exp-tech-tag">SwiftUI</span>
-              <span class="exp-tech-tag">WatchConnectivity</span>
               <span class="exp-tech-tag">AVFoundation</span>
+              <span class="exp-tech-tag">AVAudioEngine</span>
               <span class="exp-tech-tag">Swift Concurrency</span>
               <span class="exp-tech-tag">async/await</span>
             </div>
@@ -95,7 +95,7 @@
           </div>
           <ul>
             <li>Shipped core marketplace commerce in a production online store — catalog, search, cart, checkout, and orders — across App Store releases.</li>
-            <li>Technical lead on Premium Subscription — full cycle: feature definition through implementation, TestFlight, debug, and App Store release (cashback/bonus logic).</li>
+            <li>Technical lead on Premium Subscription — full cycle: feature definition through implementation, TestFlight, debug, and App Store release (server-side business logic, not StoreKit).</li>
             <li>Migrated Premium from the main app into an independent SDK module with per-host-app configuration inside the shared loyalty platform.</li>
           </ul>
           <div class="exp-tech">
@@ -106,6 +106,8 @@
               <span class="exp-tech-tag">UIKit</span>
               <span class="exp-tech-tag">SPM</span>
               <span class="exp-tech-tag">URLSession</span>
+              <span class="exp-tech-tag">Firebase</span>
+              <span class="exp-tech-tag">Keychain</span>
               <span class="exp-tech-tag">Swift Concurrency</span>
               <span class="exp-tech-tag">async/await</span>
               <span class="exp-tech-tag">Combine</span>
@@ -119,9 +121,9 @@
           <div class="exp-role"><span class="exp-role-title">iOS Engineer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">2020 – 2022</span></div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name"><a href="projects.html#project-drinkit">Drinkit — coffee ordering app</a></span></div>
           <ul>
-            <li>Owned ordering and drink-customization flows; shipped App Store releases on a three-person iOS team.</li>
-            <li>Delivered checkout with Apple Pay and loyalty integration in production.</li>
-            <li>Implemented live order tracking over WebSockets with polling fallback when the connection drops.</li>
+            <li>Participated from idea to App Store delivery — built MVP and shipped the next major version.</li>
+            <li>Built ordering flows and drink customization UX; shipped production releases on a three-person iOS team.</li>
+            <li>Implemented drink video clips (Reels-style) as part of the product upgrade; shipped checkout with Apple Pay and loyalty integration; live order tracking with polling.</li>
           </ul>
           <div class="exp-tech">
             <span class="exp-tech-label">Technologies &amp; Skills</span>
@@ -129,9 +131,10 @@
               <span class="exp-tech-tag">Swift</span>
               <span class="exp-tech-tag">UIKit</span>
               <span class="exp-tech-tag">SPM</span>
-              <span class="exp-tech-tag">WebSockets</span>
               <span class="exp-tech-tag">Apple Pay</span>
               <span class="exp-tech-tag">URLSession</span>
+              <span class="exp-tech-tag">AVFoundation</span>
+              <span class="exp-tech-tag">AVKit</span>
             </div>
           </div>
         </div>
@@ -142,8 +145,8 @@
           <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">2019 – 2020</span></div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name"><a href="projects.html#project-playhera">PLAYHERA — esports &amp; gaming tournaments</a></span></div>
           <ul>
-            <li>Built a gamer ecosystem in production — teams, tournaments, brackets, and player tables across complex UIKit surfaces.</li>
-            <li>Introduced RxSwift for tournament and table state when reactive patterns were new — managed non-trivial async UI across the product.</li>
+            <li>Built team creation and management flows for competitive gaming squads in a production App Store app.</li>
+            <li>Shipped challenge and tournament flows — brackets, standings, and player tables across the gamer ecosystem.</li>
           </ul>
           <div class="exp-tech">
             <span class="exp-tech-label">Technologies &amp; Skills</span>
@@ -160,17 +163,19 @@
         <div class="experience-item experience-item--compact" id="exp-electus">
           <div class="exp-company-line"><span class="exp-company-name">Electus</span> <span class="exp-company-loc">Kyiv, Ukraine</span></div>
           <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Jul 2018 – Nov 2018</span></div>
-          <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Electus — crypto market info &amp; wallet MVP</span></div>
+          <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Electus — blockchain assistant startup</span></div>
           <ul>
-            <li>Lead iOS engineer on a crypto wallet MVP — market info and wallet flows; mentored a junior engineer on implementation.</li>
-            <li>Stored credentials and wallet state in Keychain; shipped TestFlight builds through MVP release.</li>
+            <li>Lead iOS engineer on a startup blockchain assistant — market tracking, owned assets, and transfer flows; mentored a junior engineer on implementation.</li>
+            <li>Built wallet setup, portfolio overview, and asset transfer flows; shipped TestFlight builds through MVP release.</li>
           </ul>
           <div class="exp-tech">
             <span class="exp-tech-label">Technologies &amp; Skills</span>
             <div class="exp-tech-tags">
               <span class="exp-tech-tag">Swift</span>
               <span class="exp-tech-tag">UIKit</span>
+              <span class="exp-tech-tag">web3 SDK</span>
               <span class="exp-tech-tag">Keychain</span>
+              <span class="exp-tech-tag">Secure Enclave</span>
               <span class="exp-tech-tag">TestFlight</span>
             </div>
           </div>
@@ -204,33 +209,68 @@
           </div>
         </div>
 
-        <div class="experience-item experience-item--compact" id="exp-early-career">
-          <div class="exp-company-line"><span class="exp-company-name">Early career — junior iOS at product companies &amp; indie delivery</span> <span class="exp-company-loc">Kyiv, Ukraine</span></div>
-          <div class="exp-company-links"><span class="exp-company-links-note">Junior roles &amp; indie delivery</span></div>
-          <div class="exp-role"><span class="exp-role-title">Junior iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">2013 – 2017</span></div>
-          <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Junior iOS at product companies &amp; indie App Store delivery — mobility, wellness, commerce, interactive content</span></div>
+        <div class="experience-item experience-item--compact" id="exp-amconsoft">
+          <div class="exp-company-line"><span class="exp-company-name">Amcon Soft</span> <span class="exp-company-loc">Remote</span></div>
+          <div class="exp-company-links"><span class="exp-company-links-note">Client projects</span></div>
+          <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">2015 – 2017</span></div>
+          <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Client iOS projects</span></div>
           <ul>
-            <li>Junior iOS developer — product company roles and indie App Store delivery.</li>
-            <li>Owned indie and client apps end-to-end: implementation through App Store submission and iteration.</li>
-            <li>Production apps across mobility, wellness, and health before full-time iOS Developer role in 2017.</li>
+            <li>Owned iOS delivery on several client apps in a remote team (PM/QA/backend) — shipped App Store releases and follow-up iterations.</li>
+            <li>Built SceneKit-based 3D visualization with Core Data persistence and AVFoundation audio flows with local notification reminders.</li>
           </ul>
-          <div class="exp-projects-block">
-            <span class="exp-project-label">Projects</span>
-            <ul class="exp-projects-list">
-              <li><span class="exp-project-name-inline">Tap4Parking</span> — parking app for Kyiv — search, navigation, booking, payments (App Store)</li>
-              <li><span class="exp-project-name-inline">Acucharting</span> — iPad app for acupuncture doctors — notes, calendar, 3D needle-point model</li>
-              <li><span class="exp-project-name-inline">Alert Meditation</span> — guided meditation for NY police workers</li>
-              <li><span class="exp-project-name-inline">Green Riding Hood</span> — interactive read-aloud book with iMessage extension (App Store)</li>
-              <li><span class="exp-project-name-inline">Flip Taxi</span> — taxi MVP for Latvia — order a ride and live map tracking</li>
-              <li><span class="exp-project-name-inline">News reader</span> — Ukrainian news feed with read/unread and read-later list</li>
-            </ul>
-          </div>
           <div class="exp-tech">
             <span class="exp-tech-label">Technologies &amp; Skills</span>
             <div class="exp-tech-tags">
-              <span class="exp-tech-tag">Swift</span>
               <span class="exp-tech-tag">Objective-C</span>
               <span class="exp-tech-tag">UIKit</span>
+              <span class="exp-tech-tag">SceneKit</span>
+              <span class="exp-tech-tag">Core Data</span>
+              <span class="exp-tech-tag">AVFoundation</span>
+              <span class="exp-tech-tag">REST</span>
+              <span class="exp-tech-tag">APNs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-item experience-item--compact" id="exp-tap4parking">
+          <div class="exp-company-line"><span class="exp-company-name">Tap4Parking</span> <span class="exp-company-loc">Remote</span></div>
+          <div class="exp-company-links"><span class="exp-company-links-note">Startup product</span></div>
+          <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">2014 – 2015</span></div>
+          <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Tap4Parking — parking app for Kyiv</span></div>
+          <ul>
+            <li>Built search, booking, navigation, and payment flows for a parking startup — shipped App Store releases.</li>
+            <li>Implemented map UX with MapKit and Google Maps SDK plus CoreLocation background updates, geofencing, and significant-change tracking.</li>
+          </ul>
+          <div class="exp-tech">
+            <span class="exp-tech-label">Technologies &amp; Skills</span>
+            <div class="exp-tech-tags">
+              <span class="exp-tech-tag">Objective-C</span>
+              <span class="exp-tech-tag">UIKit</span>
+              <span class="exp-tech-tag">MapKit</span>
+              <span class="exp-tech-tag">Google Maps SDK</span>
+              <span class="exp-tech-tag">CoreLocation</span>
+              <span class="exp-tech-tag">REST</span>
+              <span class="exp-tech-tag">Alamofire</span>
+              <span class="exp-tech-tag">Push Notifications</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-item experience-item--compact" id="exp-icenter">
+          <div class="exp-company-line"><span class="exp-company-name">iCenter</span> <span class="exp-company-loc">Kyiv, Ukraine · On-site</span></div>
+          <div class="exp-role"><span class="exp-role-title">Junior iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">2013 – 2014</span></div>
+          <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Product apps — messaging and content</span></div>
+          <ul>
+            <li>Built SMS campaign and in-app messaging flows — integrated REST APIs and shipped to production.</li>
+            <li>Owned news feed development end to end and released App Store updates on an on-site product team.</li>
+          </ul>
+          <div class="exp-tech">
+            <span class="exp-tech-label">Technologies &amp; Skills</span>
+            <div class="exp-tech-tags">
+              <span class="exp-tech-tag">Objective-C</span>
+              <span class="exp-tech-tag">UIKit</span>
+              <span class="exp-tech-tag">REST</span>
+              <span class="exp-tech-tag">APNs</span>
             </div>
           </div>
         </div>

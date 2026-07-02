@@ -11,14 +11,11 @@ const iCloudResumeDir = path.join(
 const fullHtml = path.resolve(repoRoot, "cv.html");
 const shortHtml = path.resolve(repoRoot, "index-short.html");
 
-const primaryPdfAssets = path.resolve(repoRoot, "../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf");
-const detailedPdfAssets = path.resolve(
-    repoRoot,
-    "../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer_detailed.pdf"
-);
+const primaryPdfAssets = path.resolve(repoRoot, "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf");
+const detailedPdfAssets = path.resolve(repoRoot, "../vil4max/assets/Vilchevskiy_iOS_Engineer_detailed.pdf");
 
-const primaryPdfICloud = path.resolve(iCloudResumeDir, "Max_Vilchevskiy_Senior_iOS_Engineer.pdf");
-const detailedPdfICloud = path.resolve(iCloudResumeDir, "Max_Vilchevskiy_Senior_iOS_Engineer_detailed.pdf");
+const primaryPdfICloud = path.resolve(iCloudResumeDir, "Vilchevskiy_iOS_Engineer.pdf");
+const detailedPdfICloud = path.resolve(iCloudResumeDir, "Vilchevskiy_iOS_Engineer_detailed.pdf");
 
 async function getMtimeMs(filePath) {
     const stats = await stat(filePath);
@@ -61,4 +58,3 @@ try {
     process.stderr.write(`${error?.message ?? String(error)}\n`);
     process.exitCode = 1;
 }
-

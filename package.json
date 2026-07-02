@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "resume:pdf": "node scripts/generate-resume-pdf.mjs",
-    "resume:pdf:full": "node scripts/generate-resume-pdf.mjs cv.html ../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer_detailed.pdf",
+    "resume:pdf:full": "node scripts/generate-resume-pdf.mjs cv.html ../vil4max/assets/Vilchevskiy_iOS_Engineer_detailed.pdf",
     "resume:validate": "node scripts/validate-resume-sync.mjs",
     "resume:build": "node scripts/build-resume-html.mjs",
-    "resume:pdf:short": "node scripts/generate-resume-pdf.mjs index-short.html ../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf",
+    "resume:pdf:short": "node scripts/generate-resume-pdf.mjs index-short.html ../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf",
     "resume:pdf:all": "npm run resume:pdf:full && npm run resume:pdf:short",
     "resume:check": "node scripts/check-resume-pdfs.mjs",
     "resume:pdf:install": "npx playwright install chromium"

@@ -20,7 +20,9 @@ const shortOmittedRoleIds = new Set([
     "solvve",
     "electus",
     "gbksoft",
-    "early-career",
+    "icenter",
+    "tap4parking",
+    "amconsoft",
 ]);
 
 const fullCvOmittedRoleIds = new Set([]);

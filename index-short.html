@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Max Vilchevskiy — Senior iOS Engineer</title>
+  <title>Max Vilchevskiy — iOS Software Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="resume-short.css?v=20260702">
 </head>
@@ -18,7 +18,7 @@
               <span class="header-location">Kyiv, Ukraine</span>
             </div>
           </div>
-          <h2 class="header-role">Senior iOS Engineer</h2>
+          <h2 class="header-role">iOS Software Engineer</h2>
           <div class="header-status">
             <span class="header-availability">🟢 Available Jul 2026 · remote or hybrid</span>
           </div>
@@ -36,7 +36,7 @@
             <a href="index-short.html" aria-current="page">Resume</a>
           </nav>
           <div class="landing-cta">
-            <a class="download-btn" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf">Download resume (PDF)</a>
+            <a class="download-btn" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Vilchevskiy_iOS_Engineer.pdf">Download resume (PDF)</a>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
     <main>
       <section>
         <h3><span class="section-heading-text">Summary</span><span class="section-mark" aria-hidden="true">📋</span></h3>
-        <p class="cv-summary">12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; Premium Subscription technical lead on marketplace loyalty.</p>
+        <p class="cv-summary">iOS Software Engineer. Voice AI assistant on Apple Watch; Premium Subscription technical lead on marketplace loyalty.</p>
       </section>
 
       <section>
@@ -69,10 +69,10 @@
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Apple Watch Voice AI — R&amp;D project</span></div>
           <ul>
             <li>Built a production watchOS voice AI app — full on-watch flows, not a thin remote UI.</li>
-            <li>iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices.</li>
+            <li>iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices (URLSessionWebSocketTask).</li>
             <li>Split features across Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity).</li>
           </ul>
-          <p class="exp-tech-line">Swift · WatchKit · SwiftUI · WebSockets · WatchConnectivity · AVFoundation · Swift Concurrency · async/await</p>
+          <p class="exp-tech-line">Swift · WatchKit · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · Swift Concurrency · async/await</p>
         </div>
 
         <div class="experience-item experience-item--highlight">
@@ -87,10 +87,10 @@
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Birmarket — online marketplace &amp; loyalty · Loyalty squad</span></div>
           <ul>
             <li>Shipped core marketplace commerce in a production online store — catalog, search, cart, checkout, and orders — across App Store releases.</li>
-            <li>Technical lead on Premium Subscription — full cycle: feature definition through implementation, TestFlight, debug, and App Store release (cashback/bonus logic).</li>
+            <li>Technical lead on Premium Subscription — full cycle: feature definition through implementation, TestFlight, debug, and App Store release (server-side business logic, not StoreKit).</li>
             <li>Migrated Premium from the main app into an independent SDK module with per-host-app configuration inside the shared loyalty platform.</li>
           </ul>
-          <p class="exp-tech-line">Swift · SwiftUI · UIKit · SPM · URLSession · Swift Concurrency · async/await · Combine</p>
+          <p class="exp-tech-line">Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Keychain · Swift Concurrency · async/await · Combine</p>
         </div>
 
         <div class="experience-item">
@@ -101,13 +101,13 @@
             <li>Owned ordering and drink-customization flows; shipped App Store releases on a three-person iOS team.</li>
             <li>Delivered checkout with Apple Pay and loyalty integration in production.</li>
           </ul>
-          <p class="exp-tech-line">Swift · UIKit · SPM · WebSockets · Apple Pay · URLSession</p>
+          <p class="exp-tech-line">Swift · UIKit · SPM · URLSession · Apple Pay · AVFoundation · AVKit</p>
         </div>
 
         </div>
         <section class="early-career-short">
           <h4 class="early-career-short-title"><span class="section-heading-text">Earlier career</span><span class="section-mark" aria-hidden="true">📌</span></h4>
-          <p class="early-career-short-text">2013–2017: junior iOS in product companies and indie App Store apps — first role Dec 2013; full timeline at vil4max.github.io.</p>
+          <p class="early-career-short-text">Earlier career: junior iOS in product companies and indie App Store apps — full timeline at vil4max.github.io.</p>
         </section>
         <p class="exp-full-timeline">Detailed CV &amp; full timeline: <a href="cv.html">cv.html</a> · <a href="experience.html">experience</a></p>
       </section>

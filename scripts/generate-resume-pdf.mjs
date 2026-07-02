@@ -12,7 +12,7 @@ let outputPath;
 
 if (args.length === 0) {
     inputHtmlPath = path.resolve(repoRoot, "index-short.html");
-    outputPath = path.resolve(repoRoot, "../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf");
+    outputPath = path.resolve(repoRoot, "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf");
 } else if (args.length === 1) {
     inputHtmlPath = path.resolve(repoRoot, "cv.html");
     outputPath = path.resolve(repoRoot, args[0]);
