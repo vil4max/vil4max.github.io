@@ -557,6 +557,103 @@
       color: var(--muted);
     }
 
+    .exp-role-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0 0.35em;
+      margin-bottom: 4px;
+      line-height: 1.45;
+    }
+
+    .exp-role-head .exp-company-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--fg);
+    }
+
+    .exp-role-head .exp-role-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fg);
+    }
+
+    .exp-company-loc-line {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.45;
+      margin: 0 0 8px;
+    }
+
+    .experience-item--highlight {
+      border-color: color-mix(in srgb, var(--accent) 45%, var(--border-subtle));
+      box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 12%, transparent);
+    }
+
+    .experience-item--compact li + li {
+      display: none;
+    }
+
+    .project-card--primary {
+      border-color: color-mix(in srgb, var(--accent) 45%, var(--border-subtle));
+      box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 12%, transparent);
+    }
+
+    .featured-projects-primary {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    @media (min-width: 900px) {
+      .featured-projects-primary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .earlier-roles-compact {
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .earlier-roles-compact h4 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--fg-heading);
+    }
+
+    .compact-role-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--fg);
+    }
+
+    .compact-role-list li {
+      margin-bottom: 4px;
+    }
+
+    .compact-role-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .compact-role-list a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .compact-role-list a:hover {
+      text-decoration: underline;
+    }
+
     .exp-header {
       font-size: 15px;
       font-weight: 600;

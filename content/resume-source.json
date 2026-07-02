@@ -8,7 +8,7 @@
     "headerTldr": "Senior iOS Engineer",
     "availability": "Available from Jul 2026 · Senior iOS · remote or hybrid Kyiv",
     "headerAvailability": "Available Jul 2026 · remote or hybrid",
-    "summary": "12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; technical lead on Premium Subscription for marketplace loyalty; SDK module extraction.",
+    "summary": "12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; technical lead on Premium Subscription for marketplace loyalty; SDK module extraction. Stack: Swift Concurrency, async/await, Combine, SwiftData.",
     "summaryBullets": [
       "Built a voice AI assistant on Apple Watch — hands-free conversational flows",
       "Technical lead on Premium Subscription — full cycle through App Store release",
@@ -16,8 +16,8 @@
     ],
     "summaryShort": "12+ years of iOS development, including 4+ years in Senior roles. Voice AI assistant on Apple Watch; Premium Subscription technical lead on marketplace loyalty.",
     "landingAbout": "Senior iOS Engineer with 12+ years building consumer and fintech products. Built a voice AI assistant on Apple Watch. Shipped marketplace commerce and led Premium Subscription through App Store release, including SDK module extraction. Earlier owned ordering and checkout in a coffee ordering app.",
-    "skillsLine": "Swift · SwiftUI · UIKit · Swift Concurrency · Combine · WatchKit · Apple platform SDKs",
-    "skillsLineDetailed": "Swift · SwiftUI · UIKit · Swift Concurrency · Combine · WatchKit · Apple platform SDKs",
+    "skillsLine": "Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · SwiftData · SPM · WatchKit · Apple platform SDKs",
+    "skillsLineDetailed": "Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · SwiftData · SPM · WatchKit · Apple platform SDKs",
     "languagesLine": "English — Intermediate",
     "apply": {
       "primarySkill": "iOS Swift",
@@ -42,7 +42,7 @@
     "Technical lead on Premium Subscription — full cycle through App Store release",
     "Extracted Premium into an independent SDK module inside the loyalty platform"
   ],
-  "earlyCareerShort": "2014–2017: junior iOS in product companies and indie App Store apps — full timeline at vil4max.github.io.",
+  "earlyCareerShort": "2013–2017: junior iOS in product companies and indie App Store apps — first role Dec 2013; full timeline at vil4max.github.io.",
   "education": [
     {
       "institution": "Donetsk State University of Management",
@@ -66,8 +66,8 @@
       "project": "Apple Watch Voice AI — R&D project",
       "featured": true,
       "shortInclude": true,
-      "technologies": ["Swift", "WatchKit", "WebSockets", "SwiftUI", "WatchConnectivity", "AVFoundation"],
-      "technologiesLine": "Swift · WatchKit · SwiftUI · WebSockets · WatchConnectivity · AVFoundation",
+      "technologies": ["Swift", "WatchKit", "WebSockets", "SwiftUI", "WatchConnectivity", "AVFoundation", "Swift Concurrency", "async/await"],
+      "technologiesLine": "Swift · WatchKit · SwiftUI · WebSockets · WatchConnectivity · AVFoundation · Swift Concurrency · async/await",
       "bullets": [
         "Built a production watchOS voice AI app — full on-watch flows, not a thin remote UI.",
         "iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices.",
@@ -93,8 +93,8 @@
       "project": "Birmarket — online marketplace & loyalty · Loyalty squad",
       "featured": true,
       "shortInclude": true,
-      "technologies": ["Swift", "SwiftUI", "UIKit", "SPM", "URLSession"],
-      "technologiesLine": "Swift · SwiftUI · UIKit · SPM · URLSession",
+      "technologies": ["Swift", "SwiftUI", "UIKit", "SPM", "URLSession", "Swift Concurrency", "async/await", "Combine"],
+      "technologiesLine": "Swift · SwiftUI · UIKit · SPM · URLSession · Swift Concurrency · async/await · Combine",
       "bullets": [
         "Shipped core marketplace commerce in a production online store — catalog, search, cart, checkout, and orders — across App Store releases.",
         "Technical lead on Premium Subscription — full cycle: feature definition through implementation, TestFlight, debug, and App Store release (cashback/bonus logic).",
@@ -199,8 +199,8 @@
       "level": "junior",
       "start": "2013-12",
       "end": "2017-05",
-      "displayFull": "2014 – 2017",
-      "displayShort": "2014 – 2017",
+      "displayFull": "Dec 2013 – May 2017",
+      "displayShort": "2013 – 2017",
       "project": "Junior iOS at product companies & indie App Store delivery — mobility, wellness, commerce, interactive content",
       "featured": false,
       "shortInclude": false,
