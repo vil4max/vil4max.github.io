@@ -28,37 +28,63 @@ applyPreferredWorkCountries: Ukraine
 
 ## Summary
 
-iOS Software Engineer with broad production experience building iOS apps across different stages — from startups to large-scale applications. I focus on shipping, maintainable architecture, and a smooth user experience across UIKit and SwiftUI.
+12+ years commercial iOS across startups and large product apps — multiple iOS generations, architectural decisions in production. Owned: Premium Subscription (technical lead through App Store; StoreKit / in-app purchasing); extracted Premium into a shared loyalty SDK for multiple host apps — isolated modules, dedicated networking layer, module-internal models. Also shipped features in large production apps (marketplace loyalty squad; Drinkit coffee QSR — pre-order and customization on a small iOS team). Product-minded delivery, not outsource-by-spec.
+
+Practical AI: watchOS voice AI R&D (speech, App Intents, agent-style structured outputs), enterprise GenAI SDLC beta (VelocityAI); daily Cursor/Copilot. UIKit/SwiftUI, SPM, TestFlight → App Store. Full timeline: vil4max.github.io.
 
 ## Highlights
 
-- Built a voice AI assistant on Apple Watch — hands-free conversational flows
-- Technical lead on Premium Subscription — full cycle through App Store release
-- Extracted Premium into an independent SDK module inside the loyalty platform
+- 12+ years commercial iOS — indie releases through large marketplace and SDK platforms
+- Feature ownership — Premium Subscription (tech lead, App Store); shared loyalty SDK extraction; watchOS Voice AI R&D (lead)
+- SDK modularization — Premium extracted into an independent module inside a shared loyalty SDK used across host apps
+- Modular architecture — isolated feature modules, networking layer, per-module models (from Premium/SDK work)
+- Practical AI — watchOS voice AI; App Intents; structured agent outputs; VelocityAI beta; Cursor/Copilot
 
 ## Skills
 
 ### Languages & platforms
-Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · SwiftData · SPM · WatchKit
+Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · Foundation · Auto Layout
+
+### Concurrency & reactive
+Swift Concurrency · async/await · Combine · RxSwift
 
 ### Networking & data
-URLSession · REST · Firebase · Keychain · Core Data
+URLSession · URLSessionWebSocketTask · Network · REST · Core Data · SwiftData · Firebase · Keychain · Secure Enclave · LocalAuthentication
 
 ### Media & device
-AVFoundation · AVAudioEngine · CoreLocation · SceneKit
+AVFoundation · AVAudioEngine · AVKit · SceneKit · CoreLocation · MapKit · Core Bluetooth
+
+### Apple frameworks
+WatchKit · WatchConnectivity · App Intents · UserNotifications · PassKit · Apple Pay · StoreKit · In-App Purchase · XCTest · TestFlight
+
+### Payments & commerce
+StoreKit · In-App Purchase · Apple Pay · Stripe · subscriptions · loyalty
+
+### AI & agentic tooling
+Cursor · GitHub Copilot · Claude · GPT · OpenAI · Anthropic · LLM · tokens · context window · VelocityAI · GenAI SDLC · voice AI · structured outputs · App Intents
+
+### Line short
+Swift · UIKit · SwiftUI · Combine · SPM · WatchKit · StoreKit · MapKit · AVFoundation · URLSession · Core Data · XCTest
 
 ### Line
-Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · SwiftData · SPM · WatchKit · AVFoundation · URLSession · CoreLocation · SceneKit · Core Data · Firebase · Keychain · REST
+Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · Foundation · Auto Layout · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Network · REST · Core Data · SwiftData · Firebase · Keychain · Secure Enclave · LocalAuthentication · AVFoundation · AVAudioEngine · AVKit · SceneKit · CoreLocation · MapKit · Core Bluetooth · WatchKit · WatchConnectivity · App Intents · UserNotifications · PassKit · Apple Pay · StoreKit · In-App Purchase · XCTest · TestFlight · Stripe · Cursor · GitHub Copilot · VelocityAI · GenAI SDLC · LLM · Alamofire · Google Maps SDK · web3 SDK · Swinject · MVVM
 
 ## Agentic engineering
 
-- Cursor — daily workflow for refactoring, tests, SDK exploration, and architecture iteration
-- GitHub Copilot — autocomplete and boilerplate in Xcode and VS Code/Cursor
-- AI-assisted documentation and test generation for SDK modules and production features
+AI-assisted tooling is part of how I ship iOS work — not a separate role. I use it for refactors, tests, SDK exploration, and architecture spikes, and I review everything that lands in production.
+
+- **Cursor** — daily workflow: refactoring, tests, exploration, structured multi-step tasks
+- **GitHub Copilot** — autocomplete and boilerplate in Xcode and Cursor
+- **SDK delivery** — AI-assisted docs and test drafts; review and merge before ship
+- **VelocityAI** — beta-tested GlobalLogic's enterprise GenAI platform (AI-powered SDLC) on a client engagement
+- **On-device AI** — watchOS voice AI (speech, AVFoundation); App Intents; structured outputs from voice/agent flows
+- **Model selection** — switch between providers/models (e.g. Anthropic Claude, OpenAI GPT) by task; tokens/context in daily Cursor/Copilot workflow
+
+Practical AI supports product delivery — voice flows on watchOS, App Intents, structured agent outputs, enterprise GenAI SDLC exposure (VelocityAI). LLM tooling (Cursor, Copilot) fits a reviewable shipping process; the core story remains feature ownership and modular iOS delivery.
 
 ## Career direction
 
-Senior iOS engineer growing into mobile product engineering with on-device AI — shipping AI-assisted features (voice, intents, tool calling) as product code, not ML research. Strong in UIKit/SwiftUI, SDK modularization, and production delivery.
+Senior iOS engineer growing into mobile product engineering with on-device AI — shipping AI-assisted features (voice, intents, tool calling) as production iOS code. Building agent-aware engineering habits alongside UIKit/SwiftUI, SDK modularization, and App Store delivery.
 
 ## Early career
 
@@ -82,11 +108,11 @@ Earlier career: junior iOS in product companies and indie App Store apps — ful
 
 #### Product
 
-Apple Watch Voice AI — R&D project. Voice AI assistant with full on-watch flows; iPhone relay for WebSocket/audio where watchOS limits apply.
+Apple Watch Voice AI — R&D project (watchOS client, iPhone relay). Also participated in beta testing GlobalLogic VelocityAI — enterprise GenAI platform for AI-powered SDLC and agentic delivery workflows.
 
 #### My role
 
-Lead iOS engineer on watchOS client — architecture, Watch ↔ iPhone connectivity, TestFlight delivery.
+Lead iOS engineer on watchOS client — architecture, Watch ↔ iPhone connectivity, TestFlight delivery. Beta tester for VelocityAI — hands-on evaluation of GenAI-assisted SDLC tooling in a client-delivery context.
 
 #### Responsibilities
 
@@ -94,16 +120,17 @@ Lead iOS engineer on watchOS client — architecture, Watch ↔ iPhone connectiv
 - iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices (URLSessionWebSocketTask).
 - Split features across Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity).
 - Built on-device intent handling so commands update navigation and forms without unnecessary round-trips.
+- Participated in VelocityAI beta testing — hands-on evaluation of GlobalLogic's enterprise GenAI / AI-powered SDLC platform (agent workflows, governed AI in software delivery); feedback from an iOS engineer's shipping perspective.
 
 #### Bullets short
 
-- Built a production watchOS voice AI app — full on-watch flows, not a thin remote UI.
-- iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices (URLSessionWebSocketTask).
-- Split features across Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity).
+- Led watchOS voice AI R&D — full on-watch conversational flows, not a thin remote UI.
+- Built Watch ↔ iPhone relay for audio/WebSocket and on-device intents under watchOS constraints; TestFlight delivery.
+- Beta-tested VelocityAI (enterprise GenAI SDLC) alongside the voice AI engagement.
 
 #### Technologies
 
-Swift · WatchKit · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · Swift Concurrency · async/await
+Swift · WatchKit · WatchConnectivity · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · App Intents · Swift Concurrency · async/await · VelocityAI
 
 #### LinkedIn paste
 
@@ -114,8 +141,9 @@ Apple Watch Voice AI — R&D project
 • iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices (URLSessionWebSocketTask).
 • Split features across Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity).
 • Built on-device intent handling so commands update navigation and forms without unnecessary round-trips.
+• Participated in VelocityAI beta testing — hands-on evaluation of GlobalLogic's enterprise GenAI / AI-powered SDLC platform (agent workflows, governed AI in software delivery); feedback from an iOS engineer's shipping perspective.
 
-Swift · WatchKit · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · Swift Concurrency · async/await
+Swift · WatchKit · WatchConnectivity · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · App Intents · Swift Concurrency · async/await · VelocityAI
 ```
 
 ### PASHA Holding
@@ -143,12 +171,18 @@ Senior iOS engineer on marketplace commerce and Premium Subscription technical l
 #### Responsibilities
 
 - Shipped core marketplace commerce in a production online store — catalog, search, cart, checkout, and orders — across App Store releases.
-- Technical lead on Premium Subscription — full cycle: feature definition through implementation, TestFlight, debug, and App Store release (server-side business logic, not StoreKit).
+- Technical lead on Premium Subscription — full cycle: feature definition through implementation, StoreKit / in-app purchasing, TestFlight, debug, and App Store release.
 - Migrated Premium from the main app into an independent SDK module with per-host-app configuration inside the shared loyalty platform.
+
+#### Bullets short
+
+- Technical lead on Premium Subscription — StoreKit / in-app purchasing and App Store release.
+- Extracted Premium into a shared loyalty SDK with per-host configuration across multiple apps; modular architecture (isolated modules, networking layer).
+- Shipped Birmarket commerce features (loyalty squad) — not area ownership.
 
 #### Technologies
 
-Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Keychain · Swift Concurrency · async/await · Combine
+Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Keychain · StoreKit · In-App Purchase · Swift Concurrency · async/await · Combine
 
 #### LinkedIn paste
 
@@ -156,10 +190,10 @@ Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Keychain · Swift 
 Birmarket — online marketplace & loyalty · Loyalty squad
 
 • Shipped core marketplace commerce in a production online store — catalog, search, cart, checkout, and orders — across App Store releases.
-• Technical lead on Premium Subscription — full cycle: feature definition through implementation, TestFlight, debug, and App Store release (server-side business logic, not StoreKit).
+• Technical lead on Premium Subscription — full cycle: feature definition through implementation, StoreKit / in-app purchasing, TestFlight, debug, and App Store release.
 • Migrated Premium from the main app into an independent SDK module with per-host-app configuration inside the shared loyalty platform.
 
-Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Keychain · Swift Concurrency · async/await · Combine
+Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Keychain · StoreKit · In-App Purchase · Swift Concurrency · async/await · Combine
 ```
 
 #### Related projects
@@ -187,32 +221,36 @@ Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Keychain · Swift 
 
 #### Product
 
-Drinkit — coffee ordering app. QSR product from MVP through major App Store release.
+Drinkit — tech-forward coffee QSR app (Dodo Brands). Pre-order, signature drink customization, slot pickup, and loyalty — from MVP through a major App Store release.
 
 #### My role
 
-iOS engineer on a three-person team — ordering UX, video clips, checkout, and production releases.
+iOS engineer on a three-person team — pre-order and customization flows, menu video, Apple Pay + loyalty, pickup tracking, and production releases.
 
 #### Responsibilities
 
-- Participated from idea to App Store delivery — built MVP and shipped the next major version.
-- Built ordering flows and drink customization UX; shipped production releases on a three-person iOS team.
-- Implemented drink video clips (Reels-style) as part of the product upgrade; shipped checkout with Apple Pay and loyalty integration; live order tracking with polling.
+- Participated from early product through App Store delivery — built MVP and shipped the next major version on a three-person iOS team.
+- Built pre-order and drink customization flows for Drinkit's app-led coffee ritual.
+- Shipped Reels-style drink video for menu discovery; Apple Pay checkout with loyalty; live order tracking for slot pickup.
+
+#### Bullets short
+
+- Built Drinkit iOS from MVP through major App Store release on a three-person team — pre-order and drink customization.
 
 #### Technologies
 
-Swift · UIKit · SPM · URLSession · Apple Pay · AVFoundation · AVKit
+Swift · UIKit · SPM · URLSession · Apple Pay · PassKit · AVFoundation · AVKit
 
 #### LinkedIn paste
 
 ```
-Drinkit — coffee ordering app
+Drinkit — tech-forward coffee QSR app
 
-• Participated from idea to App Store delivery — built MVP and shipped the next major version.
-• Built ordering flows and drink customization UX; shipped production releases on a three-person iOS team.
-• Implemented drink video clips (Reels-style) as part of the product upgrade; shipped checkout with Apple Pay and loyalty integration; live order tracking with polling.
+• Participated from early product through App Store delivery — built MVP and shipped the next major version on a three-person iOS team.
+• Built pre-order and drink customization flows for Drinkit's app-led coffee ritual.
+• Shipped Reels-style drink video for menu discovery; Apple Pay checkout with loyalty; live order tracking for slot pickup.
 
-Swift · UIKit · SPM · URLSession · Apple Pay · AVFoundation · AVKit
+Swift · UIKit · SPM · URLSession · Apple Pay · PassKit · AVFoundation · AVKit
 ```
 
 ### SOLVVE
@@ -511,14 +549,22 @@ English — Intermediate
 
 ## LinkedIn profile
 
+### About
+
+```
+12+ years commercial iOS across startups and large product apps — multiple iOS generations, architectural decisions in production. Owned: Premium Subscription (technical lead through App Store; StoreKit / in-app purchasing); extracted Premium into a shared loyalty SDK for multiple host apps — isolated modules, dedicated networking layer, module-internal models. Also shipped features in large production apps (marketplace loyalty squad; Drinkit coffee QSR — pre-order and customization on a small iOS team). Product-minded delivery, not outsource-by-spec.
+
+Practical AI: watchOS voice AI R&D (speech, App Intents, agent-style structured outputs), enterprise GenAI SDLC beta (VelocityAI); daily Cursor/Copilot. UIKit/SwiftUI, SPM, TestFlight → App Store. Full timeline: vil4max.github.io.
+```
+
 ### Headline
 
 ```
-iOS Software Engineer · Swift · SwiftUI · UIKit · Swift Concurrency · XCTest · iOS SDK · Subscriptions · WatchKit · Apple platform SDKs
+Senior iOS Engineer · Premium & SDK · watchOS AI · Swift · SwiftUI · UIKit · StoreKit
 ```
 
 ### Skills line
 
 ```
-Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · SwiftData · SPM · XCTest · Unit Testing · iOS SDK · Subscriptions · WatchKit · Apple platform SDKs
+Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · Foundation · Auto Layout · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Network · REST · Core Data · SwiftData · Firebase · Keychain · Secure Enclave · LocalAuthentication · AVFoundation · AVAudioEngine · AVKit · SceneKit · CoreLocation · MapKit · Core Bluetooth · WatchKit · WatchConnectivity · App Intents · UserNotifications · PassKit · Apple Pay · StoreKit · In-App Purchase · XCTest · TestFlight · Stripe · Cursor · GitHub Copilot · VelocityAI · GenAI SDLC · LLM · Alamofire · Google Maps SDK · web3 SDK · Swinject · MVVM
 ```

@@ -23,7 +23,7 @@ One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run re
 | Output | Source |
 |--------|--------|
 | `resume.md` (public download) | `content/resume.md` (strip `@visibility: private` blocks if used) |
-| `index-short.html`, `cv.html`, `experience.html`, `projects.html`, `index.html` | Validated against parsed JSON; HTML hand-maintained until optional auto-sync |
+| `index-short.html`, `cv.html`, `projects.html`, `index.html` | Validated against parsed JSON; HTML hand-maintained until optional auto-sync |
 | `../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf` | `index-short.html` |
 | `../vil4max/assets/Vilchevskiy_iOS_Engineer_detailed.pdf` | `cv.html` |
 | LinkedIn paste | Per-role `#### LinkedIn paste` + `## LinkedIn profile` in `content/resume.md` |

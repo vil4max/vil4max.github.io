@@ -928,24 +928,10 @@ body.short-cv {
   }
 
   .short-cv .exp-tech-line {
-    font-size: 10.5px;
-    line-height: 1.4;
-    color: #000000;
-    margin: 3px 0 0;
+    display: none !important;
   }
 
   .short-cv .early-career-short {
-    margin-top: 6px;
-  }
-
-  .short-cv .early-career-short-title {
-    font-size: 12px;
-    margin-bottom: 4px;
-  }
-
-  .short-cv .early-career-short-text {
-    font-size: 11px;
-    line-height: 1.42;
-    color: #000000;
+    display: none !important;
   }
 }

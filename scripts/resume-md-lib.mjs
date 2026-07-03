@@ -281,9 +281,18 @@ export function parseResumeMarkdown(markdown) {
             continue;
         }
         if (section === "Skills") {
+            const lineShortSection = sectionLines.findIndex((item) => item.trim() === "### Line short");
+            if (lineShortSection !== -1) {
+                const lineBody = sectionLines
+                    .slice(lineShortSection + 1)
+                    .find((item) => item.trim() && !item.startsWith("#"));
+                result.meta.skillsLineShort = lineBody?.trim() ?? "";
+            }
             const lineSection = sectionLines.findIndex((item) => item.trim() === "### Line");
             if (lineSection !== -1) {
-                const lineBody = sectionLines.slice(lineSection + 1).find((item) => item.trim() && !item.startsWith("#"));
+                const lineBody = sectionLines
+                    .slice(lineSection + 1)
+                    .find((item) => item.trim() && !item.startsWith("#"));
                 result.meta.skillsLine = lineBody?.trim() ?? "";
             } else {
                 result.meta.skillsLine = sectionLines.join("\n").trim();

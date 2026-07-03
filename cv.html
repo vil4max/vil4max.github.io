@@ -31,10 +31,19 @@
           </div>
           <nav class="site-nav" aria-label="Site">
             <a href="index.html">About me</a><span class="site-nav-sep">·</span>
-            <a href="experience.html">Experience</a><span class="site-nav-sep">·</span>
+            <a href="cv.html" aria-current="page">Full resume</a><span class="site-nav-sep">·</span>
             <a href="projects.html">Projects</a><span class="site-nav-sep">·</span>
-            <a href="index-short.html">Resume</a>
+            <a href="index-short.html">One-page resume</a>
           </nav>
+          <div class="landing-downloads">
+            <p class="landing-downloads-label">Downloads</p>
+            <div class="landing-cta">
+              <a class="download-btn" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Vilchevskiy_iOS_Engineer.pdf">Resume (PDF — 1 page)</a>
+              <a class="download-btn download-btn--outline" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Vilchevskiy_iOS_Engineer_detailed.pdf">Resume (PDF — full timeline)</a>
+              <a class="download-btn download-btn--outline" href="resume.md">Resume (Markdown — AI friendly)</a>
+            </div>
+            <p class="landing-downloads-note">Markdown version is optimized for AI assistants, ATS systems, and recruiter workflows.</p>
+          </div>
         </div>
       </div>
     </header>
@@ -42,17 +51,20 @@
     <main>
       <section>
         <h3><span class="section-heading-text">Summary</span><span class="section-mark" aria-hidden="true">📋</span></h3>
-        <p class="cv-summary">iOS Software Engineer with broad production experience building iOS apps across different stages — from startups to large-scale applications. I focus on shipping, maintainable architecture, and a smooth user experience across UIKit and SwiftUI.</p>
+        <p class="cv-summary">12+ years commercial iOS across startups and large product apps — multiple iOS generations, architectural decisions in production. Owned: Premium Subscription (technical lead through App Store; StoreKit / in-app purchasing); extracted Premium into a shared loyalty SDK for multiple host apps — isolated modules, dedicated networking layer, module-internal models. Also shipped features in large production apps (marketplace loyalty squad; Drinkit coffee QSR — pre-order and customization on a small iOS team). Product-minded delivery, not outsource-by-spec.</p>
+        <p class="cv-summary">Practical AI: watchOS voice AI R&amp;D (speech, App Intents, agent-style structured outputs), enterprise GenAI SDLC beta (VelocityAI); daily Cursor/Copilot. UIKit/SwiftUI, SPM, TestFlight → App Store. Full timeline: vil4max.github.io.</p>
         <ul class="cv-summary-bullets">
-          <li>Built a voice AI assistant on Apple Watch — hands-free conversational flows</li>
-          <li>Technical lead on Premium Subscription — full cycle through App Store release</li>
-          <li>Extracted Premium into an independent SDK module inside the loyalty platform</li>
+          <li>12+ years commercial iOS — indie releases through large marketplace and SDK platforms</li>
+          <li>Feature ownership — Premium Subscription (tech lead, App Store); shared loyalty SDK extraction; watchOS Voice AI R&amp;D (lead)</li>
+          <li>SDK modularization — Premium extracted into an independent module inside a shared loyalty SDK used across host apps</li>
+          <li>Modular architecture — isolated feature modules, networking layer, per-module models (from Premium/SDK work)</li>
+          <li>Practical AI — watchOS voice AI; App Intents; structured agent outputs; VelocityAI beta; Cursor/Copilot</li>
         </ul>
       </section>
 
       <section>
         <h3><span class="section-heading-text">Skills</span><span class="section-mark" aria-hidden="true">🛠</span></h3>
-        <p class="skills-ats">Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · SwiftData · SPM · WatchKit · AVFoundation · URLSession · CoreLocation · SceneKit · Core Data · Firebase · Keychain · REST</p>
+        <p class="skills-ats">Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · Foundation · Auto Layout · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Network · REST · Core Data · SwiftData · Firebase · Keychain · Secure Enclave · LocalAuthentication · AVFoundation · AVAudioEngine · AVKit · SceneKit · CoreLocation · MapKit · Core Bluetooth · WatchKit · WatchConnectivity · App Intents · UserNotifications · PassKit · Apple Pay · StoreKit · In-App Purchase · XCTest · TestFlight · Stripe · Cursor · GitHub Copilot · VelocityAI · GenAI SDLC · LLM · Alamofire · Google Maps SDK · web3 SDK · Swinject · MVVM</p>
       </section>
 
       <section>
@@ -83,8 +95,9 @@
             <li>iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices (URLSessionWebSocketTask).</li>
             <li>Split features across Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity).</li>
             <li>Built on-device intent handling so commands update navigation and forms without unnecessary round-trips.</li>
+            <li>Participated in VelocityAI beta testing — hands-on evaluation of GlobalLogic's enterprise GenAI / AI-powered SDLC platform (agent workflows, governed AI in software delivery); feedback from an iOS engineer's shipping perspective.</li>
           </ul>
-          <p class="exp-tech-line">Swift · WatchKit · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · Swift Concurrency · async/await</p>
+          <p class="exp-tech-line">Swift · WatchKit · WatchConnectivity · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · App Intents · Swift Concurrency · async/await · VelocityAI</p>
         </div>
 
         <div class="experience-item experience-item--highlight" id="exp-pasha">
@@ -107,22 +120,22 @@
           </div>
           <ul>
             <li>Shipped core marketplace commerce in a production online store — catalog, search, cart, checkout, and orders — across App Store releases.</li>
-            <li>Technical lead on Premium Subscription — full cycle: feature definition through implementation, TestFlight, debug, and App Store release (server-side business logic, not StoreKit).</li>
+            <li>Technical lead on Premium Subscription — full cycle: feature definition through implementation, StoreKit / in-app purchasing, TestFlight, debug, and App Store release.</li>
             <li>Migrated Premium from the main app into an independent SDK module with per-host-app configuration inside the shared loyalty platform.</li>
           </ul>
-          <p class="exp-tech-line">Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Keychain · Swift Concurrency · async/await · Combine</p>
+          <p class="exp-tech-line">Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Keychain · StoreKit · In-App Purchase · Swift Concurrency · async/await · Combine</p>
         </div>
 
         <div class="experience-item" id="exp-dodo">
           <div class="exp-company-line"><span class="exp-company-name">Dodo Brands</span> <span class="exp-company-loc">Kyiv, Ukraine · Remote</span></div>
           <div class="exp-role"><span class="exp-role-title">iOS Engineer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Feb 2020 – Feb 2022</span></div>
-          <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Drinkit — coffee ordering app</span></div>
+          <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Drinkit — tech-forward coffee QSR app</span></div>
           <ul>
-            <li>Participated from idea to App Store delivery — built MVP and shipped the next major version.</li>
-            <li>Built ordering flows and drink customization UX; shipped production releases on a three-person iOS team.</li>
-            <li>Implemented drink video clips (Reels-style) as part of the product upgrade; shipped checkout with Apple Pay and loyalty integration; live order tracking with polling.</li>
+            <li>Participated from early product through App Store delivery — built MVP and shipped the next major version on a three-person iOS team.</li>
+            <li>Built pre-order and drink customization flows for Drinkit's app-led coffee ritual.</li>
+            <li>Shipped Reels-style drink video for menu discovery; Apple Pay checkout with loyalty; live order tracking for slot pickup.</li>
           </ul>
-          <p class="exp-tech-line">Swift · UIKit · SPM · URLSession · Apple Pay · AVFoundation · AVKit</p>
+          <p class="exp-tech-line">Swift · UIKit · SPM · URLSession · Apple Pay · PassKit · AVFoundation · AVKit</p>
         </div>
 
         <div class="experience-item experience-item--compact" id="exp-solvve">

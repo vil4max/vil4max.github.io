@@ -7,12 +7,23 @@ const repoRoot = path.join(root, "..");
 const sourcePath = path.join(repoRoot, "content", "resume-source.json");
 const fullHtmlPath = path.join(repoRoot, "cv.html");
 const shortHtmlPath = path.join(repoRoot, "index-short.html");
-const experienceHtmlPath = path.join(repoRoot, "experience.html");
 
 const source = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
 const fullHtml = fs.readFileSync(fullHtmlPath, "utf8");
 const shortHtml = fs.readFileSync(shortHtmlPath, "utf8");
-const experienceHtml = fs.readFileSync(experienceHtmlPath, "utf8");
+
+function decodeHtmlEntities(text) {
+    return text
+        .replace(/&amp;/g, "&")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&quot;/g, '"')
+        .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)));
+}
+
+function htmlIncludes(html, needle) {
+    return decodeHtmlEntities(html).includes(needle);
+}
 
 const errors = [];
 
@@ -36,13 +47,15 @@ const forbiddenPhrases = [
     "UIKit modules stable",
     "SPM modules with MVP",
     "Firebase Remote Config experiments",
+    "not StoreKit",
+    "not ML research",
+    "Foundation Models",
 ];
 
 const surfaces = [
     { name: "resume-source.json", content: fs.readFileSync(sourcePath, "utf8") },
     { name: "cv.html", content: fullHtml },
     { name: "index-short.html", content: shortHtml },
-    { name: "experience.html", content: experienceHtml },
 ];
 
 for (const phrase of forbiddenPhrases) {
@@ -63,9 +76,6 @@ for (const role of source.roles) {
     if (!shortHtml.includes(role.displayFull)) {
         errors.push(`index-short.html missing displayFull for ${role.id}: ${role.displayFull}`);
     }
-    if (!experienceHtml.includes(role.displayShort)) {
-        errors.push(`experience.html missing displayShort for ${role.id}: ${role.displayShort}`);
-    }
 }
 
 if (!shortHtml.includes("exp-full-timeline")) {
@@ -74,6 +84,23 @@ if (!shortHtml.includes("exp-full-timeline")) {
 
 if (source.earlyCareerShort && !shortHtml.includes(source.earlyCareerShort.slice(0, 40))) {
     errors.push("index-short.html missing earlyCareerShort snippet");
+}
+
+const summarySnippet = source.meta.summary?.slice(0, 60) ?? "";
+if (summarySnippet && !htmlIncludes(fullHtml, summarySnippet.slice(0, 40))) {
+    errors.push("cv.html missing summary snippet");
+}
+if (summarySnippet && !htmlIncludes(shortHtml, summarySnippet.slice(0, 40))) {
+    errors.push("index-short.html missing summary snippet");
+}
+
+if (source.meta.skillsLine && !htmlIncludes(fullHtml, source.meta.skillsLine.slice(0, 40))) {
+    errors.push("cv.html missing skillsLine snippet");
+}
+
+const skillsLineShort = source.meta.skillsLineShort ?? source.meta.skillsLine;
+if (skillsLineShort && !htmlIncludes(shortHtml, skillsLineShort)) {
+    errors.push("index-short.html missing skillsLineShort");
 }
 
 for (const role of source.roles) {
@@ -92,25 +119,31 @@ for (const role of source.roles) {
     }
 }
 
-const globallogic = source.roles.find((role) => role.id === "globallogic");
-if (globallogic?.bulletsShort) {
-    for (const bullet of globallogic.bulletsShort) {
-        if (!shortHtml.includes(bullet)) {
-            errors.push(`index-short.html missing bulletsShort item for globallogic`);
+for (const role of source.roles) {
+    if (!role.shortInclude || !role.bulletsShort?.length) {
+        continue;
+    }
+    for (const bullet of role.bulletsShort) {
+        if (!htmlIncludes(shortHtml, bullet)) {
+            errors.push(`index-short.html missing bulletsShort item for ${role.id}`);
             break;
         }
     }
-    const parserOnly = globallogic.bullets.find(
-        (bullet) => bullet.includes("on-device intent handling"),
+}
+
+const globallogic = source.roles.find((role) => role.id === "globallogic");
+if (globallogic?.bullets) {
+    const parserOnly = globallogic.bullets.find((bullet) =>
+        bullet.includes("on-device intent handling"),
     );
-    if (parserOnly && shortHtml.includes(parserOnly)) {
+    if (parserOnly && htmlIncludes(shortHtml, parserOnly)) {
         errors.push("index-short.html should not include globallogic parser bullet (detailed CV only)");
     }
 }
 
 const dodo = source.roles.find((role) => role.id === "dodo");
-if (dodo?.bullets?.[2] && shortHtml.includes(dodo.bullets[2])) {
-    errors.push("index-short.html should omit Drinkit live-tracking bullet (detailed CV only)");
+if (dodo?.bullets?.[2] && htmlIncludes(shortHtml, dodo.bullets[2])) {
+    errors.push("index-short.html should omit Drinkit live-tracking responsibility bullet (detailed CV only)");
 }
 
 if (!fullHtml.includes(source.meta.title)) {
@@ -125,4 +158,4 @@ if (errors.length > 0) {
     process.exit(1);
 }
 
-console.log(`OK: ${source.roles.length} roles synced across cv.html, index-short.html, experience.html`);
+console.log(`OK: ${source.roles.length} roles synced across cv.html and index-short.html`);
