@@ -779,6 +779,8 @@ body.short-cv {
 
   .short-cv .site-nav,
   .short-cv .header-actions,
+  .short-cv .landing-downloads,
+  .short-cv .landing-cta,
   .short-cv header img,
   .short-cv .header-identity img,
   .short-cv .exp-full-timeline {

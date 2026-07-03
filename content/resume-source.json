@@ -1,5 +1,16 @@
 {
   "meta": {
+    "summary": "iOS Software Engineer with broad production experience building iOS apps across different stages — from startups to large-scale applications. I focus on shipping, maintainable architecture, and a smooth user experience across UIKit and SwiftUI.",
+    "summaryShort": "iOS Software Engineer with broad production experience building iOS apps across different stages — from startups to large-scale applications. I focus on shipping, maintainable architecture, and a smooth user experience across UIKit and SwiftUI.",
+    "landingAbout": "iOS Software Engineer with broad production experience building iOS apps across different stages — from startups to large-scale applications. I focus on shipping, maintainable architecture, and a smooth user experience across UIKit and SwiftUI.",
+    "summaryBullets": [
+      "Built a voice AI assistant on Apple Watch — hands-free conversational flows",
+      "Technical lead on Premium Subscription — full cycle through App Store release",
+      "Extracted Premium into an independent SDK module inside the loyalty platform"
+    ],
+    "skillsLine": "Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · SwiftData · SPM · WatchKit · AVFoundation · URLSession · CoreLocation · SceneKit · Core Data · Firebase · Keychain · REST",
+    "skillsLineDetailed": "Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · SwiftData · SPM · WatchKit · AVFoundation · URLSession · CoreLocation · SceneKit · Core Data · Firebase · Keychain · REST",
+    "languagesLine": "English — Intermediate",
     "name": "Max Vilchevskiy",
     "title": "iOS Software Engineer",
     "tagline": "Swift · SwiftUI · UIKit",
@@ -8,17 +19,6 @@
     "headerTldr": "iOS Software Engineer",
     "availability": "Available from Jul 2026 · remote or hybrid Kyiv",
     "headerAvailability": "Available Jul 2026 · remote or hybrid",
-    "summary": "iOS Software Engineer with broad production experience building iOS apps across different stages — from startups to large-scale applications. I focus on shipping, maintainable architecture, and a smooth user experience across UIKit and SwiftUI.",
-    "summaryBullets": [
-      "Built a voice AI assistant on Apple Watch — hands-free conversational flows",
-      "Technical lead on Premium Subscription — full cycle through App Store release",
-      "Extracted Premium into an independent SDK module inside the loyalty platform"
-    ],
-    "summaryShort": "iOS Software Engineer with broad production experience building iOS apps across different stages — from startups to large-scale applications. I focus on shipping, maintainable architecture, and a smooth user experience across UIKit and SwiftUI.",
-    "landingAbout": "iOS Software Engineer with broad production experience building iOS apps across different stages — from startups to large-scale applications. I focus on shipping, maintainable architecture, and a smooth user experience across UIKit and SwiftUI.",
-    "skillsLine": "Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · SwiftData · SPM · WatchKit · AVFoundation · URLSession · CoreLocation · SceneKit · Core Data · Firebase · Keychain · REST",
-    "skillsLineDetailed": "Swift · SwiftUI · UIKit · Swift Concurrency · async/await · Combine · SwiftData · SPM · WatchKit · AVFoundation · URLSession · CoreLocation · SceneKit · Core Data · Firebase · Keychain · REST",
-    "languagesLine": "English — Intermediate",
     "apply": {
       "primarySkill": "iOS Swift",
       "yearsExperience": "12+",
@@ -28,7 +28,7 @@
       "city": "Kyiv",
       "preferredWorkCountries": "Ukraine"
     },
-    "syncRule": "Edit this file first, then update all surfaces in the same session: index-short.html, cv.html, experience.html, projects.html, index.html, career/linkedin-profile.md (LinkedIn + Djinni), vil4max/README.md."
+    "syncRule": "Edit content/resume.md only, then run npm run resume:build — see constraints.md."
   },
   "contacts": {
     "email": "vil4max@gmail.com",
@@ -54,20 +54,30 @@
   ],
   "roles": [
     {
-      "id": "globallogic",
       "company": "GlobalLogic",
-      "location": "Kyiv, Ukraine · Remote",
+      "technologies": [
+        "Swift",
+        "WatchKit",
+        "SwiftUI",
+        "URLSessionWebSocketTask",
+        "AVFoundation",
+        "AVAudioEngine",
+        "Swift Concurrency",
+        "async/await"
+      ],
+      "id": "globallogic",
       "title": "Senior iOS Engineer",
-      "level": "senior",
+      "displayFull": "Jan 2026 – Jun 2026",
       "start": "2026-01",
       "end": "2026-06",
-      "displayFull": "Jan 2026 – Jun 2026",
       "displayShort": "2026",
-      "project": "Apple Watch Voice AI — R&D project",
+      "location": "Kyiv, Ukraine · Remote",
+      "level": "senior",
       "featured": true,
       "shortInclude": true,
-      "technologies": ["Swift", "WatchKit", "SwiftUI", "URLSessionWebSocketTask", "AVFoundation", "AVAudioEngine", "Swift Concurrency", "async/await"],
-      "technologiesLine": "Swift · WatchKit · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · Swift Concurrency · async/await",
+      "project": "Apple Watch Voice AI — R&D project",
+      "productDescription": "Apple Watch Voice AI — R&D project. Voice AI assistant with full on-watch flows; iPhone relay for WebSocket/audio where watchOS limits apply.",
+      "myRole": "Lead iOS engineer on watchOS client — architecture, Watch ↔ iPhone connectivity, TestFlight delivery.",
       "bullets": [
         "Built a production watchOS voice AI app — full on-watch flows, not a thin remote UI.",
         "iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices (URLSessionWebSocketTask).",
@@ -78,185 +88,281 @@
         "Built a production watchOS voice AI app — full on-watch flows, not a thin remote UI.",
         "iPhone acts as backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices (URLSessionWebSocketTask).",
         "Split features across Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity)."
-      ]
+      ],
+      "technologiesLine": "Swift · WatchKit · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · Swift Concurrency · async/await"
     },
     {
-      "id": "pasha",
       "company": "PASHA Holding",
-      "location": "Kyiv, Ukraine · Remote",
+      "technologies": [
+        "Swift",
+        "SwiftUI",
+        "UIKit",
+        "SPM",
+        "URLSession",
+        "Firebase",
+        "Keychain",
+        "Swift Concurrency",
+        "async/await",
+        "Combine"
+      ],
+      "id": "pasha",
       "title": "Senior iOS Engineer",
-      "level": "senior",
+      "displayFull": "Apr 2022 – Jan 2026",
       "start": "2022-04",
       "end": "2026-01",
-      "displayFull": "Apr 2022 – Jan 2026",
       "displayShort": "2022 – 2026",
-      "project": "Birmarket — online marketplace & loyalty · Loyalty squad",
+      "location": "Kyiv, Ukraine · Remote",
+      "level": "senior",
       "featured": true,
       "shortInclude": true,
-      "technologies": ["Swift", "SwiftUI", "UIKit", "SPM", "URLSession", "Firebase", "Keychain", "Swift Concurrency", "async/await", "Combine"],
-      "technologiesLine": "Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Keychain · Swift Concurrency · async/await · Combine",
+      "project": "Birmarket — online marketplace & loyalty · Loyalty squad",
+      "productDescription": "Birmarket — online marketplace & loyalty · Loyalty squad. Consumer marketplace and shared loyalty SDK across host apps.",
+      "myRole": "Senior iOS engineer on marketplace commerce and Premium Subscription technical lead inside the loyalty squad.",
       "bullets": [
         "Shipped core marketplace commerce in a production online store — catalog, search, cart, checkout, and orders — across App Store releases.",
         "Technical lead on Premium Subscription — full cycle: feature definition through implementation, TestFlight, debug, and App Store release (server-side business logic, not StoreKit).",
         "Migrated Premium from the main app into an independent SDK module with per-host-app configuration inside the shared loyalty platform."
       ],
+      "technologiesLine": "Swift · SwiftUI · UIKit · SPM · URLSession · Firebase · Keychain · Swift Concurrency · async/await · Combine",
       "projectsDetail": [
-        { "name": "Birmarket", "summary": "Consumer marketplace & loyalty app (App Store)" },
-        { "name": "Shared loyalty SDK", "summary": "Marketplace/loyalty iOS SDK embedded in Birbank and M10 host apps" },
-        { "name": "Premium Subscription", "summary": "Cashback/bonus tier — extracted into a dedicated SDK module; App Store release" }
+        {
+          "name": "Birmarket",
+          "summary": "Consumer marketplace & loyalty app (App Store)"
+        },
+        {
+          "name": "Shared loyalty SDK",
+          "summary": "Marketplace/loyalty iOS SDK embedded in Birbank and M10 host apps"
+        },
+        {
+          "name": "Premium Subscription",
+          "summary": "Cashback/bonus tier — extracted into a dedicated SDK module; App Store release"
+        }
       ]
     },
     {
-      "id": "dodo",
       "company": "Dodo Brands",
-      "location": "Kyiv, Ukraine · Remote",
+      "technologies": [
+        "Swift",
+        "UIKit",
+        "SPM",
+        "URLSession",
+        "Apple Pay",
+        "AVFoundation",
+        "AVKit"
+      ],
+      "id": "dodo",
       "title": "iOS Engineer",
-      "level": "midPlus",
+      "displayFull": "Feb 2020 – Feb 2022",
       "start": "2020-02",
       "end": "2022-02",
-      "displayFull": "Feb 2020 – Feb 2022",
       "displayShort": "2020 – 2022",
-      "project": "Drinkit — coffee ordering app",
+      "location": "Kyiv, Ukraine · Remote",
+      "level": "midPlus",
       "featured": true,
       "shortInclude": true,
-      "technologies": ["Swift", "UIKit", "SPM", "URLSession", "Apple Pay", "AVFoundation", "AVKit"],
-      "technologiesLine": "Swift · UIKit · SPM · URLSession · Apple Pay · AVFoundation · AVKit",
+      "project": "Drinkit — coffee ordering app",
+      "productDescription": "Drinkit — coffee ordering app. QSR product from MVP through major App Store release.",
+      "myRole": "iOS engineer on a three-person team — ordering UX, video clips, checkout, and production releases.",
       "bullets": [
         "Participated from idea to App Store delivery — built MVP and shipped the next major version.",
         "Built ordering flows and drink customization UX; shipped production releases on a three-person iOS team.",
         "Implemented drink video clips (Reels-style) as part of the product upgrade; shipped checkout with Apple Pay and loyalty integration; live order tracking with polling."
-      ]
+      ],
+      "technologiesLine": "Swift · UIKit · SPM · URLSession · Apple Pay · AVFoundation · AVKit"
     },
     {
-      "id": "solvve",
       "company": "SOLVVE",
-      "location": "Remote",
+      "technologies": [
+        "Swift",
+        "UIKit",
+        "RxSwift",
+        "REST",
+        "Auto Layout"
+      ],
+      "id": "solvve",
       "title": "iOS Developer",
-      "level": "mid",
+      "displayFull": "Jan 2019 – Feb 2020",
       "start": "2019-01",
       "end": "2020-02",
-      "displayFull": "Jan 2019 – Feb 2020",
       "displayShort": "2019 – 2020",
-      "project": "PLAYHERA — esports & gaming tournaments",
+      "location": "Remote",
+      "level": "mid",
       "featured": false,
       "shortInclude": false,
-      "technologies": ["Swift", "UIKit", "RxSwift", "REST", "Auto Layout"],
-      "technologiesLine": "Swift · UIKit · RxSwift · REST · Auto Layout",
+      "project": "PLAYHERA — esports & gaming tournaments",
+      "productDescription": "PLAYHERA — esports & gaming tournaments. Production App Store app for squads, challenges, and standings.",
       "bullets": [
         "Built team creation and management flows for competitive gaming squads in a production App Store app.",
         "Shipped challenge and tournament flows — brackets, standings, and player tables across the gamer ecosystem."
-      ]
+      ],
+      "technologiesLine": "Swift · UIKit · RxSwift · REST · Auto Layout"
     },
     {
-      "id": "electus",
       "company": "Electus",
-      "location": "Kyiv, Ukraine",
+      "technologies": [
+        "Swift",
+        "UIKit",
+        "web3 SDK",
+        "Keychain",
+        "Secure Enclave",
+        "TestFlight"
+      ],
+      "id": "electus",
       "title": "iOS Developer",
-      "level": "mid",
+      "displayFull": "Jul 2018 – Nov 2018",
       "start": "2018-07",
       "end": "2018-11",
-      "displayFull": "Jul 2018 – Nov 2018",
       "displayShort": "2018",
-      "project": "Electus — blockchain assistant startup",
+      "location": "Kyiv, Ukraine",
+      "level": "mid",
       "featured": false,
       "shortInclude": false,
-      "technologies": ["Swift", "UIKit", "web3 SDK", "Keychain", "Secure Enclave", "TestFlight"],
-      "technologiesLine": "Swift · UIKit · web3 SDK · Keychain · Secure Enclave · TestFlight",
+      "project": "Electus — blockchain assistant startup",
+      "productDescription": "Electus — blockchain assistant startup. Wallet, portfolio, and transfer flows through MVP TestFlight.",
+      "myRole": "Lead iOS engineer on startup delivery; mentored a junior engineer through wallet and transfer flows.",
       "bullets": [
         "Lead iOS engineer on a startup blockchain assistant — market tracking, owned assets, and transfer flows; mentored a junior engineer on implementation.",
         "Built wallet setup, portfolio overview, and asset transfer flows; shipped TestFlight builds through MVP release."
-      ]
+      ],
+      "technologiesLine": "Swift · UIKit · web3 SDK · Keychain · Secure Enclave · TestFlight"
     },
     {
-      "id": "gbksoft",
       "company": "GBKSoft",
-      "location": "Kyiv, Ukraine",
+      "technologies": [
+        "Swift",
+        "UIKit",
+        "REST",
+        "Core Bluetooth",
+        "Core Location"
+      ],
+      "id": "gbksoft",
       "title": "iOS Developer",
-      "level": "developer",
+      "displayFull": "Jun 2017 – Jun 2018",
       "start": "2017-06",
       "end": "2018-06",
-      "displayFull": "Jun 2017 – Jun 2018",
       "displayShort": "2017 – 2018",
-      "project": "Eastern Union — Broker Tool & client delivery apps",
+      "location": "Kyiv, Ukraine",
+      "level": "developer",
       "featured": false,
       "shortInclude": false,
-      "technologies": ["Swift", "UIKit", "REST", "Core Bluetooth", "Core Location"],
-      "technologiesLine": "Swift · UIKit · REST · Core Bluetooth · Core Location",
+      "project": "Eastern Union — Broker Tool & client delivery apps",
+      "productDescription": "Eastern Union — Broker Tool & client delivery apps. Calculator-heavy broker flows and client shop/location apps.",
       "bullets": [
         "Built Eastern Union — production broker tool for traders with calculator-heavy deal flows (cap rates, mortgage, IRR) and substantial business logic.",
         "Kept calculator and quote screens responsive under frequent data updates; shipped App Store releases."
       ],
+      "technologiesLine": "Swift · UIKit · REST · Core Bluetooth · Core Location",
       "projectsDetail": [
-        { "name": "Eastern Union — Broker Tool", "summary": "Real-estate broker app with financial calculators (App Store)" },
-        { "name": "Client shop & location apps", "summary": "E-commerce flows and Bluetooth/iBeacon location features for client delivery" }
+        {
+          "name": "Eastern Union — Broker Tool",
+          "summary": "Real-estate broker app with financial calculators (App Store)"
+        },
+        {
+          "name": "Client shop & location apps",
+          "summary": "E-commerce flows and Bluetooth/iBeacon location features for client delivery"
+        }
       ]
     },
     {
-      "id": "amconsoft",
       "company": "Amcon Soft",
-      "location": "Remote",
+      "technologies": [
+        "Objective-C",
+        "UIKit",
+        "SceneKit",
+        "Core Data",
+        "AVFoundation",
+        "REST",
+        "APNs"
+      ],
+      "id": "amconsoft",
       "title": "iOS Developer",
-      "level": "junior",
+      "displayFull": "Nov 2015 – Jun 2017",
       "start": "2015-11",
       "end": "2017-06",
-      "displayFull": "Nov 2015 – Jun 2017",
       "displayShort": "2015 – 2017",
-      "project": "Client iOS projects",
+      "location": "Remote",
+      "level": "junior",
       "featured": false,
       "shortInclude": false,
-      "technologies": ["Objective-C", "UIKit", "SceneKit", "Core Data", "AVFoundation", "REST", "APNs"],
-      "technologiesLine": "Objective-C · UIKit · SceneKit · Core Data · AVFoundation · REST · APNs",
+      "project": "Client iOS projects",
+      "productDescription": "Client iOS projects. Remote delivery across SceneKit visualization and meditation/audio apps.",
       "bullets": [
         "Owned iOS delivery on several client apps in a remote team (PM/QA/backend) — shipped App Store releases and follow-up iterations.",
         "Built SceneKit-based 3D visualization with Core Data persistence and AVFoundation audio flows with local notification reminders."
       ],
+      "technologiesLine": "Objective-C · UIKit · SceneKit · Core Data · AVFoundation · REST · APNs",
       "projectsDetail": [
-        { "name": "Acucharting", "summary": "iPad app — 3D body model with SceneKit nodes; doctor notes stored in Core Data" },
-        { "name": "Alert Meditation", "summary": "Meditation app — guided audio with reminders (AVFoundation)" }
+        {
+          "name": "Acucharting",
+          "summary": "iPad app — 3D body model with SceneKit nodes; doctor notes stored in Core Data"
+        },
+        {
+          "name": "Alert Meditation",
+          "summary": "Meditation app — guided audio with reminders (AVFoundation)"
+        }
       ]
     },
     {
-      "id": "tap4parking",
       "company": "Tap4Parking",
-      "location": "Remote",
+      "technologies": [
+        "Objective-C",
+        "UIKit",
+        "MapKit",
+        "Google Maps SDK",
+        "CoreLocation",
+        "REST",
+        "Alamofire",
+        "Push Notifications"
+      ],
+      "id": "tap4parking",
       "title": "iOS Developer",
-      "level": "junior",
+      "displayFull": "Nov 2014 – Nov 2015",
       "start": "2014-11",
       "end": "2015-11",
-      "displayFull": "Nov 2014 – Nov 2015",
       "displayShort": "2014 – 2015",
-      "project": "Tap4Parking — parking startup product",
+      "location": "Remote",
+      "level": "junior",
       "featured": false,
       "shortInclude": false,
-      "technologies": ["Objective-C", "UIKit", "MapKit", "Google Maps SDK", "CoreLocation", "REST", "Alamofire", "Push Notifications"],
-      "technologiesLine": "Objective-C · UIKit · MapKit · Google Maps SDK · CoreLocation · REST · Alamofire · Push Notifications",
+      "project": "Tap4Parking — parking startup product",
+      "productDescription": "Tap4Parking — parking startup product. Map-based search, booking, navigation, and payments.",
       "bullets": [
         "Built search, booking, navigation, and payment flows for a parking startup — shipped App Store releases.",
         "Implemented map UX with MapKit and Google Maps SDK plus CoreLocation background updates, geofencing, and significant-change tracking."
       ],
+      "technologiesLine": "Objective-C · UIKit · MapKit · Google Maps SDK · CoreLocation · REST · Alamofire · Push Notifications",
       "projectsDetail": [
-        { "name": "Tap4Parking", "summary": "Parking app for Kyiv — MapKit + Google Maps SDK; CoreLocation (background/geofencing)" }
+        {
+          "name": "Tap4Parking",
+          "summary": "Parking app for Kyiv — MapKit + Google Maps SDK; CoreLocation (background/geofencing)"
+        }
       ]
     },
     {
-      "id": "icenter",
       "company": "iCenter",
-      "location": "Kyiv, Ukraine · On-site",
+      "technologies": [
+        "Objective-C",
+        "UIKit",
+        "REST",
+        "APNs"
+      ],
+      "id": "icenter",
       "title": "Junior iOS Developer",
-      "level": "junior",
+      "displayFull": "Dec 2013 – Nov 2014",
       "start": "2013-12",
       "end": "2014-11",
-      "displayFull": "Dec 2013 – Nov 2014",
       "displayShort": "2013 – 2014",
-      "project": "Product apps — messaging and content",
+      "location": "Kyiv, Ukraine · On-site",
+      "level": "junior",
       "featured": false,
       "shortInclude": false,
-      "technologies": ["Objective-C", "UIKit", "REST", "APNs"],
-      "technologiesLine": "Objective-C · UIKit · REST · APNs",
+      "project": "Product apps — messaging and content",
+      "productDescription": "Product apps — messaging and content. SMS campaigns, in-app messaging, and news feed on an on-site team.",
       "bullets": [
         "Built SMS campaign and in-app messaging flows — integrated REST APIs and shipped to production.",
         "Owned news feed development end to end and released App Store updates on an on-site product team."
-      ]
+      ],
+      "technologiesLine": "Objective-C · UIKit · REST · APNs"
     }
   ],
   "otherProjects": [
@@ -264,19 +370,41 @@
       "id": "alchemy",
       "name": "Alchemy — Digital Assets & Precious Metals",
       "blurb": "R&D contract MVP (TestFlight, no App Store): KYC, wallet, buy/sell flows. Multi-env builds.",
-      "technologies": ["Swift", "Stripe iOS SDK", "Keychain", "LocalAuthentication", "MVVM", "Swinject", "SPM", "Firebase"]
+      "technologies": [
+        "Swift",
+        "Stripe iOS SDK",
+        "Keychain",
+        "LocalAuthentication",
+        "MVVM",
+        "Swinject",
+        "SPM",
+        "Firebase"
+      ]
     },
     {
       "id": "fliptaxi",
       "name": "Flip Taxi",
       "blurb": "Taxi MVP for Latvia: order a ride and track the car on the map in real time.",
-      "technologies": ["Objective-C", "UIKit", "MapKit", "Google Maps SDK", "WebSockets", "REST", "Push Notifications"]
+      "technologies": [
+        "Objective-C",
+        "UIKit",
+        "MapKit",
+        "Google Maps SDK",
+        "WebSockets",
+        "REST",
+        "Push Notifications"
+      ]
     },
     {
       "id": "news-reader",
       "name": "News reader",
       "blurb": "Ukrainian news app: feed from several sources, read/unread state, and a read-later list.",
-      "technologies": ["Objective-C", "UIKit", "REST", "File storage"]
+      "technologies": [
+        "Objective-C",
+        "UIKit",
+        "REST",
+        "File storage"
+      ]
     }
   ],
   "featuredProjects": [
