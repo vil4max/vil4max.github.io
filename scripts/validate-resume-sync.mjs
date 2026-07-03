@@ -30,13 +30,7 @@ function htmlTextIncludes(html, needle) {
 
 const errors = [];
 
-const publicRoleIds = new Set(
-    source.roles.filter((role) => role.featured).map((role) => role.id),
-);
-
-const omittedFromPublicCv = new Set(
-    source.roles.filter((role) => !role.featured).map((role) => role.id),
-);
+const publicRoleIds = new Set(source.roles.filter((role) => role.featured).map((role) => role.id));
 
 const forbiddenPhrases = [
     "crash-free",
@@ -65,29 +59,16 @@ for (const phrase of forbiddenPhrases) {
     }
 }
 
-for (const roleId of omittedFromPublicCv) {
-    const role = source.roles.find((item) => item.id === roleId);
-    if (role && cvHtml.includes(`id="exp-${roleId}"`)) {
-        errors.push(`cv.html should omit non-featured role: ${roleId}`);
-    }
+const summarySnippet = source.meta.summary?.slice(0, 60) ?? "";
+
+if (!summarySnippet || !htmlIncludes(cvHtml, summarySnippet)) {
+    errors.push("cv.html missing public summary snippet");
 }
 
 for (const role of source.roles) {
-    if (!publicRoleIds.has(role.id)) {
-        continue;
-    }
     if (!cvHtml.includes(role.displayFull)) {
         errors.push(`cv.html missing displayFull for ${role.id}: ${role.displayFull}`);
     }
-}
-
-if (source.earlyCareerShort && !htmlIncludes(cvHtml, source.earlyCareerShort.slice(0, 40))) {
-    errors.push("cv.html missing earlyCareerShort snippet");
-}
-
-const summarySnippet = "Senior iOS Engineer with 12+ years building consumer";
-if (!htmlIncludes(cvHtml, summarySnippet)) {
-    errors.push("cv.html missing public summary snippet");
 }
 
 if (source.meta.skillsLine) {
@@ -97,17 +78,24 @@ if (source.meta.skillsLine) {
     }
 }
 
-for (const roleId of publicRoleIds) {
-    const matches = cvHtml.match(new RegExp(`id="exp-${roleId}"`, "g"));
+for (const role of source.roles) {
+    const matches = cvHtml.match(new RegExp(`id="exp-${role.id}"`, "g"));
     if (!matches || matches.length !== 1) {
         errors.push(
-            `cv.html must contain exactly one exp-${roleId} block (found ${matches?.length ?? 0})`,
+            `cv.html must contain exactly one exp-${role.id} block (found ${matches?.length ?? 0})`,
         );
     }
 }
 
 for (const role of source.roles) {
     if (!publicRoleIds.has(role.id)) {
+        const bulletsToCheck = role.bullets ?? [];
+        for (const bullet of bulletsToCheck) {
+            if (!htmlIncludes(cvHtml, bullet)) {
+                errors.push(`cv.html missing bullet for ${role.id}`);
+                break;
+            }
+        }
         continue;
     }
     if (!role.technologiesLine) {
@@ -142,4 +130,4 @@ if (errors.length > 0) {
     process.exit(1);
 }
 
-console.log(`OK: ${publicRoleIds.size} public roles synced in cv.html`);
+console.log(`OK: ${source.roles.length} roles synced in cv.html`);

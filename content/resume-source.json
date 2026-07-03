@@ -1,9 +1,9 @@
 {
   "meta": {
     "languagesLine": "English — Intermediate",
-    "summary": "Senior iOS Engineer with 12+ years building consumer, fintech, and marketplace applications. Recent work includes a watchOS voice AI R&D client, a shared Premium Subscription SDK used across multiple host apps, and an analytics abstraction layer routing events to Amplitude, Mixpanel, AppsFlyer, Firebase, PostHog, and Sentry. Use AI coding agents daily for implementation, testing, code review, and large-scale refactoring.",
-    "summaryShort": "Senior iOS Engineer with 12+ years building consumer, fintech, and marketplace applications. Recent work includes a watchOS voice AI R&D client, a shared Premium Subscription SDK used across multiple host apps, and an analytics abstraction layer routing events to Amplitude, Mixpanel, AppsFlyer, Firebase, PostHog, and Sentry. Use AI coding agents daily for implementation, testing, code review, and large-scale refactoring.",
-    "landingAbout": "Senior iOS Engineer with 12+ years building consumer, fintech, and marketplace applications. Recent work includes a watchOS voice AI R&D client, a shared Premium Subscription SDK used across multiple host apps, and an analytics abstraction layer routing events to Amplitude, Mixpanel, AppsFlyer, Firebase, PostHog, and Sentry. Use AI coding agents daily for implementation, testing, code review, and large-scale refactoring.",
+    "summary": "Senior iOS Engineer with 12+ years building and shipping consumer, fintech, and marketplace applications. I own features end-to-end — from architecture and modular SDK extraction to App Store delivery. Recent work spans watchOS voice AI R&D, a shared Premium Subscription SDK across host apps, and vendor-agnostic analytics, so the product code does not depend on the connected SDK. I use AI coding agents daily for implementation, testing, code review, and large-scale refactoring.",
+    "summaryShort": "Senior iOS Engineer with 12+ years building and shipping consumer, fintech, and marketplace applications. I own features end-to-end — from architecture and modular SDK extraction to App Store delivery. Recent work spans watchOS voice AI R&D, a shared Premium Subscription SDK across host apps, and vendor-agnostic analytics, so the product code does not depend on the connected SDK. I use AI coding agents daily for implementation, testing, code review, and large-scale refactoring.",
+    "landingAbout": "Senior iOS Engineer with 12+ years building and shipping consumer, fintech, and marketplace applications. I own features end-to-end — from architecture and modular SDK extraction to App Store delivery. Recent work spans watchOS voice AI R&D, a shared Premium Subscription SDK across host apps, and vendor-agnostic analytics, so the product code does not depend on the connected SDK. I use AI coding agents daily for implementation, testing, code review, and large-scale refactoring.",
     "summaryBullets": [
       "12+ years commercial iOS — indie releases through large marketplaces and SDK platforms",
       "Feature ownership — Premium Subscription module; Premium Subscription SDK extraction",
@@ -47,7 +47,7 @@
     "watchOS voice AI R&D — full on-watch flows; VelocityAI beta",
     "Third-party libraries — Alamofire, RxSwift, DI, Stripe, Firebase, maps, web3; SPM and CocoaPods in production apps"
   ],
-  "earlyCareerShort": "Junior iOS in product companies and indie App Store apps. Full experience at [vil4max.github.io](http://vil4max.github.io) — newest first.",
+  "earlyCareerShort": "",
   "education": [
     {
       "institution": "Donetsk State University of Management",

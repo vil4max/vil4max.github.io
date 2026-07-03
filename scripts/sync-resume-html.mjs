@@ -38,17 +38,40 @@ function skillsLineHtml(skillsLine) {
     return `          <p class="skills-ats skills-line">${escapeHtml(skillsLine)}</p>`;
 }
 
-function roleBullets(role) {
-    const bullets = role.bullets ?? role.bulletsShort ?? [];
-    return bullets
-        .map((bullet) => `            <li>${escapeHtml(bullet)}</li>`)
+function roleBullets(role, preferShort = false) {
+    const bullets =
+        preferShort && role.bulletsShort?.length
+            ? role.bulletsShort
+            : (role.bullets ?? role.bulletsShort ?? []);
+    return bullets.map((bullet) => `            <li>${escapeHtml(bullet)}</li>`).join("\n");
+}
+
+function projectName(role) {
+    if (role.project?.includes("—")) {
+        return role.project;
+    }
+    return role.productDescription?.split(".")[0] ?? role.project ?? "";
+}
+
+function projectsDetailBlock(role) {
+    if (!role.projectsDetail?.length) {
+        return "";
+    }
+    const items = role.projectsDetail
+        .map(
+            (project) =>
+                `              <li><span class="exp-project-name-inline">${escapeHtml(project.name)}</span> — ${escapeHtml(project.summary)}</li>`,
+        )
         .join("\n");
+    return `          <div class="exp-projects-block">
+            <span class="exp-project-label">Projects</span>
+            <ul class="exp-projects-list">
+${items}
+            </ul>
+          </div>`;
 }
 
 function experienceItem(role) {
-    const projectName = role.project?.includes("—")
-        ? role.project
-        : role.productDescription?.split(".")[0] ?? role.project ?? "";
     const context = role.myRole ?? "";
     const techLine = role.technologiesLine ?? "";
     return `        <div class="experience-item experience-item--highlight" id="exp-${role.id}">
@@ -60,7 +83,7 @@ function experienceItem(role) {
             <span class="exp-role-dates">${escapeHtml(role.displayFull)}</span>
           </div>
           <div class="exp-company-loc-line">${escapeHtml(role.location)}</div>
-          <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">${escapeHtml(projectName)}</span></div>
+          <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">${escapeHtml(projectName(role))}</span></div>
           <p class="exp-role-context">${escapeHtml(context)}</p>
           <ul>
 ${roleBullets(role)}
@@ -69,8 +92,22 @@ ${roleBullets(role)}
         </div>`;
 }
 
-function featuredRoles(roles) {
-    return roles.filter((role) => role.featured);
+function compactExperienceItem(role) {
+    const techLine = role.technologiesLine ?? "";
+    return `        <div class="experience-item experience-item--compact" id="exp-${role.id}">
+          <div class="exp-company-line"><span class="exp-company-name">${escapeHtml(role.company)}</span> <span class="exp-company-loc">${escapeHtml(role.location)}</span></div>
+          <div class="exp-role"><span class="exp-role-title">${escapeHtml(role.title)}</span><span class="exp-role-sep">·</span><span class="exp-role-dates">${escapeHtml(role.displayFull)}</span></div>
+          <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">${escapeHtml(projectName(role))}</span></div>
+${projectsDetailBlock(role)}
+          <ul>
+${roleBullets(role)}
+          </ul>
+          <p class="exp-tech-line">${escapeHtml(techLine)}</p>
+        </div>`;
+}
+
+function experienceItemForRole(role) {
+    return role.featured ? experienceItem(role) : compactExperienceItem(role);
 }
 
 function replaceSectionContent(html, sectionClass, innerHtml) {
@@ -112,20 +149,14 @@ cvHtml = replaceSectionContent(
 ${summaryParagraphs(source.meta.summary ?? "")}`,
 );
 
-const experienceTimelineEnd =
-    '        </div>\n        <p class="exp-meta exp-early-career">';
+const experienceTimelineEnd = "        </div>\n      </section>";
 
-const experienceHtml = featuredRoles(source.roles).map(experienceItem).join("\n\n");
+const experienceHtml = source.roles.map(experienceItemForRole).join("\n\n");
 cvHtml = replaceBetween(
     cvHtml,
     '        <div class="experience-timeline">',
     experienceTimelineEnd,
-    experienceHtml,
-);
-
-cvHtml = cvHtml.replace(
-    /<p class="exp-meta exp-early-career">Early career footer placeholder\.<\/p>/,
-    `<p class="exp-meta exp-early-career">${escapeHtml(source.earlyCareerShort?.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") ?? "")}</p>`,
+    `${experienceHtml}\n        `,
 );
 
 fs.writeFileSync(cvPath, cvHtml);

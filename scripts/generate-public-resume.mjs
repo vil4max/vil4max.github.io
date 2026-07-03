@@ -44,15 +44,15 @@ function extractLanguages(profileMarkdown) {
 }
 
 function buildPublicExperience(roles) {
-    const featured = roles.filter((role) => role.featured);
     const blocks = ["## Professional Experience", ""];
-    for (const role of featured) {
+    for (const role of roles) {
         blocks.push(`### ${role.company}`, "");
         blocks.push(`#### Product`, "", role.productDescription ?? role.project ?? "", "");
         if (role.myRole) {
             blocks.push(`#### My role`, "", role.myRole, "");
         }
-        const bullets = role.bulletsShort?.length ? role.bulletsShort : role.bullets ?? [];
+        const bullets =
+            role.featured && role.bulletsShort?.length ? role.bulletsShort : (role.bullets ?? []);
         blocks.push(`#### Responsibilities`, "", ...bullets.map((item) => `- ${item}`), "");
     }
     return blocks.join("\n").trimEnd();
@@ -64,9 +64,7 @@ function buildPublicResume(profileMarkdown) {
     const languages = extractLanguages(profileMarkdown);
     const skills = extractSkillsSection(profileMarkdown);
     const experience = buildPublicExperience(parsed.roles);
-    const earlyCareer = parsed.earlyCareerShort
-        ? `## Early career\n\n${parsed.earlyCareerShort}`
-        : "";
+
     const summary = parsed.meta.summary?.trim() ?? "";
     const highlights = parsed.highlights ?? [];
 
@@ -89,8 +87,6 @@ function buildPublicResume(profileMarkdown) {
         skills,
         "",
         experience,
-        "",
-        earlyCareer,
         "",
     ]
         .filter((block, index, array) => !(block === "" && index === array.length - 1))
