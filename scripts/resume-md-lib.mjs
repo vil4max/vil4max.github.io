@@ -272,7 +272,10 @@ export function parseResumeMarkdown(markdown) {
         if (section === "Summary") {
             result.meta.summary = sectionLines.join("\n").trim();
             result.meta.summaryShort = result.meta.summary;
-            result.meta.landingAbout = result.meta.summary;
+            continue;
+        }
+        if (section === "Landing about") {
+            result.meta.landingAbout = sectionLines.join("\n").trim();
             continue;
         }
         if (section === "Highlights") {

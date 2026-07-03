@@ -19,19 +19,63 @@ function escapeHtml(text) {
         .replace(/"/g, "&quot;");
 }
 
-function aboutParagraphs(summary) {
+function formatInlineMarkdown(text) {
+    const parts = [];
+    let last = 0;
+    const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+    let match = linkPattern.exec(text);
+    while (match) {
+        if (match.index > last) {
+            parts.push(escapeHtml(text.slice(last, match.index)));
+        }
+        parts.push(`<a href="${escapeHtml(match[2])}">${escapeHtml(match[1])}</a>`);
+        last = match.index + match[0].length;
+        match = linkPattern.exec(text);
+    }
+    if (last < text.length) {
+        parts.push(escapeHtml(text.slice(last)));
+    }
+    return parts.join("");
+}
+
+function landingAboutHtml(raw) {
+    const blocks = raw.split(/\n\s*\n/).filter((block) => block.trim());
+    const parts = [];
+    for (const block of blocks) {
+        const lines = block
+            .split("\n")
+            .map((line) => line.trim())
+            .filter(Boolean);
+        const listLines = lines.filter((line) => line.startsWith("- "));
+        const proseLines = lines.filter((line) => !line.startsWith("- "));
+        for (const line of proseLines) {
+            parts.push(`          <p>${formatInlineMarkdown(line)}</p>`);
+        }
+        if (listLines.length > 0) {
+            const items = listLines
+                .map((line) => `            <li>${escapeHtml(line.slice(2))}</li>`)
+                .join("\n");
+            parts.push(`          <ul class="landing-about-recent">\n${items}\n          </ul>`);
+        }
+    }
+    return parts.join("\n");
+}
+
+function landingLanguagesHtml(languagesLine) {
+    const match = languagesLine?.match(/^(.+?)\s*—\s*(.+)$/);
+    if (!match) {
+        return "";
+    }
+    return `          <p class="landing-langs">🌐 <strong class="language-name">${escapeHtml(match[1].trim())}</strong> — ${escapeHtml(match[2].trim())}</p>`;
+}
+
+function summaryParagraphs(summary) {
     return summary
         .split(/\n\s*\n/)
         .map((part) => part.trim())
         .filter(Boolean)
-        .map((part) => `          <p>${escapeHtml(part)}</p>`)
+        .map((part) => `        <p class="cv-summary">${escapeHtml(part)}</p>`)
         .join("\n");
-}
-
-function summaryParagraphs(summary) {
-    return aboutParagraphs(summary)
-        .replace(/^          /gm, "        ")
-        .replace(/<p>/g, '<p class="cv-summary">');
 }
 
 function skillsLineHtml(skillsLine) {
@@ -162,22 +206,15 @@ cvHtml = replaceBetween(
 fs.writeFileSync(cvPath, cvHtml);
 
 let indexHtml = fs.readFileSync(indexPath, "utf8");
-const aboutHtml = aboutParagraphs(source.meta.summary ?? "");
-const highlightsHtml = (source.highlights ?? [])
-    .map((item) => `            <li>${escapeHtml(item)}</li>`)
-    .join("\n");
+const landingRaw = source.meta.landingAbout ?? source.meta.summary ?? "";
+const landingHtml = `${landingAboutHtml(landingRaw)}
+${landingLanguagesHtml(source.meta.languagesLine ?? "")}`;
 
 indexHtml = replaceBetween(
     indexHtml,
     '        <div class="landing-about">',
-    '          <ul class="landing-highlights">',
-    `${aboutHtml}
-          <ul class="landing-highlights">`,
-);
-
-indexHtml = indexHtml.replace(
-    /(<div class="landing-about">[\s\S]*?)<ul class="landing-highlights">[\s\S]*?<\/ul>/,
-    `$1<ul class="landing-highlights">\n${highlightsHtml}\n          </ul>`,
+    "        </div>",
+    `\n${landingHtml}\n        `,
 );
 
 fs.writeFileSync(indexPath, indexHtml);

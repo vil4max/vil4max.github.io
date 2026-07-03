@@ -246,9 +246,10 @@
       margin-bottom: 0;
     }
 
-    .landing-about ul.landing-highlights {
-      margin-top: 12px;
-      margin-bottom: 16px;
+    .landing-about ul.landing-highlights,
+    .landing-about ul.landing-about-recent {
+      margin-top: 4px;
+      margin-bottom: 12px;
     }
 
     .landing-langs {
