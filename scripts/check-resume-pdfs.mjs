@@ -1,14 +1,7 @@
-import { createHash } from "node:crypto";
-import { readFile, stat } from "node:fs/promises";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import {
-    publicResumeSourcePath,
-    publishedProfilePath,
-    publishedResumePath,
-    sourceOfTruthPath,
-} from "./resume-paths.mjs";
+import { stat } from "node:fs/promises";
 
 const repoRoot = process.cwd();
 const iCloudResumeDir = path.join(
@@ -17,10 +10,6 @@ const iCloudResumeDir = path.join(
 );
 
 const cvHtml = path.resolve(repoRoot, "cv.html");
-const canonicalPublicMd = publicResumeSourcePath;
-const canonicalSourceMd = sourceOfTruthPath;
-const publicResumeMd = publishedResumePath;
-const publicProfileMd = publishedProfilePath;
 const resumePdfAssets = path.resolve(repoRoot, "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf");
 const resumePdfICloud = path.resolve(iCloudResumeDir, "Vilchevskiy_iOS_Engineer.pdf");
 
@@ -53,36 +42,6 @@ function countPdfPages(pdfPath) {
     return pageMatches ? pageMatches.length : 0;
 }
 
-function stripPrivateBlocks(markdown) {
-    const privateStart = "<!-- @visibility: private -->";
-    const privateEnd = "<!-- @end -->";
-    let published = markdown;
-    while (published.includes(privateStart)) {
-        const start = published.indexOf(privateStart);
-        const end = published.indexOf(privateEnd, start);
-        if (end === -1) {
-            break;
-        }
-        published = published.slice(0, start) + published.slice(end + privateEnd.length);
-    }
-    return published.trimEnd() + "\n";
-}
-
-function hashText(text) {
-    return createHash("sha256").update(text).digest("hex");
-}
-
-async function ensurePublishedMatches(sourcePath, outputPath, label) {
-    const source = await readFile(sourcePath, "utf8");
-    const published = await readFile(outputPath, "utf8");
-    const expected = stripPrivateBlocks(source);
-    if (hashText(published) !== hashText(expected)) {
-        throw new Error(
-            `${label} is stale.\nSource: ${sourcePath}\nPublished: ${outputPath}\nFix: npm run resume:build`
-        );
-    }
-}
-
 const checks = [
     { label: "assets/resume", pdfPath: resumePdfAssets, sourceHtmlPath: cvHtml },
     { label: "iCloud/resume", pdfPath: resumePdfICloud, sourceHtmlPath: cvHtml, optional: true },
@@ -107,10 +66,7 @@ try {
         );
     }
 
-    await ensurePublishedMatches(canonicalPublicMd, publicResumeMd, "resume.md");
-    await ensurePublishedMatches(canonicalSourceMd, publicProfileMd, "profile.md");
-
-    process.stdout.write("OK: PDFs and markdown publishes are up to date.\n");
+    process.stdout.write("OK: PDFs are up to date.\n");
 } catch (error) {
     process.stderr.write(`${error?.message ?? String(error)}\n`);
     process.exitCode = 1;

@@ -446,8 +446,8 @@
     }
 
     .landing-cta--downloads .download-btn {
-      flex: 1 1 11rem;
-      max-width: 15rem;
+      flex: 0 1 auto;
+      max-width: none;
     }
 
     .download-btn {

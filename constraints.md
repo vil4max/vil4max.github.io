@@ -3,8 +3,8 @@
 ## Source of truth
 
 - **Edit only:** `content/source-of-truth.md`
-- **Never hand-edit:** `content/resume.md`, `content/resume-source.json`, root `resume.md`, root `profile.md`, HTML, PDFs
-- **Generated chain:** `content/source-of-truth.md` → generate-public-resume → `content/resume.md` → parse → compare-json → `resume-source.json` → validate HTML → PDF from `cv.html` → publish `resume.md` + `profile.md`
+- **Never hand-edit:** `content/resume.md`, `content/resume-source.json`, HTML, PDFs
+- **Generated chain:** `content/source-of-truth.md` → generate-public-resume → `content/resume.md` → parse → compare-json → `resume-source.json` → validate HTML → PDF from `cv.html`
 
 ## Build commands
 
@@ -14,7 +14,7 @@ npm run resume:build
 npm run resume:check
 ```
 
-Individual steps: `generate-public-resume.mjs`, `resume:parse`, `resume:compare-json`, `resume:publish-md`, `publish-profile-md.mjs`, `resume:validate`, `resume:pdf`
+Individual steps: `generate-public-resume.mjs`, `resume:parse`, `resume:compare-json`, `resume:validate`, `resume:pdf`
 
 One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run resume:bootstrap-md`
 
@@ -22,8 +22,7 @@ One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run re
 
 | Output | Source |
 |--------|--------|
-| `profile.md` (AI / full master) | `content/source-of-truth.md` (strip `@visibility: private` blocks) |
-| `resume.md` (public download) | Generated from `content/source-of-truth.md` → `content/resume.md` |
+| `content/resume.md` (build artifact) | Generated from `content/source-of-truth.md` |
 | `cv.html`, `projects.html`, `index.html` | Validated against parsed JSON; HTML hand-maintained until optional auto-sync |
 | `../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf` | `cv.html` + `resume-pdf.css` (A4 print, Playwright) |
 | `../vil4max/README.md` | Hand-maintained; sync with `index.html` narrative |
@@ -51,10 +50,9 @@ One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run re
 Profile/
   vil4max.github.io/
     content/source-of-truth.md  ← EDIT HERE
-    content/resume.md           ← generated (lean public)
+    content/resume.md           ← generated (build artifact, not published at site root)
     content/resume-source.json  ← generated
-    resume.md                   ← generated (public download)
-    profile.md                  ← generated (AI agents)
+    cv.html, index.html, …      ← PDF download only (no public .md)
   vil4max/
     README.md                   ← GitHub profile; sync with index.html
     assets/*.pdf                ← generated

@@ -28,8 +28,6 @@ const parsed = JSON.parse(fs.readFileSync(tmpPath, "utf8"));
 fs.writeFileSync(goldenPath, `${JSON.stringify(parsed, null, 2)}\n`);
 fs.unlinkSync(tmpPath);
 
-run("publish-resume-md.mjs");
-run("publish-profile-md.mjs");
 run("sync-resume-html.mjs");
 run("validate-resume-sync.mjs");
 run("generate-resume-pdf.mjs", ["cv.html", "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf"]);

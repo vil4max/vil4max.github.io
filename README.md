@@ -10,7 +10,7 @@ Source for my public CV/portfolio website.
 | `cv.html` | Public resume (2–3 page PDF) |
 | `projects.html` | Project case studies + screenshots |
 
-Nav on every page: **About me · Resume · Projects**. Downloads (PDF + Markdown) on all three pages.
+Nav on every page: **About me · Resume · Projects**. PDF download on all three pages.
 
 ## Edit content
 
