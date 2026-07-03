@@ -8,8 +8,6 @@
     "resume:validate": "node scripts/validate-resume-sync.mjs",
     "resume:parse": "node scripts/parse-resume-md.mjs",
     "resume:compare-json": "node scripts/compare-resume-json.mjs",
-    "resume:publish-md": "node scripts/publish-resume-md.mjs",
-    "resume:publish-profile": "node scripts/publish-profile-md.mjs",
     "resume:bootstrap-md": "node scripts/bootstrap-resume-md.mjs",
     "resume:build": "node scripts/run-resume-build.mjs",
     "resume:check": "node scripts/check-resume-pdfs.mjs",

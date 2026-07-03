@@ -31,7 +31,7 @@
       "city": "Kyiv",
       "preferredWorkCountries": "Ukraine"
     },
-    "syncRule": "Edit content/resume.md only, then run npm run resume:build — see constraints.md."
+    "syncRule": "Edit content/source-of-truth.md only, then run npm run resume:build — see constraints.md."
   },
   "contacts": {
     "email": "vil4max@gmail.com",

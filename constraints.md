@@ -16,6 +16,8 @@ npm run resume:check
 
 Individual steps: `generate-public-resume.mjs`, `resume:parse`, `resume:compare-json`, `resume:validate`, `resume:pdf`
 
+Do not publish root `resume.md` or `profile.md` — recruiter surface is PDF + landing only (`npm run resume:build` does not copy Markdown to site root).
+
 One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run resume:bootstrap-md`
 
 ## Surfaces map

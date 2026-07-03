@@ -20,6 +20,7 @@ function run(scriptName, args = []) {
 const tmpPath = path.join(root, "content", ".resume-source.json.tmp");
 const goldenPath = path.join(root, "content", "resume-source.json");
 
+run("validate-source-markdown.mjs");
 run("generate-public-resume.mjs");
 run("parse-resume-md.mjs", [tmpPath]);
 run("compare-resume-json.mjs", [tmpPath]);

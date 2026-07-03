@@ -421,7 +421,7 @@ export function parseResumeMarkdown(markdown) {
         preferredWorkCountries: frontmatter.applyPreferredWorkCountries ?? "Ukraine",
     };
     result.meta.syncRule =
-        "Edit content/resume.md only, then run npm run resume:build — see constraints.md.";
+        "Edit content/source-of-truth.md only, then run npm run resume:build — see constraints.md.";
     return result;
 }
 
