@@ -1,0 +1,250 @@
+@page {
+    size: A4 portrait;
+}
+
+@media print {
+    body.cv-page {
+        background: #ffffff !important;
+        color: #000000;
+        font-size: 11.5pt;
+        line-height: 1.5;
+    }
+
+    body.cv-page .page {
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    body.cv-page header {
+        position: static;
+        border-bottom: 1px solid #000000;
+        box-shadow: none;
+        padding-bottom: 12px;
+        margin-bottom: 14px;
+    }
+
+    body.cv-page main {
+        padding: 0;
+    }
+
+    body.cv-page .landing-downloads,
+    body.cv-page .site-nav,
+    body.cv-page .cv-print-omit {
+        display: none !important;
+    }
+
+    body.cv-page header img,
+    body.cv-page .header-identity img {
+        display: none !important;
+    }
+
+    body.cv-page .header-meta-contacts--screen {
+        display: none !important;
+    }
+
+    body.cv-page .header-meta-contacts--print {
+        display: block !important;
+        color: #000000;
+    }
+
+    body.cv-page .header-meta,
+    body.cv-page .header-meta-languages,
+    body.cv-page .language-name,
+    body.cv-page .header-location {
+        color: #000000;
+    }
+
+    body.cv-page .header-meta {
+        font-size: 10pt;
+        line-height: 1.45;
+    }
+
+    body.cv-page h1 {
+        font-size: 17pt;
+    }
+
+    body.cv-page .header-role {
+        font-size: 12pt;
+    }
+
+    body.cv-page section {
+        margin-bottom: 14px;
+    }
+
+    body.cv-page h3 {
+        font-size: 12pt;
+        margin-bottom: 10px;
+        color: #000000;
+    }
+
+    body.cv-page h3::before {
+        height: 16px;
+    }
+
+    body.cv-page a {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    body.cv-page .cv-languages-line {
+        font-size: 10pt;
+        margin: 8px 0 0;
+        color: #000000;
+    }
+
+    body.cv-page .header-meta-languages {
+        display: none !important;
+    }
+
+    body.cv-page .skills-ats {
+        font-size: 9pt;
+        line-height: 1.45;
+        color: #333333;
+        margin: 0;
+    }
+
+    body.cv-page .skills-line {
+        font-size: 9pt;
+        line-height: 1.48;
+    }
+
+    body.cv-page .skills-inline .skills-ats + .skills-ats {
+        margin-top: 4px;
+    }
+
+    body.cv-page .cv-section-skills {
+        margin-bottom: 12px;
+    }
+
+    body.cv-page .cv-section-skills h3 {
+        font-size: 12pt;
+        margin-bottom: 8px;
+    }
+
+    body.cv-page .cv-section-summary h3 {
+        font-size: 12pt;
+        margin-bottom: 10px;
+    }
+
+    body.cv-page .cv-section-summary .cv-summary {
+        font-size: 10.5pt;
+        line-height: 1.55;
+        max-width: none;
+        margin: 0;
+    }
+
+    body.cv-page .cv-section-summary .cv-summary + .cv-summary {
+        margin-top: 8px;
+    }
+
+    body.cv-page .lang-card {
+        break-inside: auto;
+        page-break-inside: auto;
+        padding: 8px 10px;
+        box-shadow: none;
+        border: 1px solid #cccccc;
+    }
+
+    body.cv-page .education-line {
+        font-size: 10.5pt;
+    }
+
+    body.cv-page .education-detail {
+        font-size: 10pt;
+        color: #333333;
+    }
+
+    body.cv-page .cv-section-experience h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+        margin-bottom: 10px;
+    }
+
+    body.cv-page .experience-item {
+        box-shadow: none;
+        border: 1px solid #cccccc;
+        background: #ffffff;
+    }
+
+    body.cv-page .experience-timeline .experience-item {
+        break-inside: auto;
+        page-break-inside: auto;
+        margin-bottom: 12px;
+        padding: 10px 12px 10px 16px;
+    }
+
+    body.cv-page .exp-role-head {
+        margin-bottom: 6px;
+        line-height: 1.5;
+    }
+
+    body.cv-page .exp-company-name {
+        font-size: 11.5pt;
+    }
+
+    body.cv-page .exp-role-head .exp-role-title {
+        font-size: 11pt;
+    }
+
+    body.cv-page .exp-role-dates {
+        font-size: 10pt;
+    }
+
+    body.cv-page .exp-company-loc-line {
+        font-size: 9.5pt;
+        line-height: 1.45;
+        margin: 0 0 8px;
+        color: #444444;
+    }
+
+    body.cv-page .exp-project {
+        font-size: 9.5pt;
+        line-height: 1.45;
+        margin-bottom: 6px;
+    }
+
+    body.cv-page .exp-role-context {
+        font-size: 10pt;
+        line-height: 1.5;
+        margin: 6px 0 8px;
+        color: #333333;
+    }
+
+    body.cv-page .experience-item ul {
+        font-size: 10.5pt;
+        margin-top: 6px;
+        padding-left: 18px;
+    }
+
+    body.cv-page .experience-item li {
+        margin-bottom: 5px;
+        line-height: 1.5;
+    }
+
+    body.cv-page .experience-item li:last-child {
+        margin-bottom: 0;
+    }
+
+    body.cv-page .exp-tech-line {
+        font-size: 8.5pt;
+        line-height: 1.4;
+        color: #444444;
+        margin: 8px 0 0;
+    }
+
+    body.cv-page .exp-early-career {
+        font-size: 9.5pt;
+        line-height: 1.45;
+        margin-top: 12px;
+    }
+
+    body.cv-page .cv-pdf-footer {
+        border-top: 1px solid #cccccc;
+        padding: 8px 0 0;
+        margin-top: 12px;
+        font-size: 9pt;
+        color: #000000;
+        text-align: center;
+    }
+}

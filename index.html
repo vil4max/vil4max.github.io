@@ -30,18 +30,17 @@
           </div>
           <nav class="site-nav" aria-label="Site">
             <a href="index.html" aria-current="page">About me</a><span class="site-nav-sep">·</span>
-            <a href="cv.html">Full resume</a><span class="site-nav-sep">·</span>
-            <a href="projects.html">Projects</a><span class="site-nav-sep">·</span>
-            <a href="index-short.html">One-page resume</a>
+            <a href="cv.html">Resume</a><span class="site-nav-sep">·</span>
+            <a href="projects.html">Projects</a>
           </nav>
           <div class="landing-downloads">
             <p class="landing-downloads-label">Downloads</p>
             <div class="landing-cta">
-              <a class="download-btn" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Vilchevskiy_iOS_Engineer.pdf">Resume (PDF — 1 page)</a>
-              <a class="download-btn download-btn--outline" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Vilchevskiy_iOS_Engineer_detailed.pdf">Resume (PDF — full timeline)</a>
-              <a class="download-btn download-btn--outline" href="resume.md">Resume (Markdown — AI friendly)</a>
+              <a class="download-btn" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Vilchevskiy_iOS_Engineer.pdf">Resume (PDF)</a>
+              <a class="download-btn download-btn--outline" href="profile.md">Profile (Markdown — AI)</a>
+              <a class="download-btn download-btn--outline" href="resume.md">Resume (Markdown)</a>
             </div>
-            <p class="landing-downloads-note">Markdown version is optimized for AI assistants, ATS systems, and recruiter workflows.</p>
+            <p class="landing-downloads-note">Profile markdown is the full source for AI agents. Resume markdown and PDF are recruiter-facing.</p>
           </div>
         </div>
       </div>
@@ -51,12 +50,13 @@
       <section>
         <h3><span class="section-heading-text">About</span><span class="section-mark" aria-hidden="true">👤</span></h3>
         <div class="landing-about">
-          <p>12+ years commercial iOS across startups and large product apps — multiple iOS generations, architectural decisions in production. Owned: Premium Subscription (technical lead through App Store; StoreKit / in-app purchasing); extracted Premium into a shared loyalty SDK for multiple host apps — isolated modules, dedicated networking layer, module-internal models. Also shipped features in large production apps (marketplace loyalty squad; Drinkit coffee QSR — pre-order and customization on a small iOS team). Product-minded delivery, not outsource-by-spec.</p>
-          <p>Practical AI: watchOS voice AI R&amp;D (speech, App Intents, agent-style structured outputs), enterprise GenAI SDLC beta (VelocityAI); daily Cursor/Copilot. UIKit/SwiftUI, SPM, TestFlight → App Store. Full timeline: vil4max.github.io.</p>
+          <p>Senior iOS Engineer with 12+ years building consumer, fintech, and marketplace applications. Recent work includes a watchOS voice AI R&amp;D client, a shared Premium Subscription SDK used across multiple host apps, and an analytics abstraction layer routing events to Amplitude, Mixpanel, AppsFlyer, Firebase, PostHog, and Sentry. Use AI coding agents daily for implementation, testing, code review, and large-scale refactoring.</p>
           <ul class="landing-highlights">
-            <li>12+ years commercial iOS — indie releases through large marketplace and SDK platforms</li>
-            <li>Feature ownership — Premium Subscription (tech lead, App Store); shared loyalty SDK extraction; watchOS Voice AI R&amp;D (lead)</li>
-            <li>SDK modularization — Premium extracted into an independent module inside a shared loyalty SDK used across host apps</li>
+            <li>12+ years commercial iOS — indie releases through large marketplaces and SDK platforms</li>
+            <li>Feature ownership — Premium Subscription module; Premium Subscription SDK extraction</li>
+            <li>Analytics module — multi-analytics SDK routing at Birmarket</li>
+            <li>watchOS voice AI R&amp;D — full on-watch flows; VelocityAI beta</li>
+            <li>Third-party libraries — Alamofire, RxSwift, DI, Stripe, Firebase, maps, web3; SPM and CocoaPods in production apps</li>
           </ul>
           <p class="landing-langs">🌐 <strong class="language-name">English</strong> — Intermediate</p>
         </div>
@@ -64,20 +64,18 @@
 
       <section>
         <h3><span class="section-heading-text">Agentic engineering</span><span class="section-mark" aria-hidden="true">🤖</span></h3>
-        <p class="landing-agentic-lead">AI-assisted tooling is part of how I ship iOS work — refactors, tests, SDK exploration, and architecture spikes — with full review before anything reaches production.</p>
-        <ul class="landing-highlights">
-          <li><strong>Cursor</strong> — daily workflow: refactoring, tests, exploration, structured multi-step tasks</li>
-          <li><strong>GitHub Copilot</strong> — autocomplete and boilerplate in Xcode and Cursor</li>
-          <li><strong>SDK delivery</strong> — AI-assisted docs and test drafts; review and merge before ship</li>
-          <li><strong>VelocityAI</strong> — beta-tested enterprise GenAI platform (AI-powered SDLC) on a client engagement</li>
-          <li><strong>On-device AI</strong> — watchOS voice AI (speech, AVFoundation); App Intents; structured outputs from voice/agent flows</li>
-        </ul>
-        <p class="landing-agentic-note">12+ years commercial iOS — owned Premium/SDK delivery and watchOS voice AI R&amp;D; modular shared-SDK patterns. Practical AI (voice, App Intents, VelocityAI) alongside UIKit/SwiftUI shipping.</p>
+        <p class="landing-agentic-lead">I leverage AI agents and assistants throughout the iOS development cycle, from ideation and implementation to testing, documentation, refactoring, and TestFlight. All steps are reviewed prior to production.</p>
+        <p class="landing-agentic-tools">Cursor · Cursor Composer · GitHub Copilot · OpenAI · ChatGPT · OpenAI Codex · Anthropic · Claude · Claude Opus · Claude Sonnet · Google Gemini · VelocityAI</p>
       </section>
 
       <section>
         <h3><span class="section-heading-text">Career direction</span><span class="section-mark" aria-hidden="true">🎯</span></h3>
-        <p class="landing-career-direction">Senior iOS engineer growing into mobile product engineering with on-device AI — shipping AI-assisted features (voice, intents, tool calling) as production iOS code. Building agent-aware engineering habits alongside UIKit/SwiftUI, SDK modularization, and App Store delivery.</p>
+        <p class="landing-career-direction">As a senior iOS engineer, I am focused on advancing my AI engineering skills for mobile and watchOS products and related services. I integrate practical AI tools and agents into my development process, rather than treating AI as an add-on to completed applications.</p>
+        <ul class="landing-highlights landing-focus">
+          <li>AI-assisted products end-to-end — client UX through APIs and backend/ML where the product needs them.</li>
+          <li>On-device and hybrid AI flows — fast, reliable, predictable for users.</li>
+          <li>Agentic tooling in daily engineering; all production code is human-reviewed</li>
+        </ul>
       </section>
 
       <section>

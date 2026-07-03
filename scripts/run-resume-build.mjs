@@ -20,6 +20,7 @@ function run(scriptName, args = []) {
 const tmpPath = path.join(root, "content", ".resume-source.json.tmp");
 const goldenPath = path.join(root, "content", "resume-source.json");
 
+run("generate-public-resume.mjs");
 run("parse-resume-md.mjs", [tmpPath]);
 run("compare-resume-json.mjs", [tmpPath]);
 
@@ -28,9 +29,10 @@ fs.writeFileSync(goldenPath, `${JSON.stringify(parsed, null, 2)}\n`);
 fs.unlinkSync(tmpPath);
 
 run("publish-resume-md.mjs");
+run("publish-profile-md.mjs");
+run("sync-resume-html.mjs");
 run("validate-resume-sync.mjs");
-run("generate-resume-pdf.mjs", ["index-short.html", "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf"]);
-run("generate-resume-pdf.mjs", ["cv.html", "../vil4max/assets/Vilchevskiy_iOS_Engineer_detailed.pdf"]);
+run("generate-resume-pdf.mjs", ["cv.html", "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf"]);
 run("check-resume-pdfs.mjs");
 
 console.log("OK: resume build complete");

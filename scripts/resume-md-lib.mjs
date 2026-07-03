@@ -283,10 +283,17 @@ export function parseResumeMarkdown(markdown) {
         if (section === "Skills") {
             const lineShortSection = sectionLines.findIndex((item) => item.trim() === "### Line short");
             if (lineShortSection !== -1) {
-                const lineBody = sectionLines
-                    .slice(lineShortSection + 1)
-                    .find((item) => item.trim() && !item.startsWith("#"));
-                result.meta.skillsLineShort = lineBody?.trim() ?? "";
+                const lineBody = [];
+                for (let lineIndex = lineShortSection + 1; lineIndex < sectionLines.length; lineIndex += 1) {
+                    const line = sectionLines[lineIndex].trim();
+                    if (line.startsWith("### ")) {
+                        break;
+                    }
+                    if (line) {
+                        lineBody.push(line);
+                    }
+                }
+                result.meta.skillsLineShort = lineBody.join("\n");
             }
             const lineSection = sectionLines.findIndex((item) => item.trim() === "### Line");
             if (lineSection !== -1) {
@@ -454,10 +461,10 @@ const roleProductDescriptions = {
 
 const roleMyRoles = {
     globallogic:
-        "Lead iOS engineer on watchOS client — architecture, Watch ↔ iPhone connectivity, TestFlight delivery.",
+        "Senior iOS engineer on watchOS client — architecture, Watch ↔ iPhone connectivity, TestFlight delivery.",
     pasha: "Senior iOS engineer on marketplace commerce and Premium Subscription technical lead inside the loyalty squad.",
     dodo: "iOS engineer on a three-person team — ordering UX, video clips, checkout, and production releases.",
-    electus: "Lead iOS engineer on startup delivery; mentored a junior engineer through wallet and transfer flows.",
+    electus: "iOS engineer on startup delivery; mentored a junior engineer through wallet and transfer flows.",
 };
 
 export function generateResumeMarkdown(source, options = {}) {
@@ -494,6 +501,10 @@ export function generateResumeMarkdown(source, options = {}) {
         `# ${source.meta.name}`,
         "",
         `> ${source.meta.title} · ${source.meta.location}`,
+        "",
+        "## Languages",
+        "",
+        source.meta.languagesLine,
         "",
         "## Summary",
         "",
@@ -583,10 +594,6 @@ export function generateResumeMarkdown(source, options = {}) {
         `- **Location:** ${education.location}`,
         `- **Degree:** ${education.degree}`,
         `- **Field:** ${education.field}`,
-        "",
-        "## Languages",
-        "",
-        source.meta.languagesLine,
         "",
         "## LinkedIn profile",
         "",

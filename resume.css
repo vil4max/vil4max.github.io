@@ -290,6 +290,49 @@
       overflow-wrap: break-word;
     }
 
+    body.cv-page .skills-ats {
+      font-size: 11px;
+      line-height: 1.35;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    body.cv-page .skills-grouped .skills-ats + .skills-ats {
+      margin-top: 2px;
+    }
+
+    body.cv-page .cv-section-skills {
+      margin-bottom: 12px;
+    }
+
+    body.cv-page .cv-section-skills h3 {
+        margin-bottom: 6px;
+    }
+
+    body.cv-page .cv-languages-line {
+        font-size: 13px;
+        margin: 6px 0 0;
+        color: var(--fg);
+    }
+
+    body.cv-page .header-meta-languages {
+        display: none;
+    }
+
+    body.cv-page .cv-section-summary .cv-summary {
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: none;
+    }
+
+    body.cv-page .cv-section-summary .cv-summary + .cv-summary {
+      margin-top: 10px;
+    }
+
+    body.cv-page .cv-section-summary h3 {
+      margin-bottom: 10px;
+    }
+
     .cv-summary-bullets {
       margin: 8px 0 0;
       padding-left: 18px;
@@ -351,11 +394,18 @@
     }
 
     .landing-agentic-lead,
+    .landing-agentic-tools,
     .landing-agentic-note {
       font-size: 15px;
       line-height: 1.55;
       margin: 0 0 10px;
       max-width: 52rem;
+    }
+
+    .landing-agentic-tools {
+      color: var(--fg);
+      font-size: 14px;
+      line-height: 1.45;
     }
 
     .landing-agentic-note {
@@ -719,6 +769,13 @@
       color: var(--fg);
       line-height: 1.55;
       margin: 8px 0 10px;
+    }
+
+    .exp-role-context {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 6px 0 8px;
     }
 
     .exp-tech-line {

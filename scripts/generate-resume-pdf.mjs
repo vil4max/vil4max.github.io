@@ -11,7 +11,7 @@ let inputHtmlPath;
 let outputPath;
 
 if (args.length === 0) {
-    inputHtmlPath = path.resolve(repoRoot, "index-short.html");
+    inputHtmlPath = path.resolve(repoRoot, "cv.html");
     outputPath = path.resolve(repoRoot, "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf");
 } else if (args.length === 1) {
     inputHtmlPath = path.resolve(repoRoot, "cv.html");
@@ -33,13 +33,11 @@ async function launchBrowser() {
 
 const browser = await launchBrowser();
 const page = await browser.newPage({
-    viewport: { width: 1440, height: 2200 },
+    viewport: { width: 794, height: 1123 },
 });
 
 await page.goto(pathToFileURL(inputHtmlPath).href, { waitUntil: "networkidle" });
 await page.emulateMedia({ media: "print", colorScheme: "light" });
-
-const isShort = path.basename(inputHtmlPath) === "index-short.html";
 
 await page.pdf({
     path: outputPath,

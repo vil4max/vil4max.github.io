@@ -4,16 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "resume:pdf": "node scripts/generate-resume-pdf.mjs",
-    "resume:pdf:full": "node scripts/generate-resume-pdf.mjs cv.html ../vil4max/assets/Vilchevskiy_iOS_Engineer_detailed.pdf",
+    "resume:pdf": "node scripts/generate-resume-pdf.mjs cv.html ../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf",
     "resume:validate": "node scripts/validate-resume-sync.mjs",
     "resume:parse": "node scripts/parse-resume-md.mjs",
     "resume:compare-json": "node scripts/compare-resume-json.mjs",
     "resume:publish-md": "node scripts/publish-resume-md.mjs",
+    "resume:publish-profile": "node scripts/publish-profile-md.mjs",
     "resume:bootstrap-md": "node scripts/bootstrap-resume-md.mjs",
     "resume:build": "node scripts/run-resume-build.mjs",
-    "resume:pdf:short": "node scripts/generate-resume-pdf.mjs index-short.html ../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf",
-    "resume:pdf:all": "npm run resume:pdf:full && npm run resume:pdf:short",
     "resume:check": "node scripts/check-resume-pdfs.mjs",
     "resume:pdf:install": "npx playwright install chromium"
   },

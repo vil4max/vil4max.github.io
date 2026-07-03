@@ -3,6 +3,12 @@ import { readFile, stat } from "node:fs/promises";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import {
+    publicResumeSourcePath,
+    publishedProfilePath,
+    publishedResumePath,
+    sourceOfTruthPath,
+} from "./resume-paths.mjs";
 
 const repoRoot = process.cwd();
 const iCloudResumeDir = path.join(
@@ -10,16 +16,13 @@ const iCloudResumeDir = path.join(
     "Library/Mobile Documents/com~apple~CloudDocs/pdf-resume",
 );
 
-const fullHtml = path.resolve(repoRoot, "cv.html");
-const shortHtml = path.resolve(repoRoot, "index-short.html");
-const canonicalMd = path.resolve(repoRoot, "content", "resume.md");
-const publicMd = path.resolve(repoRoot, "resume.md");
-
-const primaryPdfAssets = path.resolve(repoRoot, "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf");
-const detailedPdfAssets = path.resolve(repoRoot, "../vil4max/assets/Vilchevskiy_iOS_Engineer_detailed.pdf");
-
-const primaryPdfICloud = path.resolve(iCloudResumeDir, "Vilchevskiy_iOS_Engineer.pdf");
-const detailedPdfICloud = path.resolve(iCloudResumeDir, "Vilchevskiy_iOS_Engineer_detailed.pdf");
+const cvHtml = path.resolve(repoRoot, "cv.html");
+const canonicalPublicMd = publicResumeSourcePath;
+const canonicalSourceMd = sourceOfTruthPath;
+const publicResumeMd = publishedResumePath;
+const publicProfileMd = publishedProfilePath;
+const resumePdfAssets = path.resolve(repoRoot, "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf");
+const resumePdfICloud = path.resolve(iCloudResumeDir, "Vilchevskiy_iOS_Engineer.pdf");
 
 async function getMtimeMs(filePath) {
     const stats = await stat(filePath);
@@ -34,7 +37,7 @@ async function ensureUpToDate({ label, pdfPath, sourceHtmlPath }) {
 
     if (pdfMtime < sourceMtime) {
         throw new Error(
-            `${label} is stale.\nPDF: ${pdfPath}\nSource: ${sourceHtmlPath}\nFix: npm run resume:pdf:all`
+            `${label} is stale.\nPDF: ${pdfPath}\nSource: ${sourceHtmlPath}\nFix: npm run resume:build`
         );
     }
 }
@@ -69,22 +72,20 @@ function hashText(text) {
     return createHash("sha256").update(text).digest("hex");
 }
 
-async function ensurePublicResumeFresh() {
-    const canonical = await readFile(canonicalMd, "utf8");
-    const published = await readFile(publicMd, "utf8");
-    const expected = stripPrivateBlocks(canonical);
+async function ensurePublishedMatches(sourcePath, outputPath, label) {
+    const source = await readFile(sourcePath, "utf8");
+    const published = await readFile(outputPath, "utf8");
+    const expected = stripPrivateBlocks(source);
     if (hashText(published) !== hashText(expected)) {
         throw new Error(
-            `resume.md is stale.\nSource: ${canonicalMd}\nPublished: ${publicMd}\nFix: npm run resume:publish-md`
+            `${label} is stale.\nSource: ${sourcePath}\nPublished: ${outputPath}\nFix: npm run resume:build`
         );
     }
 }
 
 const checks = [
-    { label: "assets/primary", pdfPath: primaryPdfAssets, sourceHtmlPath: shortHtml },
-    { label: "assets/detailed", pdfPath: detailedPdfAssets, sourceHtmlPath: fullHtml },
-    { label: "iCloud/primary", pdfPath: primaryPdfICloud, sourceHtmlPath: shortHtml, optional: true },
-    { label: "iCloud/detailed", pdfPath: detailedPdfICloud, sourceHtmlPath: fullHtml, optional: true },
+    { label: "assets/resume", pdfPath: resumePdfAssets, sourceHtmlPath: cvHtml },
+    { label: "iCloud/resume", pdfPath: resumePdfICloud, sourceHtmlPath: cvHtml, optional: true },
 ];
 
 try {
@@ -99,16 +100,17 @@ try {
         }
     }
 
-    const primaryPages = countPdfPages(primaryPdfAssets);
-    if (primaryPages !== 1) {
+    const pageCount = countPdfPages(resumePdfAssets);
+    if (pageCount < 2 || pageCount > 3) {
         throw new Error(
-            `Primary PDF must be exactly 1 page (found ${primaryPages}).\nPDF: ${primaryPdfAssets}\nFix: shorten index-short.html content, then npm run resume:pdf:short`
+            `Resume PDF must be 2–3 pages (found ${pageCount}).\nPDF: ${resumePdfAssets}\nFix: shorten cv.html content, then npm run resume:build`
         );
     }
 
-    await ensurePublicResumeFresh();
+    await ensurePublishedMatches(canonicalPublicMd, publicResumeMd, "resume.md");
+    await ensurePublishedMatches(canonicalSourceMd, publicProfileMd, "profile.md");
 
-    process.stdout.write("OK: PDFs and resume.md are up to date.\n");
+    process.stdout.write("OK: PDFs and markdown publishes are up to date.\n");
 } catch (error) {
     process.stderr.write(`${error?.message ?? String(error)}\n`);
     process.exitCode = 1;
