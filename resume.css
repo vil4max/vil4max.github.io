@@ -199,33 +199,53 @@
     }
 
     .site-nav {
-      margin-top: 10px;
-      font-size: 15px;
-      line-height: 1.5;
-      white-space: normal;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 14px;
+      line-height: 1.4;
     }
 
     .site-nav a {
-      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-elevated);
+      color: var(--fg);
+      font-weight: 500;
       text-decoration: none;
-      margin-left: 0;
+      box-shadow: var(--shadow-soft);
+      transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
     }
 
     .site-nav a:hover {
-      color: var(--fg);
-      text-decoration: underline;
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
     }
 
     .site-nav a[aria-current="page"] {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #ffffff;
       font-weight: 600;
-      color: var(--fg);
       text-decoration: none;
     }
 
     .site-nav-sep {
-      color: var(--muted);
-      margin: 0 4px;
-      user-select: none;
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .site-nav a[aria-current="page"] {
+        color: #1f2328;
+      }
     }
 
     .landing-hero {
