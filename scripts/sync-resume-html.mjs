@@ -61,14 +61,6 @@ function landingAboutHtml(raw) {
     return parts.join("\n");
 }
 
-function landingLanguagesHtml(languagesLine) {
-    const match = languagesLine?.match(/^(.+?)\s*—\s*(.+)$/);
-    if (!match) {
-        return "";
-    }
-    return `          <p class="landing-langs">🌐 <strong class="language-name">${escapeHtml(match[1].trim())}</strong> — ${escapeHtml(match[2].trim())}</p>`;
-}
-
 function summaryParagraphs(summary) {
     return summary
         .split(/\n\s*\n/)
@@ -207,8 +199,7 @@ fs.writeFileSync(cvPath, cvHtml);
 
 let indexHtml = fs.readFileSync(indexPath, "utf8");
 const landingRaw = source.meta.landingAbout ?? source.meta.summary ?? "";
-const landingHtml = `${landingAboutHtml(landingRaw)}
-${landingLanguagesHtml(source.meta.languagesLine ?? "")}`;
+const landingHtml = landingAboutHtml(landingRaw);
 
 indexHtml = replaceBetween(
     indexHtml,
