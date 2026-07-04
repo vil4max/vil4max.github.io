@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Max Vilchevskiy — Portfolio</title>
+  <title>Max Vilchevskiy — iOS Engineer Resume</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="resume.css?v=20260708">
-  <link rel="stylesheet" href="resume-pdf.css?v=20260708" media="print">
+  <link rel="stylesheet" href="resume.css?v=20260709">
+  <link rel="stylesheet" href="resume-pdf.css?v=20260709" media="print">
 </head>
 <body class="cv-page">
   <div class="page">
@@ -19,8 +19,8 @@
               <span class="header-location">Kyiv, Ukraine</span>
             </div>
           </div>
-          <h2 class="header-role">iOS Software Engineer</h2>
-          <div class="header-status">
+          <h2 class="header-role">Senior iOS Engineer</h2>
+          <div class="header-status cv-print-omit">
             <span class="header-availability">🟢 Available Jul 2026 · remote or hybrid</span>
           </div>
           <div class="header-meta">
@@ -28,7 +28,7 @@
             <span class="header-meta-contacts header-meta-contacts--screen">
               <a href="mailto:vil4max@gmail.com" class="contact-email">vil4max@gmail.com</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://t.me/vil4max">@vil4max</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/vil4max/">LinkedIn</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://github.com/vil4max">GitHub</a>
             </span>
-            <span class="header-meta-contacts header-meta-contacts--print" aria-hidden="true">vil4max@gmail.com · linkedin.com/in/vil4max · github.com/vil4max · @vil4max</span>
+            <span class="header-meta-contacts header-meta-contacts--print" aria-hidden="true">vil4max@gmail.com · linkedin.com/in/vil4max · github.com/vil4max · vil4max.github.io · @vil4max</span>
           </div>
           <nav class="site-nav" aria-label="Site">
             <a href="index.html" aria-current="page">Portfolio</a><span class="site-nav-sep">·</span>
@@ -51,20 +51,20 @@
 
     <main>
       <section class="cv-section-skills">
-        <h3><span class="section-heading-text">Skills</span><span class="section-mark" aria-hidden="true">🛠</span></h3>
+        <h3><span class="section-heading-text">Skills</span><span class="section-mark cv-print-omit" aria-hidden="true">🛠</span></h3>
         <div class="skills-inline">
-          <p class="skills-ats skills-line">Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI · AI coding agents</p>
+          <p class="skills-ats skills-line">Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI · AI coding agents</p>
         </div>
         <p class="cv-languages-line"><strong>English</strong> — Intermediate</p>
       </section>
 
       <section class="cv-section-summary">
-        <h3><span class="section-heading-text">Summary</span><span class="section-mark" aria-hidden="true">📋</span></h3>
-        <p class="cv-summary">Senior iOS Engineer with 12+ years building and shipping consumer, fintech, and marketplace applications. I own features end-to-end — from architecture and modular SDK extraction to App Store delivery. Recent work spans watchOS voice AI R&amp;D, a shared Premium Subscription SDK across host apps, and vendor-agnostic analytics, so the product code does not depend on the connected SDK. I use AI coding agents daily for implementation, testing, code review, and large-scale refactoring.</p>
+        <h3><span class="section-heading-text">Professional Summary</span><span class="section-mark cv-print-omit" aria-hidden="true">📋</span></h3>
+        <p class="cv-summary">Senior iOS Engineer with 12+ years shipping consumer, fintech, and marketplace applications — from greenfield builds through App Store release, across startup, product, and platform teams. I own work end-to-end: product ideas and implementation, architecture, third-party libraries, and production delivery. Recent focus includes watchOS voice AI research and development, marketplace commerce, and Premium Subscription SDK across host apps. I build modular architecture so feature code stays independent of payment and analytics SDKs. I use AI coding agents daily for implementation, testing, code review, and large-scale refactoring.</p>
       </section>
 
       <section class="cv-section-experience">
-        <h3><span class="section-heading-text">Experience</span><span class="section-mark" aria-hidden="true">💼</span></h3>
+        <h3><span class="section-heading-text">Work Experience</span><span class="section-mark cv-print-omit" aria-hidden="true">💼</span></h3>
         <p class="exp-meta cv-print-omit portfolio-section-lead">Newest first · <a href="projects.html">All projects</a></p>
         <div class="experience-timeline experience-timeline--portfolio">
         <div class="experience-item experience-item--highlight experience-item--portfolio" id="exp-globallogic">
@@ -78,10 +78,11 @@
           </div>
           <div class="exp-company-loc-line">Kyiv, Ukraine · Remote</div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Apple Watch Voice AI — R&amp;D project</span></div>
-          <p class="exp-role-context">Senior iOS engineer on watchOS client — architecture, Watch ↔ iPhone connectivity, TestFlight delivery. Beta tester for VelocityAI — hands-on evaluation of GenAI-assisted SDLC tooling in a client-delivery context.</p>
+          <p class="exp-role-context">Senior iOS engineer on watchOS client — architecture, Watch ↔ iPhone connectivity, TestFlight delivery.</p>
           <ul>
             <li>Built a watchOS voice AI client with fully on-device conversational flows.</li>
-            <li>iPhone acts as a backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent, including deduplication across devices (URLSessionWebSocketTask).</li>
+            <li>iPhone acts as a backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent.</li>
+            <li>Implemented deduplication across devices using URLSessionWebSocketTask.</li>
             <li>Split features between Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity).</li>
             <li>Built on-device intent handling so that commands update navigation and forms without needless round trips.</li>
             <li>Beta-tested VelocityAI — hands-on evaluation of GlobalLogic's enterprise GenAI / AI-powered SDLC platform (agent workflows, governed AI in software delivery); feedback from an iOS engineer's shipping perspective.</li>
@@ -103,11 +104,11 @@
           </div>
           <div class="exp-company-loc-line">Kyiv, Ukraine · Remote</div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Birmarket — online marketplace &amp; loyalty · Loyalty squad</span></div>
-          <p class="exp-role-context">Senior iOS engineer on marketplace commerce and Loyalty squad — owned Premium Subscription module, Premium Subscription SDK extraction, and Analytics module on Birmarket; shared loyalty platform with per-host configuration in Birbank and M10.</p>
+          <p class="exp-role-context">Senior iOS engineer on marketplace commerce and Loyalty squad — owned Premium Subscription module on Birmarket, Premium Subscription SDK extraction, and Analytics module in shared loyalty SDK; per-host configuration in Birbank and M10.</p>
           <ul>
             <li>Shipped core marketplace commerce in a production online store — catalog, search, cart, checkout, and orders — across App Store releases.</li>
-            <li>Owned the Premium Subscription module — subscription flows and UI; checkout delegated to shared purchase model, handling subscription status responses on the feature side.</li>
-            <li>Built Analytics module for Birmarket — unified analytics API; routed events to multiple analytics SDKs (Firebase Analytics/Crashlytics, Amplitude, Mixpanel, AppsFlyer, PostHog, Sentry) without feature code depending on connected SDKs.</li>
+            <li>Owned the Premium Subscription module — subscription flows and UI; integrated checkout with shared purchase model and handled subscription status on the feature side.</li>
+            <li>Built Analytics module in shared loyalty SDK — unified analytics API routing events to multiple analytics SDKs without feature code depending on connected SDKs.</li>
             <li>Migrated Premium Subscription module into Premium Subscription SDK with per-host-app configuration inside the shared loyalty platform.</li>
           </ul>
           <p class="exp-tech-line">Swift · SwiftUI · UIKit · SPM · URLSession · Firebase Analytics · Firebase Crashlytics · Amplitude · Mixpanel · AppsFlyer · PostHog · Sentry · Keychain · Swift Concurrency · async/await · Combine</p>
@@ -132,8 +133,7 @@
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Drinkit — coffee ordering app</span></div>
           <p class="exp-role-context">iOS engineer on a three-person team — pre-order and customization flows, menu video, Apple Pay + loyalty, pickup tracking, and production releases.</p>
           <ul>
-            <li>Built Drinkit from MVP through major App Store release on a three-person team — pre-order and drink customization.</li>
-            <li>Built pre-order and drink customization flows for Drinkit's app-led coffee ritual.</li>
+            <li>Built Drinkit from MVP through major App Store release on a three-person team — pre-order and drink customization flows.</li>
             <li>Shipped Reels-style drink video for menu discovery; Apple Pay checkout with loyalty; live order tracking for slot pickup.</li>
           </ul>
           <p class="exp-tech-line">Swift · UIKit · SPM · URLSession · Apple Pay · PassKit · AVFoundation · AVKit</p>
@@ -263,13 +263,17 @@
           </div>
 
         </div>
-        
         </div>
+      </section>
+
+      <section class="cv-section-education">
+        <h3><span class="section-heading-text">Education</span><span class="section-mark cv-print-omit" aria-hidden="true">🎓</span></h3>
+        <p class="education-line">Donetsk State University of Management · Donetsk, Ukraine — Bachelor's degree, Production sector management</p>
       </section>
 
     </main>
 
-    <footer class="cv-pdf-footer">
+    <footer class="cv-pdf-footer cv-print-omit">
       Portfolio: <a href="https://vil4max.github.io">https://vil4max.github.io</a>
     </footer>
 

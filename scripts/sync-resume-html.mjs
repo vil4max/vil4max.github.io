@@ -172,6 +172,16 @@ function experienceItemForRole(role) {
     return role.featured ? experienceItem(role) : compactExperienceItem(role);
 }
 
+function educationHtml(educationEntries) {
+    const entry = educationEntries?.[0];
+    if (!entry) {
+        return "";
+    }
+    const line = entry.displayFull ?? `${entry.institution} — ${entry.degree}, ${entry.field}`;
+    return `        <h3><span class="section-heading-text">Education</span><span class="section-mark cv-print-omit" aria-hidden="true">🎓</span></h3>
+        <p class="education-line">${escapeHtml(line)}</p>`;
+}
+
 function replaceSectionContent(html, sectionClass, innerHtml) {
     const openTag = `<section class="${sectionClass}">`;
     const start = html.indexOf(openTag);
@@ -186,47 +196,35 @@ function replaceSectionContent(html, sectionClass, innerHtml) {
     return html.slice(0, contentStart) + `\n${innerHtml}\n      ` + html.slice(end);
 }
 
-function replaceBetween(html, startMarker, endMarker, replacement) {
-    const start = html.indexOf(startMarker);
-    const end = html.indexOf(endMarker, start + startMarker.length);
-    if (start === -1 || end === -1) {
-        throw new Error(`Markers not found: ${startMarker}`);
-    }
-    return html.slice(0, start + startMarker.length) + "\n" + replacement + "\n" + html.slice(end);
-}
-
 let indexHtml = fs.readFileSync(indexPath, "utf8");
 
-indexHtml = replaceBetween(
+indexHtml = replaceSectionContent(
     indexHtml,
-    '        <div class="skills-inline">',
-    "        </div>",
-    skillsLineHtml(source.meta.skillsLine ?? ""),
+    "cv-section-skills",
+    `        <h3><span class="section-heading-text">Skills</span><span class="section-mark cv-print-omit" aria-hidden="true">🛠</span></h3>
+        <div class="skills-inline">
+${skillsLineHtml(source.meta.skillsLine ?? "")}
+        </div>
+${languagesLineHtml(source.meta.languagesLine ?? "")}`,
 );
 
 indexHtml = replaceSectionContent(
     indexHtml,
     "cv-section-summary",
-    `        <h3><span class="section-heading-text">Summary</span><span class="section-mark" aria-hidden="true">📋</span></h3>
+    `        <h3><span class="section-heading-text">Professional Summary</span><span class="section-mark cv-print-omit" aria-hidden="true">📋</span></h3>
 ${summaryParagraphs(source.meta.summary ?? "")}`,
 );
 
-const experienceTimelineEnd = "        </div>\n      </section>";
+const experienceSectionInner = `        <h3><span class="section-heading-text">Work Experience</span><span class="section-mark cv-print-omit" aria-hidden="true">💼</span></h3>
+        <p class="exp-meta cv-print-omit portfolio-section-lead">Newest first · <a href="projects.html">All projects</a></p>
+        <div class="experience-timeline experience-timeline--portfolio">
+${source.roles.map(experienceItemForRole).join("\n\n")}
+        </div>`;
 
-const experienceHtml = source.roles.map(experienceItemForRole).join("\n\n");
-indexHtml = replaceBetween(
-    indexHtml,
-    '        <div class="experience-timeline experience-timeline--portfolio">',
-    experienceTimelineEnd,
-    `${experienceHtml}\n        `,
-);
+indexHtml = replaceSectionContent(indexHtml, "cv-section-experience", experienceSectionInner);
 
-const languagesHtml = languagesLineHtml(source.meta.languagesLine ?? "");
-if (languagesHtml) {
-    indexHtml = indexHtml.replace(
-        /<p class="cv-languages-line">[\s\S]*?<\/p>/,
-        languagesHtml,
-    );
+if (indexHtml.includes("cv-section-education")) {
+    indexHtml = replaceSectionContent(indexHtml, "cv-section-education", educationHtml(source.education));
 }
 
 fs.writeFileSync(indexPath, indexHtml);
