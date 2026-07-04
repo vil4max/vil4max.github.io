@@ -9,7 +9,7 @@ const iCloudResumeDir = path.join(
     "Library/Mobile Documents/com~apple~CloudDocs/pdf-resume",
 );
 
-const cvHtml = path.resolve(repoRoot, "cv.html");
+const indexHtml = path.resolve(repoRoot, "index.html");
 const resumePdfAssets = path.resolve(repoRoot, "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf");
 const resumePdfICloud = path.resolve(iCloudResumeDir, "Vilchevskiy_iOS_Engineer.pdf");
 
@@ -43,8 +43,8 @@ function countPdfPages(pdfPath) {
 }
 
 const checks = [
-    { label: "assets/resume", pdfPath: resumePdfAssets, sourceHtmlPath: cvHtml },
-    { label: "iCloud/resume", pdfPath: resumePdfICloud, sourceHtmlPath: cvHtml, optional: true },
+    { label: "assets/resume", pdfPath: resumePdfAssets, sourceHtmlPath: indexHtml },
+    { label: "iCloud/resume", pdfPath: resumePdfICloud, sourceHtmlPath: indexHtml, optional: true },
 ];
 
 try {
@@ -62,7 +62,7 @@ try {
     const pageCount = countPdfPages(resumePdfAssets);
     if (pageCount < 2 || pageCount > 3) {
         throw new Error(
-            `Resume PDF must be 2–3 pages (found ${pageCount}).\nPDF: ${resumePdfAssets}\nFix: shorten cv.html content, then npm run resume:build`
+            `Resume PDF must be 2–3 pages (found ${pageCount}).\nPDF: ${resumePdfAssets}\nFix: shorten index.html content, then npm run resume:build`
         );
     }
 

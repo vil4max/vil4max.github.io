@@ -11,10 +11,10 @@ let inputHtmlPath;
 let outputPath;
 
 if (args.length === 0) {
-    inputHtmlPath = path.resolve(repoRoot, "cv.html");
+    inputHtmlPath = path.resolve(repoRoot, "index.html");
     outputPath = path.resolve(repoRoot, "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf");
 } else if (args.length === 1) {
-    inputHtmlPath = path.resolve(repoRoot, "cv.html");
+    inputHtmlPath = path.resolve(repoRoot, "index.html");
     outputPath = path.resolve(repoRoot, args[0]);
 } else {
     inputHtmlPath = path.resolve(repoRoot, args[0]);

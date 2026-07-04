@@ -6,10 +6,41 @@ import { readJson } from "./resume-md-lib.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourcePath = path.join(root, "content", "resume-source.json");
-const cvPath = path.join(root, "cv.html");
 const indexPath = path.join(root, "index.html");
 
 const source = readJson(sourcePath);
+
+const ROLE_MEDIA = {
+    globallogic: { projectAnchor: "project-watch-ai-assistant" },
+    pasha: {
+        projectAnchor: "project-birmarket",
+        thumbs: [
+            "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/85/61/cc/8561ccb3-d030-fcc7-4e44-35cd30aaa471/App_Store__1284__U0445_2778_1.1.png/600x1300bb.webp",
+            "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/7f/6f/017f6f52-d85f-4125-8aa4-ae7858c65a17/App_Store__1284__U0445_2778_1.1-3.png/600x1300bb.webp",
+        ],
+    },
+    dodo: {
+        projectAnchor: "project-drinkit",
+        thumbs: [
+            "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a4/ba/7b/a4ba7b1e-8b4e-51db-0910-975cac31622f/01.png/600x1300bb.webp",
+            "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7d/9c/b9/7d9cb999-b39c-7a9d-0a44-fb632410784b/02.png/600x1300bb.webp",
+        ],
+    },
+    solvve: {
+        projectAnchor: "project-playhera",
+        thumbs: [
+            "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/09/75/8d/09758de1-772a-dd1a-bb2f-112a83ab832b/11594ffd-5a8a-4988-8449-76a21e3a1122_screen1.png/392x696bb.png",
+            "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/3e/83/f2/3e83f2f4-b664-3d58-5ff0-a87b5f4c3408/5dd85cd3-c4c8-49fb-b8e5-2248471a9871_screen2.png/392x696bb.png",
+        ],
+    },
+    gbksoft: {
+        projectAnchor: "project-eastern-union",
+        thumbs: [
+            "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/85/79/37/85793713-7c9e-ddfb-3587-aa43cb03d6a6/pr_source.png/392x696bb.png",
+            "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/3e/4a/c3/3e4ac327-c07f-ac14-4a36-bf03b193ef98/pr_source.png/392x696bb.png",
+        ],
+    },
+};
 
 function escapeHtml(text) {
     return text
@@ -17,48 +48,6 @@ function escapeHtml(text) {
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;");
-}
-
-function formatInlineMarkdown(text) {
-    const parts = [];
-    let last = 0;
-    const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
-    let match = linkPattern.exec(text);
-    while (match) {
-        if (match.index > last) {
-            parts.push(escapeHtml(text.slice(last, match.index)));
-        }
-        parts.push(`<a href="${escapeHtml(match[2])}">${escapeHtml(match[1])}</a>`);
-        last = match.index + match[0].length;
-        match = linkPattern.exec(text);
-    }
-    if (last < text.length) {
-        parts.push(escapeHtml(text.slice(last)));
-    }
-    return parts.join("");
-}
-
-function landingAboutHtml(raw) {
-    const blocks = raw.split(/\n\s*\n/).filter((block) => block.trim());
-    const parts = [];
-    for (const block of blocks) {
-        const lines = block
-            .split("\n")
-            .map((line) => line.trim())
-            .filter(Boolean);
-        const listLines = lines.filter((line) => line.startsWith("- "));
-        const proseLines = lines.filter((line) => !line.startsWith("- "));
-        for (const line of proseLines) {
-            parts.push(`          <p>${formatInlineMarkdown(line)}</p>`);
-        }
-        if (listLines.length > 0) {
-            const items = listLines
-                .map((line) => `            <li>${escapeHtml(line.slice(2))}</li>`)
-                .join("\n");
-            parts.push(`          <ul class="landing-about-recent">\n${items}\n          </ul>`);
-        }
-    }
-    return parts.join("\n");
 }
 
 function summaryParagraphs(summary) {
@@ -74,11 +63,16 @@ function skillsLineHtml(skillsLine) {
     return `          <p class="skills-ats skills-line">${escapeHtml(skillsLine)}</p>`;
 }
 
-function roleBullets(role, preferShort = false) {
-    const bullets =
-        preferShort && role.bulletsShort?.length
-            ? role.bulletsShort
-            : (role.bullets ?? role.bulletsShort ?? []);
+function languagesLineHtml(languagesLine) {
+    const match = languagesLine?.match(/^(.+?)\s*—\s*(.+)$/);
+    if (!match) {
+        return "";
+    }
+    return `        <p class="cv-languages-line"><strong>${escapeHtml(match[1].trim())}</strong> — ${escapeHtml(match[2].trim())}</p>`;
+}
+
+function roleBullets(role) {
+    const bullets = role.bullets ?? role.bulletsShort ?? [];
     return bullets.map((bullet) => `            <li>${escapeHtml(bullet)}</li>`).join("\n");
 }
 
@@ -107,10 +101,35 @@ ${items}
           </div>`;
 }
 
+function detailsLink(roleId) {
+    const media = ROLE_MEDIA[roleId];
+    if (!media?.projectAnchor) {
+        return "";
+    }
+    return `          <p class="exp-meta cv-print-omit"><a href="projects.html#${media.projectAnchor}">Details →</a></p>`;
+}
+
+function experienceThumbs(roleId) {
+    const media = ROLE_MEDIA[roleId];
+    if (!media?.thumbs?.length) {
+        return "";
+    }
+    const images = media.thumbs
+        .map(
+            (url, index) =>
+                `            <img src="${escapeHtml(url)}" alt="${escapeHtml(roleId)} project screenshot ${index + 1}" loading="lazy">`,
+        )
+        .join("\n");
+    return `          <div class="experience-thumbs cv-print-omit" aria-label="Project screenshots">
+${images}
+          </div>`;
+}
+
 function experienceItem(role) {
     const context = role.myRole ?? "";
     const techLine = role.technologiesLine ?? "";
-    return `        <div class="experience-item experience-item--highlight" id="exp-${role.id}">
+    return `        <div class="experience-item experience-item--highlight experience-item--portfolio" id="exp-${role.id}">
+          <div class="experience-item-body">
           <div class="exp-role-head">
             <span class="exp-company-name">${escapeHtml(role.company)}</span>
             <span class="exp-role-sep">·</span>
@@ -125,12 +144,16 @@ function experienceItem(role) {
 ${roleBullets(role)}
           </ul>
           <p class="exp-tech-line">${escapeHtml(techLine)}</p>
+${detailsLink(role.id)}
+          </div>
+${experienceThumbs(role.id)}
         </div>`;
 }
 
 function compactExperienceItem(role) {
     const techLine = role.technologiesLine ?? "";
-    return `        <div class="experience-item experience-item--compact" id="exp-${role.id}">
+    return `        <div class="experience-item experience-item--compact experience-item--portfolio" id="exp-${role.id}">
+          <div class="experience-item-body">
           <div class="exp-company-line"><span class="exp-company-name">${escapeHtml(role.company)}</span> <span class="exp-company-loc">${escapeHtml(role.location)}</span></div>
           <div class="exp-role"><span class="exp-role-title">${escapeHtml(role.title)}</span><span class="exp-role-sep">·</span><span class="exp-role-dates">${escapeHtml(role.displayFull)}</span></div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">${escapeHtml(projectName(role))}</span></div>
@@ -139,6 +162,9 @@ ${projectsDetailBlock(role)}
 ${roleBullets(role)}
           </ul>
           <p class="exp-tech-line">${escapeHtml(techLine)}</p>
+${detailsLink(role.id)}
+          </div>
+${experienceThumbs(role.id)}
         </div>`;
 }
 
@@ -169,17 +195,17 @@ function replaceBetween(html, startMarker, endMarker, replacement) {
     return html.slice(0, start + startMarker.length) + "\n" + replacement + "\n" + html.slice(end);
 }
 
-let cvHtml = fs.readFileSync(cvPath, "utf8");
+let indexHtml = fs.readFileSync(indexPath, "utf8");
 
-cvHtml = replaceBetween(
-    cvHtml,
+indexHtml = replaceBetween(
+    indexHtml,
     '        <div class="skills-inline">',
     "        </div>",
     skillsLineHtml(source.meta.skillsLine ?? ""),
 );
 
-cvHtml = replaceSectionContent(
-    cvHtml,
+indexHtml = replaceSectionContent(
+    indexHtml,
     "cv-section-summary",
     `        <h3><span class="section-heading-text">Summary</span><span class="section-mark" aria-hidden="true">📋</span></h3>
 ${summaryParagraphs(source.meta.summary ?? "")}`,
@@ -188,25 +214,20 @@ ${summaryParagraphs(source.meta.summary ?? "")}`,
 const experienceTimelineEnd = "        </div>\n      </section>";
 
 const experienceHtml = source.roles.map(experienceItemForRole).join("\n\n");
-cvHtml = replaceBetween(
-    cvHtml,
-    '        <div class="experience-timeline">',
+indexHtml = replaceBetween(
+    indexHtml,
+    '        <div class="experience-timeline experience-timeline--portfolio">',
     experienceTimelineEnd,
     `${experienceHtml}\n        `,
 );
 
-fs.writeFileSync(cvPath, cvHtml);
-
-let indexHtml = fs.readFileSync(indexPath, "utf8");
-const landingRaw = source.meta.landingAbout ?? source.meta.summary ?? "";
-const landingHtml = landingAboutHtml(landingRaw);
-
-indexHtml = replaceBetween(
-    indexHtml,
-    '        <div class="landing-about">',
-    "        </div>",
-    `\n${landingHtml}\n        `,
-);
+const languagesHtml = languagesLineHtml(source.meta.languagesLine ?? "");
+if (languagesHtml) {
+    indexHtml = indexHtml.replace(
+        /<p class="cv-languages-line">[\s\S]*?<\/p>/,
+        languagesHtml,
+    );
+}
 
 fs.writeFileSync(indexPath, indexHtml);
-console.log(`Synced ${cvPath} and ${indexPath} from resume-source.json`);
+console.log(`Synced ${indexPath} from resume-source.json`);

@@ -31,7 +31,7 @@ fs.unlinkSync(tmpPath);
 
 run("sync-resume-html.mjs");
 run("validate-resume-sync.mjs");
-run("generate-resume-pdf.mjs", ["cv.html", "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf"]);
+run("generate-resume-pdf.mjs", ["index.html", "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf"]);
 run("check-resume-pdfs.mjs");
 
 console.log("OK: resume build complete");

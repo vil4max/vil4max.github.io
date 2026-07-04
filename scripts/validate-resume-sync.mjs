@@ -5,10 +5,10 @@ import { fileURLToPath } from "node:url";
 const root = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.join(root, "..");
 const sourcePath = path.join(repoRoot, "content", "resume-source.json");
-const cvHtmlPath = path.join(repoRoot, "cv.html");
+const indexHtmlPath = path.join(repoRoot, "index.html");
 
 const source = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
-const cvHtml = fs.readFileSync(cvHtmlPath, "utf8");
+const indexHtml = fs.readFileSync(indexHtmlPath, "utf8");
 
 function decodeHtmlEntities(text) {
     return text
@@ -48,7 +48,7 @@ const forbiddenPhrases = [
 
 const surfaces = [
     { name: "resume-source.json", content: fs.readFileSync(sourcePath, "utf8") },
-    { name: "cv.html", content: cvHtml },
+    { name: "index.html", content: indexHtml },
 ];
 
 for (const phrase of forbiddenPhrases) {
@@ -61,28 +61,28 @@ for (const phrase of forbiddenPhrases) {
 
 const summarySnippet = source.meta.summary?.slice(0, 60) ?? "";
 
-if (!summarySnippet || !htmlIncludes(cvHtml, summarySnippet)) {
-    errors.push("cv.html missing public summary snippet");
+if (!summarySnippet || !htmlIncludes(indexHtml, summarySnippet)) {
+    errors.push("index.html missing public summary snippet");
 }
 
 for (const role of source.roles) {
-    if (!cvHtml.includes(role.displayFull)) {
-        errors.push(`cv.html missing displayFull for ${role.id}: ${role.displayFull}`);
+    if (!indexHtml.includes(role.displayFull)) {
+        errors.push(`index.html missing displayFull for ${role.id}: ${role.displayFull}`);
     }
 }
 
 if (source.meta.skillsLine) {
     const skillsSnippet = source.meta.skillsLine.slice(0, Math.min(48, source.meta.skillsLine.length));
-    if (!htmlTextIncludes(cvHtml, skillsSnippet)) {
-        errors.push(`cv.html missing skillsLine snippet: ${skillsSnippet}`);
+    if (!htmlTextIncludes(indexHtml, skillsSnippet)) {
+        errors.push(`index.html missing skillsLine snippet: ${skillsSnippet}`);
     }
 }
 
 for (const role of source.roles) {
-    const matches = cvHtml.match(new RegExp(`id="exp-${role.id}"`, "g"));
+    const matches = indexHtml.match(new RegExp(`id="exp-${role.id}"`, "g"));
     if (!matches || matches.length !== 1) {
         errors.push(
-            `cv.html must contain exactly one exp-${role.id} block (found ${matches?.length ?? 0})`,
+            `index.html must contain exactly one exp-${role.id} block (found ${matches?.length ?? 0})`,
         );
     }
 }
@@ -91,8 +91,8 @@ for (const role of source.roles) {
     if (!publicRoleIds.has(role.id)) {
         const bulletsToCheck = role.bullets ?? [];
         for (const bullet of bulletsToCheck) {
-            if (!htmlIncludes(cvHtml, bullet)) {
-                errors.push(`cv.html missing bullet for ${role.id}`);
+            if (!htmlIncludes(indexHtml, bullet)) {
+                errors.push(`index.html missing bullet for ${role.id}`);
                 break;
             }
         }
@@ -107,19 +107,23 @@ for (const role of source.roles) {
     }
     const bulletsToCheck = role.bullets?.length > 0 ? role.bullets : role.bulletsShort;
     for (const bullet of bulletsToCheck ?? []) {
-        if (!htmlIncludes(cvHtml, bullet)) {
-            errors.push(`cv.html missing bullet for ${role.id}`);
+        if (!htmlIncludes(indexHtml, bullet)) {
+            errors.push(`index.html missing bullet for ${role.id}`);
             break;
         }
     }
 }
 
-if (!cvHtml.includes(source.meta.title)) {
-    errors.push(`cv.html missing title: ${source.meta.title}`);
+if (!indexHtml.includes(source.meta.title)) {
+    errors.push(`index.html missing title: ${source.meta.title}`);
 }
 
-if (cvHtml.includes("index-short.html")) {
-    errors.push("cv.html still links to removed index-short.html");
+if (indexHtml.includes("index-short.html")) {
+    errors.push("index.html still links to removed index-short.html");
+}
+
+if (indexHtml.includes("landing-about")) {
+    errors.push("index.html still contains landing-about section");
 }
 
 if (errors.length > 0) {
@@ -130,4 +134,4 @@ if (errors.length > 0) {
     process.exit(1);
 }
 
-console.log(`OK: ${source.roles.length} roles synced in cv.html`);
+console.log(`OK: ${source.roles.length} roles synced in index.html`);

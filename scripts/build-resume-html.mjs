@@ -3,8 +3,7 @@
  * Reads content/resume-source.json and verifies (or optionally would sync) date strings.
  * Run: npm run resume:validate
  *
- * To change dates: edit content/resume.md first, then update cv.html
- * and index-short.html in the same session.
+ * To change dates: edit content/source-of-truth.md, then run npm run resume:build
  */
 import { spawnSync } from "node:child_process";
 import path from "node:path";

@@ -621,6 +621,57 @@
       box-shadow: 0 0 0 2px var(--bg);
     }
 
+    .experience-timeline--portfolio {
+      margin-top: 4px;
+    }
+
+    .experience-item--portfolio {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .experience-item-body {
+      min-width: 0;
+    }
+
+    .experience-thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 84px;
+      flex-shrink: 0;
+    }
+
+    .experience-thumbs img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .portfolio-section-lead {
+      margin: -4px 0 12px;
+    }
+
+    @media (max-width: 639px) {
+      .experience-item--portfolio {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-thumbs {
+        flex-direction: row;
+        width: auto;
+        flex-wrap: wrap;
+      }
+
+      .experience-thumbs img {
+        width: 72px;
+      }
+    }
+
     .exp-company-line {
       display: flex;
       flex-wrap: wrap;

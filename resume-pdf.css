@@ -30,8 +30,19 @@
 
     body.cv-page .landing-downloads,
     body.cv-page .site-nav,
-    body.cv-page .cv-print-omit {
+    body.cv-page .cv-print-omit,
+    body.cv-page .experience-thumbs {
         display: none !important;
+    }
+
+    body.cv-page .experience-timeline--portfolio .experience-item::before {
+        display: none !important;
+    }
+
+    body.cv-page .experience-timeline .experience-item {
+        border-left: none;
+        margin-left: 0;
+        padding-left: 16px;
     }
 
     body.cv-page header img,
