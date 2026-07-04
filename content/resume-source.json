@@ -1,24 +1,24 @@
 {
   "meta": {
     "languagesLine": "English — Intermediate",
-    "summary": "Senior iOS Engineer with 12+ years shipping consumer, fintech, and marketplace applications — from greenfield builds through App Store release, across startup, product, and platform teams. I own work end-to-end: product ideas and implementation, architecture, third-party libraries, and production delivery. Recent focus includes watchOS voice AI research and development, marketplace commerce, and Premium Subscription SDK across host apps. I build modular architecture so feature code stays independent of payment and analytics SDKs. I use AI coding agents daily for implementation, testing, code review, and large-scale refactoring.",
-    "summaryShort": "Senior iOS Engineer with 12+ years shipping consumer, fintech, and marketplace applications — from greenfield builds through App Store release, across startup, product, and platform teams. I own work end-to-end: product ideas and implementation, architecture, third-party libraries, and production delivery. Recent focus includes watchOS voice AI research and development, marketplace commerce, and Premium Subscription SDK across host apps. I build modular architecture so feature code stays independent of payment and analytics SDKs. I use AI coding agents daily for implementation, testing, code review, and large-scale refactoring.",
+    "summary": "Senior iOS Engineer with 12+ years building consumer and marketplace apps — from first commit to App Store, in startups and platform squads. I own architecture, SDK integration, and release. Recent work: watchOS voice AI R&D, Birmarket commerce, and turning Premium Subscription into a shared loyalty SDK. Feature modules stay independent of payment and analytics backends.",
+    "summaryShort": "Senior iOS Engineer with 12+ years building consumer and marketplace apps — from first commit to App Store, in startups and platform squads. I own architecture, SDK integration, and release. Recent work: watchOS voice AI R&D, Birmarket commerce, and turning Premium Subscription into a shared loyalty SDK. Feature modules stay independent of payment and analytics backends.",
     "summaryBullets": [
-      "12+ years commercial iOS — indie releases through large marketplaces and SDK platforms",
-      "Feature ownership — Premium Subscription module; Premium Subscription SDK extraction",
-      "Analytics module — multi-analytics SDK routing in shared loyalty SDK",
-      "watchOS voice AI R&D — full on-watch flows; VelocityAI beta",
-      "Third-party libraries — Alamofire, RxSwift, DI, Stripe, Firebase, maps, web3; SPM and CocoaPods in production apps"
+      "12+ years iOS — indie apps through national-scale marketplaces",
+      "Premium Subscription on Birmarket; later extracted as shared SDK",
+      "Analytics module in loyalty SDK — routes to Amplitude, Mixpanel, Firebase, and others",
+      "watchOS voice AI R&D; VelocityAI beta as iOS engineer",
+      "Alamofire, RxSwift, Stripe, Firebase, SPM, CocoaPods in production"
     ],
-    "skillsLineShort": "Languages — Swift · Objective-C\nUI — UIKit · SwiftUI\nArchitecture — MVVM · modular architecture · DI\nConcurrency — Swift Concurrency · Combine · RxSwift\nNetworking — URLSession · REST · Alamofire\nTesting — XCTest · TestFlight\nAI — AI coding agents",
-    "skillsLine": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI · AI coding agents",
-    "skillsLineDetailed": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI · AI coding agents",
+    "skillsLineShort": "Languages — Swift · Objective-C\nUI — UIKit · SwiftUI\nArchitecture — MVVM · modular architecture · DI\nConcurrency — Swift Concurrency · Combine · RxSwift\nNetworking — URLSession · REST · Alamofire\nTesting — XCTest · TestFlight\nAI — Cursor · Copilot",
+    "skillsLine": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI",
+    "skillsLineDetailed": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI",
     "name": "Max Vilchevskiy",
     "title": "Senior iOS Engineer",
-    "tagline": "Swift · SwiftUI · UIKit",
+    "tagline": "Consumer apps · Marketplaces · Loyalty SDKs",
     "location": "Kyiv, Ukraine",
-    "pitch": "Senior iOS Engineer",
-    "headerTldr": "Senior iOS Engineer",
+    "pitch": "Senior iOS Engineer · Consumer apps & marketplaces",
+    "headerTldr": "Consumer apps · Marketplaces · Loyalty SDKs",
     "availability": "Available from Jul 2026 · remote or hybrid Kyiv",
     "headerAvailability": "Available Jul 2026 · remote or hybrid",
     "apply": {
@@ -40,11 +40,11 @@
     "telegram": "https://t.me/vil4max"
   },
   "highlights": [
-    "12+ years commercial iOS — indie releases through large marketplaces and SDK platforms",
-    "Feature ownership — Premium Subscription module; Premium Subscription SDK extraction",
-    "Analytics module — multi-analytics SDK routing in shared loyalty SDK",
-    "watchOS voice AI R&D — full on-watch flows; VelocityAI beta",
-    "Third-party libraries — Alamofire, RxSwift, DI, Stripe, Firebase, maps, web3; SPM and CocoaPods in production apps"
+    "12+ years iOS — indie apps through national-scale marketplaces",
+    "Premium Subscription on Birmarket; later extracted as shared SDK",
+    "Analytics module in loyalty SDK — routes to Amplitude, Mixpanel, Firebase, and others",
+    "watchOS voice AI R&D; VelocityAI beta as iOS engineer",
+    "Alamofire, RxSwift, Stripe, Firebase, SPM, CocoaPods in production"
   ],
   "earlyCareerShort": "",
   "education": [
@@ -83,20 +83,19 @@
       "featured": true,
       "shortInclude": true,
       "project": "Apple Watch Voice AI — R&D project",
-      "productDescription": "Apple Watch Voice AI — R&D project (watchOS client, iPhone relay). Also participated in beta testing GlobalLogic VelocityAI — an enterprise GenAI platform for AI-powered SDLC and agentic delivery workflows.",
-      "myRole": "Senior iOS engineer on watchOS client — architecture, Watch ↔ iPhone connectivity, TestFlight delivery.",
+      "productDescription": "Apple Watch Voice AI — watchOS client with iPhone relay. Also beta-tested VelocityAI, GlobalLogic's AI-assisted SDLC platform.",
+      "myRole": "Senior iOS engineer on the watchOS client — architecture, Watch ↔ iPhone connectivity, TestFlight. Beta-tested VelocityAI separately; feedback from a shipping iOS perspective.",
       "bullets": [
-        "Built a watchOS voice AI client with fully on-device conversational flows.",
-        "iPhone acts as a backend relay (WebSocket not available on Watch): built the Watch ↔ iPhone channel for audio and shared state with the server-side AI agent.",
-        "Implemented deduplication across devices using URLSessionWebSocketTask.",
-        "Split features between Watch and iPhone where platform limits required it; shipped internal TestFlight builds within watchOS constraints (background, audio sessions, connectivity).",
-        "Built on-device intent handling so that commands update navigation and forms without needless round trips.",
-        "Beta-tested VelocityAI — hands-on evaluation of GlobalLogic's enterprise GenAI / AI-powered SDLC platform (agent workflows, governed AI in software delivery); feedback from an iOS engineer's shipping perspective."
+        "watchOS voice AI with on-device conversation flows.",
+        "No WebSocket on Watch — iPhone relay for audio and server sync; dedup with URLSessionWebSocketTask.",
+        "Split Watch/iPhone work around platform limits; TestFlight under watchOS constraints (background, audio, connectivity).",
+        "On-device intents refresh navigation and forms locally.",
+        "Beta-tested VelocityAI — ran a sample product cycle from idea to release."
       ],
       "bulletsShort": [
-        "Built a watchOS voice AI client with fully on-device conversational flows.",
-        "Built Watch ↔ iPhone relay for audio/WebSocket and on-device intents under watchOS constraints; TestFlight delivery.",
-        "Beta-tested VelocityAI (enterprise GenAI SDLC) alongside the voice AI engagement."
+        "watchOS voice AI with on-device conversation flows.",
+        "iPhone relay for WebSocket/audio and on-device intents; TestFlight under watchOS limits.",
+        "Beta-tested VelocityAI — sample product cycle from idea to release; iOS engineer feedback."
       ],
       "technologiesLine": "Swift · WatchKit · WatchConnectivity · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · App Intents · Swift Concurrency · async/await · VelocityAI"
     },
@@ -131,28 +130,28 @@
       "featured": true,
       "shortInclude": true,
       "project": "Birmarket — online marketplace & loyalty · Loyalty squad",
-      "productDescription": "Birmarket — online marketplace & loyalty · Loyalty squad. Consumer marketplace and shared loyalty SDK across host apps.",
-      "myRole": "Senior iOS engineer on marketplace commerce and Loyalty squad — owned Premium Subscription module on Birmarket, Premium Subscription SDK extraction, and Analytics module in shared loyalty SDK; per-host configuration in Birbank and M10.",
+      "productDescription": "Birmarket (Umico) — multi-vendor marketplace in Azerbaijan: 500,000+ products, 900+ pickup points, Bir Bonus loyalty. Joined at startup scale; shipped commerce and loyalty SDKs as the product grew nationally. Shared loyalty SDK embedded in multiple host apps.",
+      "myRole": "Senior iOS on Birmarket commerce and Loyalty squad — Premium Subscription, Analytics module, shared Premium Subscription SDK; per-app config for host apps.",
       "bullets": [
-        "Shipped core marketplace commerce in a production online store — catalog, search, cart, checkout, and orders — across App Store releases.",
-        "Owned the Premium Subscription module — subscription flows and UI; integrated checkout with shared purchase model and handled subscription status on the feature side.",
-        "Built Analytics module in shared loyalty SDK — unified analytics API routing events to multiple analytics SDKs without feature code depending on connected SDKs.",
-        "Migrated Premium Subscription module into Premium Subscription SDK with per-host-app configuration inside the shared loyalty platform."
+        "Catalog through orders for 500,000+ SKUs and 900+ pickup points — multiple App Store releases.",
+        "Owned Premium Subscription — UI, checkout wiring, subscription status on the feature side.",
+        "Analytics module in loyalty SDK — one API for Amplitude, Mixpanel, AppsFlyer, Firebase, PostHog, Sentry.",
+        "Pulled Premium Subscription into a shared SDK with per-host configuration."
       ],
       "bulletsShort": [
-        "Owned Premium Subscription module — subscription flows and UI; integrated with shared purchase model for status handling.",
-        "Extracted Premium Subscription SDK with per-host configuration across multiple apps; modular architecture (isolated modules, networking layer).",
-        "Built Analytics module in shared loyalty SDK — unified analytics API; feature modules independent of connected analytics SDKs."
+        "Marketplace commerce — 500,000+ SKUs, 900+ pickup points, catalog through orders.",
+        "Owned Premium Subscription — UI, flows, shared purchase model.",
+        "Analytics in loyalty SDK — one API; features don't touch telemetry SDKs directly."
       ],
       "technologiesLine": "Swift · SwiftUI · UIKit · SPM · URLSession · Firebase Analytics · Firebase Crashlytics · Amplitude · Mixpanel · AppsFlyer · PostHog · Sentry · Keychain · Swift Concurrency · async/await · Combine",
       "projectsDetail": [
         {
           "name": "Birmarket",
-          "summary": "Consumer marketplace & loyalty app (App Store)"
+          "summary": "Azerbaijan marketplace app — 500,000+ products, 900+ pickup points (App Store)"
         },
         {
           "name": "Shared loyalty SDK",
-          "summary": "Marketplace/loyalty iOS SDK embedded in Birbank and M10 host apps"
+          "summary": "Marketplace/loyalty iOS SDK embedded in multiple host apps"
         },
         {
           "name": "Analytics module",
@@ -187,15 +186,15 @@
       "featured": true,
       "shortInclude": true,
       "project": "Drinkit — coffee ordering app",
-      "productDescription": "Drinkit — tech-forward coffee QSR app (Dodo Brands). Pre-order, signature drink customization, slot pickup, and loyalty — from MVP through a major App Store release.",
-      "myRole": "iOS engineer on a three-person team — pre-order and customization flows, menu video, Apple Pay + loyalty, pickup tracking, and production releases.",
+      "productDescription": "Drinkit — coffee ordering app (Dodo Brands). Started at a test flagship café; the brand now has 215+ shops in 5 countries. Pre-order, customization, slot pickup, loyalty.",
+      "myRole": "iOS engineer on a three-person team — pre-order and customization, menu video, Apple Pay with loyalty, pickup tracking, production releases.",
       "bullets": [
-        "Built Drinkit from MVP through major App Store release on a three-person team — pre-order and drink customization flows.",
-        "Shipped Reels-style drink video for menu discovery; Apple Pay checkout with loyalty; live order tracking for slot pickup."
+        "Built Drinkit at a test flagship café on a three-person team — MVP to App Store with pre-order and customization; brand now 215+ shops in 5 countries.",
+        "Menu video (Reels-style), Apple Pay with loyalty, live tracking for slot pickup."
       ],
       "bulletsShort": [
-        "Built Drinkit iOS from MVP through major App Store release on a three-person team — pre-order and drink customization flows.",
-        "Shipped Reels-style menu video, Apple Pay + loyalty, and pickup order tracking for slot-based QSR flow."
+        "Drinkit iOS — test flagship to App Store on a three-person team; brand grew to 215+ shops in 5 countries.",
+        "Reels-style menu video, Apple Pay with loyalty, slot pickup tracking."
       ],
       "technologiesLine": "Swift · UIKit · SPM · URLSession · Apple Pay · PassKit · AVFoundation · AVKit"
     },
