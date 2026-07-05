@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import fs from "node:fs";
-import { parseResumeMarkdown } from "./resume-md-lib.mjs";
+import { parseResumeMarkdown, stripPrivateFrontmatterBlock } from "./resume-md-lib.mjs";
 import { assertSourceOfTruthExists, publicResumeSourcePath, sourceOfTruthPath } from "./resume-paths.mjs";
 
 const outputPath = publicResumeSourcePath;
@@ -60,7 +60,7 @@ function buildPublicExperience(roles) {
 
 function buildPublicResume(profileMarkdown) {
     const parsed = parseResumeMarkdown(profileMarkdown);
-    const frontmatter = extractFrontmatter(profileMarkdown);
+    const frontmatter = stripPrivateFrontmatterBlock(extractFrontmatter(profileMarkdown));
     const languages = extractLanguages(profileMarkdown);
     const skills = extractSkillsSection(profileMarkdown);
     const experience = buildPublicExperience(parsed.roles);

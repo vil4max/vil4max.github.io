@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { sanitizePublicResumeExport } from "./resume-md-lib.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const scriptsDir = path.join(root, "scripts");
@@ -25,7 +26,7 @@ run("generate-public-resume.mjs");
 run("parse-resume-md.mjs", [tmpPath]);
 run("compare-resume-json.mjs", [tmpPath]);
 
-const parsed = JSON.parse(fs.readFileSync(tmpPath, "utf8"));
+const parsed = sanitizePublicResumeExport(JSON.parse(fs.readFileSync(tmpPath, "utf8")));
 fs.writeFileSync(goldenPath, `${JSON.stringify(parsed, null, 2)}\n`);
 fs.unlinkSync(tmpPath);
 

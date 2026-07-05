@@ -1,11 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { assertNoPrivateContactData } from "./resume-md-lib.mjs";
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.join(root, "..");
 const sourcePath = path.join(repoRoot, "content", "resume-source.json");
 const indexHtmlPath = path.join(repoRoot, "index.html");
+const projectsHtmlPath = path.join(repoRoot, "projects.html");
 
 const source = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
 const indexHtml = fs.readFileSync(indexHtmlPath, "utf8");
@@ -49,7 +51,20 @@ const forbiddenPhrases = [
 const surfaces = [
     { name: "resume-source.json", content: fs.readFileSync(sourcePath, "utf8") },
     { name: "index.html", content: indexHtml },
+    { name: "projects.html", content: fs.readFileSync(projectsHtmlPath, "utf8") },
 ];
+
+for (const surface of surfaces) {
+    errors.push(...assertNoPrivateContactData(surface.name, surface.content));
+}
+
+if (source.contacts?.phone || source.contacts?.phonePublic !== undefined) {
+    errors.push("resume-source.json must not include contacts.phone or contacts.phonePublic");
+}
+
+if (source.meta?.apply) {
+    errors.push("resume-source.json must not include meta.apply");
+}
 
 for (const phrase of forbiddenPhrases) {
     for (const surface of surfaces) {

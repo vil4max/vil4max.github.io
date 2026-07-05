@@ -3,8 +3,8 @@
 ## Source of truth
 
 - **Edit only:** `../career/source-of-truth.md` (private `career` repo)
-- **Never hand-edit:** `content/resume.md`, `content/resume-source.json`, synced HTML sections, PDFs
-- **Generated chain:** `career/source-of-truth.md` → generate-public-resume → `content/resume.md` → parse → compare-json → `resume-source.json` → sync HTML → validate → PDF from `index.html`
+- **Never hand-edit:** `content/resume-source.json`, synced HTML sections, PDFs
+- **Generated chain:** `career/source-of-truth.md` → generate-public-resume → `content/resume.md` (local, gitignored) → parse → compare-json → `resume-source.json` → sync HTML → validate → PDF from `index.html`
 
 ## Build commands
 
@@ -24,7 +24,7 @@ One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run re
 
 | Output | Source |
 |--------|--------|
-| `content/resume.md` (build artifact) | Generated from `career/source-of-truth.md` |
+| `content/resume.md` (local build artifact, gitignored) | Generated from `career/source-of-truth.md` |
 | `index.html` | Online resume — Skills, Summary, Experience timeline (synced from JSON; thumbs on screen only) |
 | `cv.html` | Redirect to `index.html` (legacy URL / bookmarks) |
 | `projects.html` | Extended case studies, screenshots, demos — not in sync chain |
@@ -54,12 +54,14 @@ Profile/
   career/
     source-of-truth.md          ← EDIT HERE (private)
   vil4max.github.io/
-    content/resume.md           ← generated (build artifact, not published at site root)
-    content/resume-source.json  ← generated
+    content/resume.md           ← generated locally (gitignored)
+    content/resume-source.json  ← generated (public-safe: no phone, no apply metadata)
     index.html                  ← online resume (synced experience)
     cv.html                     ← redirect to index.html
     projects.html               ← case studies (hand-maintained)
   vil4max/
     README.md                   ← GitHub profile about (hand-maintained)
-    assets/*.pdf                ← generated
+    assets/Vilchevskiy_iOS_Engineer.pdf ← generated (public)
+  career/
+    assets/Vilchevskiy_iOS_Engineer_detailed.pdf ← private detailed resume (on request)
 ```

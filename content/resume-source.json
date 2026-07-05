@@ -21,15 +21,6 @@
     "headerTldr": "Consumer apps · Marketplaces · Loyalty SDKs",
     "availability": "Available from Jul 2026 · remote or hybrid Kyiv",
     "headerAvailability": "Available Jul 2026 · remote or hybrid",
-    "apply": {
-      "primarySkill": "iOS Swift",
-      "yearsExperience": "12+",
-      "englishLevel": "Intermediate",
-      "noticePeriod": "Available now",
-      "country": "Ukraine",
-      "city": "Kyiv",
-      "preferredWorkCountries": "Ukraine"
-    },
     "syncRule": "Edit career/source-of-truth.md only, then run npm run resume:build — see constraints.md."
   },
   "contacts": {

@@ -3,6 +3,65 @@ import path from "node:path";
 
 const BOOL = /^(true|false)$/i;
 
+export const UKRAINE_PHONE_PATTERN = /\+380\d{9}/;
+
+const PRIVATE_FRONTMATTER_KEYS = new Set([
+    "phone",
+    "phonePublic",
+    "applyPrimarySkill",
+    "applyYearsExperience",
+    "applyEnglishLevel",
+    "applyNoticePeriod",
+    "applyCountry",
+    "applyCity",
+    "applyPreferredWorkCountries",
+]);
+
+export function stripPrivateFrontmatterBlock(frontmatterBlock) {
+    if (!frontmatterBlock.startsWith("---\n")) {
+        return frontmatterBlock;
+    }
+    const end = frontmatterBlock.indexOf("\n---\n", 4);
+    if (end === -1) {
+        return frontmatterBlock;
+    }
+    const lines = frontmatterBlock.slice(4, end).split("\n");
+    const publicLines = lines.filter((line) => {
+        const key = line.split(":")[0]?.trim();
+        return key && !PRIVATE_FRONTMATTER_KEYS.has(key);
+    });
+    return `---\n${publicLines.join("\n")}\n---\n`;
+}
+
+export function sanitizePublicResumeExport(source) {
+    const result = structuredClone(source);
+    if (result.contacts) {
+        delete result.contacts.phone;
+        delete result.contacts.phonePublic;
+    }
+    if (result.meta) {
+        delete result.meta.apply;
+    }
+    return result;
+}
+
+export function assertNoPrivateContactData(label, content) {
+    const errors = [];
+    if (UKRAINE_PHONE_PATTERN.test(content)) {
+        errors.push(`${label} contains a phone number`);
+    }
+    if (content.includes('"phone":') || /\bphone:\s*\+/.test(content)) {
+        errors.push(`${label} contains a phone field`);
+    }
+    if (content.includes('"apply":') || content.includes("applyPrimarySkill")) {
+        errors.push(`${label} contains application-form metadata`);
+    }
+    if (content.includes("content/source-of-truth.md")) {
+        errors.push(`${label} references content/source-of-truth.md`);
+    }
+    return errors;
+}
+
 export function parseFrontmatter(text) {
     if (!text.startsWith("---\n")) {
         return { frontmatter: {}, body: text };

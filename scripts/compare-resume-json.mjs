@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { deepDiff, readJson } from "./resume-md-lib.mjs";
+import { deepDiff, readJson, sanitizePublicResumeExport } from "./resume-md-lib.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const goldenPath = path.join(root, "content", "resume-source.json");
@@ -9,8 +9,8 @@ const parsedPath = process.argv[2]
     ? path.resolve(process.argv[2])
     : path.join(root, "content", ".resume-source.json.tmp");
 
-const golden = readJson(goldenPath);
-const parsed = readJson(parsedPath);
+const golden = sanitizePublicResumeExport(readJson(goldenPath));
+const parsed = sanitizePublicResumeExport(readJson(parsedPath));
 const errors = deepDiff(parsed, golden);
 
 if (errors.length > 0) {
