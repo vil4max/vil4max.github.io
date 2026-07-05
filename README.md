@@ -14,7 +14,7 @@ Nav on every page: **Portfolio · Projects**. PDF download in header.
 
 ## Edit content
 
-1. **`content/source-of-truth.md`** — source of truth: full experience, metadata, LinkedIn blocks
+1. **`../career/source-of-truth.md`** — private source of truth: full experience, metadata, LinkedIn blocks
 2. Run `npm run resume:build` and `npm run resume:check`
 
 See [`constraints.md`](constraints.md) for the full maintainer contract (source of truth, surfaces map, content rules).

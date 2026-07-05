@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import { parseResumeMarkdown } from "./resume-md-lib.mjs";
-import { publicResumeSourcePath, sourceOfTruthPath } from "./resume-paths.mjs";
+import { assertSourceOfTruthExists, publicResumeSourcePath, sourceOfTruthPath } from "./resume-paths.mjs";
 
 const outputPath = publicResumeSourcePath;
 
@@ -95,6 +95,7 @@ function buildPublicResume(profileMarkdown) {
         .concat("\n");
 }
 
+assertSourceOfTruthExists();
 const sourceMarkdown = fs.readFileSync(sourceOfTruthPath, "utf8");
 const publicMarkdown = buildPublicResume(sourceMarkdown);
 fs.writeFileSync(outputPath, publicMarkdown);

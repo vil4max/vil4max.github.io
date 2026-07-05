@@ -2,9 +2,9 @@
 
 ## Source of truth
 
-- **Edit only:** `content/source-of-truth.md`
+- **Edit only:** `../career/source-of-truth.md` (private `career` repo)
 - **Never hand-edit:** `content/resume.md`, `content/resume-source.json`, synced HTML sections, PDFs
-- **Generated chain:** `content/source-of-truth.md` → generate-public-resume → `content/resume.md` → parse → compare-json → `resume-source.json` → sync HTML → validate → PDF from `index.html`
+- **Generated chain:** `career/source-of-truth.md` → generate-public-resume → `content/resume.md` → parse → compare-json → `resume-source.json` → sync HTML → validate → PDF from `index.html`
 
 ## Build commands
 
@@ -24,13 +24,13 @@ One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run re
 
 | Output | Source |
 |--------|--------|
-| `content/resume.md` (build artifact) | Generated from `content/source-of-truth.md` |
+| `content/resume.md` (build artifact) | Generated from `career/source-of-truth.md` |
 | `index.html` | Online resume — Skills, Summary, Experience timeline (synced from JSON; thumbs on screen only) |
 | `cv.html` | Redirect to `index.html` (legacy URL / bookmarks) |
 | `projects.html` | Extended case studies, screenshots, demos — not in sync chain |
 | `../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf` | Print export of `index.html` + `resume-pdf.css` (A4, Playwright; hides thumbs) |
 | `../vil4max/README.md` | Hand-maintained human “about” (GitHub only) |
-| LinkedIn paste | Per-role `#### LinkedIn paste` + `## LinkedIn profile` in `content/source-of-truth.md` |
+| LinkedIn paste | Per-role `#### LinkedIn paste` + `## LinkedIn profile` in `career/source-of-truth.md` |
 
 ## Content rules
 
@@ -44,15 +44,16 @@ One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run re
 
 1. `npm run resume:build`
 2. `npm run resume:check`
-3. Paste LinkedIn from `content/source-of-truth.md`
+3. Paste LinkedIn from `career/source-of-truth.md`
 4. Push `vil4max.github.io` and `vil4max` if PDFs changed
 
 ## Repo layout
 
 ```
 Profile/
+  career/
+    source-of-truth.md          ← EDIT HERE (private)
   vil4max.github.io/
-    content/source-of-truth.md  ← EDIT HERE
     content/resume.md           ← generated (build artifact, not published at site root)
     content/resume-source.json  ← generated
     index.html                  ← online resume (synced experience)
@@ -61,5 +62,4 @@ Profile/
   vil4max/
     README.md                   ← GitHub profile about (hand-maintained)
     assets/*.pdf                ← generated
-  career/                       ← private strategy only
 ```

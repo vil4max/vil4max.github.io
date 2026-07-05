@@ -2,8 +2,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { sourceOfTruthPath } from "./resume-paths.mjs";
+import { assertSourceOfTruthExists, sourceOfTruthPath } from "./resume-paths.mjs";
 
+assertSourceOfTruthExists();
 const markdown = fs.readFileSync(sourceOfTruthPath, "utf8");
 const linkedInHeader = "#### LinkedIn paste";
 const errors = [];
