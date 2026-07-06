@@ -42,6 +42,9 @@ export function sanitizePublicResumeExport(source) {
     if (result.meta) {
         delete result.meta.apply;
     }
+    if (result.education) {
+        result.education = [];
+    }
     return result;
 }
 
@@ -218,10 +221,22 @@ function parseRoleSection(lines, startIndex) {
                 index = nextIndex;
                 continue;
             }
+            if (section === "Bullets one page") {
+                const { bullets, nextIndex } = parseBulletList(lines, index);
+                role.bulletsOnePage = bullets;
+                index = nextIndex;
+                continue;
+            }
             if (section === "Technologies") {
                 const { text, nextIndex } = parseParagraph(lines, index);
                 role.technologiesLine = text;
                 role.technologies = text.split("·").map((item) => item.trim()).filter(Boolean);
+                index = nextIndex;
+                continue;
+            }
+            if (section === "Technologies one page") {
+                const { text, nextIndex } = parseParagraph(lines, index);
+                role.technologiesOnePageLine = text;
                 index = nextIndex;
                 continue;
             }
@@ -278,6 +293,12 @@ function parseRoleSection(lines, startIndex) {
                 case "Project":
                     role.project = value;
                     break;
+                case "One page company":
+                    role.onePageCompany = value;
+                    break;
+                case "One page project":
+                    role.onePageProject = value;
+                    break;
                 default:
                     break;
             }
@@ -287,8 +308,9 @@ function parseRoleSection(lines, startIndex) {
     return { role, nextIndex: index };
 }
 
-function parseSkillsGroups(sectionLines) {
-    const skipLabels = new Set(["line", "line short"]);
+function parseSkillsGroups(sectionLines, options = {}) {
+    const { redactPublic = true } = options;
+    const skipLabels = new Set(["line", "line short", "skills", "summary", "roles", "earlier experience"]);
     const groups = [];
     let index = 0;
     while (index < sectionLines.length) {
@@ -317,10 +339,13 @@ function parseSkillsGroups(sectionLines) {
         if (!line) {
             continue;
         }
-        if (label === "Analytics") {
+        if (redactPublic && label === "Analytics") {
             line = "analytics SDK abstraction · multi-provider event routing";
-        } else if (label === "AI & agentic tooling") {
-            line = "AI-assisted engineering";
+        } else if (redactPublic && label === "AI & agentic tooling") {
+            while (index < sectionLines.length && !sectionLines[index].startsWith("### ")) {
+                index += 1;
+            }
+            continue;
         }
         groups.push({ label, line });
     }
@@ -338,6 +363,114 @@ function parseSectionBullets(sectionLines) {
     return bullets;
 }
 
+function parseOnePageEarlierExperience(sectionLines) {
+    const earlier = { heading: "", lead: "", bullets: [], tech: "" };
+    let index = 0;
+    while (index < sectionLines.length) {
+        const heading = sectionLines[index].match(/^#### (.+)$/);
+        if (!heading) {
+            index += 1;
+            continue;
+        }
+        const label = heading[1].trim();
+        index += 1;
+        if (label === "Bullets") {
+            const { bullets, nextIndex } = parseBulletList(sectionLines, index);
+            earlier.bullets = bullets;
+            index = nextIndex;
+            continue;
+        }
+        const { text, nextIndex } = parseParagraph(sectionLines, index);
+        if (label === "Heading") {
+            earlier.heading = text;
+        } else if (label === "Lead") {
+            earlier.lead = text;
+        } else if (label === "Body") {
+            earlier.body = text;
+        } else if (label === "Tech") {
+            earlier.tech = text;
+        }
+        index = nextIndex;
+    }
+    return earlier;
+}
+
+function parseOnePageSection(sectionLines) {
+    const onePage = {
+        summary: "",
+        locationLine: "",
+        skillsGroups: [],
+        roleIds: [],
+        earlierExperience: { heading: "", lead: "", body: "", bullets: [], tech: "" },
+        educationLine: "",
+    };
+    let index = 0;
+    while (index < sectionLines.length) {
+        const heading = sectionLines[index].match(/^### (.+)$/);
+        if (!heading) {
+            index += 1;
+            continue;
+        }
+        const label = heading[1].trim();
+        index += 1;
+        if (label === "Summary") {
+            const { text, nextIndex } = parseParagraph(sectionLines, index);
+            onePage.summary = text;
+            index = nextIndex;
+            continue;
+        }
+        if (label === "Location line") {
+            const { text, nextIndex } = parseParagraph(sectionLines, index);
+            onePage.locationLine = text;
+            index = nextIndex;
+            continue;
+        }
+        if (label === "Skills") {
+            const skillsLines = [];
+            while (index < sectionLines.length) {
+                const line = sectionLines[index];
+                if (
+                    line === "### Roles" ||
+                    line === "### Earlier experience" ||
+                    line === "### Education line"
+                ) {
+                    break;
+                }
+                skillsLines.push(line);
+                index += 1;
+            }
+            onePage.skillsGroups = parseSkillsGroups(skillsLines, { redactPublic: false });
+            continue;
+        }
+        if (label === "Roles") {
+            const { text, nextIndex } = parseParagraph(sectionLines, index);
+            onePage.roleIds = text
+                .split("·")
+                .map((part) => part.trim())
+                .filter(Boolean);
+            index = nextIndex;
+            continue;
+        }
+        if (label === "Earlier experience") {
+            const earlierLines = [];
+            while (index < sectionLines.length && !sectionLines[index].startsWith("### ")) {
+                earlierLines.push(sectionLines[index]);
+                index += 1;
+            }
+            onePage.earlierExperience = parseOnePageEarlierExperience(earlierLines);
+            continue;
+        }
+        if (label === "Education line") {
+            const { text, nextIndex } = parseParagraph(sectionLines, index);
+            onePage.educationLine = text;
+            index = nextIndex;
+            continue;
+        }
+        index += 1;
+    }
+    return onePage;
+}
+
 export function parseResumeMarkdown(markdown) {
     const { frontmatter, body } = parseFrontmatter(markdown);
     const lines = body.split("\n");
@@ -348,6 +481,7 @@ export function parseResumeMarkdown(markdown) {
         earlyCareerShort: "",
         education: [],
         roles: [],
+        onePage: null,
         otherProjects: [],
         featuredProjects: [],
         cvProjects: [],
@@ -479,6 +613,10 @@ export function parseResumeMarkdown(markdown) {
         }
         if (section === "Early career") {
             result.earlyCareerShort = sectionLines.join("\n").trim();
+            continue;
+        }
+        if (section === "Resume one page") {
+            result.onePage = parseOnePageSection(sectionLines);
             continue;
         }
         if (section === "Featured projects") {

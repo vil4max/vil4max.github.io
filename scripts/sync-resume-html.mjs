@@ -205,16 +205,6 @@ function experienceItemForRole(role) {
     return role.featured ? experienceItem(role) : compactExperienceItem(role);
 }
 
-function educationHtml(educationEntries) {
-    const entry = educationEntries?.[0];
-    if (!entry) {
-        return "";
-    }
-    const line = entry.displayFull ?? `${entry.institution} — ${entry.degree}, ${entry.field}`;
-    return `        <h3><span class="section-heading-text">Education</span><span class="section-mark cv-print-omit" aria-hidden="true">🎓</span></h3>
-        <p class="education-line">${escapeHtml(line)}</p>`;
-}
-
 function replaceSectionContent(html, sectionClass, innerHtml) {
     const openTag = `<section class="${sectionClass}">`;
     const start = html.indexOf(openTag);
@@ -253,10 +243,6 @@ ${source.roles.map(experienceItemForRole).join("\n\n")}
         </div>`;
 
 indexHtml = replaceSectionContent(indexHtml, "cv-section-experience", experienceSectionInner);
-
-if (indexHtml.includes("cv-section-education")) {
-    indexHtml = replaceSectionContent(indexHtml, "cv-section-education", educationHtml(source.education));
-}
 
 fs.writeFileSync(indexPath, indexHtml);
 console.log(`Synced ${indexPath} from resume-source.json`);

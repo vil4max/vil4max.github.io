@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "resume:pdf": "node scripts/generate-resume-pdf.mjs index.html ../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf",
+    "resume:pdf": "node scripts/generate-resume-pdf.mjs index.html ../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf",
+    "resume:pdf:canonical": "node scripts/generate-resume-pdf.mjs resume-one-page.html ../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf",
     "resume:validate": "node scripts/validate-resume-sync.mjs",
     "resume:parse": "node scripts/parse-resume-md.mjs",
     "resume:compare-json": "node scripts/compare-resume-json.mjs",

@@ -2,6 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { assertNoPrivateContactData } from "./resume-md-lib.mjs";
+import {
+    PDF_CANONICAL_FILENAME,
+    PDF_DETAILED_FILENAME,
+} from "./resume-pdf-paths.mjs";
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.join(root, "..");
@@ -46,13 +50,35 @@ const forbiddenPhrases = [
     "not StoreKit",
     "not ML research",
     "Foundation Models",
+    "AI-assisted engineering",
+    "agentic tooling",
+    "mentored a junior",
+    "team lead",
+    "people manager",
+    "engineering manager",
+    "led the team",
+    "led the iOS team",
 ];
+
+const leadershipWordPattern = /\b[Ll]ed\b/;
+
+const onePageHtmlPath = path.join(repoRoot, "resume-one-page.html");
+let onePageHtml = "";
+try {
+    onePageHtml = fs.readFileSync(onePageHtmlPath, "utf8");
+} catch {
+    errors.push("resume-one-page.html is missing — run npm run resume:build");
+}
 
 const surfaces = [
     { name: "resume-source.json", content: fs.readFileSync(sourcePath, "utf8") },
     { name: "index.html", content: indexHtml },
     { name: "projects.html", content: fs.readFileSync(projectsHtmlPath, "utf8") },
 ];
+
+if (onePageHtml) {
+    surfaces.push({ name: "resume-one-page.html", content: onePageHtml });
+}
 
 for (const surface of surfaces) {
     errors.push(...assertNoPrivateContactData(surface.name, surface.content));
@@ -71,6 +97,16 @@ for (const phrase of forbiddenPhrases) {
         if (surface.content.includes(phrase)) {
             errors.push(`${surface.name} contains forbidden phrase: ${phrase}`);
         }
+    }
+}
+
+for (const surface of surfaces) {
+    if (surface.name === "projects.html") {
+        continue;
+    }
+    const text = decodeHtmlEntities(surface.content).replace(/<[^>]+>/g, " ");
+    if (leadershipWordPattern.test(text)) {
+        errors.push(`${surface.name} contains forbidden word: led`);
     }
 }
 
@@ -146,6 +182,80 @@ if (indexHtml.includes("index-short.html")) {
 
 if (indexHtml.includes("landing-about")) {
     errors.push("index.html still contains landing-about section");
+}
+
+if (!indexHtml.includes(PDF_CANONICAL_FILENAME) || !indexHtml.includes("Download CV")) {
+    errors.push(`index.html missing primary CV download (${PDF_CANONICAL_FILENAME})`);
+}
+
+const projectsHtml = fs.readFileSync(projectsHtmlPath, "utf8");
+if (!projectsHtml.includes(PDF_CANONICAL_FILENAME) || !projectsHtml.includes("Download CV")) {
+    errors.push(`projects.html missing primary CV download (${PDF_CANONICAL_FILENAME})`);
+}
+
+if (!indexHtml.includes(PDF_DETAILED_FILENAME) || !indexHtml.includes("View detailed experience")) {
+    errors.push(`index.html missing detailed CV link (${PDF_DETAILED_FILENAME})`);
+}
+
+if (!projectsHtml.includes(PDF_DETAILED_FILENAME) || !projectsHtml.includes("View detailed experience")) {
+    errors.push(`projects.html missing detailed CV link (${PDF_DETAILED_FILENAME})`);
+}
+
+if (indexHtml.includes("Vilchevskiy_iOS_Engineer")) {
+    errors.push("index.html contains stale Vilchevskiy_iOS_Engineer PDF filename");
+}
+
+if (projectsHtml.includes("Vilchevskiy_iOS_Engineer")) {
+    errors.push("projects.html contains stale Vilchevskiy_iOS_Engineer PDF filename");
+}
+
+if (onePageHtml) {
+    const onePageText = decodeHtmlEntities(onePageHtml).replace(/<[^>]+>/g, " ");
+    const onePageRequired = [
+        "12+ years",
+        "RxSwift",
+        "PLAYHERA",
+        "Premium Subscription",
+    ];
+    for (const snippet of onePageRequired) {
+        if (!onePageText.includes(snippet)) {
+            errors.push(`resume-one-page.html missing required snippet: ${snippet}`);
+        }
+    }
+    if (!/designed and implemented/i.test(onePageText)) {
+        errors.push("resume-one-page.html missing analytics designed/implemented wording");
+    }
+    if (!/WebSocket/i.test(onePageText)) {
+        errors.push("resume-one-page.html missing WebSocket/realtime wording");
+    }
+    if (!onePageHtml.includes("cv-section-education")) {
+        errors.push("resume-one-page.html missing cv-section-education section");
+    }
+    if (!onePageText.includes("Education")) {
+        errors.push("resume-one-page.html missing Education section heading");
+    }
+    if (!onePageText.includes("Production Management")) {
+        errors.push("resume-one-page.html missing Production Management degree wording");
+    }
+    const forbiddenEducationPhrases = [
+        "Production sector management",
+        "Technical education",
+        "Technical degree",
+        "Engineering degree",
+        "Computer Science",
+        "STEM degree",
+    ];
+    for (const phrase of forbiddenEducationPhrases) {
+        if (onePageText.includes(phrase)) {
+            errors.push(`resume-one-page.html contains forbidden education phrase: ${phrase}`);
+        }
+    }
+    const skillsSectionMatch = onePageHtml.match(
+        /<section class="cv-section-skills">[\s\S]*?<\/section>/,
+    );
+    if (skillsSectionMatch?.[0]?.includes("cv-education-line")) {
+        errors.push("resume-one-page.html still renders education inside Skills section");
+    }
 }
 
 if (errors.length > 0) {

@@ -4,7 +4,7 @@
 
 - **Edit only:** `../career/source-of-truth.md` (private `career` repo)
 - **Never hand-edit:** `content/resume-source.json`, synced HTML sections, PDFs
-- **Generated chain:** `career/source-of-truth.md` → generate-public-resume → `content/resume.md` (local, gitignored) → parse → compare-json → `resume-source.json` → sync HTML → validate → PDF from `index.html`
+- **Generated chain:** `career/source-of-truth.md` → generate-public-resume → `content/resume.md` (local, gitignored) → parse → compare-json → `resume-source.json` → sync HTML (`index.html`, `resume-one-page.html`) → validate → PDFs
 
 ## Build commands
 
@@ -25,11 +25,13 @@ One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run re
 | Output | Source |
 |--------|--------|
 | `content/resume.md` (local build artifact, gitignored) | Generated from `career/source-of-truth.md` |
-| `index.html` | Online resume — Skills, Summary, Experience timeline (synced from JSON; thumbs on screen only) |
+| `index.html` | Online resume — Summary, Skills, Experience (no Education); full PDF uses same source |
+| `resume-one-page.html` | 1-page EU/product resume — synced from `onePage` in JSON + per-role `bulletsOnePage` |
 | `cv.html` | Redirect to `index.html` (legacy URL / bookmarks) |
 | `projects.html` | Extended case studies, screenshots, demos — not in sync chain |
-| `../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf` | Print export of `index.html` + `resume-pdf.css` (A4, Playwright; hides thumbs) |
-| iCloud `~/Library/Mobile Documents/.../pdf-resume/Vilchevskiy_iOS_Engineer.pdf` | Same file copied by `generate-resume-pdf.mjs` on each build |
+| `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf` | Primary 1-page CV from `resume-one-page.html` + `resume-one-page-pdf.css` |
+| `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf` | Detailed 2–3 page CV from `index.html` + `resume-pdf.css` |
+| iCloud `~/Library/Mobile Documents/.../pdf-resume/*.pdf` | Both PDFs copied by `generate-resume-pdf.mjs` on each build |
 | `../vil4max/README.md` | Hand-maintained human “about” (GitHub only) |
 | LinkedIn paste | Per-role `#### LinkedIn paste` + `## LinkedIn profile` in `career/source-of-truth.md` |
 
@@ -40,12 +42,18 @@ One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run re
 - Phone not on public web/PDF
 - `Senior` in job titles only, not as identity in summary
 - Product names: **Premium Subscription SDK**, **Premium Subscription module**, **Analytics module**
+- **Education:** keep `## Education` in `career/source-of-truth.md` for application forms only — **not** on full `index.html` PDF; **1-page PDF** shows a compact **Education** section (between Skills and Experience), not inside Skills
+- **Honesty / positioning:** no people leadership, team lead, or `led` wording on public surfaces; use `owned` / `designed` / `implemented` / `shipped` / `contributed` for technical work only
+- **1-page Summary** may lead with `12+ years`; full resume Summary keeps tenure clause at end (not as opening lead)
 
 ## PDF policy
 
-- **One resume PDF only:** `Vilchevskiy_iOS_Engineer.pdf` (2–3 pages from `index.html`)
+- **Two public resume PDFs** (canonical filenames — full policy: `career/resume-publishing.md` in private repo):
+  - `Max_Vilchevskiy_Senior_iOS_Engineer.pdf` — primary 1-page CV from `resume-one-page.html` (must stay exactly 1 page; validator enforces)
+  - `Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf` — detailed 2–3 page CV from `index.html`
 - **Destinations:** `vil4max/assets/` (public GitHub) and iCloud `pdf-resume/` (local copy on build)
-- **No detailed/long-form PDF** — do not maintain `*_detailed.pdf` or alternate resume PDFs; use the online resume and `projects.html` for depth
+- **1-page source:** `## Resume one page` in `career/source-of-truth.md` + per-role `#### Bullets one page` / `#### Technologies one page`
+- **Landing:** primary Download CV → canonical; secondary View detailed experience → Detailed PDF
 
 ## After every content change
 
@@ -68,5 +76,6 @@ Profile/
     projects.html               ← case studies (hand-maintained)
   vil4max/
     README.md                   ← GitHub profile about (hand-maintained)
-    assets/Vilchevskiy_iOS_Engineer.pdf ← only resume PDF (public GitHub)
+    assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf           ← primary 1-page CV (public GitHub)
+    assets/Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf ← detailed CV (public GitHub)
 ```

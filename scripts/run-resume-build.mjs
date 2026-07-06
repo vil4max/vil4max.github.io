@@ -4,9 +4,20 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { sanitizePublicResumeExport } from "./resume-md-lib.mjs";
+import {
+    PDF_CANONICAL_FILENAME,
+    PDF_DETAILED_FILENAME,
+    PDF_DETAILED_HTML,
+    PDF_ONE_PAGE_HTML,
+} from "./resume-pdf-paths.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const scriptsDir = path.join(root, "scripts");
+
+const LEGACY_PDF_FILENAMES = [
+    "Vilchevskiy_iOS_Engineer.pdf",
+    "Vilchevskiy_iOS_Engineer_1page.pdf",
+];
 
 function run(scriptName, args = []) {
     const result = spawnSync(process.execPath, [path.join(scriptsDir, scriptName), ...args], {
@@ -15,6 +26,17 @@ function run(scriptName, args = []) {
     });
     if (result.status !== 0) {
         process.exit(result.status ?? 1);
+    }
+}
+
+function removeLegacyPdfs() {
+    const assetsDir = path.join(root, "../vil4max/assets");
+    for (const filename of LEGACY_PDF_FILENAMES) {
+        const filePath = path.join(assetsDir, filename);
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+            console.log(`Removed legacy PDF: ${filePath}`);
+        }
     }
 }
 
@@ -31,8 +53,17 @@ fs.writeFileSync(goldenPath, `${JSON.stringify(parsed, null, 2)}\n`);
 fs.unlinkSync(tmpPath);
 
 run("sync-resume-html.mjs");
+run("sync-resume-one-page-html.mjs");
 run("validate-resume-sync.mjs");
-run("generate-resume-pdf.mjs", ["index.html", "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf"]);
+run("generate-resume-pdf.mjs", [
+    PDF_ONE_PAGE_HTML,
+    `../vil4max/assets/${PDF_CANONICAL_FILENAME}`,
+]);
+run("generate-resume-pdf.mjs", [
+    PDF_DETAILED_HTML,
+    `../vil4max/assets/${PDF_DETAILED_FILENAME}`,
+]);
+removeLegacyPdfs();
 run("check-resume-pdfs.mjs");
 
 console.log("OK: resume build complete");

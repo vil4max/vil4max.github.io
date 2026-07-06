@@ -1,0 +1,186 @@
+@page {
+    size: A4 portrait;
+}
+
+@media print {
+    body.cv-one-page {
+        background: #ffffff !important;
+        color: #000000;
+        font-size: 9pt;
+        line-height: 1.3;
+        hyphens: none;
+        word-break: normal;
+    }
+
+    body.cv-one-page .cv-summary,
+    body.cv-one-page .skills-ats,
+    body.cv-one-page .experience-item,
+    body.cv-one-page .exp-role-head-one-page,
+    body.cv-one-page .exp-meta-line,
+    body.cv-one-page .exp-project-name,
+    body.cv-one-page .exp-tech-line,
+    body.cv-one-page .exp-tech-tail,
+    body.cv-one-page .exp-earlier-heading,
+    body.cv-one-page .exp-earlier-lead,
+    body.cv-one-page .exp-earlier-body,
+    body.cv-one-page .cv-languages-line,
+    body.cv-one-page .cv-education-body {
+        hyphens: none;
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+
+    body.cv-one-page .page {
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    body.cv-one-page .cv-one-page-header {
+        border-bottom: 1px solid #000000;
+        padding-bottom: 8px;
+        margin-bottom: 10px;
+    }
+
+    body.cv-one-page .cv-one-page-header h1 {
+        font-size: 16pt;
+        margin: 0 0 2px;
+        line-height: 1.2;
+    }
+
+    body.cv-one-page .cv-one-page-header .header-location,
+    body.cv-one-page .cv-one-page-header .header-role,
+    body.cv-one-page .cv-one-page-header .header-meta-contacts {
+        margin: 0;
+        color: #000000;
+        font-size: 9.5pt;
+        line-height: 1.35;
+    }
+
+    body.cv-one-page .cv-one-page-header .header-role {
+        font-size: 11pt;
+        font-weight: 600;
+        margin-top: 2px;
+        margin-bottom: 4px;
+    }
+
+    body.cv-one-page main {
+        padding: 0;
+    }
+
+    body.cv-one-page h3 {
+        font-size: 10pt;
+        margin: 8px 0 3px;
+        padding-bottom: 2px;
+        border-bottom: 1px solid #000000;
+    }
+
+    body.cv-one-page .cv-section-summary h3 {
+        margin-top: 0;
+    }
+
+    body.cv-one-page .cv-summary {
+        margin: 0;
+        font-size: 9.5pt;
+    }
+
+    body.cv-one-page .skills-grouped {
+        margin: 0;
+    }
+
+    body.cv-one-page .skills-ats {
+        margin: 0 0 1px;
+        font-size: 9pt;
+        line-height: 1.3;
+    }
+
+    body.cv-one-page .cv-languages-line {
+        margin: 3px 0 0;
+        font-size: 9pt;
+    }
+
+    body.cv-one-page .cv-section-education {
+        margin-bottom: 4px;
+    }
+
+    body.cv-one-page .cv-section-education h3 {
+        margin: 4px 0 2px;
+    }
+
+    body.cv-one-page .cv-education-body {
+        margin: 0;
+        font-size: 9pt;
+        line-height: 1.25;
+        color: #000000;
+    }
+
+    body.cv-one-page .cv-section-experience h3 {
+        margin-top: 5px;
+    }
+
+    body.cv-one-page .experience-timeline--one-page .experience-item {
+        position: static;
+        margin: 0 0 7px;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+    }
+
+    body.cv-one-page .experience-timeline--one-page .experience-item::before {
+        content: none;
+        display: none;
+    }
+
+    body.cv-one-page .experience-item--earlier {
+        margin-bottom: 0;
+    }
+
+    body.cv-one-page .exp-role-head-one-page {
+        font-size: 10pt;
+        font-weight: 600;
+        margin: 0 0 1px;
+    }
+
+    body.cv-one-page .exp-meta-line,
+    body.cv-one-page .exp-project-name {
+        margin: 0 0 2px;
+        font-size: 9pt;
+        color: #000000;
+    }
+
+    body.cv-one-page .exp-project-name {
+        font-style: italic;
+    }
+
+    body.cv-one-page .experience-item ul {
+        margin: 2px 0 3px;
+        padding-left: 14px;
+    }
+
+    body.cv-one-page .experience-item li {
+        margin: 0 0 1px;
+        font-size: 9pt;
+        line-height: 1.3;
+    }
+
+    body.cv-one-page .exp-tech-line,
+    body.cv-one-page .exp-tech-tail {
+        margin: 0;
+        font-size: 8.5pt;
+        line-height: 1.25;
+        color: #000000;
+    }
+
+    body.cv-one-page .exp-earlier-heading {
+        font-weight: 600;
+        font-size: 10pt;
+        margin: 0 0 2px;
+    }
+
+    body.cv-one-page .exp-earlier-lead,
+    body.cv-one-page .exp-earlier-body {
+        margin: 0;
+        font-size: 9pt;
+        line-height: 1.3;
+    }
+}

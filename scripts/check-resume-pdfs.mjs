@@ -2,6 +2,14 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { stat } from "node:fs/promises";
+import {
+    PDF_CANONICAL_FILENAME,
+    PDF_DETAILED_FILENAME,
+    PDF_DETAILED_HTML,
+    PDF_ONE_PAGE_HTML,
+    pdfCanonicalAssetsPath,
+    pdfDetailedAssetsPath,
+} from "./resume-pdf-paths.mjs";
 
 const repoRoot = process.cwd();
 const iCloudResumeDir = path.join(
@@ -9,9 +17,12 @@ const iCloudResumeDir = path.join(
     "Library/Mobile Documents/com~apple~CloudDocs/pdf-resume",
 );
 
-const indexHtml = path.resolve(repoRoot, "index.html");
-const resumePdfAssets = path.resolve(repoRoot, "../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf");
-const resumePdfICloud = path.resolve(iCloudResumeDir, "Vilchevskiy_iOS_Engineer.pdf");
+const onePageHtml = path.resolve(repoRoot, PDF_ONE_PAGE_HTML);
+const detailedHtml = path.resolve(repoRoot, PDF_DETAILED_HTML);
+const canonicalPdfAssets = pdfCanonicalAssetsPath;
+const detailedPdfAssets = pdfDetailedAssetsPath;
+const canonicalPdfICloud = path.resolve(iCloudResumeDir, PDF_CANONICAL_FILENAME);
+const detailedPdfICloud = path.resolve(iCloudResumeDir, PDF_DETAILED_FILENAME);
 
 async function getMtimeMs(filePath) {
     const stats = await stat(filePath);
@@ -43,14 +54,44 @@ function countPdfPages(pdfPath) {
 }
 
 const checks = [
-    { label: "assets/resume", pdfPath: resumePdfAssets, sourceHtmlPath: indexHtml },
-    { label: "iCloud/resume", pdfPath: resumePdfICloud, sourceHtmlPath: indexHtml, optional: true },
+    {
+        label: "assets/canonical",
+        pdfPath: canonicalPdfAssets,
+        sourceHtmlPath: onePageHtml,
+        pageCount: 1,
+    },
+    {
+        label: "assets/detailed",
+        pdfPath: detailedPdfAssets,
+        sourceHtmlPath: detailedHtml,
+    },
+    {
+        label: "iCloud/canonical",
+        pdfPath: canonicalPdfICloud,
+        sourceHtmlPath: onePageHtml,
+        pageCount: 1,
+        optional: true,
+    },
+    {
+        label: "iCloud/detailed",
+        pdfPath: detailedPdfICloud,
+        sourceHtmlPath: detailedHtml,
+        optional: true,
+    },
 ];
 
 try {
     for (const check of checks) {
         try {
             await ensureUpToDate(check);
+            if (check.pageCount !== undefined) {
+                const pages = countPdfPages(check.pdfPath);
+                if (pages !== check.pageCount) {
+                    throw new Error(
+                        `${check.label} must be ${check.pageCount} page(s) (found ${pages}).\nPDF: ${check.pdfPath}\nFix: tighten resume-one-page content/CSS, then npm run resume:build`,
+                    );
+                }
+            }
         } catch (error) {
             if (check.optional && error?.code === "ENOENT") {
                 continue;
@@ -59,10 +100,10 @@ try {
         }
     }
 
-    const pageCount = countPdfPages(resumePdfAssets);
-    if (pageCount < 2 || pageCount > 3) {
+    const detailedPageCount = countPdfPages(detailedPdfAssets);
+    if (detailedPageCount < 2 || detailedPageCount > 3) {
         throw new Error(
-            `Resume PDF must be 2–3 pages (found ${pageCount}).\nPDF: ${resumePdfAssets}\nFix: shorten index.html content, then npm run resume:build`
+            `Detailed CV PDF must be 2–3 pages (found ${detailedPageCount}).\nPDF: ${detailedPdfAssets}\nFix: shorten index.html content, then npm run resume:build`
         );
     }
 

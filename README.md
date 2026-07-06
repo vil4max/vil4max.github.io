@@ -25,4 +25,5 @@ See [`constraints.md`](constraints.md) for the full maintainer contract (source 
 npm run resume:build
 ```
 
-Resume PDF ← `index.html` · Output → `../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf`
+- Primary (1 page): `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf` ← `resume-one-page.html`
+- Detailed (2–3 pages): `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf` ← `index.html`
