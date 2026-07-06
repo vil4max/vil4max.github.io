@@ -1,27 +1,19 @@
 #!/usr/bin/env node
 import fs from "node:fs";
-import { parseResumeMarkdown, stripPrivateFrontmatterBlock } from "./resume-md-lib.mjs";
-import { assertSourceOfTruthExists, publicResumeSourcePath, sourceOfTruthPath } from "./resume-paths.mjs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { buildResumeSourceFromFiles } from "../../career/resume/lib/resume-merge.mjs";
+import {
+    assertPresentationFilesExist,
+    assertSourceOfTruthExists,
+    presentationDetailedPath,
+    presentationOnePagePath,
+    publicResumeSourcePath,
+    sourceOfTruthPath,
+} from "./resume-paths.mjs";
+import { stripPrivateFrontmatterBlock } from "../../career/resume/lib/resume-md-lib.mjs";
 
 const outputPath = publicResumeSourcePath;
-
-function extractSkillsSection(profileMarkdown) {
-    const skillsStart = profileMarkdown.indexOf("## Skills\n");
-    const skillsEnd = profileMarkdown.indexOf("\n## ", skillsStart + 1);
-    if (skillsStart === -1 || skillsEnd === -1) {
-        throw new Error("source-of-truth.md missing ## Skills section");
-    }
-    let skills = profileMarkdown.slice(skillsStart, skillsEnd).trimEnd();
-    skills = skills.replace(
-        /### Analytics\n[\s\S]*?(?=\n### |\n## |$)/,
-        "### Analytics\nanalytics SDK abstraction · multi-provider event routing",
-    );
-    skills = skills.replace(
-        /### AI & agentic tooling\n[\s\S]*?(?=\n### |\n## |$)/,
-        "### AI & agentic tooling\nAI-assisted engineering",
-    );
-    return skills;
-}
 
 function extractFrontmatter(profileMarkdown) {
     if (!profileMarkdown.startsWith("---\n")) {
@@ -43,6 +35,22 @@ function extractLanguages(profileMarkdown) {
     return profileMarkdown.slice(start, end).trimEnd();
 }
 
+function extractSkillsSection(detailedMarkdown) {
+    const skillsStart = detailedMarkdown.indexOf("## Skills\n");
+    const skillsEnd = detailedMarkdown.indexOf("\n## ", skillsStart + 1);
+    if (skillsStart === -1 || skillsEnd === -1) {
+        throw new Error("resume-detailed.md missing ## Skills section");
+    }
+    let skills = detailedMarkdown.slice(skillsStart, skillsEnd).trimEnd();
+    skills = skills.replace(
+        /### Analytics\n[\s\S]*?(?=\n### |\n## |$)/,
+        "### Analytics\nanalytics SDK abstraction · multi-provider event routing",
+    );
+    skills = skills.replace(/### Line short\n[\s\S]*?(?=\n### Line\n)/, "");
+    skills = skills.replace(/### Line\n[\s\S]*?(?=\n## |$)/, "");
+    return skills.trimEnd();
+}
+
 function buildPublicExperience(roles) {
     const blocks = ["## Professional Experience", ""];
     for (const role of roles) {
@@ -58,45 +66,44 @@ function buildPublicExperience(roles) {
     return blocks.join("\n").trimEnd();
 }
 
-function buildPublicResume(profileMarkdown) {
-    const parsed = parseResumeMarkdown(profileMarkdown);
-    const frontmatter = stripPrivateFrontmatterBlock(extractFrontmatter(profileMarkdown));
-    const languages = extractLanguages(profileMarkdown);
-    const skills = extractSkillsSection(profileMarkdown);
-    const experience = buildPublicExperience(parsed.roles);
-
-    const summary = parsed.meta.summary?.trim() ?? "";
-    const highlights = parsed.highlights ?? [];
-
-    return [
-        frontmatter.trimEnd(),
-        "# Max Vilchevskiy",
-        "",
-        "> iOS Software Engineer · Kyiv, Ukraine",
-        "",
-        languages,
-        "",
-        "## Summary",
-        "",
-        summary,
-        "",
-        "## Highlights",
-        "",
-        ...highlights.map((item) => `- ${item}`),
-        "",
-        skills,
-        "",
-        experience,
-        "",
-    ]
-        .filter((block, index, array) => !(block === "" && index === array.length - 1))
-        .join("\n")
-        .trimEnd()
-        .concat("\n");
-}
-
 assertSourceOfTruthExists();
-const sourceMarkdown = fs.readFileSync(sourceOfTruthPath, "utf8");
-const publicMarkdown = buildPublicResume(sourceMarkdown);
+assertPresentationFilesExist();
+
+const source = buildResumeSourceFromFiles();
+const factsMarkdown = fs.readFileSync(sourceOfTruthPath, "utf8");
+const detailedMarkdown = fs.readFileSync(presentationDetailedPath, "utf8");
+const frontmatter = stripPrivateFrontmatterBlock(extractFrontmatter(factsMarkdown));
+const languages = extractLanguages(factsMarkdown);
+const skills = extractSkillsSection(detailedMarkdown);
+const experience = buildPublicExperience(source.roles);
+const summary = source.meta.summary?.trim() ?? "";
+const highlights = source.highlights ?? [];
+
+const publicMarkdown = [
+    frontmatter.trimEnd(),
+    "# Max Vilchevskiy",
+    "",
+    "> iOS Software Engineer · Kyiv, Ukraine",
+    "",
+    languages,
+    "",
+    "## Summary",
+    "",
+    summary,
+    "",
+    "## Highlights",
+    "",
+    ...highlights.map((item) => `- ${item}`),
+    "",
+    skills,
+    "",
+    experience,
+    "",
+]
+    .filter((block, index, array) => !(block === "" && index === array.length - 1))
+    .join("\n")
+    .trimEnd()
+    .concat("\n");
+
 fs.writeFileSync(outputPath, publicMarkdown);
-console.log(`Generated ${outputPath} from ${sourceOfTruthPath}`);
+console.log(`Generated ${outputPath} from facts + presentation`);

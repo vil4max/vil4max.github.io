@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { assertNoPrivateContactData } from "./resume-md-lib.mjs";
+import { assertNoPrivateContactData } from "../../career/resume/lib/resume-md-lib.mjs";
 import {
     PDF_CANONICAL_FILENAME,
     PDF_DETAILED_FILENAME,
@@ -52,12 +52,22 @@ const forbiddenPhrases = [
     "Foundation Models",
     "AI-assisted engineering",
     "agentic tooling",
+    "AI — Cursor",
+    "Cursor · Copilot",
+    "App Intents",
+    "AppIntents",
+    "fillForms",
     "mentored a junior",
     "team lead",
     "people manager",
     "engineering manager",
     "led the team",
     "led the iOS team",
+    "three-person iOS team",
+    "three person iOS team",
+    "technical degree",
+    "engineering degree",
+    "Computer Science degree",
 ];
 
 const leadershipWordPattern = /\b[Ll]ed\b/;
@@ -94,6 +104,13 @@ if (source.meta?.apply) {
 
 for (const phrase of forbiddenPhrases) {
     for (const surface of surfaces) {
+        if (phrase === "App Intents" && /not Apple App Intents/.test(surface.content)) {
+            const withoutNegation = surface.content.replace(/not Apple App Intents/g, "");
+            if (withoutNegation.includes(phrase)) {
+                errors.push(`${surface.name} contains forbidden phrase: ${phrase}`);
+            }
+            continue;
+        }
         if (surface.content.includes(phrase)) {
             errors.push(`${surface.name} contains forbidden phrase: ${phrase}`);
         }
@@ -216,6 +233,8 @@ if (onePageHtml) {
         "RxSwift",
         "PLAYHERA",
         "Premium Subscription",
+        "shared Premium Subscription SDK",
+        "polling fallback",
     ];
     for (const snippet of onePageRequired) {
         if (!onePageText.includes(snippet)) {
@@ -228,34 +247,30 @@ if (onePageHtml) {
     if (!/WebSocket/i.test(onePageText)) {
         errors.push("resume-one-page.html missing WebSocket/realtime wording");
     }
-    if (!onePageHtml.includes("cv-section-education")) {
-        errors.push("resume-one-page.html missing cv-section-education section");
+    if (onePageText.includes("AI — Cursor") || onePageText.includes("Cursor · Copilot")) {
+        errors.push("resume-one-page.html contains forbidden AI tools skills line");
     }
-    if (!onePageText.includes("Education")) {
-        errors.push("resume-one-page.html missing Education section heading");
+    if (onePageHtml.includes("cv-section-education")) {
+        errors.push("resume-one-page.html must not include Education section (RenderCV one-page PDF omits it)");
     }
-    if (!onePageText.includes("Production Management")) {
-        errors.push("resume-one-page.html missing Production Management degree wording");
+    if (onePageText.includes("Production Management")) {
+        errors.push("resume-one-page.html must not include degree wording (RenderCV one-page PDF omits Education)");
     }
-    const forbiddenEducationPhrases = [
-        "Production sector management",
-        "Technical education",
-        "Technical degree",
-        "Engineering degree",
-        "Computer Science",
-        "STEM degree",
-    ];
-    for (const phrase of forbiddenEducationPhrases) {
-        if (onePageText.includes(phrase)) {
-            errors.push(`resume-one-page.html contains forbidden education phrase: ${phrase}`);
-        }
+}
+
+const indexText = decodeHtmlEntities(indexHtml).replace(/<[^>]+>/g, " ");
+const detailedRequired = [
+    "Worked commercially with RxSwift",
+    "command-driven watchOS flows",
+    "structured client commands",
+];
+for (const snippet of detailedRequired) {
+    if (!indexText.includes(snippet)) {
+        errors.push(`index.html missing detailed CV required snippet: ${snippet}`);
     }
-    const skillsSectionMatch = onePageHtml.match(
-        /<section class="cv-section-skills">[\s\S]*?<\/section>/,
-    );
-    if (skillsSectionMatch?.[0]?.includes("cv-education-line")) {
-        errors.push("resume-one-page.html still renders education inside Skills section");
-    }
+}
+if (indexText.includes("fillForms")) {
+    errors.push("index.html exposes internal fillForms command name");
 }
 
 if (errors.length > 0) {

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { deepDiff, readJson, sanitizePublicResumeExport } from "./resume-md-lib.mjs";
+import { deepDiff, readJson, sanitizePublicResumeExport } from "../../career/resume/lib/resume-md-lib.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const goldenPath = path.join(root, "content", "resume-source.json");

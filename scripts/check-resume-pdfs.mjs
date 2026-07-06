@@ -6,10 +6,10 @@ import {
     PDF_CANONICAL_FILENAME,
     PDF_DETAILED_FILENAME,
     PDF_DETAILED_HTML,
-    PDF_ONE_PAGE_HTML,
     pdfCanonicalAssetsPath,
     pdfDetailedAssetsPath,
 } from "./resume-pdf-paths.mjs";
+import { presentationOnePagePath, sourceOfTruthPath } from "./resume-paths.mjs";
 
 const repoRoot = process.cwd();
 const iCloudResumeDir = path.join(
@@ -17,8 +17,8 @@ const iCloudResumeDir = path.join(
     "Library/Mobile Documents/com~apple~CloudDocs/pdf-resume",
 );
 
-const onePageHtml = path.resolve(repoRoot, PDF_ONE_PAGE_HTML);
 const detailedHtml = path.resolve(repoRoot, PDF_DETAILED_HTML);
+const onePageSourcePaths = [sourceOfTruthPath, presentationOnePagePath];
 const canonicalPdfAssets = pdfCanonicalAssetsPath;
 const detailedPdfAssets = pdfDetailedAssetsPath;
 const canonicalPdfICloud = path.resolve(iCloudResumeDir, PDF_CANONICAL_FILENAME);
@@ -29,7 +29,25 @@ async function getMtimeMs(filePath) {
     return stats.mtimeMs;
 }
 
-async function ensureUpToDate({ label, pdfPath, sourceHtmlPath }) {
+async function newestSourceMtime(sourcePaths) {
+    const mtimes = await Promise.all(sourcePaths.map((sourcePath) => getMtimeMs(sourcePath)));
+    return Math.max(...mtimes);
+}
+
+async function ensureUpToDate({ label, pdfPath, sourcePaths }) {
+    const [pdfMtime, sourceMtime] = await Promise.all([
+        getMtimeMs(pdfPath),
+        newestSourceMtime(sourcePaths),
+    ]);
+
+    if (pdfMtime < sourceMtime) {
+        throw new Error(
+            `${label} is stale.\nPDF: ${pdfPath}\nSources: ${sourcePaths.join(", ")}\nFix: npm run resume:build`,
+        );
+    }
+}
+
+async function ensureHtmlUpToDate({ label, pdfPath, sourceHtmlPath }) {
     const [pdfMtime, sourceMtime] = await Promise.all([
         getMtimeMs(pdfPath),
         getMtimeMs(sourceHtmlPath),
@@ -37,7 +55,7 @@ async function ensureUpToDate({ label, pdfPath, sourceHtmlPath }) {
 
     if (pdfMtime < sourceMtime) {
         throw new Error(
-            `${label} is stale.\nPDF: ${pdfPath}\nSource: ${sourceHtmlPath}\nFix: npm run resume:build`
+            `${label} is stale.\nPDF: ${pdfPath}\nSource: ${sourceHtmlPath}\nFix: npm run resume:build`,
         );
     }
 }
@@ -57,38 +75,46 @@ const checks = [
     {
         label: "assets/canonical",
         pdfPath: canonicalPdfAssets,
-        sourceHtmlPath: onePageHtml,
+        sourcePaths: onePageSourcePaths,
         pageCount: 1,
+        mode: "sources",
     },
     {
         label: "assets/detailed",
         pdfPath: detailedPdfAssets,
         sourceHtmlPath: detailedHtml,
+        mode: "html",
     },
     {
         label: "iCloud/canonical",
         pdfPath: canonicalPdfICloud,
-        sourceHtmlPath: onePageHtml,
+        sourcePaths: onePageSourcePaths,
         pageCount: 1,
         optional: true,
+        mode: "sources",
     },
     {
         label: "iCloud/detailed",
         pdfPath: detailedPdfICloud,
         sourceHtmlPath: detailedHtml,
         optional: true,
+        mode: "html",
     },
 ];
 
 try {
     for (const check of checks) {
         try {
-            await ensureUpToDate(check);
+            if (check.mode === "sources") {
+                await ensureUpToDate(check);
+            } else {
+                await ensureHtmlUpToDate(check);
+            }
             if (check.pageCount !== undefined) {
                 const pages = countPdfPages(check.pdfPath);
                 if (pages !== check.pageCount) {
                     throw new Error(
-                        `${check.label} must be ${check.pageCount} page(s) (found ${pages}).\nPDF: ${check.pdfPath}\nFix: tighten resume-one-page content/CSS, then npm run resume:build`,
+                        `${check.label} must be ${check.pageCount} page(s) (found ${pages}).\nPDF: ${check.pdfPath}\nFix: npm run resume:one-page in career or npm run resume:build`,
                     );
                 }
             }
@@ -103,7 +129,7 @@ try {
     const detailedPageCount = countPdfPages(detailedPdfAssets);
     if (detailedPageCount < 2 || detailedPageCount > 3) {
         throw new Error(
-            `Detailed CV PDF must be 2–3 pages (found ${detailedPageCount}).\nPDF: ${detailedPdfAssets}\nFix: shorten index.html content, then npm run resume:build`
+            `Detailed CV PDF must be 2–3 pages (found ${detailedPageCount}).\nPDF: ${detailedPdfAssets}\nFix: shorten index.html content, then npm run resume:build`,
         );
     }
 

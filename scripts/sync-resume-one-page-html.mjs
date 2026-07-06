@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readJson } from "./resume-md-lib.mjs";
+import { readJson } from "../../career/resume/lib/resume-md-lib.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourcePath = path.join(root, "content", "resume-source.json");
@@ -23,12 +23,35 @@ function escapeHtml(text) {
         .replace(/"/g, "&quot;");
 }
 
+function compactSkillsHtml(skillsLines) {
+    if (!skillsLines?.length) {
+        return "";
+    }
+    return skillsLines
+        .map((line) => `          <p class="skills-ats">${escapeHtml(line)}</p>`)
+        .join("\n");
+}
+
+function earlierBodyHtml(text) {
+    const linkMatch = text.match(/^(.*)\[portfolio\]\((https:\/\/vil4max\.github\.io)\)(.*)$/);
+    if (linkMatch) {
+        return `${escapeHtml(linkMatch[1])}<a href="${linkMatch[2]}">portfolio</a>${escapeHtml(linkMatch[3])}`;
+    }
+    return escapeHtml(text);
+}
 function skillsGroupsHtml(skillsGroups) {
     const lines = skillsGroups.map(
         (group) =>
             `          <p class="skills-ats"><strong>${escapeHtml(group.label)}:</strong> ${escapeHtml(group.line)}</p>`,
     );
     return `        <div class="skills-grouped">\n${lines.join("\n")}\n        </div>`;
+}
+
+function skillsSectionHtml(onePage) {
+    if (onePage.skillsLines?.length) {
+        return `        <div class="skills-grouped">\n${compactSkillsHtml(onePage.skillsLines)}\n        </div>`;
+    }
+    return skillsGroupsHtml(onePage.skillsGroups ?? []);
 }
 
 function languagesLineHtml(languagesLine) {
@@ -89,6 +112,13 @@ ${techTailHtml(techLine)}
 }
 
 function earlierExperienceHtml(earlier) {
+    if (earlier?.body?.trim()) {
+        const heading = earlier.heading?.trim() || "Earlier iOS experience";
+        return `        <div class="experience-item experience-item--one-page experience-item--earlier">
+          <p class="exp-earlier-heading">${escapeHtml(heading)}</p>
+          <p class="exp-earlier-body">${earlierBodyHtml(earlier.body.trim())}</p>
+        </div>`;
+    }
     if (!earlier?.heading) {
         return "";
     }
@@ -153,8 +183,8 @@ const html = `<!DOCTYPE html>
 
       <section class="cv-section-skills">
         <h3><span class="section-heading-text">Skills</span></h3>
-${skillsGroupsHtml(onePage.skillsGroups)}
-${languagesLineHtml(source.meta.languagesLine ?? "")}
+${skillsSectionHtml(onePage)}
+${onePage.skillsLines?.some((line) => line.startsWith("English:")) ? "" : languagesLineHtml(source.meta.languagesLine ?? "")}
       </section>
 
 ${educationSectionHtml(onePage.educationLine ?? "")}

@@ -14,10 +14,11 @@ Nav on every page: **Portfolio · Projects**. PDF download in header.
 
 ## Edit content
 
-1. **`../career/source-of-truth.md`** — private source of truth: full experience, metadata, LinkedIn blocks
-2. Run `npm run resume:build` and `npm run resume:check`
+1. **`../career/source-of-truth.md`** — private facts
+2. **`../career/presentation/*.md`** — resume/LinkedIn wording
+3. Run `npm run resume:build` and `npm run resume:check`
 
-See [`constraints.md`](constraints.md) for the full maintainer contract (source of truth, surfaces map, content rules).
+See [`constraints.md`](constraints.md) and [`../career/CAREER_DATA_MODEL.md`](../career/CAREER_DATA_MODEL.md).
 
 ## PDF
 
@@ -25,5 +26,5 @@ See [`constraints.md`](constraints.md) for the full maintainer contract (source 
 npm run resume:build
 ```
 
-- Primary (1 page): `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf` ← `resume-one-page.html`
-- Detailed (2–3 pages): `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf` ← `index.html`
+- Primary (1 page): `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf` — **RenderCV** (`../career/resume/`)
+- Detailed (2–3 pages): `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf` — Playwright from `index.html`

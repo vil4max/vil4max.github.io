@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readJson } from "./resume-md-lib.mjs";
+import { readJson } from "../../career/resume/lib/resume-md-lib.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourcePath = path.join(root, "content", "resume-source.json");
