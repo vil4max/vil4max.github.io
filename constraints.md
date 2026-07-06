@@ -34,7 +34,7 @@ One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run re
 
 ## Content rules
 
-- No years-of-experience counts in public narrative (month/year dates only)
+- No years-of-experience counts as the lead in Summary; one supporting tenure clause at the end is allowed (month/year dates elsewhere)
 - No forbidden phrases (validator list in `scripts/validate-resume-sync.mjs`)
 - Phone not on public web/PDF
 - `Senior` in job titles only, not as identity in summary
