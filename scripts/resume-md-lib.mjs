@@ -287,6 +287,46 @@ function parseRoleSection(lines, startIndex) {
     return { role, nextIndex: index };
 }
 
+function parseSkillsGroups(sectionLines) {
+    const skipLabels = new Set(["line", "line short"]);
+    const groups = [];
+    let index = 0;
+    while (index < sectionLines.length) {
+        const heading = sectionLines[index].match(/^### (.+)$/);
+        if (!heading) {
+            index += 1;
+            continue;
+        }
+        const label = heading[1].trim();
+        index += 1;
+        if (skipLabels.has(label.toLowerCase())) {
+            while (index < sectionLines.length && !sectionLines[index].startsWith("### ")) {
+                index += 1;
+            }
+            continue;
+        }
+        const bodyLines = [];
+        while (index < sectionLines.length && !sectionLines[index].startsWith("### ")) {
+            const line = sectionLines[index].trim();
+            if (line) {
+                bodyLines.push(line);
+            }
+            index += 1;
+        }
+        let line = bodyLines.join(" ").trim();
+        if (!line) {
+            continue;
+        }
+        if (label === "Analytics") {
+            line = "analytics SDK abstraction · multi-provider event routing";
+        } else if (label === "AI & agentic tooling") {
+            line = "AI-assisted engineering";
+        }
+        groups.push({ label, line });
+    }
+    return groups;
+}
+
 function parseSectionBullets(sectionLines) {
     const bullets = [];
     for (const line of sectionLines) {
@@ -363,6 +403,7 @@ export function parseResumeMarkdown(markdown) {
                 result.meta.skillsLine = sectionLines.join("\n").trim();
             }
             result.meta.skillsLineDetailed = result.meta.skillsLine;
+            result.meta.skillsGroups = parseSkillsGroups(sectionLines);
             continue;
         }
         if (section === "Professional Experience") {

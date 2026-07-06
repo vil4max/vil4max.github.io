@@ -1,6 +1,6 @@
 {
   "meta": {
-    "languagesLine": "English — Intermediate",
+    "languagesLine": "English — Intermediate (comfortable with technical calls)",
     "summary": "Senior iOS product engineer focused on consumer-facing apps, shared loyalty platforms, and cross-application SDK integration. Technical ownership at Birmarket (PASHA) spanned marketplace commerce, Premium Subscription, and a shared Premium Subscription SDK with per-host configuration, plus an Analytics module routing telemetry across multiple providers. At Drinkit, delivered consumer ordering flows from MVP to App Store on a three-person iOS team. Recent work includes watchOS voice AI R&D and hands-on exploration of on-device capabilities on Apple platforms; 12+ years shipping from indie apps to national-scale marketplaces.",
     "summaryShort": "Senior iOS product engineer focused on consumer-facing apps, shared loyalty platforms, and cross-application SDK integration. Technical ownership at Birmarket (PASHA) spanned marketplace commerce, Premium Subscription, and a shared Premium Subscription SDK with per-host configuration, plus an Analytics module routing telemetry across multiple providers. At Drinkit, delivered consumer ordering flows from MVP to App Store on a three-person iOS team. Recent work includes watchOS voice AI R&D and hands-on exploration of on-device capabilities on Apple platforms; 12+ years shipping from indie apps to national-scale marketplaces.",
     "summaryBullets": [
@@ -10,9 +10,47 @@
       "watchOS voice AI R&D; VelocityAI beta as iOS engineer",
       "Alamofire, RxSwift, Stripe, Firebase, SPM, CocoaPods in production"
     ],
-    "skillsLineShort": "Languages — Swift · Objective-C\nUI — UIKit · SwiftUI\nArchitecture — MVVM · modular architecture · DI\nConcurrency — Swift Concurrency · Combine · RxSwift\nNetworking — URLSession · REST · Alamofire\nTesting — XCTest · TestFlight\nAI — Cursor · Copilot",
+    "skillsLineShort": "Languages — Swift · Objective-C\nFrameworks — UIKit · SwiftUI\nArchitecture — MVVM · modular architecture · DI\nConcurrency — Swift Concurrency · Combine · RxSwift\nNetworking — URLSession · REST · Alamofire\nTesting — XCTest · TestFlight\nAI — Cursor · Copilot",
     "skillsLine": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI",
     "skillsLineDetailed": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI",
+    "skillsGroups": [
+      {
+        "label": "Languages & platforms",
+        "line": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · Foundation · Auto Layout"
+      },
+      {
+        "label": "Concurrency & reactive",
+        "line": "Swift Concurrency · async/await · Combine · RxSwift"
+      },
+      {
+        "label": "Networking & data",
+        "line": "URLSession · URLSessionWebSocketTask · Alamofire · WebSockets · Network · REST · Core Data · SwiftData · Keychain · LocalAuthentication"
+      },
+      {
+        "label": "Analytics",
+        "line": "analytics SDK abstraction · multi-provider event routing"
+      },
+      {
+        "label": "Media & device",
+        "line": "AVFoundation · AVAudioEngine · AVKit · SceneKit · CoreLocation · MapKit · Core Bluetooth"
+      },
+      {
+        "label": "Apple frameworks",
+        "line": "WatchKit · WatchConnectivity · App Intents · UserNotifications · PassKit · Apple Pay · XCTest · TestFlight"
+      },
+      {
+        "label": "Payments & commerce",
+        "line": "Apple Pay · PassKit · Stripe"
+      },
+      {
+        "label": "Third-party libraries",
+        "line": "SPM · CocoaPods · Alamofire · RxSwift · DI · Stripe iOS SDK · Firebase · Google Maps SDK · web3 SDK"
+      },
+      {
+        "label": "AI & agentic tooling",
+        "line": "AI-assisted engineering"
+      }
+    ],
     "name": "Max Vilchevskiy",
     "title": "Senior iOS Engineer",
     "tagline": "Consumer apps · Marketplaces · Loyalty SDKs",
@@ -130,9 +168,9 @@
         "Pulled Premium Subscription into a shared SDK with per-host configuration."
       ],
       "bulletsShort": [
-        "Marketplace commerce — 500,000+ SKUs, 900+ pickup points, catalog through orders.",
-        "Owned Premium Subscription — UI, flows, shared purchase model.",
-        "Analytics in loyalty SDK — one API; features don't touch telemetry SDKs directly."
+        "Owned Premium Subscription and shared Premium Subscription SDK with per-host configuration across multiple host apps.",
+        "Unified six analytics providers behind one API in the loyalty SDK — Amplitude, Mixpanel, AppsFlyer, Firebase, PostHog, Sentry.",
+        "Marketplace commerce — 500,000+ SKUs, 900+ pickup points, catalog through orders."
       ],
       "technologiesLine": "Swift · SwiftUI · UIKit · SPM · URLSession · Firebase Analytics · Firebase Crashlytics · Amplitude · Mixpanel · AppsFlyer · PostHog · Sentry · Keychain · Swift Concurrency · async/await · Combine",
       "projectsDetail": [
@@ -184,8 +222,8 @@
         "Menu video (Reels-style), Apple Pay with loyalty, live tracking for slot pickup."
       ],
       "bulletsShort": [
-        "Drinkit iOS — test flagship to App Store on a three-person team; brand now has 215+ shops in 5 countries.",
-        "Reels-style menu video, Apple Pay with loyalty, slot pickup tracking."
+        "Delivered Drinkit from MVP to App Store on a three-person iOS team; brand now has 215+ shops in 5 countries.",
+        "Consumer ordering — pre-order, customization, Apple Pay with loyalty, and slot pickup tracking."
       ],
       "technologiesLine": "Swift · UIKit · SPM · URLSession · Apple Pay · PassKit · AVFoundation · AVKit"
     },

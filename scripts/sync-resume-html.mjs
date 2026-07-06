@@ -63,6 +63,33 @@ function skillsLineHtml(skillsLine) {
     return `          <p class="skills-ats skills-line">${escapeHtml(skillsLine)}</p>`;
 }
 
+function skillsGroupsHtml(skillsGroups, skillsLineShort, skillsLine) {
+    if (skillsGroups?.length) {
+        const lines = skillsGroups.map(
+            (group) =>
+                `          <p class="skills-ats"><strong>${escapeHtml(group.label)}:</strong> ${escapeHtml(group.line)}</p>`,
+        );
+        return `        <div class="skills-grouped">\n${lines.join("\n")}\n        </div>`;
+    }
+    if (skillsLineShort) {
+        const lines = skillsLineShort
+            .split("\n")
+            .map((line) => line.trim())
+            .filter(Boolean)
+            .map((line) => {
+                const dash = line.indexOf(" — ");
+                if (dash === -1) {
+                    return `          <p class="skills-ats">${escapeHtml(line)}</p>`;
+                }
+                const label = line.slice(0, dash).trim();
+                const value = line.slice(dash + 3).trim();
+                return `          <p class="skills-ats"><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</p>`;
+            });
+        return `        <div class="skills-grouped">\n${lines.join("\n")}\n        </div>`;
+    }
+    return `        <div class="skills-inline">\n${skillsLineHtml(skillsLine ?? "")}\n        </div>`;
+}
+
 function languagesLineHtml(languagesLine) {
     const match = languagesLine?.match(/^(.+?)\s*—\s*(.+)$/);
     if (!match) {
@@ -72,7 +99,7 @@ function languagesLineHtml(languagesLine) {
 }
 
 function roleBullets(role) {
-    const bullets = role.bullets ?? role.bulletsShort ?? [];
+    const bullets = role.bulletsShort?.length ? role.bulletsShort : (role.bullets ?? []);
     return bullets.map((bullet) => `            <li>${escapeHtml(bullet)}</li>`).join("\n");
 }
 
@@ -154,8 +181,14 @@ function compactExperienceItem(role) {
     const techLine = role.technologiesLine ?? "";
     return `        <div class="experience-item experience-item--compact experience-item--portfolio" id="exp-${role.id}">
           <div class="experience-item-body">
-          <div class="exp-company-line"><span class="exp-company-name">${escapeHtml(role.company)}</span> <span class="exp-company-loc">${escapeHtml(role.location)}</span></div>
-          <div class="exp-role"><span class="exp-role-title">${escapeHtml(role.title)}</span><span class="exp-role-sep">·</span><span class="exp-role-dates">${escapeHtml(role.displayFull)}</span></div>
+          <div class="exp-role-head">
+            <span class="exp-company-name">${escapeHtml(role.company)}</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-title">${escapeHtml(role.title)}</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-dates">${escapeHtml(role.displayFull)}</span>
+          </div>
+          <div class="exp-company-loc-line">${escapeHtml(role.location)}</div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">${escapeHtml(projectName(role))}</span></div>
 ${projectsDetailBlock(role)}
           <ul>
@@ -202,9 +235,7 @@ indexHtml = replaceSectionContent(
     indexHtml,
     "cv-section-skills",
     `        <h3><span class="section-heading-text">Skills</span><span class="section-mark cv-print-omit" aria-hidden="true">🛠</span></h3>
-        <div class="skills-inline">
-${skillsLineHtml(source.meta.skillsLine ?? "")}
-        </div>
+${skillsGroupsHtml(source.meta.skillsGroups, source.meta.skillsLineShort, source.meta.skillsLine)}
 ${languagesLineHtml(source.meta.languagesLine ?? "")}`,
 );
 

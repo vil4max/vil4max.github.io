@@ -8,6 +8,22 @@
         color: #000000;
         font-size: 11.5pt;
         line-height: 1.5;
+        hyphens: none;
+        word-break: normal;
+    }
+
+    body.cv-page .cv-summary,
+    body.cv-page .skills-ats,
+    body.cv-page .experience-item,
+    body.cv-page .education-line,
+    body.cv-page .exp-role-head,
+    body.cv-page .exp-company-loc-line,
+    body.cv-page .exp-project,
+    body.cv-page .exp-tech-line,
+    body.cv-page .cv-languages-line {
+        hyphens: none;
+        word-break: normal;
+        overflow-wrap: break-word;
     }
 
     body.cv-page .page {
@@ -138,7 +154,8 @@
         line-height: 1.48;
     }
 
-    body.cv-page .skills-inline .skills-ats + .skills-ats {
+    body.cv-page .skills-inline .skills-ats + .skills-ats,
+    body.cv-page .skills-grouped .skills-ats + .skills-ats {
         margin-top: 4px;
     }
 
@@ -234,10 +251,7 @@
     }
 
     body.cv-page .exp-role-context {
-        font-size: 10pt;
-        line-height: 1.5;
-        margin: 6px 0 8px;
-        color: #333333;
+        display: none !important;
     }
 
     body.cv-page .experience-item ul {

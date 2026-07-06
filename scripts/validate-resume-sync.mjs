@@ -86,7 +86,13 @@ for (const role of source.roles) {
     }
 }
 
-if (source.meta.skillsLine) {
+if (source.meta.skillsGroups?.length) {
+    const firstGroup = source.meta.skillsGroups[0];
+    const skillsSnippet = firstGroup.line.slice(0, Math.min(32, firstGroup.line.length));
+    if (!htmlTextIncludes(indexHtml, skillsSnippet)) {
+        errors.push(`index.html missing skillsGroups snippet: ${skillsSnippet}`);
+    }
+} else if (source.meta.skillsLine) {
     const skillsSnippet = source.meta.skillsLine.slice(0, Math.min(48, source.meta.skillsLine.length));
     if (!htmlTextIncludes(indexHtml, skillsSnippet)) {
         errors.push(`index.html missing skillsLine snippet: ${skillsSnippet}`);
@@ -120,8 +126,9 @@ for (const role of source.roles) {
     if (!role.bulletsShort || role.bulletsShort.length < 2) {
         errors.push(`resume-source.json needs bulletsShort for public role ${role.id}`);
     }
-    const bulletsToCheck = role.bullets?.length > 0 ? role.bullets : role.bulletsShort;
-    for (const bullet of bulletsToCheck ?? []) {
+    const bulletsToCheck =
+        role.bulletsShort?.length > 0 ? role.bulletsShort : (role.bullets ?? []);
+    for (const bullet of bulletsToCheck) {
         if (!htmlIncludes(indexHtml, bullet)) {
             errors.push(`index.html missing bullet for ${role.id}`);
             break;

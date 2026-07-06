@@ -63,10 +63,18 @@
 
       <section class="cv-section-skills">
         <h3><span class="section-heading-text">Skills</span><span class="section-mark cv-print-omit" aria-hidden="true">🛠</span></h3>
-        <div class="skills-inline">
-          <p class="skills-ats skills-line">Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI</p>
+        <div class="skills-grouped">
+          <p class="skills-ats"><strong>Languages &amp; platforms:</strong> Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · Foundation · Auto Layout</p>
+          <p class="skills-ats"><strong>Concurrency &amp; reactive:</strong> Swift Concurrency · async/await · Combine · RxSwift</p>
+          <p class="skills-ats"><strong>Networking &amp; data:</strong> URLSession · URLSessionWebSocketTask · Alamofire · WebSockets · Network · REST · Core Data · SwiftData · Keychain · LocalAuthentication</p>
+          <p class="skills-ats"><strong>Analytics:</strong> analytics SDK abstraction · multi-provider event routing</p>
+          <p class="skills-ats"><strong>Media &amp; device:</strong> AVFoundation · AVAudioEngine · AVKit · SceneKit · CoreLocation · MapKit · Core Bluetooth</p>
+          <p class="skills-ats"><strong>Apple frameworks:</strong> WatchKit · WatchConnectivity · App Intents · UserNotifications · PassKit · Apple Pay · XCTest · TestFlight</p>
+          <p class="skills-ats"><strong>Payments &amp; commerce:</strong> Apple Pay · PassKit · Stripe</p>
+          <p class="skills-ats"><strong>Third-party libraries:</strong> SPM · CocoaPods · Alamofire · RxSwift · DI · Stripe iOS SDK · Firebase · Google Maps SDK · web3 SDK</p>
+          <p class="skills-ats"><strong>AI &amp; agentic tooling:</strong> AI-assisted engineering</p>
         </div>
-        <p class="cv-languages-line"><strong>English</strong> — Intermediate</p>
+        <p class="cv-languages-line"><strong>English</strong> — Intermediate (comfortable with technical calls)</p>
       </section>
 
       <section class="cv-section-experience">
@@ -87,10 +95,8 @@
           <p class="exp-role-context">Senior iOS engineer on the watchOS client — architecture, Watch ↔ iPhone connectivity, TestFlight. Beta-tested VelocityAI separately; feedback from a shipping iOS perspective.</p>
           <ul>
             <li>watchOS voice AI with on-device conversation flows.</li>
-            <li>No WebSocket on Watch — iPhone relay for audio and server sync; dedup with URLSessionWebSocketTask.</li>
-            <li>Split Watch/iPhone work around platform limits; TestFlight under watchOS constraints (background, audio, connectivity).</li>
-            <li>On-device intents refresh navigation and forms locally.</li>
-            <li>Beta-tested VelocityAI — ran a sample product cycle from idea to release.</li>
+            <li>iPhone relay for WebSocket/audio and on-device intents; TestFlight under watchOS limits.</li>
+            <li>Beta-tested VelocityAI — sample product cycle from idea to release; iOS engineer feedback.</li>
           </ul>
           <p class="exp-tech-line">Swift · WatchKit · WatchConnectivity · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · App Intents · Swift Concurrency · async/await · VelocityAI</p>
           <p class="exp-meta cv-print-omit"><a href="projects.html#project-watch-ai-assistant">Details →</a></p>
@@ -111,10 +117,9 @@
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Birmarket — online marketplace &amp; loyalty · Loyalty squad</span></div>
           <p class="exp-role-context">Senior iOS on Birmarket commerce and Loyalty squad — Premium Subscription, Analytics module, shared Premium Subscription SDK; per-app config for host apps.</p>
           <ul>
-            <li>Catalog through orders for 500,000+ SKUs and 900+ pickup points — multiple App Store releases.</li>
-            <li>Owned Premium Subscription — UI, checkout wiring, subscription status on the feature side.</li>
-            <li>Analytics module in loyalty SDK — one API for Amplitude, Mixpanel, AppsFlyer, Firebase, PostHog, Sentry.</li>
-            <li>Pulled Premium Subscription into a shared SDK with per-host configuration.</li>
+            <li>Owned Premium Subscription and shared Premium Subscription SDK with per-host configuration across multiple host apps.</li>
+            <li>Unified six analytics providers behind one API in the loyalty SDK — Amplitude, Mixpanel, AppsFlyer, Firebase, PostHog, Sentry.</li>
+            <li>Marketplace commerce — 500,000+ SKUs, 900+ pickup points, catalog through orders.</li>
           </ul>
           <p class="exp-tech-line">Swift · SwiftUI · UIKit · SPM · URLSession · Firebase Analytics · Firebase Crashlytics · Amplitude · Mixpanel · AppsFlyer · PostHog · Sentry · Keychain · Swift Concurrency · async/await · Combine</p>
           <p class="exp-meta cv-print-omit"><a href="projects.html#project-birmarket">Details →</a></p>
@@ -138,8 +143,8 @@
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Drinkit — coffee ordering app</span></div>
           <p class="exp-role-context">iOS engineer on a three-person team — pre-order and customization, menu video, Apple Pay with loyalty, pickup tracking, production releases.</p>
           <ul>
-            <li>Built Drinkit at a test flagship café on a three-person team — MVP to App Store with pre-order and customization; brand now has 215+ shops in 5 countries.</li>
-            <li>Menu video (Reels-style), Apple Pay with loyalty, live tracking for slot pickup.</li>
+            <li>Delivered Drinkit from MVP to App Store on a three-person iOS team; brand now has 215+ shops in 5 countries.</li>
+            <li>Consumer ordering — pre-order, customization, Apple Pay with loyalty, and slot pickup tracking.</li>
           </ul>
           <p class="exp-tech-line">Swift · UIKit · SPM · URLSession · Apple Pay · PassKit · AVFoundation · AVKit</p>
           <p class="exp-meta cv-print-omit"><a href="projects.html#project-drinkit">Details →</a></p>
@@ -152,8 +157,14 @@
 
         <div class="experience-item experience-item--compact experience-item--portfolio" id="exp-solvve">
           <div class="experience-item-body">
-          <div class="exp-company-line"><span class="exp-company-name">SOLVVE</span> <span class="exp-company-loc">Remote</span></div>
-          <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Jan 2019 – Feb 2020</span></div>
+          <div class="exp-role-head">
+            <span class="exp-company-name">SOLVVE</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-title">iOS Developer</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-dates">Jan 2019 – Feb 2020</span>
+          </div>
+          <div class="exp-company-loc-line">Remote</div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">PLAYHERA — esports &amp; gaming tournaments</span></div>
 
           <ul>
@@ -171,8 +182,14 @@
 
         <div class="experience-item experience-item--compact experience-item--portfolio" id="exp-electus">
           <div class="experience-item-body">
-          <div class="exp-company-line"><span class="exp-company-name">Electus</span> <span class="exp-company-loc">Kyiv, Ukraine</span></div>
-          <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Jul 2018 – Nov 2018</span></div>
+          <div class="exp-role-head">
+            <span class="exp-company-name">Electus</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-title">iOS Developer</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-dates">Jul 2018 – Nov 2018</span>
+          </div>
+          <div class="exp-company-loc-line">Kyiv, Ukraine</div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Electus — blockchain assistant startup</span></div>
 
           <ul>
@@ -187,8 +204,14 @@
 
         <div class="experience-item experience-item--compact experience-item--portfolio" id="exp-gbksoft">
           <div class="experience-item-body">
-          <div class="exp-company-line"><span class="exp-company-name">GBKSoft</span> <span class="exp-company-loc">Kyiv, Ukraine</span></div>
-          <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Jun 2017 – Jun 2018</span></div>
+          <div class="exp-role-head">
+            <span class="exp-company-name">GBKSoft</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-title">iOS Developer</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-dates">Jun 2017 – Jun 2018</span>
+          </div>
+          <div class="exp-company-loc-line">Kyiv, Ukraine</div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Eastern Union — commercial real estate (CRE) app</span></div>
           <div class="exp-projects-block">
             <span class="exp-project-label">Projects</span>
@@ -212,8 +235,14 @@
 
         <div class="experience-item experience-item--compact experience-item--portfolio" id="exp-amconsoft">
           <div class="experience-item-body">
-          <div class="exp-company-line"><span class="exp-company-name">Amcon Soft</span> <span class="exp-company-loc">Remote</span></div>
-          <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Nov 2015 – Jun 2017</span></div>
+          <div class="exp-role-head">
+            <span class="exp-company-name">Amcon Soft</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-title">iOS Developer</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-dates">Nov 2015 – Jun 2017</span>
+          </div>
+          <div class="exp-company-loc-line">Remote</div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Client iOS projects</span></div>
           <div class="exp-projects-block">
             <span class="exp-project-label">Projects</span>
@@ -234,8 +263,14 @@
 
         <div class="experience-item experience-item--compact experience-item--portfolio" id="exp-tap4parking">
           <div class="experience-item-body">
-          <div class="exp-company-line"><span class="exp-company-name">Tap4Parking</span> <span class="exp-company-loc">Remote</span></div>
-          <div class="exp-role"><span class="exp-role-title">iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Nov 2014 – Nov 2015</span></div>
+          <div class="exp-role-head">
+            <span class="exp-company-name">Tap4Parking</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-title">iOS Developer</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-dates">Nov 2014 – Nov 2015</span>
+          </div>
+          <div class="exp-company-loc-line">Remote</div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Tap4Parking — parking startup product</span></div>
           <div class="exp-projects-block">
             <span class="exp-project-label">Projects</span>
@@ -255,8 +290,14 @@
 
         <div class="experience-item experience-item--compact experience-item--portfolio" id="exp-icenter">
           <div class="experience-item-body">
-          <div class="exp-company-line"><span class="exp-company-name">iCenter</span> <span class="exp-company-loc">Kyiv, Ukraine · On-site</span></div>
-          <div class="exp-role"><span class="exp-role-title">Junior iOS Developer</span><span class="exp-role-sep">·</span><span class="exp-role-dates">Dec 2013 – Nov 2014</span></div>
+          <div class="exp-role-head">
+            <span class="exp-company-name">iCenter</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-title">Junior iOS Developer</span>
+            <span class="exp-role-sep">·</span>
+            <span class="exp-role-dates">Dec 2013 – Nov 2014</span>
+          </div>
+          <div class="exp-company-loc-line">Kyiv, Ukraine · On-site</div>
           <div class="exp-project"><span class="exp-project-label">Project:</span><span class="exp-project-name">Product apps — messaging and content</span></div>
 
           <ul>
