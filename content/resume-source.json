@@ -1,6 +1,6 @@
 {
   "meta": {
-    "languagesLine": "English — Intermediate (comfortable with technical calls)",
+    "languagesLine": "English — Upper-Intermediate (B2)",
     "skillsLine": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI",
     "skillsLineDetailed": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI",
     "skillsGroups": [
@@ -445,7 +445,7 @@
     "skillsLines": [
       "Swift · SwiftUI · UIKit · Objective-C · watchOS · Swift Concurrency · async/await · Combine · RxSwift",
       "Modular architecture · SDK design · REST · URLSession · WebSockets · AVFoundation · AVAudioEngine · Core Data · SwiftData · Keychain · XCTest",
-      "English: Intermediate (comfortable with technical calls)"
+      "English — Upper-Intermediate (B2)"
     ],
     "roleIds": [
       "globallogic",

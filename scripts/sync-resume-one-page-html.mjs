@@ -54,6 +54,12 @@ function skillsSectionHtml(onePage) {
     return skillsGroupsHtml(onePage.skillsGroups ?? []);
 }
 
+function hasEnglishSkillLine(skillsLines) {
+    return skillsLines?.some(
+        (line) => line.startsWith("English:") || line.startsWith("English —"),
+    );
+}
+
 function languagesLineHtml(languagesLine) {
     const languageMatch = languagesLine?.match(/^(.+?)\s*—\s*(.+)$/);
     if (!languageMatch) {
@@ -184,7 +190,7 @@ const html = `<!DOCTYPE html>
       <section class="cv-section-skills">
         <h3><span class="section-heading-text">Skills</span></h3>
 ${skillsSectionHtml(onePage)}
-${onePage.skillsLines?.some((line) => line.startsWith("English:")) ? "" : languagesLineHtml(source.meta.languagesLine ?? "")}
+${hasEnglishSkillLine(onePage.skillsLines) ? "" : languagesLineHtml(source.meta.languagesLine ?? "")}
       </section>
 
 ${educationSectionHtml(onePage.educationLine ?? "")}
