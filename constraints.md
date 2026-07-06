@@ -29,6 +29,7 @@ One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run re
 | `cv.html` | Redirect to `index.html` (legacy URL / bookmarks) |
 | `projects.html` | Extended case studies, screenshots, demos — not in sync chain |
 | `../vil4max/assets/Vilchevskiy_iOS_Engineer.pdf` | Print export of `index.html` + `resume-pdf.css` (A4, Playwright; hides thumbs) |
+| iCloud `~/Library/Mobile Documents/.../pdf-resume/Vilchevskiy_iOS_Engineer.pdf` | Same file copied by `generate-resume-pdf.mjs` on each build |
 | `../vil4max/README.md` | Hand-maintained human “about” (GitHub only) |
 | LinkedIn paste | Per-role `#### LinkedIn paste` + `## LinkedIn profile` in `career/source-of-truth.md` |
 
@@ -39,6 +40,12 @@ One-time bootstrap from legacy JSON (do not run in normal workflow): `npm run re
 - Phone not on public web/PDF
 - `Senior` in job titles only, not as identity in summary
 - Product names: **Premium Subscription SDK**, **Premium Subscription module**, **Analytics module**
+
+## PDF policy
+
+- **One resume PDF only:** `Vilchevskiy_iOS_Engineer.pdf` (2–3 pages from `index.html`)
+- **Destinations:** `vil4max/assets/` (public GitHub) and iCloud `pdf-resume/` (local copy on build)
+- **No detailed/long-form PDF** — do not maintain `*_detailed.pdf` or alternate resume PDFs; use the online resume and `projects.html` for depth
 
 ## After every content change
 
@@ -61,7 +68,5 @@ Profile/
     projects.html               ← case studies (hand-maintained)
   vil4max/
     README.md                   ← GitHub profile about (hand-maintained)
-    assets/Vilchevskiy_iOS_Engineer.pdf ← generated (public)
-  career/
-    assets/Vilchevskiy_iOS_Engineer_detailed.pdf ← private detailed resume (on request)
+    assets/Vilchevskiy_iOS_Engineer.pdf ← only resume PDF (public GitHub)
 ```
