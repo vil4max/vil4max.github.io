@@ -29,7 +29,7 @@ const linkedInHeadline =
     "Senior iOS Engineer · Premium Subscription SDK · Analytics module · watchOS AI · Swift · SwiftUI · UIKit";
 
 const linkedInSkills =
-    "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI · AI coding agents";
+    "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI · AI coding agents";
 
 source = source.replace(
     /## LinkedIn profile[\s\S]*?(?=\n## Application metadata)/,

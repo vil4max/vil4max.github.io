@@ -1,8 +1,8 @@
 {
   "meta": {
     "languagesLine": "English — Intermediate (comfortable with technical calls)",
-    "summary": "Senior iOS product engineer focused on consumer-facing applications, shared loyalty platforms, and cross-application SDK integration. Owned Premium Subscription and a shared Premium Subscription SDK at Birmarket (PASHA), designed and implemented a unified analytics API in the loyalty SDK, and contributed to marketplace commerce at scale. Shipped Drinkit from MVP to the App Store on a three-person iOS team. Recent work includes watchOS voice AI R&D and realtime client flows on Apple platforms; commercial RxSwift experience at PLAYHERA. 12+ years shipping from indie apps to national-scale marketplaces.",
-    "summaryShort": "Senior iOS product engineer focused on consumer-facing applications, shared loyalty platforms, and cross-application SDK integration. Owned Premium Subscription and a shared Premium Subscription SDK at Birmarket (PASHA), designed and implemented a unified analytics API in the loyalty SDK, and contributed to marketplace commerce at scale. Shipped Drinkit from MVP to the App Store on a three-person iOS team. Recent work includes watchOS voice AI R&D and realtime client flows on Apple platforms; commercial RxSwift experience at PLAYHERA. 12+ years shipping from indie apps to national-scale marketplaces.",
+    "summary": "Senior iOS product engineer focused on consumer-facing applications, shared loyalty platforms, and cross-application SDK integration. Owned Premium Subscription and a shared Premium Subscription SDK at Birmarket (PASHA), designed and implemented a unified analytics API in the loyalty SDK, and contributed to marketplace commerce at scale. Shipped Drinkit from MVP to the App Store as part of a small iOS product team. Recent work includes watchOS voice AI R&D and realtime client flows on Apple platforms; commercial RxSwift experience at PLAYHERA. 12+ years shipping from indie apps to national-scale marketplaces.",
+    "summaryShort": "Senior iOS product engineer focused on consumer-facing applications, shared loyalty platforms, and cross-application SDK integration. Owned Premium Subscription and a shared Premium Subscription SDK at Birmarket (PASHA), designed and implemented a unified analytics API in the loyalty SDK, and contributed to marketplace commerce at scale. Shipped Drinkit from MVP to the App Store as part of a small iOS product team. Recent work includes watchOS voice AI R&D and realtime client flows on Apple platforms; commercial RxSwift experience at PLAYHERA. 12+ years shipping from indie apps to national-scale marketplaces.",
     "summaryBullets": [
       "12+ years iOS — indie apps through national-scale marketplaces",
       "Premium Subscription on Birmarket; later extracted as shared SDK",
@@ -11,8 +11,8 @@
       "Alamofire, RxSwift, Stripe, Firebase, SPM, CocoaPods in production"
     ],
     "skillsLineShort": "Languages — Swift · Objective-C\nFrameworks — UIKit · SwiftUI\nArchitecture — MVVM · modular architecture · DI\nConcurrency — Swift Concurrency · Combine · RxSwift\nNetworking — URLSession · REST · Alamofire\nTesting — XCTest · TestFlight\nAI — Cursor · Copilot",
-    "skillsLine": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI",
-    "skillsLineDetailed": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · App Intents · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI",
+    "skillsLine": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI",
+    "skillsLineDetailed": "Swift · Objective-C · SwiftUI · UIKit · watchOS · SPM · CocoaPods · Swift Concurrency · async/await · Combine · RxSwift · URLSession · URLSessionWebSocketTask · Alamofire · REST · Core Data · SwiftData · Keychain · analytics SDK abstraction · AVFoundation · AVAudioEngine · WatchKit · WatchConnectivity · PassKit · Apple Pay · Firebase Analytics · XCTest · TestFlight · Stripe · MVVM · DI",
     "skillsGroups": [
       {
         "label": "Languages & platforms",
@@ -28,7 +28,7 @@
       },
       {
         "label": "Analytics",
-        "line": "analytics SDK abstraction · multi-provider event routing"
+        "line": "analytics SDK architecture · multi-provider event routing"
       },
       {
         "label": "Media & device",
@@ -36,7 +36,7 @@
       },
       {
         "label": "Apple frameworks",
-        "line": "WatchKit · WatchConnectivity · App Intents · UserNotifications · PassKit · Apple Pay · XCTest · TestFlight"
+        "line": "WatchKit · WatchConnectivity · UserNotifications · PassKit · Apple Pay · XCTest · TestFlight"
       },
       {
         "label": "Payments & commerce",
@@ -84,7 +84,6 @@
         "URLSessionWebSocketTask",
         "AVFoundation",
         "AVAudioEngine",
-        "App Intents",
         "Swift Concurrency",
         "async/await",
         "VelocityAI"
@@ -106,21 +105,22 @@
         "watchOS voice AI with on-device conversation flows.",
         "No WebSocket on Watch — iPhone relay for audio and server sync; dedup with URLSessionWebSocketTask.",
         "Split Watch/iPhone work around platform limits; TestFlight under watchOS constraints (background, audio, connectivity).",
-        "On-device intents refresh navigation and forms locally.",
+        "Implemented client-side interpretation and execution of structured AI commands from the assistant; project/domain command — not Apple App Intents.",
         "Beta-tested VelocityAI — ran a sample product cycle from idea to release."
       ],
       "bulletsShort": [
         "Built watchOS voice conversation flows and iPhone relay for realtime WebSocket/audio communication.",
-        "Integrated watchOS/iPhone communication, audio handling, and App Intents under watchOS runtime and TestFlight constraints.",
+        "Integrated watchOS/iPhone communication and audio handling under watchOS runtime and TestFlight constraints.",
+        "Worked on command-driven watchOS flows where an AI assistant returned structured client commands that were interpreted and executed by the application.",
         "Contributed iOS engineering feedback while beta-testing VelocityAI through a sample product cycle from idea to release."
       ],
       "bulletsOnePage": [
         "Built watchOS voice conversation flows and worked on an iPhone relay for realtime WebSocket/audio communication.",
-        "Integrated watchOS/iPhone communication, audio handling, and App Intents under watchOS runtime and TestFlight constraints.",
+        "Integrated watchOS/iPhone communication and audio handling under watchOS runtime and TestFlight constraints.",
         "Contributed iOS engineering feedback while beta-testing VelocityAI through a sample product cycle from idea to release."
       ],
-      "technologiesOnePageLine": "Swift, SwiftUI, WatchConnectivity, WebSockets, AVFoundation, AVAudioEngine, App Intents, Swift Concurrency",
-      "technologiesLine": "Swift · WatchKit · WatchConnectivity · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · App Intents · Swift Concurrency · async/await · VelocityAI"
+      "technologiesOnePageLine": "Swift, SwiftUI, WatchConnectivity, WebSockets, AVFoundation, AVAudioEngine, Swift Concurrency",
+      "technologiesLine": "Swift · WatchKit · WatchConnectivity · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine · Swift Concurrency · async/await · VelocityAI"
     },
     {
       "company": "PASHA Holding",
@@ -219,18 +219,18 @@
       "onePageCompany": "Dodo Brands (Drinkit)",
       "onePageProject": "Drinkit — consumer coffee ordering app",
       "productDescription": "Drinkit — coffee ordering app (Dodo Brands). Started at a test flagship café; the brand now has 215+ shops in 5 countries. Pre-order, customization, slot pickup, loyalty.",
-      "myRole": "iOS engineer on a three-person team — pre-order and customization, menu video, Apple Pay with loyalty, pickup tracking, production releases.",
+      "myRole": "iOS engineer on a small iOS product team — pre-order and customization, menu video, Apple Pay with loyalty, live order tracking, production releases.",
       "bullets": [
-        "Built Drinkit at a test flagship café on a three-person team — MVP to App Store with pre-order and customization; brand now has 215+ shops in 5 countries.",
-        "Menu video (Reels-style), Apple Pay with loyalty, live tracking for slot pickup."
+        "Built Drinkit at a test flagship café on a small iOS product team — MVP to App Store with pre-order and customization; brand now has 215+ shops in 5 countries.",
+        "Menu video (Reels-style), Apple Pay with loyalty, live order tracking over WebSockets with polling fallback."
       ],
       "bulletsShort": [
-        "Delivered Drinkit from MVP to App Store on a three-person iOS team; brand now has 215+ shops in 5 countries.",
-        "Consumer ordering — pre-order, customization, Apple Pay with loyalty, and slot pickup tracking."
+        "Delivered Drinkit from MVP to App Store on a small iOS product team; brand now has 215+ shops in 5 countries.",
+        "Consumer ordering — pre-order, customization, Apple Pay with loyalty, and live order tracking over WebSockets with polling fallback."
       ],
       "bulletsOnePage": [
-        "Shipped Drinkit from MVP to the App Store as part of a three-person iOS team.",
-        "Implemented consumer ordering flows including pre-order, customization, Apple Pay with loyalty, and pickup slot tracking."
+        "Shipped Drinkit from MVP to the App Store as part of a small iOS product team.",
+        "Implemented consumer ordering flows including pre-order, customization, Apple Pay with loyalty, and live order tracking over WebSockets with polling fallback."
       ],
       "technologiesOnePageLine": "Swift, UIKit, Apple Pay, PassKit, AVFoundation",
       "technologiesLine": "Swift · UIKit · SPM · URLSession · Apple Pay · PassKit · AVFoundation · AVKit"
@@ -257,6 +257,10 @@
       "project": "PLAYHERA — esports & gaming tournaments",
       "productDescription": "PLAYHERA — esports & gaming tournaments. Production App Store app for squads, challenges, and standings.",
       "bullets": [
+        "Built team creation and management flows for competitive gaming squads in a production App Store app.",
+        "Worked commercially with RxSwift in an existing UIKit codebase, implementing and maintaining reactive feature flows."
+      ],
+      "bulletsShort": [
         "Built team creation and management flows for competitive gaming squads in a production App Store app.",
         "Worked commercially with RxSwift in an existing UIKit codebase, implementing and maintaining reactive feature flows."
       ],
@@ -435,7 +439,7 @@
     }
   ],
   "onePage": {
-    "summary": "Senior iOS product engineer with 12+ years of experience building consumer-facing applications. Recent work spans marketplace and loyalty products, shared iOS SDKs, subscription features, product analytics infrastructure, and realtime voice AI R&D. Owned iOS features and reusable SDK components at Birmarket, shipped Drinkit from MVP to the App Store in a three-person iOS team, and worked with RxSwift in a production esports application. Strong in Swift, UIKit/SwiftUI, concurrency, modular iOS architecture, and realtime client flows.",
+    "summary": "Senior iOS product engineer with 12+ years of experience building consumer-facing applications. Recent work spans marketplace and loyalty products, shared iOS SDKs, subscription features, iOS analytics infrastructure, and realtime voice AI R&D. Owned Premium Subscription and reusable SDK components at Birmarket, shipped Drinkit from MVP to the App Store as part of a small iOS product team, and worked with RxSwift in a production esports application. Strong in Swift, UIKit/SwiftUI, concurrency, modular iOS architecture, and realtime client flows.",
     "locationLine": "Kyiv, Ukraine · Remote",
     "skillsGroups": [
       {
@@ -452,11 +456,11 @@
       },
       {
         "label": "Product engineering",
-        "line": "B2C consumer apps · marketplaces · loyalty & subscriptions · payments · analytics infrastructure"
+        "line": "B2C consumer apps · marketplaces · loyalty & subscriptions · payments · analytics SDK architecture"
       },
       {
         "label": "Media & device",
-        "line": "AVFoundation · AVAudioEngine · audio flows · Apple platform integrations"
+        "line": "AVFoundation · AVAudioEngine · audio flows"
       },
       {
         "label": "Data & quality",
@@ -474,7 +478,7 @@
       "lead": "",
       "bullets": [],
       "tech": "",
-      "body": "Product and client iOS development across blockchain, commercial real estate, healthcare, urban mobility, and messaging (Electus · GBKSoft · Amcon Soft · Tap4Parking · iCenter). Shipped Swift and Objective-C applications with UIKit, REST integrations, Core Data, SceneKit, CoreLocation/MapKit, and App Store delivery."
+      "body": "Product and client iOS development across blockchain, real estate, healthcare, mobility, and messaging (Electus · GBKSoft · Amcon Soft · Tap4Parking · iCenter). Shipped Swift and Objective-C apps with UIKit, REST, Core Data, and App Store delivery."
     },
     "educationLine": "Donetsk State University of Management · Bachelor's degree, Production Management"
   },

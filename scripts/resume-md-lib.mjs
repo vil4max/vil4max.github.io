@@ -340,7 +340,7 @@ function parseSkillsGroups(sectionLines, options = {}) {
             continue;
         }
         if (redactPublic && label === "Analytics") {
-            line = "analytics SDK abstraction · multi-provider event routing";
+            line = "analytics SDK architecture · multi-provider event routing";
         } else if (redactPublic && label === "AI & agentic tooling") {
             while (index < sectionLines.length && !sectionLines[index].startsWith("### ")) {
                 index += 1;
@@ -699,8 +699,8 @@ const roleProductDescriptions = {
 const roleMyRoles = {
     globallogic:
         "Senior iOS engineer on watchOS client — architecture, Watch ↔ iPhone connectivity, TestFlight delivery.",
-    pasha: "Senior iOS engineer on marketplace commerce and Premium Subscription technical lead inside the loyalty squad.",
-    dodo: "iOS engineer on a three-person team — ordering UX, video clips, checkout, and production releases.",
+    pasha: "Senior iOS engineer on marketplace commerce and Premium Subscription inside the loyalty squad.",
+    dodo: "iOS engineer on a small iOS product team — ordering UX, video clips, checkout, and production releases.",
     electus: "iOS engineer on startup delivery; mentored a junior engineer through wallet and transfer flows.",
 };
 
