@@ -111,7 +111,7 @@ function renderHero(section) {
         .filter(Boolean);
     return `        <section class="cover-hero" aria-labelledby="cover-name">
           <div class="cover-hero__layout">
-            <img class="cover-hero__avatar" src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/profile.png" alt="">
+            <img class="cover-hero__avatar" src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/profile.png" alt="Portrait of Max Vilchevskiy">
             <div class="cover-hero__copy">
               <h1 id="cover-name">${escapeHtml(fields.get("Name") || "")}</h1>
               <p class="cover-role">${escapeHtml(fields.get("Role") || "")}</p>

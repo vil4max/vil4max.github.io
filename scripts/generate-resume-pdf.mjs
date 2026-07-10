@@ -5,9 +5,8 @@ import { pathToFileURL } from "node:url";
 import { chromium } from "playwright";
 import {
     PDF_DETAILED_HTML,
-    PDF_DETAILED_FILENAME,
-    PDF_ONE_PAGE_HTML,
-    pdfDetailedAssetsPath,
+    PDF_AUTOFILL_FILENAME,
+    autofillBuildPdfPath,
 } from "./resume-pdf-paths.mjs";
 
 const repoRoot = process.cwd();
@@ -18,7 +17,7 @@ let outputPath;
 
 if (args.length === 0) {
     inputHtmlPath = path.resolve(repoRoot, PDF_DETAILED_HTML);
-    outputPath = pdfDetailedAssetsPath;
+    outputPath = autofillBuildPdfPath;
 } else if (args.length === 1) {
     inputHtmlPath = path.resolve(repoRoot, PDF_DETAILED_HTML);
     outputPath = path.resolve(repoRoot, args[0]);
@@ -45,7 +44,7 @@ const page = await browser.newPage({
 await page.goto(pathToFileURL(inputHtmlPath).href, { waitUntil: "networkidle" });
 await page.emulateMedia({ media: "print", colorScheme: "light" });
 
-const tightLayout = path.basename(inputHtmlPath) === PDF_ONE_PAGE_HTML;
+const tightLayout = false;
 
 await page.pdf({
     path: outputPath,

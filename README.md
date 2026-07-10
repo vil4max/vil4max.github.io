@@ -37,5 +37,6 @@ Public Resume PDF only (from career): `cd ../career && npm run resume:one-page`.
 
 - Canonical facts: `../career/career.md`
 - Presentation sources: `../career/presentation/*.md`
-- Never hand-edit: `content/resume-source.json`, synced marked HTML regions, published PDFs
+- Never hand-edit: private resume build golden (`../career/resume/build/resume-source.json`), synced marked HTML regions, published PDFs
+- Never publish `content/resume-source.json` on GitHub Pages (autofill narrative stays private)
 - `resume:build` does not rewrite landing `PORTFOLIO:*` regions

@@ -1,6 +1,8 @@
 export {
     PDF_CANONICAL_FILENAME,
     PDF_DETAILED_FILENAME,
+    PDF_AUTOFILL_FILENAME,
+    autofillBuildPdfPath,
     onePageBuildPdfPath,
     pdfAssetsDir,
     pdfCanonicalAssetsPath,
@@ -10,5 +12,5 @@ export {
     resumeBuildDir,
 } from "../../career/resume/lib/pdf-paths.mjs";
 
-export const PDF_ONE_PAGE_HTML = "resume-one-page.html";
-export const PDF_DETAILED_HTML = "index.html";
+export const PDF_DETAILED_HTML = "profile-autofill.html";
+export const PDF_AUTOFILL_HTML = PDF_DETAILED_HTML;

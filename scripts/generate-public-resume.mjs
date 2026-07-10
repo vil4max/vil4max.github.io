@@ -26,20 +26,15 @@ function extractFrontmatter(profileMarkdown) {
     return profileMarkdown.slice(0, end + 5);
 }
 
-function extractLanguages(profileMarkdown) {
-    const start = profileMarkdown.indexOf("## Languages\n");
-    const end = profileMarkdown.indexOf("\n## ", start + 1);
-    if (start === -1 || end === -1) {
-        return "";
-    }
-    return profileMarkdown.slice(start, end).trimEnd();
+function extractLanguages() {
+    return ["## Languages", "", "English — Upper-Intermediate (B2)"].join("\n");
 }
 
 function extractSkillsSection(detailedMarkdown) {
     const skillsStart = detailedMarkdown.indexOf("## Skills\n");
     const skillsEnd = detailedMarkdown.indexOf("\n## ", skillsStart + 1);
     if (skillsStart === -1 || skillsEnd === -1) {
-        throw new Error("resume-detailed.md missing ## Skills section");
+        throw new Error("profile-autofill.md missing ## Skills section");
     }
     let skills = detailedMarkdown.slice(skillsStart, skillsEnd).trimEnd();
     skills = skills.replace(
@@ -73,7 +68,7 @@ const source = buildResumeSourceFromFiles();
 const factsMarkdown = fs.readFileSync(sourceOfTruthPath, "utf8");
 const detailedMarkdown = fs.readFileSync(presentationDetailedPath, "utf8");
 const frontmatter = stripPrivateFrontmatterBlock(extractFrontmatter(factsMarkdown));
-const languages = extractLanguages(factsMarkdown);
+const languages = extractLanguages();
 const skills = extractSkillsSection(detailedMarkdown);
 const experience = buildPublicExperience(source.roles);
 const summary = source.meta.summary?.trim() ?? "";

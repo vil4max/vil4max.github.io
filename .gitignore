@@ -3,3 +3,7 @@ node_modules/
 vil4max/
 content/source-of-truth.md
 content/resume.md
+content/resume-source.json
+content/.resume-source.json.tmp
+.tmp-visual-review/
+profile-autofill.html

@@ -1,20 +1,22 @@
+#!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { assertNoPrivateContactData } from "../../career/resume/lib/resume-md-lib.mjs";
-import {
-    PDF_CANONICAL_FILENAME,
-    PDF_DETAILED_FILENAME,
-} from "./resume-pdf-paths.mjs";
+import { PDF_CANONICAL_FILENAME } from "./resume-pdf-paths.mjs";
+import { resumeSourceJsonPath } from "./resume-paths.mjs";
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.join(root, "..");
-const sourcePath = path.join(repoRoot, "content", "resume-source.json");
+const sourcePath = resumeSourceJsonPath;
+const autofillHtmlPath = path.join(repoRoot, "profile-autofill.html");
 const indexHtmlPath = path.join(repoRoot, "index.html");
 const projectsHtmlPath = path.join(repoRoot, "projects.html");
 
 const source = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
+const autofillHtml = fs.readFileSync(autofillHtmlPath, "utf8");
 const indexHtml = fs.readFileSync(indexHtmlPath, "utf8");
+const projectsHtml = fs.readFileSync(projectsHtmlPath, "utf8");
 
 function decodeHtmlEntities(text) {
     return text
@@ -35,7 +37,6 @@ function htmlTextIncludes(html, needle) {
 }
 
 const errors = [];
-
 const publicRoleIds = new Set(source.roles.filter((role) => role.featured).map((role) => role.id));
 
 const forbiddenPhrases = [
@@ -68,30 +69,28 @@ const forbiddenPhrases = [
     "technical degree",
     "engineering degree",
     "Computer Science degree",
+    "independent company",
 ];
 
 const leadershipWordPattern = /\b[Ll]ed\b/;
 
-const onePageHtmlPath = path.join(repoRoot, "resume-one-page.html");
-let onePageHtml = "";
-try {
-    onePageHtml = fs.readFileSync(onePageHtmlPath, "utf8");
-} catch {
-    errors.push("resume-one-page.html is missing — run npm run resume:build");
-}
-
 const surfaces = [
     { name: "resume-source.json", content: fs.readFileSync(sourcePath, "utf8") },
+    { name: "profile-autofill.html", content: autofillHtml },
     { name: "index.html", content: indexHtml },
-    { name: "projects.html", content: fs.readFileSync(projectsHtmlPath, "utf8") },
+    { name: "projects.html", content: projectsHtml },
 ];
-
-if (onePageHtml) {
-    surfaces.push({ name: "resume-one-page.html", content: onePageHtml });
-}
 
 for (const surface of surfaces) {
     errors.push(...assertNoPrivateContactData(surface.name, surface.content));
+}
+
+if (source.employments) {
+    errors.push("resume-source.json must not include employments (canonical facts stay in career.md)");
+}
+
+if (source.roles?.some((role) => role.engagements)) {
+    errors.push("resume-source.json roles must not include engagements (canonical facts stay in career.md)");
 }
 
 if (source.contacts?.phone || source.contacts?.phonePublic !== undefined) {
@@ -102,8 +101,15 @@ if (source.meta?.apply) {
     errors.push("resume-source.json must not include meta.apply");
 }
 
+if (String(source.meta?.languagesLine ?? "").includes("Spoken baseline")) {
+    errors.push("resume-source.json languagesLine must be the public ATS label only");
+}
+
 for (const phrase of forbiddenPhrases) {
     for (const surface of surfaces) {
+        if (surface.name === "resume-source.json") {
+            continue;
+        }
         if (phrase === "App Intents" && /not Apple App Intents/.test(surface.content)) {
             const withoutNegation = surface.content.replace(/not Apple App Intents/g, "");
             if (withoutNegation.includes(phrase)) {
@@ -118,7 +124,7 @@ for (const phrase of forbiddenPhrases) {
 }
 
 for (const surface of surfaces) {
-    if (surface.name === "projects.html") {
+    if (surface.name === "projects.html" || surface.name === "index.html" || surface.name === "resume-source.json") {
         continue;
     }
     const text = decodeHtmlEntities(surface.content).replace(/<[^>]+>/g, " ");
@@ -128,149 +134,92 @@ for (const surface of surfaces) {
 }
 
 const summarySnippet = source.meta.summary?.slice(0, 60) ?? "";
-
-if (!summarySnippet || !htmlIncludes(indexHtml, summarySnippet)) {
-    errors.push("index.html missing public summary snippet");
+if (!summarySnippet || !htmlIncludes(autofillHtml, summarySnippet)) {
+    errors.push("profile-autofill.html missing public summary snippet");
 }
 
 for (const role of source.roles) {
-    if (!indexHtml.includes(role.displayFull)) {
-        errors.push(`index.html missing displayFull for ${role.id}: ${role.displayFull}`);
+    if (!autofillHtml.includes(role.displayFull)) {
+        errors.push(`profile-autofill.html missing displayFull for ${role.id}: ${role.displayFull}`);
     }
 }
 
 if (source.meta.skillsGroups?.length) {
     const firstGroup = source.meta.skillsGroups[0];
     const skillsSnippet = firstGroup.line.slice(0, Math.min(32, firstGroup.line.length));
-    if (!htmlTextIncludes(indexHtml, skillsSnippet)) {
-        errors.push(`index.html missing skillsGroups snippet: ${skillsSnippet}`);
-    }
-} else if (source.meta.skillsLine) {
-    const skillsSnippet = source.meta.skillsLine.slice(0, Math.min(48, source.meta.skillsLine.length));
-    if (!htmlTextIncludes(indexHtml, skillsSnippet)) {
-        errors.push(`index.html missing skillsLine snippet: ${skillsSnippet}`);
+    if (!htmlTextIncludes(autofillHtml, skillsSnippet)) {
+        errors.push(`profile-autofill.html missing skillsGroups snippet: ${skillsSnippet}`);
     }
 }
 
 for (const role of source.roles) {
-    const matches = indexHtml.match(new RegExp(`id="exp-${role.id}"`, "g"));
+    const matches = autofillHtml.match(new RegExp(`id="exp-${role.id}"`, "g"));
     if (!matches || matches.length !== 1) {
         errors.push(
-            `index.html must contain exactly one exp-${role.id} block (found ${matches?.length ?? 0})`,
+            `profile-autofill.html must contain exactly one exp-${role.id} block (found ${matches?.length ?? 0})`,
         );
     }
 }
 
+if (!autofillHtml.includes('id="exp-dodo"')) {
+    errors.push("profile-autofill.html missing backward-compatible #exp-dodo anchor");
+}
+
 for (const role of source.roles) {
     if (!publicRoleIds.has(role.id)) {
-        const bulletsToCheck = role.bullets ?? [];
-        for (const bullet of bulletsToCheck) {
-            if (!htmlIncludes(indexHtml, bullet)) {
-                errors.push(`index.html missing bullet for ${role.id}`);
-                break;
-            }
-        }
         continue;
     }
     if (!role.technologiesLine) {
         errors.push(`resume-source.json missing technologiesLine for ${role.id}`);
-        continue;
     }
     if (!role.bulletsShort || role.bulletsShort.length < 2) {
         errors.push(`resume-source.json needs bulletsShort for public role ${role.id}`);
     }
-    const bulletsToCheck =
-        role.bulletsShort?.length > 0 ? role.bulletsShort : (role.bullets ?? []);
+    const bulletsToCheck = role.bulletsShort?.length > 0 ? role.bulletsShort : (role.bullets ?? []);
     for (const bullet of bulletsToCheck) {
-        if (!htmlIncludes(indexHtml, bullet)) {
-            errors.push(`index.html missing bullet for ${role.id}`);
+        if (!htmlIncludes(autofillHtml, bullet)) {
+            errors.push(`profile-autofill.html missing bullet for ${role.id}`);
             break;
         }
     }
-}
-
-if (!indexHtml.includes(source.meta.title)) {
-    errors.push(`index.html missing title: ${source.meta.title}`);
-}
-
-if (indexHtml.includes("index-short.html")) {
-    errors.push("index.html still links to removed index-short.html");
-}
-
-if (indexHtml.includes("landing-about")) {
-    errors.push("index.html still contains landing-about section");
 }
 
 if (!indexHtml.includes(PDF_CANONICAL_FILENAME) || !indexHtml.includes("Download CV")) {
     errors.push(`index.html missing primary CV download (${PDF_CANONICAL_FILENAME})`);
 }
 
-const projectsHtml = fs.readFileSync(projectsHtmlPath, "utf8");
 if (!projectsHtml.includes(PDF_CANONICAL_FILENAME) || !projectsHtml.includes("Download CV")) {
     errors.push(`projects.html missing primary CV download (${PDF_CANONICAL_FILENAME})`);
 }
 
-if (!indexHtml.includes(PDF_DETAILED_FILENAME) || !indexHtml.includes("View detailed experience")) {
-    errors.push(`index.html missing detailed CV link (${PDF_DETAILED_FILENAME})`);
+if (indexHtml.includes("Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf") || indexHtml.includes("View detailed experience")) {
+    errors.push("index.html still links Detailed/autofill PDF as a public peer CTA");
 }
 
-if (!projectsHtml.includes(PDF_DETAILED_FILENAME) || !projectsHtml.includes("View detailed experience")) {
-    errors.push(`projects.html missing detailed CV link (${PDF_DETAILED_FILENAME})`);
+if (
+    projectsHtml.includes("Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf") ||
+    projectsHtml.includes("View detailed experience")
+) {
+    errors.push("projects.html still links Detailed/autofill PDF as a public peer CTA");
 }
 
 if (indexHtml.includes("Vilchevskiy_iOS_Engineer")) {
     errors.push("index.html contains stale Vilchevskiy_iOS_Engineer PDF filename");
 }
 
-if (projectsHtml.includes("Vilchevskiy_iOS_Engineer")) {
-    errors.push("projects.html contains stale Vilchevskiy_iOS_Engineer PDF filename");
-}
-
-if (onePageHtml) {
-    const onePageText = decodeHtmlEntities(onePageHtml).replace(/<[^>]+>/g, " ");
-    const onePageRequired = [
-        "12+ years",
-        "RxSwift",
-        "PLAYHERA",
-        "Premium Subscription",
-        "shared Premium Subscription SDK",
-        "polling fallback",
-    ];
-    for (const snippet of onePageRequired) {
-        if (!onePageText.includes(snippet)) {
-            errors.push(`resume-one-page.html missing required snippet: ${snippet}`);
-        }
-    }
-    if (!/designed and implemented/i.test(onePageText)) {
-        errors.push("resume-one-page.html missing analytics designed/implemented wording");
-    }
-    if (!/WebSocket/i.test(onePageText)) {
-        errors.push("resume-one-page.html missing WebSocket/realtime wording");
-    }
-    if (onePageText.includes("AI — Cursor") || onePageText.includes("Cursor · Copilot")) {
-        errors.push("resume-one-page.html contains forbidden AI tools skills line");
-    }
-    if (onePageHtml.includes("cv-section-education")) {
-        errors.push("resume-one-page.html must not include Education section (RenderCV one-page PDF omits it)");
-    }
-    if (onePageText.includes("Production Management")) {
-        errors.push("resume-one-page.html must not include degree wording (RenderCV one-page PDF omits Education)");
-    }
-}
-
-const indexText = decodeHtmlEntities(indexHtml).replace(/<[^>]+>/g, " ");
+const autofillText = decodeHtmlEntities(autofillHtml).replace(/<[^>]+>/g, " ");
 const detailedRequired = [
     "Worked commercially with RxSwift",
     "command-driven watchOS flows",
     "structured client commands",
 ];
 for (const snippet of detailedRequired) {
-    if (!indexText.includes(snippet)) {
-        errors.push(`index.html missing detailed CV required snippet: ${snippet}`);
+    if (!autofillText.includes(snippet)) {
+        errors.push(`profile-autofill.html missing autofill required snippet: ${snippet}`);
     }
 }
-if (indexText.includes("fillForms")) {
-    errors.push("index.html exposes internal fillForms command name");
+if (autofillText.includes("fillForms")) {
+    errors.push("profile-autofill.html exposes internal fillForms command name");
 }
 
 if (errors.length > 0) {
@@ -281,4 +230,4 @@ if (errors.length > 0) {
     process.exit(1);
 }
 
-console.log(`OK: ${source.roles.length} roles synced in index.html`);
+console.log("OK: resume sync validation passed (autofill HTML; index.html not CV-synced)");

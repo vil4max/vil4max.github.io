@@ -3,10 +3,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readJson } from "../../career/resume/lib/resume-md-lib.mjs";
+import { resumeSourceJsonPath } from "./resume-paths.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const sourcePath = path.join(root, "content", "resume-source.json");
-const indexPath = path.join(root, "index.html");
+const sourcePath = resumeSourceJsonPath;
+const autofillPath = path.join(root, "profile-autofill.html");
 
 const source = readJson(sourcePath);
 
@@ -17,6 +18,13 @@ const ROLE_MEDIA = {
         thumbs: [
             "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/85/61/cc/8561ccb3-d030-fcc7-4e44-35cd30aaa471/App_Store__1284__U0445_2778_1.1.png/600x1300bb.webp",
             "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/7f/6f/017f6f52-d85f-4125-8aa4-ae7858c65a17/App_Store__1284__U0445_2778_1.1-3.png/600x1300bb.webp",
+        ],
+    },
+    drinkit: {
+        projectAnchor: "project-drinkit",
+        thumbs: [
+            "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a4/ba/7b/a4ba7b1e-8b4e-51db-0910-975cac31622f/01.png/600x1300bb.webp",
+            "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7d/9c/b9/7d9cb999-b39c-7a9d-0a44-fb632410784b/02.png/600x1300bb.webp",
         ],
     },
     dodo: {
@@ -219,18 +227,18 @@ function replaceSectionContent(html, sectionClass, innerHtml) {
     return html.slice(0, contentStart) + `\n${innerHtml}\n      ` + html.slice(end);
 }
 
-let indexHtml = fs.readFileSync(indexPath, "utf8");
+let autofillHtml = fs.readFileSync(autofillPath, "utf8");
 
-indexHtml = replaceSectionContent(
-    indexHtml,
+autofillHtml = replaceSectionContent(
+    autofillHtml,
     "cv-section-skills",
     `        <h3><span class="section-heading-text">Skills</span><span class="section-mark cv-print-omit" aria-hidden="true">🛠</span></h3>
 ${skillsGroupsHtml(source.meta.skillsGroups, source.meta.skillsLineShort, source.meta.skillsLine)}
 ${languagesLineHtml(source.meta.languagesLine ?? "")}`,
 );
 
-indexHtml = replaceSectionContent(
-    indexHtml,
+autofillHtml = replaceSectionContent(
+    autofillHtml,
     "cv-section-summary",
     `        <h3><span class="section-heading-text">Professional Summary</span><span class="section-mark cv-print-omit" aria-hidden="true">📋</span></h3>
 ${summaryParagraphs(source.meta.summary ?? "")}`,
@@ -242,7 +250,18 @@ const experienceSectionInner = `        <h3><span class="section-heading-text">W
 ${source.roles.map(experienceItemForRole).join("\n\n")}
         </div>`;
 
-indexHtml = replaceSectionContent(indexHtml, "cv-section-experience", experienceSectionInner);
+autofillHtml = replaceSectionContent(autofillHtml, "cv-section-experience", experienceSectionInner);
 
-fs.writeFileSync(indexPath, indexHtml);
-console.log(`Synced ${indexPath} from resume-source.json`);
+if (autofillHtml.includes('id="exp-drinkit"') && !autofillHtml.includes('id="exp-dodo"')) {
+    autofillHtml = autofillHtml.replace(
+        'id="exp-drinkit"',
+        'id="exp-drinkit"',
+    );
+    autofillHtml = autofillHtml.replace(
+        /(<div class="experience-item[^"]*"[^>]*id="exp-drinkit">)/,
+        '<div id="exp-dodo" hidden></div>\n        $1',
+    );
+}
+
+fs.writeFileSync(autofillPath, autofillHtml);
+console.log(`Synced ${autofillPath} from resume-source.json (index.html not modified)`);

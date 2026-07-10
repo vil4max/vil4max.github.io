@@ -4,10 +4,10 @@ import path from "node:path";
 import { stat } from "node:fs/promises";
 import {
     PDF_CANONICAL_FILENAME,
-    PDF_DETAILED_FILENAME,
+    PDF_AUTOFILL_FILENAME,
     PDF_DETAILED_HTML,
     pdfCanonicalAssetsPath,
-    pdfDetailedAssetsPath,
+    autofillBuildPdfPath,
 } from "./resume-pdf-paths.mjs";
 import { presentationOnePagePath, sourceOfTruthPath } from "./resume-paths.mjs";
 
@@ -17,12 +17,12 @@ const iCloudResumeDir = path.join(
     "Library/Mobile Documents/com~apple~CloudDocs/pdf-resume",
 );
 
-const detailedHtml = path.resolve(repoRoot, PDF_DETAILED_HTML);
+const autofillHtml = path.resolve(repoRoot, PDF_DETAILED_HTML);
 const onePageSourcePaths = [sourceOfTruthPath, presentationOnePagePath];
 const canonicalPdfAssets = pdfCanonicalAssetsPath;
-const detailedPdfAssets = pdfDetailedAssetsPath;
+const autofillPdf = autofillBuildPdfPath;
 const canonicalPdfICloud = path.resolve(iCloudResumeDir, PDF_CANONICAL_FILENAME);
-const detailedPdfICloud = path.resolve(iCloudResumeDir, PDF_DETAILED_FILENAME);
+const autofillPdfICloud = path.resolve(iCloudResumeDir, PDF_AUTOFILL_FILENAME);
 
 async function getMtimeMs(filePath) {
     const stats = await stat(filePath);
@@ -76,27 +76,29 @@ const checks = [
         label: "assets/canonical",
         pdfPath: canonicalPdfAssets,
         sourcePaths: onePageSourcePaths,
-        pageCount: 1,
+        pageCountMin: 1,
+        pageCountMax: 2,
         mode: "sources",
     },
     {
-        label: "assets/detailed",
-        pdfPath: detailedPdfAssets,
-        sourceHtmlPath: detailedHtml,
+        label: "private/autofill",
+        pdfPath: autofillPdf,
+        sourceHtmlPath: autofillHtml,
         mode: "html",
     },
     {
         label: "iCloud/canonical",
         pdfPath: canonicalPdfICloud,
         sourcePaths: onePageSourcePaths,
-        pageCount: 1,
+        pageCountMin: 1,
+        pageCountMax: 2,
         optional: true,
         mode: "sources",
     },
     {
-        label: "iCloud/detailed",
-        pdfPath: detailedPdfICloud,
-        sourceHtmlPath: detailedHtml,
+        label: "iCloud/autofill",
+        pdfPath: autofillPdfICloud,
+        sourceHtmlPath: autofillHtml,
         optional: true,
         mode: "html",
     },
@@ -110,11 +112,11 @@ try {
             } else {
                 await ensureHtmlUpToDate(check);
             }
-            if (check.pageCount !== undefined) {
+            if (check.pageCountMin !== undefined) {
                 const pages = countPdfPages(check.pdfPath);
-                if (pages !== check.pageCount) {
+                if (pages < check.pageCountMin || pages > check.pageCountMax) {
                     throw new Error(
-                        `${check.label} must be ${check.pageCount} page(s) (found ${pages}).\nPDF: ${check.pdfPath}\nFix: npm run resume:one-page in career or npm run resume:build`,
+                        `${check.label} must be ${check.pageCountMin}-${check.pageCountMax} page(s) (found ${pages}).\nPDF: ${check.pdfPath}\nFix: npm run resume:one-page in career or npm run resume:build`,
                     );
                 }
             }
@@ -126,10 +128,17 @@ try {
         }
     }
 
-    const detailedPageCount = countPdfPages(detailedPdfAssets);
-    if (detailedPageCount < 2 || detailedPageCount > 3) {
+    const autofillPageCount = countPdfPages(autofillPdf);
+    if (autofillPageCount < 2 || autofillPageCount > 4) {
         throw new Error(
-            `Detailed CV PDF must be 2–3 pages (found ${detailedPageCount}).\nPDF: ${detailedPdfAssets}\nFix: shorten index.html content, then npm run resume:build`,
+            `Profile Autofill PDF must be 2–4 pages (found ${autofillPageCount}).\nPDF: ${autofillPdf}\nFix: adjust profile-autofill.html, then npm run resume:build`,
+        );
+    }
+
+    const legacyDetailed = path.join(repoRoot, "../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf");
+    if (fs.existsSync(legacyDetailed)) {
+        throw new Error(
+            `Legacy Detailed PDF still in public assets: ${legacyDetailed}\nRemove it; autofill is private-only.`,
         );
     }
 

@@ -4,257 +4,172 @@
   <meta charset="UTF-8">
   <title>Max Vilchevskiy — Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="resume.css?v=20260708">
+  <link rel="stylesheet" href="resume.css?v=20260710c">
 </head>
-<body>
-  <div class="page">
-    <header>
-      <div class="header-inner">
-        <div class="header-text">
-          <div class="header-identity">
-            <img src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/profile.png" alt="Max Vilchevskiy">
-            <div class="header-identity-text">
-              <h1>Max Vilchevskiy</h1>
-              <span class="header-location">Kyiv, Ukraine</span>
-            </div>
-          </div>
-          <h2 class="header-role">iOS Software Engineer</h2>
-          <div class="header-meta">
-            <span class="header-meta-contacts header-meta-contacts--screen">
-              <a href="mailto:vil4max@gmail.com" class="contact-email">vil4max@gmail.com</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://t.me/vil4max">@vil4max</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/vil4max/">LinkedIn</a><span class="contact-sep" aria-hidden="true"> · </span><a href="https://github.com/vil4max">GitHub</a><span class="contact-sep" aria-hidden="true"> · </span><a href="index.html">Portfolio</a>
-            </span>
-            <span class="header-meta-contacts header-meta-contacts--print" aria-hidden="true">vil4max@gmail.com · linkedin.com/in/vil4max · github.com/vil4max · vil4max.github.io · @vil4max</span>
-          </div>
-          <nav class="site-nav" aria-label="Site">
-            <a href="index.html">Portfolio</a><span class="site-nav-sep">·</span>
-            <a href="projects.html" aria-current="page">Projects</a>
-          </nav>
-          <div class="landing-downloads">
-            <a class="download-btn" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf" download="Max_Vilchevskiy_Senior_iOS_Engineer.pdf">
-              <span class="download-btn-icon" aria-hidden="true">↓</span>
-              <span class="download-btn-text">
-                <span class="download-btn-title">Download CV</span>
-                <span class="download-btn-meta">PDF</span>
-              </span>
-            </a>
-            <a class="landing-download-secondary" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf" download="Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf">View detailed experience</a>
-          </div>
-        </div>
-      </div>
+<body class="cover-page projects-page">
+  <div class="page cover-shell">
+    <header class="cover-nav" aria-label="Site">
+      <nav class="cover-nav__links">
+        <a href="index.html">Portfolio</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+      </nav>
+      <a class="cover-nav__cv" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf">Download CV</a>
     </header>
-    <main>
-      <section>
-        <h3><span class="section-heading-text">Projects</span><span class="section-mark" aria-hidden="true">📱</span></h3>
-        <div class="grid-projects">
 
-          <div class="project-card">
-            <div class="project-title-line">
-              <h4 id="project-watch-ai-assistant">Apple Watch Voice AI — R&amp;D project</h4>
-            </div>
-            <div class="project-era"><a href="index.html#exp-globallogic">GlobalLogic</a> · R&amp;D project</div>
-            <div class="project-meta">Swift · WatchKit · SwiftUI · URLSessionWebSocketTask · AVFoundation · AVAudioEngine</div>
-            <p class="project-card-blurb">Voice AI assistant on Apple Watch — hands-free interaction with a conversational AI agent.</p>
-            <ul>
-              <li>Built production watchOS voice AI app — full on-watch flows.</li>
-              <li>iPhone backend relay where WebSocket is not available on Watch; shared state and deduplication across devices (URLSessionWebSocketTask).</li>
-              <li>On-device intent handling; internal TestFlight within watchOS constraints.</li>
-            </ul>
+    <main class="cover-main projects-main">
+      <section class="projects-intro">
+        <h1>Projects</h1>
+        <p class="cover-section-lead">What Max actually built — product and technical depth behind the career trajectory.</p>
+      </section>
+
+      <section class="projects-featured" aria-labelledby="featured-heading">
+        <h2 id="featured-heading">Selected work</h2>
+
+        <article class="case-study case-study--featured" id="project-watch-ai-assistant">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-watch-ai-assistant:CONTENT:START -->
+            <h3 class="case-title">Apple Watch Voice AI (R&amp;D project)</h3>
+            <p class="case-era">GlobalLogic · R&amp;D / demo. Not a production App Store product.</p>
+            <p class="case-narrative">Voice-first Apple Watch companion for field workers in hands-occupied scenarios. Built the watchOS conversation experience with an iPhone relay for realtime WebSocket and audio where Watch cannot host the socket. Interpreted structured AI command contracts on the client and mapped them to application/UI actions (project/domain commands, not Apple App Intents). Delivered under watchOS TestFlight constraints. Evaluated VelocityAI through hands-on iOS delivery scenarios.</p>
+            <p class="case-stack">watchOS · WatchConnectivity · Realtime Audio · AI Command Flows</p>
+          <!-- PROJECT:project-watch-ai-assistant:CONTENT:END -->
           </div>
+        </article>
 
-          <div class="project-card">
-            <div class="project-title-line">
-              <h4 id="project-birmarket">Birmarket — Marketplace &amp; Loyalty</h4>
-              <div class="project-links"><a href="https://apps.apple.com/ru/app/birmarket/id1458111389?l=uk">App Store</a></div>
-            </div>
-            <div class="project-era"><a href="index.html#exp-pasha">PASHA Holding</a></div>
-            <div class="project-meta">Swift · SwiftUI · UIKit · SPM · Analytics module</div>
-            <p class="project-card-blurb">Azerbaijan marketplace (Umico) — 500,000+ products, 900+ pickup points. Joined at startup scale; Premium Subscription in Birmarket; Analytics and Premium Subscription SDK in shared loyalty platform.</p>
-            <ul>
-              <li>Shipped catalog, search, cart, checkout, and orders for a 500,000+ SKU marketplace with 900+ pickup points as the product scaled nationally.</li>
-              <li>Owned Premium Subscription module — subscription flows and UI; integrated with shared purchase model for status handling.</li>
-              <li>Built Analytics module — multi-analytics SDK routing in shared loyalty SDK.</li>
-              <li>Extracted Premium Subscription SDK with per-host configuration inside the shared loyalty platform.</li>
-            </ul>
-            <div class="project-shots" aria-label="Birmarket screenshots">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/85/61/cc/8561ccb3-d030-fcc7-4e44-35cd30aaa471/App_Store__1284__U0445_2778_1.1.png/600x1300bb.webp" alt="Birmarket screenshot — 1">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/7f/6f/017f6f52-d85f-4125-8aa4-ae7858c65a17/App_Store__1284__U0445_2778_1.1-3.png/600x1300bb.webp" alt="Birmarket screenshot — 2">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/14/e0/dc/14e0dcd6-7c52-684e-3cba-1128df2e0b41/App_Store__1284__U0445_2778_1.1-2.png/600x1300bb.webp" alt="Birmarket screenshot — 3">
-            </div>
+        <article class="case-study case-study--featured case-study--media" id="project-birmarket">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-birmarket:CONTENT:START -->
+            <h3 class="case-title">Birmarket: Marketplace &amp; Loyalty</h3>
+            <p class="case-era">PASHA Holding · Umico → Birmarket consumer marketplace and loyalty product in Azerbaijan.</p>
+            <p class="case-narrative">Worked on the iOS product as the marketplace evolved from an earlier-stage context into a large production commerce and loyalty platform. Contributed across evolving marketplace and loyalty flows and customer-facing journeys as product scenarios expanded. Contributed to modularization of a large production iOS codebase, including hands-on runtime diagnostics for memory and UI performance. Took primary iOS responsibility for Premium Subscription, evolved it beyond a small in-app feature, and later reimplemented it as a configurable multi-host SDK with shared analytics infrastructure.</p>
+            <p class="case-stack">Multi-host SDK · Modularization · Analytics Infrastructure · Performance &amp; Runtime Diagnostics</p>
+          <!-- PROJECT:project-birmarket:CONTENT:END -->
+            <p class="case-links"><a href="https://apps.apple.com/ru/app/birmarket/id1458111389?l=uk">App Store</a></p>
           </div>
-
-          <div class="project-card">
-            <div class="project-title-line">
-              <h4 id="project-drinkit">Drinkit — Coffee Ordering App</h4>
-              <div class="project-links"><a href="https://apps.apple.com/us/app/drinkit-order-your-coffee/id1495622004">App Store</a></div>
-            </div>
-            <div class="project-era"><a href="index.html#exp-dodo">Dodo Brands</a></div>
-            <div class="project-meta">Swift · UIKit · SPM · URLSession · Apple Pay · AVFoundation · AVKit</div>
-            <p class="project-card-blurb">Coffee ordering app — MVP at a test flagship café; brand now has 215+ shops in 5 countries. Three-person iOS team.</p>
-            <ul>
-              <li>Built Drinkit from test flagship to App Store — pre-order and customization while the brand grew internationally.</li>
-              <li>Reels-style menu video, Apple Pay with loyalty, and live tracking for slot pickup.</li>
-            </ul>
-            <div class="project-shots" aria-label="Drinkit screenshots">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a4/ba/7b/a4ba7b1e-8b4e-51db-0910-975cac31622f/01.png/600x1300bb.webp" alt="Drinkit screenshot — 1">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7d/9c/b9/7d9cb999-b39c-7a9d-0a44-fb632410784b/02.png/600x1300bb.webp" alt="Drinkit screenshot — 2">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bd/2e/97/bd2e97f7-929d-b6f4-0a7e-35235dd07cbb/03.png/600x1300bb.webp" alt="Drinkit screenshot — 3">
-            </div>
+          <div class="case-study__media" aria-label="Birmarket screenshots">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/85/61/cc/8561ccb3-d030-fcc7-4e44-35cd30aaa471/App_Store__1284__U0445_2778_1.1.png/600x1300bb.webp" alt="Birmarket screenshot — 1">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/7f/6f/017f6f52-d85f-4125-8aa4-ae7858c65a17/App_Store__1284__U0445_2778_1.1-3.png/600x1300bb.webp" alt="Birmarket screenshot — 2">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/14/e0/dc/14e0dcd6-7c52-684e-3cba-1128df2e0b41/App_Store__1284__U0445_2778_1.1-2.png/600x1300bb.webp" alt="Birmarket screenshot — 3">
           </div>
+        </article>
 
-          <div class="project-card">
-            <div class="project-title-line">
-              <h4 id="project-playhera">PLAYHERA — Gaming Tournaments</h4>
-              <div class="project-links"><a href="https://apps.apple.com/ua/app/playhera/id1449021935">App Store</a></div>
-            </div>
-            <div class="project-era"><a href="index.html#exp-solvve">Solvve</a></div>
-            <div class="project-meta">Swift · UIKit · RxSwift · REST · Auto Layout</div>
-            <p class="project-card-blurb">Gamer ecosystem for competitive play — team management, challenges, tournaments, brackets, and player tables.</p>
-            <ul>
-              <li>Built team creation and management flows for competitive gaming squads.</li>
-              <li>Shipped challenge and tournament flows — brackets, standings, and player tables in a production App Store app.</li>
-            </ul>
-            <div class="project-shots" aria-label="PlayHera screenshots">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/09/75/8d/09758de1-772a-dd1a-bb2f-112a83ab832b/11594ffd-5a8a-4988-8449-76a21e3a1122_screen1.png/392x696bb.png" alt="PlayHera screenshot — 1">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/3e/83/f2/3e83f2f4-b664-3d58-5ff0-a87b5f4c3408/5dd85cd3-c4c8-49fb-b8e5-2248471a9871_screen2.png/392x696bb.png" alt="PlayHera screenshot — 2">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/04/81/ca/0481caa9-378b-5259-9594-7711eb419969/af75a998-227f-4986-aee5-6d0184cc55ef_screen3.png/392x696bb.png" alt="PlayHera screenshot — 3">
-            </div>
+        <article class="case-study case-study--featured case-study--media case-study--reverse" id="project-drinkit">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-drinkit:CONTENT:START -->
+            <h3 class="case-title">Drinkit: Coffee Ordering App</h3>
+            <p class="case-era">Drinkit · joined when the product was part of Dodo Brands.</p>
+            <p class="case-narrative">Built the production iOS product from scratch with a small iOS team launching a new consumer coffee-ordering business for physical coffee shops. Worked from early product ideas and real commercial constraints; contributed to user-scenario exploration and refinement of customer-facing product flows. Implemented and evolved drink customization as a long-running, backend-driven complexity area. Participated in designing and integrating contextual offers — collaborative offer mechanics and client/backend data-flow decisions; backend remained authoritative for final offer calculation.</p>
+            <p class="case-stack">Product Customization · Contextual Offers</p>
+          <!-- PROJECT:project-drinkit:CONTENT:END -->
+            <p class="case-links"><a href="https://apps.apple.com/us/app/drinkit-order-your-coffee/id1495622004">App Store</a></p>
           </div>
+          <div class="case-study__media" aria-label="Drinkit screenshots">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a4/ba/7b/a4ba7b1e-8b4e-51db-0910-975cac31622f/01.png/600x1300bb.webp" alt="Drinkit screenshot — 1">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7d/9c/b9/7d9cb999-b39c-7a9d-0a44-fb632410784b/02.png/600x1300bb.webp" alt="Drinkit screenshot — 2">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bd/2e/97/bd2e97f7-929d-b6f4-0a7e-35235dd07cbb/03.png/600x1300bb.webp" alt="Drinkit screenshot — 3">
+          </div>
+        </article>
 
-          <div class="project-card">
-            <div class="project-title-line">
-              <h4 id="project-eastern-union">Eastern Union — CRE App</h4>
-              <div class="project-links"><a href="https://apps.apple.com/us/app/eastern-union/id1125123079">App Store</a> · <a href="https://easternunion.com/">easternunion.com</a></div>
+        <article class="case-study case-study--featured case-study--media" id="project-playhera">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-playhera:CONTENT:START -->
+            <h3 class="case-title">PLAYHERA: esports tournaments</h3>
+            <p class="case-era">SOLVVE · production App Store esports application.</p>
+            <p class="case-narrative">Built team creation and management flows for competitive squads. Worked commercially with RxSwift in an existing UIKit codebase, implementing and maintaining reactive feature flows inside established architecture and review practices. Not overall reactive architecture ownership.</p>
+            <p class="case-stack">RxSwift</p>
+          <!-- PROJECT:project-playhera:CONTENT:END -->
+            <p class="case-links"><a href="https://apps.apple.com/ua/app/playhera/id1449021935">App Store</a></p>
+          </div>
+          <div class="case-study__media" aria-label="PlayHera screenshots">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/09/75/8d/09758de1-772a-dd1a-bb2f-112a83ab832b/11594ffd-5a8a-4988-8449-76a21e3a1122_screen1.png/392x696bb.png" alt="PlayHera screenshot — 1">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/3e/83/f2/3e83f2f4-b664-3d58-5ff0-a87b5f4c3408/5dd85cd3-c4c8-49fb-b8e5-2248471a9871_screen2.png/392x696bb.png" alt="PlayHera screenshot — 2">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/04/81/ca/0481caa9-378b-5259-9594-7711eb419969/af75a998-227f-4986-aee5-6d0184cc55ef_screen3.png/392x696bb.png" alt="PlayHera screenshot — 3">
+          </div>
+        </article>
+      </section>
+
+      <section class="projects-additional" aria-labelledby="additional-heading">
+        <h2 id="additional-heading">Additional experience</h2>
+        <div class="projects-compact-list">
+
+          <article class="case-compact" id="project-eastern-union">
+            <div class="case-compact__copy">
+              <!-- PROJECT:project-eastern-union:CONTENT:START -->
+            <h3 class="case-title">Eastern Union: CRE app</h3>
+            <p class="case-era">GBKSoft · existing commercial real-estate client application.</p>
+            <p class="case-narrative">Maintenance and incremental client-requested work in a mature production App Store codebase — polishing, information hierarchy, and narrowly scoped screen/state changes. Not a greenfield or hero project; weaker public-story signal than Clovis or BLE R&amp;D from the same employment.</p>
+            <p class="case-stack">Swift · UIKit</p>
+          <!-- PROJECT:project-eastern-union:CONTENT:END -->
+              <p class="case-links"><a href="https://apps.apple.com/us/app/eastern-union/id1125123079">App Store</a> · <a href="https://easternunion.com/">easternunion.com</a></p>
             </div>
-            <div class="project-era"><a href="index.html#exp-gbksoft">GBKSoft</a></div>
-            <div class="project-meta">Swift · UIKit · REST · Core Bluetooth · Core Location</div>
-            <p class="project-card-blurb">Free commercial real estate app for US brokers and investors — eCALC underwriting, live agency rates, comps/maps, CRE directory.</p>
-            <ul>
-              <li>iOS development — eCALC underwriting: cap rates, IRR, cash-on-cash, blended mortgage, equity waterfall.</li>
-              <li>Live agency rates, comps/maps, CRE directory; responsive calculator UI; App Store releases.</li>
-            </ul>
-            <div class="project-shots" aria-label="Eastern Union screenshots">
+            <div class="case-compact__media" aria-label="Eastern Union screenshots">
               <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/85/79/37/85793713-7c9e-ddfb-3587-aa43cb03d6a6/pr_source.png/392x696bb.png" alt="Eastern Union screenshot — 1">
               <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/3e/4a/c3/3e4ac327-c07f-ac14-4a36-bf03b193ef98/pr_source.png/392x696bb.png" alt="Eastern Union screenshot — 2">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/db/0d/3f/db0d3f68-45c8-7f26-d1bc-eaf45bceafe7/pr_source.png/392x696bb.png" alt="Eastern Union screenshot — 3">
             </div>
-          </div>
+          </article>
+
+          <article class="case-compact" id="project-alchemy">
+            <!-- PROJECT:project-alchemy:CONTENT:START -->
+            <h3 class="case-title">Alchemy: gold-backed digital asset iOS client</h3>
+            <p class="case-era">Other Projects · commercial blockchain/web3 contract via Intellectsoft · ~2022.</p>
+            <p class="case-narrative">Primary iOS implementer on an NDA client product. Safe public framing: iOS client for an Ethereum-backed / gold-backed digital asset product. UIKit delivery after an incomplete SwiftUI start; purchase and KYC-related client surfaces within NDA boundaries. Not a primary employment chapter.</p>
+            <p class="case-stack">Swift · UIKit</p>
+          <!-- PROJECT:project-alchemy:CONTENT:END -->
+          </article>
+
+          <article class="case-compact" id="project-electus">
+            <!-- PROJECT:project-electus:CONTENT:START -->
+            <h3 class="case-title">Electus: blockchain assistant</h3>
+            <p class="case-era">Primary career history · greenfield startup engagement.</p>
+            <p class="case-narrative">Primary iOS contributor on a greenfield crypto/blockchain wallet product. Wallet create/import/balance flows, Keychain-backed secure local storage, and TestFlight / Family &amp; Friends delivery. Not App Store production. Short engagement; product stopped when funding ended.</p>
+            <p class="case-stack">Swift · UIKit · Keychain · TestFlight</p>
+          <!-- PROJECT:project-electus:CONTENT:END -->
+          </article>
+
+          <article class="case-compact" id="project-tap4parking">
+            <!-- PROJECT:project-tap4parking:CONTENT:START -->
+            <h3 class="case-title">Tap4Parking</h3>
+            <p class="case-era">Primary career history · parking startup product.</p>
+            <p class="case-narrative">Greenfield digital parking product with the map as the primary surface: parking locations, user location, and route building. Google Maps SDK for the map surface; substantial early maps/location product experience. City contract was not secured; funding/business viability became a problem near the end. Friends-and-family/test delivery; App Store release is not treated as confirmed.</p>
+            <p class="case-stack">Objective-C · UIKit · Google Maps SDK</p>
+          <!-- PROJECT:project-tap4parking:CONTENT:END -->
+            <p class="case-links"><a href="https://www.facebook.com/tap4parking/">Facebook</a></p>
+          </article>
 
         </div>
       </section>
 
-      <section>
-        <h3><span class="section-heading-text">Other projects</span><span class="section-mark" aria-hidden="true">📂</span></h3>
-        <div class="grid-projects-earlier">
-
-          <div class="project-card project-card--compact">
-            <h4>AlphaSMS</h4>
-            <div class="project-meta">Objective-C · UIKit · REST · APNs
-              <div class="project-links"><a href="https://apps.apple.com/ua/app/%D0%B0%D0%BB%D1%8C%D1%84%D0%B0%D1%81%D0%BC%D1%81-sms-%D0%B4%D0%BB%D1%8F-%D0%B1%D1%96%D0%B7%D0%BD%D0%B5%D1%81%D1%83/id6749480895">App Store</a></div>
-            </div>
-            <p class="project-card-blurb">SMS marketing app — campaigns, bulk messages, and client tools.</p>
-            <div class="project-shots project-shots--two" aria-label="AlphaSMS screenshots">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b1/f4/9b/b1f49b86-f123-1991-161b-e802c40219e1/8.png/600x1300bb.webp" alt="AlphaSMS screenshot — 1">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9b/72/2c/9b722c44-4cdc-4552-d51f-a10a3a188cf4/10.png/600x1300bb.webp" alt="AlphaSMS screenshot — 2">
-            </div>
-          </div>
-
-          <div class="project-card project-card--compact">
-            <h4>Green Riding Hood — Interactive Book</h4>
-            <div class="project-meta">Objective-C · iMessage Extension
-              <div class="project-links"><a href="https://apps.apple.com/us/app/green-riding-hood-read-aloud/id977242839">App Store</a></div>
-            </div>
-            <p class="project-card-blurb">Read-aloud story with custom animations, gestures, interactive scenes, and an iMessage extension.</p>
-            <div class="project-shots project-shots--stack" aria-label="Green Riding Hood screenshots">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple127/v4/b2/e3/d2/b2e3d20b-6c8c-3e99-82e3-bf1fbdd41f17/mzl.nqxdgzqa.jpg/406x228bb.jpg" alt="Green Riding Hood screenshot — 1">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple117/v4/4a/64/bf/4a64bf72-5ef9-ce04-97f7-58c0c0a6d685/mzl.ripsyuch.jpg/406x228bb.jpg" alt="Green Riding Hood screenshot — 2">
-            </div>
-          </div>
-
-          <div class="project-card project-card--compact">
-            <h4>News reader</h4>
-            <div class="project-meta">Objective-C · UIKit · Foundation · REST · File storage</div>
-            <p class="project-card-blurb">Ukrainian news app: feed from several sources, read/unread state, and a “read later” list.</p>
-          </div>
-
-          <div class="project-card project-card--compact">
-            <h4>Flip Taxi</h4>
-            <div class="project-meta">Objective-C · UIKit · MapKit · Google Maps SDK · REST · WebSockets · Push Notifications</div>
-            <p class="project-card-blurb">First taxi MVP for Latvia: order a ride and track the car on the map in real time.</p>
-          </div>
-
-          <div class="project-card project-card--compact">
-            <h4>Alert Meditation</h4>
-            <div class="project-meta">Objective-C · UIKit · AVFoundation · AVAudioPlayer · UserNotifications</div>
-            <p class="project-card-blurb">Meditation app for NY police workers: reminders after hard shifts, guided audio, simple program picker.</p>
-          </div>
-
-          <div class="project-card project-card--compact">
-            <h4>Tap4Parking</h4>
-            <div class="project-meta">Objective-C · UIKit · MapKit · Google Maps SDK · CoreLocation · REST · Alamofire · Push Notifications
-              <div class="project-links"><a href="https://www.facebook.com/tap4parking/">Facebook</a> · <a href="https://itunes.apple.com/us/app/t4parking/id953927991?mt=8">App Store</a></div>
-            </div>
-            <p class="project-card-blurb">Parking app for Kyiv: find parking in real time, book, and navigate. Built search, navigation, booking, and payment flows; integrated location tracking (background + geofencing).</p>
-          </div>
-
-          <div class="project-card project-card--compact">
-            <h4>Acucharting — 3D acupuncture planner</h4>
-            <div class="project-meta">iPad · SceneKit · Core Data · Objective-C
-              <div class="project-links"><a href="https://www.linkedin.com/company/acucharting/">LinkedIn</a></div>
-            </div>
-            <p class="project-card-blurb">iPad app for acupuncture doctors: notes, calendar, and needle points on a 3D body model.</p>
-          </div>
-
-          <div class="project-card project-card--compact">
-            <h4 id="project-alchemy">Alchemy — Digital Assets &amp; Precious Metals</h4>
-            <div class="project-meta">Swift · Stripe iOS SDK · Keychain · LocalAuthentication · MVVM · Swinject · SPM · Firebase</div>
-            <p class="project-card-blurb">R&amp;D contract MVP (TestFlight, no App Store): KYC, wallet, buy/sell flows. Multi-env builds.</p>
-          </div>
-
+      <section class="projects-personal" aria-labelledby="personal-heading" id="demo-projects">
+        <div class="projects-personal__intro">
+          <h2 id="personal-heading">Current experiments</h2>
+          <p class="cover-section-lead">Personal product practice aligned with the current AI-enabled / product-mobile direction — not commercial employment chapters.</p>
         </div>
-      </section>
 
-      <section id="demo-projects">
-        <h3><span class="section-heading-text">Personal demo projects</span><span class="section-mark" aria-hidden="true">🧪</span></h3>
-        <p class="section-lead landing-section-intro">Side experiments — not production client work. Open-source repos on GitHub.</p>
-        <div class="grid-projects-earlier">
+        <article class="case-experiment" id="project-pitstop-ios">
+          <p class="case-experiment__kicker">Current personal product experiment</p>
+          <!-- PROJECT:project-pitstop-ios:CONTENT:START -->
+            <h3 class="case-title">pitstop-ios</h3>
+            <p class="case-era">Personal project · SwiftUI product experiment.</p>
+            <p class="case-narrative">Personal SwiftUI app experiment for day-to-day product ideas and shipping practice.</p>
+            <p class="case-stack">Swift · SwiftUI</p>
+          <!-- PROJECT:project-pitstop-ios:CONTENT:END -->
+          <p class="case-links"><a href="https://github.com/vil4max/pitstop-ios">GitHub</a></p>
+        </article>
 
-          <div class="project-card project-card--compact">
-            <h4 id="project-room-scanner">RoomScanner</h4>
-            <div class="project-meta">SwiftUI · ARKit · RealityKit · LiDAR
-              <div class="project-links"><a href="https://github.com/vil4max/room-scanner-ios">GitHub</a></div>
-            </div>
-            <p class="project-card-blurb">LiDAR technical demo: ARKit mesh capture, RealityKit placement with depth occlusion, and live scan metrics on Pro hardware.</p>
-          </div>
-
-          <div class="project-card project-card--compact">
-            <h4 id="project-pitstop-ios">pitstop-ios</h4>
-            <div class="project-meta">SwiftUI · SwiftData · UserNotifications
-              <div class="project-links"><a href="https://github.com/vil4max/pitstop-ios">GitHub</a></div>
-            </div>
-            <p class="project-card-blurb">Personal car diary — service visits, mileage, insurance, upgrades, and local reminders; on-device, no backend.</p>
-          </div>
-
-          <div class="project-card project-card--compact">
-            <h4 id="project-groundhog-day">Groundhog Day</h4>
-            <div class="project-meta">SwiftUI · @Observable · UserNotifications
-              <div class="project-links"><a href="https://github.com/vil4max/groundhog-day-ios">GitHub</a></div>
-            </div>
-            <p class="project-card-blurb">Personal countdown with flip-clock UI; pick a future date and swipe years → seconds on split-flap tiles, optional local notifications.</p>
-          </div>
-
-          <div class="project-card project-card--compact">
-            <h4 id="project-kiev-alert">KievAlert <em>(demo stub)</em></h4>
-            <div class="project-meta">SwiftUI · SPM · MapKit · CoreLocation
-              <div class="project-links"><a href="https://github.com/vil4max/kiev-alert">GitHub</a></div>
-            </div>
-            <p class="project-card-blurb">Demo stub for air-raid alerts on CarPlay; regional status map concept.</p>
-          </div>
-
-        </div>
+        <article class="case-experiment case-experiment--secondary" id="project-room-scanner">
+          <!-- PROJECT:project-room-scanner:CONTENT:START -->
+            <h3 class="case-title">RoomScanner</h3>
+            <p class="case-era">Personal project · ARKit / LiDAR exploration.</p>
+            <p class="case-narrative">Personal demo exploring room scanning and spatial measurement on modern Apple devices.</p>
+            <p class="case-stack">Swift · ARKit · RealityKit</p>
+          <!-- PROJECT:project-room-scanner:CONTENT:END -->
+          <p class="case-links"><a href="https://github.com/vil4max/RoomScanner">GitHub</a></p>
+        </article>
       </section>
     </main>
-    <footer>
-      © Max Vilchevskiy · <a href="index.html">Portfolio</a>
+
+    <footer class="cover-footer">
+      <p><a href="index.html">Back to portfolio</a> · <a href="https://vil4max.github.io">vil4max.github.io</a></p>
     </footer>
   </div>
 </body>
