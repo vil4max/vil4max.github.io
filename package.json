@@ -10,7 +10,8 @@
     "resume:compare-json": "node scripts/compare-resume-json.mjs",
     "resume:build": "node scripts/run-resume-build.mjs",
     "resume:check": "node scripts/check-resume-pdfs.mjs",
-    "resume:pdf:install": "npx playwright install chromium"
+    "resume:pdf:install": "npx playwright install chromium",
+    "portfolio:sync": "node scripts/sync-portfolio-html.mjs"
   },
   "repository": {
     "type": "git",
