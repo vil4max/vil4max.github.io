@@ -2149,6 +2149,17 @@
   border-top: 1px solid var(--border-subtle);
 }
 
+.cover-earlier {
+  max-width: 64ch;
+}
+
+.cover-earlier__lede {
+  margin: 0 0 18px;
+  font-size: 1.06rem;
+  line-height: 1.6;
+  color: var(--fg);
+}
+
 .earlier-list,
 .other-list {
   margin: 0;
@@ -2162,10 +2173,47 @@
   line-height: 1.5;
 }
 
+.earlier-chapters {
+  margin: 0;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--border-subtle);
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.earlier-chapters li {
+  position: relative;
+  padding-left: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.earlier-chapters li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent, #7eb6ff);
+}
+
+.cover-direction {
+  max-width: 64ch;
+}
+
 .cover-direction p {
   max-width: 65ch;
-  margin: 0 0 12px;
-  line-height: 1.6;
+  margin: 0 0 14px;
+  line-height: 1.65;
+}
+
+.cover-direction p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
 }
 
 .cover-footer {

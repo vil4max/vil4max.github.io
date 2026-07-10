@@ -214,17 +214,30 @@ ${milestones.map((item) => renderMilestone(item.heading, item.body)).join("\n")}
 }
 
 function renderEarlier(section) {
-    const items = section
+    const openingMatch = section.match(/#### Opening\n+([\s\S]*?)(?=\n#### |\n*$)/);
+    const chaptersMatch = section.match(/#### Chapters\n+([\s\S]*?)(?=\n#### |\n*$)/);
+    const opening = openingMatch ? openingMatch[1].trim() : "";
+    const chapters = (chaptersMatch ? chaptersMatch[1] : section)
         .split("\n")
         .map((line) => line.trim())
         .filter((line) => line.startsWith("- "))
         .map((line) => line.slice(2).trim());
+    if (!opening && chapters.length === 0) {
+        fail("EARLIER section needs #### Opening and/or #### Chapters");
+    }
+    const lead = opening
+        ? `          <p class="cover-earlier__lede">${escapeHtml(opening)}</p>`
+        : `          <p class="cover-section-lead">Continuous primary employment history — compact view.</p>`;
+    const list =
+        chapters.length > 0
+            ? `          <ul class="earlier-chapters" aria-label="Career chapters">
+${chapters.map((item) => `            <li>${escapeHtml(item)}</li>`).join("\n")}
+          </ul>`
+            : "";
     return `        <section class="cover-earlier" id="earlier" aria-labelledby="earlier-heading">
           <h2 id="earlier-heading">Earlier iOS Career</h2>
-          <p class="cover-section-lead">Continuous primary employment history — compact view.</p>
-          <ol class="earlier-list">
-${items.map((item) => `            <li>${escapeHtml(item)}</li>`).join("\n")}
-          </ol>
+${lead}
+${list}
         </section>`;
 }
 
