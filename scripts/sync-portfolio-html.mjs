@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { presentationPortfolioPath } from "../../career/resume/lib/resume-paths.mjs";
+import { validatePresentationBoundary } from "../../career/resume/scripts/validate-presentation-boundary.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const indexPath = path.join(root, "index.html");
@@ -11,6 +12,8 @@ function fail(message) {
     console.error(`portfolio:sync failed: ${message}`);
     process.exit(1);
 }
+
+validatePresentationBoundary();
 
 function escapeHtml(text) {
     return text

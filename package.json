@@ -11,7 +11,10 @@
     "resume:build": "node scripts/run-resume-build.mjs",
     "resume:check": "node scripts/check-resume-pdfs.mjs",
     "resume:pdf:install": "npx playwright install chromium",
-    "portfolio:sync": "node scripts/sync-portfolio-html.mjs"
+    "portfolio:sync": "node scripts/sync-portfolio-html.mjs",
+    "projects:sync": "node scripts/sync-projects-html.mjs",
+    "profile:sync": "node scripts/sync-github-profile.mjs",
+    "presentation:sync": "npm run portfolio:sync && npm run projects:sync && npm run profile:sync"
   },
   "repository": {
     "type": "git",

@@ -1,24 +1,34 @@
 # [vil4max.github.io](https://vil4max.github.io)
 
-Source for my public CV/portfolio website.
+Source for the public portfolio site and resume/autofill build tooling.
 
 ## Pages
 
 | URL | Purpose |
 |-----|---------|
-| `index.html` | Online resume — Skills, Summary, Experience timeline (PDF source) |
+| `index.html` | Portfolio cover landing (synced from `career/presentation/portfolio.md`) |
+| `projects.html` | Project case studies + screenshots (synced from `career/presentation/projects.md`) |
 | `cv.html` | Redirect to `index.html` (legacy bookmarks) |
-| `projects.html` | Project case studies + screenshots |
+| `profile-autofill.html` | Private Profile Autofill HTML (not a public page) |
 
-Nav on every page: **Portfolio · Projects**. PDF download in header.
+Nav: **Portfolio · Projects**. Public PDF download on landing and Projects.
 
 ## Edit content
 
-1. **`../career/source-of-truth.md`** — private facts
-2. **`../career/presentation/*.md`** — resume/LinkedIn wording
-3. Run `npm run resume:build` and `npm run resume:check`
+1. **`../career/career.md`** — private canonical facts (canonical update step)
+2. Regenerate channel projections: `cd ../career && npm run presentation:project`
+3. Edit public wording per `../career/presentation/AGENT_PUBLIC_UPDATE.md` (channel context + presentation file + `public-policy.md` only)
+4. Sync / build:
 
-See [`constraints.md`](constraints.md) and [`../career/CAREER_DATA_MODEL.md`](../career/CAREER_DATA_MODEL.md).
+```bash
+cd ../career && npm run presentation:validate
+cd ../vil4max.github.io
+npm run presentation:sync   # validates, then landing + projects + GitHub README
+npm run resume:build        # public Resume PDF + private autofill PDF
+npm run resume:check
+```
+
+See [`constraints.md`](constraints.md) and `../career/CAREER_DATA_MODEL.md`.
 
 ## PDF
 
@@ -26,5 +36,5 @@ See [`constraints.md`](constraints.md) and [`../career/CAREER_DATA_MODEL.md`](..
 npm run resume:build
 ```
 
-- Primary (1 page): `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf` — **RenderCV** (`../career/resume/`)
-- Detailed (2–3 pages): `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer_Detailed.pdf` — Playwright from `index.html`
+- Public Resume (1–2 pages): `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf` — **RenderCV** (`../career/resume/`)
+- Profile Autofill (private): `../career/resume/build/Max_Vilchevskiy_Profile_Autofill.pdf` — Playwright from `profile-autofill.html` (never published to `vil4max/assets/`)
