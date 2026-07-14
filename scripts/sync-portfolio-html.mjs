@@ -265,7 +265,7 @@ function renderDirection(section) {
         .map((part) => part.trim())
         .filter(Boolean);
     return `        <section class="cover-direction" id="direction" aria-labelledby="direction-heading">
-          <h2 id="direction-heading">Current direction</h2>
+          <h2 id="direction-heading">Now</h2>
 ${paragraphs.map((p) => `          <p>${escapeHtml(p)}</p>`).join("\n")}
         </section>`;
 }
