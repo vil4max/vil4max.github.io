@@ -3037,6 +3037,22 @@
   max-width: 280px;
 }
 
+.case-study__media--t4p {
+  grid-template-columns: minmax(120px, 180px) repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  align-items: end;
+}
+
+.case-study__media--t4p img:first-child {
+  grid-row: 1 / span 2;
+  max-width: 180px;
+  align-self: end;
+}
+
+.case-study__media--t4p img:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
 .projects-additional > .case-study--featured {
   margin: 8px 0 36px;
 }
