@@ -142,27 +142,34 @@ function renderTimeline(section) {
         .filter((line) => /^\d+\./.test(line))
         .map((line) => {
             const body = line.replace(/^\d+\.\s*/, "");
-            const [id, employer, context] = body.split("|").map((part) => part.trim());
-            return { id, employer, context };
+            const parts = body.split("|").map((part) => part.trim());
+            const [id, employer, role, dates, detail = ""] = parts;
+            return { id, employer, role, dates, detail };
         });
     const defaultId = "globallogic";
+    const leadHtml = lead
+        ? `            <p class="cover-section-lead">${escapeHtml(lead)}</p>\n`
+        : "";
     return `        <section class="cover-timeline" aria-labelledby="timeline-heading">
           <div class="cover-timeline__intro">
-            <h2 id="timeline-heading">Career trajectory</h2>
-            <p class="cover-section-lead">${escapeHtml(lead)}</p>
-          </div>
+            <h2 id="timeline-heading">Timeline</h2>
+${leadHtml}          </div>
           <ol class="career-path" data-career-roadmap>
 ${items
     .map((item) => {
         const active = item.id === defaultId;
         const scroll = item.id === "earlier" || item.id === "direction" ? item.id : "";
         const terminus = item.id === "direction";
+        const detailHtml = item.detail
+            ? `\n                  <span class="career-path__detail">${escapeHtml(item.detail)}</span>`
+            : "";
         return `            <li class="career-path__item${active ? " is-active" : ""}${terminus ? " career-path__item--terminus" : ""}">
               <button type="button" class="career-path__node" data-milestone="${escapeHtml(item.id)}" data-scroll-target="${escapeHtml(scroll)}" aria-pressed="${active ? "true" : "false"}">
                 <span class="career-path__dot" aria-hidden="true"></span>
                 <span class="career-path__label">
                   <span class="career-path__employer">${escapeHtml(item.employer)}</span>
-                  <span class="career-path__context">${escapeHtml(item.context)}</span>
+                  <span class="career-path__role">${escapeHtml(item.role)}</span>
+                  <span class="career-path__dates">${escapeHtml(item.dates)}</span>${detailHtml}
                 </span>
               </button>
             </li>`;
