@@ -1985,9 +1985,15 @@
 }
 
 .experience-entry:last-child .experience-entry__dot {
-  border-style: solid;
-  border-color: color-mix(in srgb, var(--muted) 70%, var(--accent));
+  border-style: dashed;
+  border-color: var(--muted);
+  background: var(--bg);
   box-shadow: none;
+  transform: none;
+}
+
+.experience-entry[data-milestone-panel="earlier"] .experience-entry__company {
+  color: var(--fg-heading);
 }
 
 .experience-entry__content {
