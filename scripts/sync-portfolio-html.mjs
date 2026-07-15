@@ -228,6 +228,26 @@ ${ticks.join("\n")}
           </ol>`;
 }
 
+function renderPositionChapter(heading, body) {
+    const fields = fieldMap(body, 6);
+    const role = (fields.get("Role") || "").trim();
+    const dates = (fields.get("Dates") || "").trim();
+    const product = (fields.get("Product") || "").trim();
+    const opening = (fields.get("Opening") || "").trim();
+    const story = (fields.get("Story") || "").trim();
+    const lines = [
+        `                <p class="experience-chapter__company">${escapeHtml(heading)}</p>`,
+        role ? `                <p class="experience-chapter__role">${escapeHtml(role)}</p>` : "",
+        dates ? `                <p class="experience-chapter__dates">${escapeHtml(dates)}</p>` : "",
+        product ? `                <p class="experience-chapter__product">${escapeHtml(product)}</p>` : "",
+        opening ? `                <p class="experience-chapter__lede">${escapeHtml(opening)}</p>` : "",
+        story ? `                <p class="experience-chapter__body">${escapeHtml(story)}</p>` : "",
+    ].filter(Boolean);
+    return `              <li class="experience-chapter">
+${lines.join("\n")}
+              </li>`;
+}
+
 function renderMilestone(id, body, { isCurrent = false, isRecent = false } = {}) {
     const fields = fieldMap(body);
     const company = (fields.get("Company") || "").trim();
@@ -242,6 +262,7 @@ function renderMilestone(id, body, { isCurrent = false, isRecent = false } = {})
         .map((line) => line.trim())
         .filter((line) => line.startsWith("- "))
         .map((line) => line.slice(2).trim());
+    const chapterItems = fields.get("Chapters") ? extractSubsections(fields.get("Chapters"), 5) : [];
     const legacyLabel = (fields.get("Label") || "").trim();
     const title = company || legacyLabel || id;
     const { mileYear, endYear, originYear } = mileYearMeta(id, dates);
@@ -261,8 +282,15 @@ function renderMilestone(id, body, { isCurrent = false, isRecent = false } = {})
         .filter(Boolean)
         .join("\n");
 
+    const chaptersHtml =
+        chapterItems.length > 0
+            ? `            <ul class="experience-chapters" aria-label="Roles">
+${chapterItems.map((item) => renderPositionChapter(item.heading, item.body)).join("\n")}
+            </ul>`
+            : "";
+
     const signalsHtml =
-        signals.length > 0
+        !chaptersHtml && signals.length > 0
             ? `            <ul class="experience-entry__bullets" aria-label="Highlights">
 ${signals.map((signal) => `              <li>${escapeHtml(signal)}</li>`).join("\n")}
             </ul>`
@@ -293,6 +321,7 @@ ${signals.map((signal) => `              <li>${escapeHtml(signal)}</li>`).join("
               <h3 class="experience-entry__company">${escapeHtml(title)}</h3>
 ${meta}
 ${prose}
+${chaptersHtml}
 ${signalsHtml}
 ${cta}
             </div>
