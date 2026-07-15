@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Max Vilchevskiy — Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="resume.css?v=20260716o">
+  <link rel="stylesheet" href="resume.css?v=20260715wa4">
 </head>
 <body class="cover-page projects-page">
   <div class="page cover-shell">
@@ -16,15 +16,10 @@
       <a class="cover-nav__cv" href="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf">Download CV</a>
     </header>
 
-    <main class="cover-main projects-main">
-      <section class="projects-intro">
-        <h1>Projects</h1>
-        <p class="cover-section-lead">Selected product and technical depth from employment milestones.</p>
-      </section>
-
+    <main class="cover-main projects-main" aria-label="Projects">
       <section class="projects-featured" aria-label="Featured projects">
 
-        <article class="case-study case-study--featured" id="project-watch-ai-assistant">
+        <article class="case-study case-study--featured case-study--media" id="project-watch-ai-assistant">
           <div class="case-study__copy">
             <!-- PROJECT:project-watch-ai-assistant:CONTENT:START -->
             <h3 class="case-title">Apple Watch Voice AI (R&amp;D / demo)</h3>
@@ -39,6 +34,12 @@
             </ul>
             <p class="case-stack">WatchKit · WatchConnectivity · URLSessionWebSocketTask · AVFoundation</p>
           <!-- PROJECT:project-watch-ai-assistant:CONTENT:END -->
+          </div>
+          <div class="case-study__media case-study__media--watch" aria-label="Apple Watch Voice AI screenshots">
+            <img src="assets/watch-ai/watch-work-orders.jpg" alt="Apple Watch — Work orders list with Morning Briefing" loading="lazy" width="184" height="383">
+            <img src="assets/watch-ai/watch-detail-progress.jpg" alt="Apple Watch — Work order in progress" loading="lazy" width="184" height="383">
+            <img src="assets/watch-ai/watch-detail-finish.jpg" alt="Apple Watch — Work order finish for today and activities" loading="lazy" width="184" height="383">
+            <img src="assets/watch-ai/watch-map.jpg" alt="Apple Watch — Work Point map with navigation" loading="lazy" width="390" height="482">
           </div>
         </article>
 
@@ -181,7 +182,28 @@
           </div>
         </article>
 
-        <article class="case-study case-study--featured" id="project-tap4parking">
+        <article class="case-study case-study--featured case-study--media" id="project-eastern-union">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-eastern-union:CONTENT:START -->
+            <h3 class="case-title">Eastern Union: CRE app</h3>
+            <p class="case-era">GBKSoft · commercial real-estate client app · maintenance work within 2017 - 2018.</p>
+            <p class="case-narrative">Delivered incremental maintenance, polishing, and client-requested scoped changes on a long-running CRE product in a mature Swift/UIKit codebase.</p>
+            <ul class="case-signals">
+              <li>Incremental maintenance and polishing on an existing CRE client app</li>
+              <li>Client-requested scoped changes inside a mature Swift/UIKit codebase</li>
+            </ul>
+            <p class="case-stack">Swift · UIKit</p>
+          <!-- PROJECT:project-eastern-union:CONTENT:END -->
+            <p class="case-links"><a href="https://apps.apple.com/us/app/eastern-union/id1125123079">App Store</a> · <a href="https://easternunion.com/">easternunion.com</a></p>
+          </div>
+          <div class="case-study__media" aria-label="Eastern Union screenshots">
+            <img src="assets/eastern-union/eu-ecalc-home.png" alt="Eastern Union eCALC calculators — screenshot" loading="lazy" width="375" height="710">
+            <img src="assets/eastern-union/eu-blended-mortgages.png" alt="Eastern Union Blended Mortgages — screenshot" loading="lazy" width="375" height="742">
+            <img src="assets/eastern-union/eu-irr.png" alt="Eastern Union IRR calculator — screenshot" loading="lazy" width="375" height="735">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-tap4parking">
           <div class="case-study__copy">
             <!-- PROJECT:project-tap4parking:CONTENT:START -->
             <h3 class="case-title">Tap4Parking</h3>
@@ -196,35 +218,12 @@
             </ul>
             <p class="case-stack">UIKit · Google Maps SDK · Core Location</p>
           <!-- PROJECT:project-tap4parking:CONTENT:END -->
-            <p class="case-links"><a href="https://www.facebook.com/tap4parking/">Facebook</a></p>
+            <p class="case-links"><a href="https://www.facebook.com/tap4parking/">Facebook</a> · <a href="https://web.archive.org/web/20150505080103/http://tap4parking.com/">tap4parking.com (archive)</a></p>
+          </div>
+          <div class="case-study__media case-study__media--phone" aria-label="Tap4Parking screenshots">
+            <img src="assets/tap4parking/t4p-map.png" alt="Tap4Parking map — parking clusters and pins in Kyiv" loading="lazy" width="375" height="714">
           </div>
         </article>
-
-        <div class="projects-compact-list">
-
-          <article class="case-compact" id="project-eastern-union">
-            <div class="case-compact__copy">
-              <!-- PROJECT:project-eastern-union:CONTENT:START -->
-            <h3 class="case-title">Eastern Union: CRE app</h3>
-            <p class="case-era">GBKSoft · existing commercial real-estate client application · maintenance slice within 2017 - 2018.</p>
-            <p class="case-narrative">Joined a long-running CRE client app for later-round incremental improvements rather than a greenfield build. Delivered maintenance, polishing, and narrowly scoped client-requested changes in a mature Swift/UIKit codebase - useful practice modifying an existing commercial product, not a flagship ownership story.</p>
-            <ul class="case-signals">
-              <li>Incremental maintenance and polishing on an existing CRE client app</li>
-              <li>Client-requested scoped changes inside a mature Swift/UIKit codebase</li>
-            </ul>
-            <p class="case-stack">Swift · UIKit</p>
-          <!-- PROJECT:project-eastern-union:CONTENT:END -->
-              <p class="case-links"><a href="https://apps.apple.com/us/app/eastern-union/id1125123079">App Store</a> · <a href="https://easternunion.com/">easternunion.com</a></p>
-            </div>
-            <div class="case-compact__media" aria-label="Eastern Union screenshots">
-              <img src="assets/eastern-union/eu-ecalc-home.png" alt="Eastern Union eCALC calculators — screenshot" loading="lazy" width="375" height="710">
-              <img src="assets/eastern-union/eu-blended-mortgages.png" alt="Eastern Union Blended Mortgages — screenshot" loading="lazy" width="375" height="742">
-              <img src="assets/eastern-union/eu-irr.png" alt="Eastern Union IRR calculator — screenshot" loading="lazy" width="375" height="735">
-              <img src="assets/eastern-union/eu-market-rates.png" alt="Eastern Union market rates — screenshot" loading="lazy" width="375" height="748">
-            </div>
-          </article>
-
-        </div>
       </section>
 
       <section class="projects-personal" aria-labelledby="personal-heading" id="personal-projects">
@@ -233,7 +232,7 @@
           <p class="cover-section-lead">Pet projects outside commercial employment.</p>
         </div>
 
-        <article class="case-experiment" id="project-regional-check">
+        <article class="case-experiment case-experiment--media" id="project-regional-check">
           <p class="case-experiment__kicker">Pet project</p>
           <!-- PROJECT:project-regional-check:CONTENT:START -->
             <h3 class="case-title">Regional Check</h3>
@@ -247,6 +246,11 @@
             <p class="case-stack">SwiftUI · CarPlay · CoreLocation · MapKit · String Catalogs</p>
           <!-- PROJECT:project-regional-check:CONTENT:END -->
           <p class="case-links"><a href="https://github.com/vil4max/regional-check">GitHub</a></p>
+          <div class="case-study__media case-experiment__media" aria-label="Regional Check screenshots">
+            <img src="assets/regional-check/rc-quiet.jpg" alt="Regional Check — Quiet status for a selected region" loading="lazy" width="375" height="812">
+            <img src="assets/regional-check/rc-checking.jpg" alt="Regional Check — Checking status while refreshing" loading="lazy" width="375" height="812">
+            <img src="assets/regional-check/rc-loud.jpg" alt="Regional Check — Loud status for a selected region" loading="lazy" width="375" height="812">
+          </div>
         </article>
 
         <article class="case-experiment case-experiment--secondary" id="project-pitstop-ios">
