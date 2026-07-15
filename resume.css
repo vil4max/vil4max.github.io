@@ -2056,22 +2056,23 @@
   content: "";
   position: absolute;
   top: 20px;
-  left: 50%;
-  width: 0;
+  left: calc(50% - 1px);
+  width: 2px;
   height: calc(var(--segment-length, 64px) - 8px);
-  border-left: 2px solid color-mix(in srgb, var(--accent) 45%, var(--border-subtle));
-  transform: translateX(-50%);
+  border: none;
+  background: color-mix(in srgb, var(--accent) 45%, var(--border-subtle));
+  transform: none;
   z-index: 0;
   box-sizing: border-box;
 }
 
 .experience-entry--recent:not(:last-child) .experience-entry__rail::before,
 .experience-entry--current:not(:last-child) .experience-entry__rail::before {
-  border-left-color: color-mix(in srgb, var(--lamp) 55%, var(--border-subtle));
+  background: color-mix(in srgb, var(--lamp) 55%, var(--border-subtle));
 }
 
 .experience-entry--quiet:not(:last-child) .experience-entry__rail::before {
-  border-left-color: color-mix(in srgb, var(--muted) 55%, var(--border-subtle));
+  background: color-mix(in srgb, var(--muted) 55%, var(--border-subtle));
 }
 
 /*
@@ -2081,12 +2082,17 @@
 .experience-entry--current .experience-entry__rail::after {
   content: "";
   position: absolute;
-  left: 50%;
+  left: calc(50% - 1px);
   bottom: calc(100% - 12px);
-  width: 0;
+  width: 2px;
   height: var(--future-dash);
-  border-left: 2px dashed color-mix(in srgb, var(--lamp) 48%, var(--muted));
-  transform: translateX(-50%);
+  border: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--lamp) 55%, var(--muted)) 0 5px,
+    transparent 5px 10px
+  );
+  transform: none;
   z-index: 0;
   box-sizing: border-box;
 }
@@ -2102,11 +2108,16 @@
   position: absolute;
   top: 20px;
   bottom: 0;
-  left: 50%;
-  width: 0;
+  left: calc(50% - 1px);
+  width: 2px;
   height: auto;
-  border-left: 2px dashed color-mix(in srgb, var(--muted) 70%, transparent);
-  transform: translateX(-50%);
+  border: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--muted) 58%, transparent) 0 5px,
+    transparent 5px 10px
+  );
+  transform: none;
   z-index: 0;
   box-sizing: border-box;
 }
@@ -2225,6 +2236,10 @@
 .experience-entry--quiet {
   padding-bottom: 28px;
   --quiet-depth: 0;
+}
+
+/* Fade content only — rail + dots stay opaque so miles sit on the line */
+.experience-entry--quiet .experience-entry__content {
   opacity: calc(0.94 - (var(--quiet-depth) * 0.075));
 }
 
@@ -2240,6 +2255,7 @@
 .experience-entry--quiet[data-quiet-depth="4"] .experience-entry__dot {
   width: 10px;
   height: 10px;
+  margin-top: 7px;
   border-color: color-mix(in srgb, var(--muted) 48%, transparent);
 }
 

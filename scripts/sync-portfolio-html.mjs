@@ -206,10 +206,15 @@ function mileYearMeta(id, dates) {
         return { mileYear: null, endYear: null, originYear: null };
     }
     const { startMonth, startYear, endYear } = parsed;
-    // Late calendar starts (Dec) sit on the next mile year; keep the true start as a faint origin tick.
-    // Example: iCenter Dec 2013 → mile 2014, origin 2013 below.
-    if (startMonth === 12) {
-        return { mileYear: startYear + 1, endYear, originYear: startYear };
+    // Late Q4 starts sit on the next mile year so chronology stays one-role-per-year on the rail.
+    // Dec keeps a faint origin tick for the true start (iCenter Dec 2013 → mile 2014, origin 2013).
+    // Nov bumps without origin (Tap4Parking Nov 2014 → mile 2015).
+    if (startMonth >= 11) {
+        return {
+            mileYear: startYear + 1,
+            endYear,
+            originYear: startMonth === 12 ? startYear : null,
+        };
     }
     return { mileYear: startYear, endYear, originYear: null };
 }
