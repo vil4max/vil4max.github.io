@@ -137,6 +137,7 @@ function renderHero(section) {
         .filter((line) => line.startsWith("- "))
         .map(parseLinkLine);
     const signal = (fields.get("Signal") || "").trim();
+    const stack = (fields.get("Stack") || "").trim();
     const aboutParagraphs = (fields.get("About") || "")
         .split(/\n\s*\n/)
         .map((part) => part.trim())
@@ -159,6 +160,7 @@ ${contacts
               <h1 id="cover-name">${escapeHtml(fields.get("Name") || "")}</h1>
               <p class="cover-role">${escapeHtml(fields.get("Role") || "")}</p>
               <p class="cover-hero__signal">${escapeHtml(signal)}</p>
+${stack ? `              <p class="cover-hero__stack">${escapeHtml(stack)}</p>` : ""}
 ${aboutParagraphs.map((p) => `              <p class="cover-about">${escapeHtml(p)}</p>`).join("\n")}
               <div class="cover-actions">
 ${actions

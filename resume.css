@@ -1803,6 +1803,16 @@
   color: var(--muted);
 }
 
+.cover-hero__stack {
+  margin: 10px 0 0;
+  max-width: none;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  font-weight: 550;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--fg) 82%, var(--muted));
+}
+
 .cover-about {
   margin: 12px 0 0;
   max-width: none;
