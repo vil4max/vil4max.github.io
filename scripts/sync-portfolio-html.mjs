@@ -114,6 +114,16 @@ function contactIconSvg(label) {
     return icons[key] || "";
 }
 
+function actionClassSuffix(label) {
+    if (label === "Download CV") {
+        return " cover-action--primary";
+    }
+    if (label === "Projects") {
+        return " cover-action--tab";
+    }
+    return "";
+}
+
 function renderHero(section) {
     const fields = fieldMap(section, 3);
     const actions = (fields.get("Actions") || "")
@@ -154,7 +164,7 @@ ${aboutParagraphs.map((p) => `              <p class="cover-about">${escapeHtml(
 ${actions
     .map(
         (action) =>
-            `                <a class="cover-action${action.label === "Download CV" ? " cover-action--primary" : ""}" href="${escapeHtml(action.href)}">${escapeHtml(action.label)}</a>`,
+            `                <a class="cover-action${actionClassSuffix(action.label)}" href="${escapeHtml(action.href)}">${escapeHtml(action.label)}</a>`,
     )
     .join("\n")}
               </div>
@@ -491,7 +501,7 @@ function renderCta(section) {
 ${actions
     .map(
         (action) =>
-            `            <a class="cover-action${action.label === "Download CV" ? " cover-action--primary" : ""}" href="${escapeHtml(action.href)}">${escapeHtml(action.label)}</a>`,
+            `            <a class="cover-action${actionClassSuffix(action.label)}" href="${escapeHtml(action.href)}">${escapeHtml(action.label)}</a>`,
     )
     .join("\n")}
           </div>
