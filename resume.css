@@ -1775,16 +1775,16 @@
 
 .cover-hero h1 {
   margin: 0;
-  font-size: clamp(2.6rem, 4.8vw, 4.2rem);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.65rem, 2.8vw, 2.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   color: var(--fg-heading);
   font-weight: 700;
 }
 
 .cover-role {
-  margin: 10px 0 0;
-  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  margin: 8px 0 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.28rem);
   color: var(--fg);
   font-weight: 500;
 }
@@ -1839,7 +1839,7 @@
 }
 
 .cover-page .cover-role {
-  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.28rem);
 }
 
 .cover-actions {
@@ -1882,9 +1882,35 @@
 }
 
 .cover-contact {
-  margin: 18px 0 0;
-  color: var(--muted);
-  font-size: 14px;
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.cover-contact__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 550;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.cover-contact__link:hover,
+.cover-contact__link:focus-visible {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border-subtle));
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  outline: none;
 }
 
 .cover-section-lead {
@@ -2758,15 +2784,82 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .cover-hero__layout {
-    grid-template-columns: 96px minmax(0, 1fr);
-    gap: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
   }
 
   .cover-hero__avatar {
     width: 96px;
     height: 96px;
+  }
+
+  .cover-hero h1 {
+    font-size: 1.55rem;
+  }
+
+  .cover-page .cover-role,
+  .cover-role {
+    font-size: 1.02rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cover-hero__avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cover-actions {
+    margin-top: 20px;
+  }
+
+  .cover-contact {
+    gap: 8px;
+  }
+
+  .experience-layout {
+    grid-template-columns: 2.35rem minmax(0, 1fr);
+    gap: 0 4px;
+  }
+
+  .experience-year-scale {
+    padding-top: 6px;
+    padding-bottom: 16px;
+  }
+
+  .experience-year-scale__tick {
+    font-size: 0.58rem;
+  }
+
+  .experience-year-scale__tick:not(.experience-year-scale__tick--now):not(.experience-year-scale__tick--anchor) {
+    opacity: 0.45;
+  }
+
+  .experience-entry {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 0 12px;
+    padding-bottom: 32px;
+  }
+
+  .experience-entry__rail {
+    width: 22px;
+  }
+
+  .experience-stack {
+    --rail-x: 11px;
+  }
+
+  .experience-entry__company {
+    font-size: clamp(1.2rem, 5.5vw, 1.55rem);
+  }
+
+  .experience-entry__lede,
+  .experience-entry__body {
+    font-size: 0.98rem;
   }
 }
 

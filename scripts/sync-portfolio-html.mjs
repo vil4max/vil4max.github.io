@@ -107,12 +107,27 @@ function renderHero(section) {
         .map((line) => line.trim())
         .filter((line) => line.startsWith("- "))
         .map(parseLinkLine);
-    const contact = fields.get("Contact") || "";
+    const contacts = (fields.get("Contact") || "")
+        .split("\n")
+        .map((line) => line.trim())
+        .filter((line) => line.startsWith("- "))
+        .map(parseLinkLine);
     const signal = (fields.get("Signal") || "").trim();
     const aboutParagraphs = (fields.get("About") || "")
         .split(/\n\s*\n/)
         .map((part) => part.trim())
         .filter(Boolean);
+    const contactHtml =
+        contacts.length > 0
+            ? `              <ul class="cover-contact" aria-label="Contact">
+${contacts
+    .map(
+        (contact) =>
+            `                <li><a class="cover-contact__link" href="${escapeHtml(contact.href)}">${escapeHtml(contact.label)}</a></li>`,
+    )
+    .join("\n")}
+              </ul>`
+            : "";
     return `        <section class="cover-hero" aria-labelledby="cover-name">
           <div class="cover-hero__layout">
             <img class="cover-hero__avatar" src="https://raw.githubusercontent.com/vil4max/vil4max/main/assets/profile.png" alt="Portrait of Max Vilchevskiy">
@@ -129,7 +144,7 @@ ${actions
     )
     .join("\n")}
               </div>
-              <p class="cover-contact">${escapeHtml(contact)}</p>
+${contactHtml}
             </div>
           </div>
         </section>`;
