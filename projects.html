@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Max Vilchevskiy — Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="resume.css?v=20260710c">
+  <link rel="stylesheet" href="resume.css?v=20260715b">
 </head>
 <body class="cover-page projects-page">
   <div class="page cover-shell">
@@ -19,11 +19,11 @@
     <main class="cover-main projects-main">
       <section class="projects-intro">
         <h1>Projects</h1>
-        <p class="cover-section-lead">What Max actually built — product and technical depth behind the career trajectory.</p>
+        <p class="cover-section-lead">Product and technical depth from the career path.</p>
       </section>
 
       <section class="projects-featured" aria-labelledby="featured-heading">
-        <h2 id="featured-heading">Selected work</h2>
+        <h2 id="featured-heading">Career path</h2>
 
         <article class="case-study case-study--featured" id="project-watch-ai-assistant">
           <div class="case-study__copy">
@@ -89,7 +89,42 @@
       </section>
 
       <section class="projects-additional" aria-labelledby="additional-heading">
-        <h2 id="additional-heading">Additional experience</h2>
+        <h2 id="additional-heading">Earlier and other</h2>
+
+        <article class="case-study case-study--featured" id="project-alchemy">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-alchemy:CONTENT:START -->
+            <h3 class="case-title">Alchemy: gold-backed digital assets</h3>
+            <p class="case-era">Commercial Senior iOS contract · ~2022.</p>
+            <p class="case-narrative">Took primary iOS ownership of a delayed gold-backed digital asset client linked to physical gold value. Rebuilt an incomplete SwiftUI start in UIKit and shipped the core product flows to a working client beta: sign-in, KYC, gold balance, live price chart, buy with Stripe, and sell. The client talked to project backends - not direct chain integration or physical-gold custody.</p>
+            <p class="case-stack">UIKit · Stripe · Gold price charts</p>
+          <!-- PROJECT:project-alchemy:CONTENT:END -->
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured" id="project-electus">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-electus:CONTENT:START -->
+            <h3 class="case-title">Electus: blockchain assistant</h3>
+            <p class="case-era">Electus · iOS Developer · Jul 2018 - Nov 2018 · greenfield crypto startup.</p>
+            <p class="case-narrative">Joined as the primary iOS contributor when the mobile app did not exist yet and built it from a clean UIKit codebase. Shipped wallet creation, import, and balance flows with Keychain-backed secure local storage, including seed-phrase presentation and verification UX. The product direction was to hide blockchain complexity for non-technical users - Contacts-based transfer concepts and familiar fiat-denominated value entry were explored in development, with Ethereum client/testnet work through a third-party open-source library. Wallet surfaces reached an internal Family &amp; Friends TestFlight build, not a public App Store launch.</p>
+            <p class="case-stack">Swift · UIKit · Keychain · TestFlight</p>
+          <!-- PROJECT:project-electus:CONTENT:END -->
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured" id="project-tap4parking">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-tap4parking:CONTENT:START -->
+            <h3 class="case-title">Tap4Parking</h3>
+            <p class="case-era">Tap4Parking · iOS Developer · Nov 2014 - Nov 2015 · digital parking startup.</p>
+            <p class="case-narrative">Primary hands-on iOS implementer on a greenfield parking product with the map as the main screen. Built parking location display, user location, and route-to-parking flows on Google Maps SDK, plus multi-storey floor/building plans with red/green occupancy for parking spaces. Delivered a friends-and-family test version during about a year of full-time startup work.</p>
+            <p class="case-stack">Objective-C · UIKit · Google Maps SDK</p>
+          <!-- PROJECT:project-tap4parking:CONTENT:END -->
+            <p class="case-links"><a href="https://www.facebook.com/tap4parking/">Facebook</a></p>
+          </div>
+        </article>
+
         <div class="projects-compact-list">
 
           <article class="case-compact" id="project-eastern-union">
@@ -108,62 +143,35 @@
             </div>
           </article>
 
-          <article class="case-compact" id="project-alchemy">
-            <!-- PROJECT:project-alchemy:CONTENT:START -->
-            <h3 class="case-title">Alchemy: gold-backed digital asset iOS client</h3>
-            <p class="case-era">Other Projects · commercial blockchain/web3 contract · ~2022.</p>
-            <p class="case-narrative">Took primary iOS responsibility for the mobile client of a gold-backed digital asset product linked to physical gold value. Joined when delivery was behind schedule, rebuilt an incomplete SwiftUI start in UIKit, and implemented the core flows: sign-in, KYC, gold balance, price chart, buy gold with Stripe, and sell gold. Delivered a working client beta. iOS talked to project backends, not direct chain integration or physical-gold custody.</p>
-            <p class="case-stack">Stripe · Gold Price Charts · UIKit Rebuild</p>
-          <!-- PROJECT:project-alchemy:CONTENT:END -->
-          </article>
-
-          <article class="case-compact" id="project-electus">
-            <!-- PROJECT:project-electus:CONTENT:START -->
-            <h3 class="case-title">Electus: blockchain assistant</h3>
-            <p class="case-era">Primary career history · greenfield startup engagement.</p>
-            <p class="case-narrative">Built wallet creation, import, and balance flows with Keychain-backed secure local storage as the primary iOS contributor.</p>
-            <p class="case-stack">Swift · UIKit · Keychain</p>
-          <!-- PROJECT:project-electus:CONTENT:END -->
-          </article>
-
-          <article class="case-compact" id="project-tap4parking">
-            <!-- PROJECT:project-tap4parking:CONTENT:START -->
-            <h3 class="case-title">Tap4Parking</h3>
-            <p class="case-era">Primary career history · parking startup product.</p>
-            <p class="case-narrative">Built map-first parking flows with Google Maps SDK - locations, user location, and routes - as the primary iOS implementer.</p>
-            <p class="case-stack">Objective-C · UIKit · Google Maps SDK</p>
-          <!-- PROJECT:project-tap4parking:CONTENT:END -->
-            <p class="case-links"><a href="https://www.facebook.com/tap4parking/">Facebook</a></p>
-          </article>
-
         </div>
       </section>
 
-      <section class="projects-personal" aria-labelledby="personal-heading" id="demo-projects">
+      <section class="projects-personal" aria-labelledby="personal-heading" id="personal-projects">
         <div class="projects-personal__intro">
-          <h2 id="personal-heading">Current experiments</h2>
-          <p class="cover-section-lead">Personal product practice aligned with the current AI-enabled / product-mobile direction — not commercial employment chapters.</p>
+          <h2 id="personal-heading">Personal</h2>
+          <p class="cover-section-lead">Pet projects outside commercial employment.</p>
         </div>
 
-        <article class="case-experiment" id="project-pitstop-ios">
-          <p class="case-experiment__kicker">Current personal product experiment</p>
+        <article class="case-experiment" id="project-regional-check">
+          <p class="case-experiment__kicker">Pet project</p>
+          <!-- PROJECT:project-regional-check:CONTENT:START -->
+            <h3 class="case-title">Regional Check</h3>
+            <p class="case-era">Personal pet project · CarPlay + iPhone companion.</p>
+            <p class="case-narrative">Minimal CarPlay utility that shows the current regional public-notice state for the driver's location. One screen, one region, one refresh. iPhone mirrors the same companion experience. Not an emergency or safety product.</p>
+            <p class="case-stack">SwiftUI · CarPlay · CoreLocation · MapKit</p>
+          <!-- PROJECT:project-regional-check:CONTENT:END -->
+          <p class="case-links"><a href="https://github.com/vil4max/regional-check">GitHub</a></p>
+        </article>
+
+        <article class="case-experiment case-experiment--secondary" id="project-pitstop-ios">
+          <p class="case-experiment__kicker">Pet project</p>
           <!-- PROJECT:project-pitstop-ios:CONTENT:START -->
-            <h3 class="case-title">pitstop-ios</h3>
-            <p class="case-era">Personal project · SwiftUI product experiment.</p>
-            <p class="case-narrative">Personal SwiftUI app experiment for day-to-day product ideas and shipping practice.</p>
+            <h3 class="case-title">PitStop</h3>
+            <p class="case-era">Personal pet project · driver's journal.</p>
+            <p class="case-narrative">Personal SwiftUI pet for a driver's journal / car memory concept. Early implementation - useful as a pet surface, not a finished product showcase.</p>
             <p class="case-stack">Swift · SwiftUI</p>
           <!-- PROJECT:project-pitstop-ios:CONTENT:END -->
           <p class="case-links"><a href="https://github.com/vil4max/pitstop-ios">GitHub</a></p>
-        </article>
-
-        <article class="case-experiment case-experiment--secondary" id="project-room-scanner">
-          <!-- PROJECT:project-room-scanner:CONTENT:START -->
-            <h3 class="case-title">RoomScanner</h3>
-            <p class="case-era">Personal project · ARKit / LiDAR exploration.</p>
-            <p class="case-narrative">Personal demo exploring room scanning and spatial measurement on modern Apple devices.</p>
-            <p class="case-stack">Swift · ARKit · RealityKit</p>
-          <!-- PROJECT:project-room-scanner:CONTENT:END -->
-          <p class="case-links"><a href="https://github.com/vil4max/RoomScanner">GitHub</a></p>
         </article>
       </section>
     </main>

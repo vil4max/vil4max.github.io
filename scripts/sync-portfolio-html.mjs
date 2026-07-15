@@ -264,6 +264,9 @@ function renderDirection(section) {
         .split(/\n\s*\n/)
         .map((part) => part.trim())
         .filter(Boolean);
+    if (paragraphs.length === 0) {
+        return "";
+    }
     return `        <section class="cover-direction" id="direction" aria-labelledby="direction-heading">
           <h2 id="direction-heading">Now</h2>
 ${paragraphs.map((p) => `          <p>${escapeHtml(p)}</p>`).join("\n")}
@@ -276,6 +279,9 @@ function renderCta(section) {
         .map((line) => line.trim())
         .filter((line) => line.startsWith("- "))
         .map(parseLinkLine);
+    if (actions.length === 0) {
+        return "";
+    }
     return `        <section class="cover-cta" aria-labelledby="cta-heading">
           <h2 id="cta-heading">Next step</h2>
           <div class="cover-actions">
