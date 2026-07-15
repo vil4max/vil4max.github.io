@@ -276,7 +276,9 @@ function renderMilestone(id, body, { isCurrent = false, isRecent = false } = {})
         .join("\n");
 
     const prose = [
-        opening ? `            <p class="experience-entry__lede">${escapeHtml(opening)}</p>` : "",
+        opening
+            ? `            <p class="experience-entry__${id === "earlier" ? "note" : "lede"}">${escapeHtml(opening)}</p>`
+            : "",
         story ? `            <p class="experience-entry__body">${escapeHtml(story)}</p>` : "",
     ]
         .filter(Boolean)
