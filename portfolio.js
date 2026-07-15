@@ -39,48 +39,19 @@
             rail.style.setProperty("--segment-length", `${Math.max(24, Math.round(span))}px`);
         }
 
-        // Year → Y map. Newest-first page: role end sits higher, role start sits lower on long spans.
+        // One anchor per role start year, pinned to that role's mile-dot (newest-first).
+        // Do not spread years through a multi-year card's body — that misaligns with Earlier bullets.
         const yearTops = new Map();
-        const setYearTop = (year, top, { allowLower = false } = {}) => {
-            if (!Number.isFinite(year) || top == null) {
-                return;
-            }
-            if (!yearTops.has(year)) {
-                yearTops.set(year, top);
-                return;
-            }
-            if (allowLower && top > yearTops.get(year)) {
-                yearTops.set(year, top);
-            }
-        };
-
         for (const entry of entries) {
             if (entry.classList.contains("experience-entry--current") && entries.length > 1) {
                 continue;
             }
-
             const startYear = Number(entry.dataset.startYear);
-            const endYear = Number(entry.dataset.endYear || startYear);
             const top = dotCenterY(entry);
-            if (!Number.isFinite(startYear) || top == null) {
+            if (!Number.isFinite(startYear) || top == null || yearTops.has(startYear)) {
                 continue;
             }
-
-            const entryRect = entry.getBoundingClientRect();
-            const entryBottom = entryRect.bottom - scaleTop - 28;
-            const isFoundation = entry === entries[entries.length - 1];
-            const spansYears = Number.isFinite(endYear) && endYear > startYear;
-
-            if (spansYears) {
-                // More recent end of the span near the top of the card (after previous role).
-                setYearTop(endYear, top);
-                // Career start lower on the card — foundation began late 2013, not at the header line.
-                const startRatio = isFoundation ? 0.9 : 0.55;
-                const startTop = top + Math.max(24, (entryBottom - top) * startRatio);
-                setYearTop(startYear, startTop, { allowLower: true });
-            } else {
-                setYearTop(startYear, top);
-            }
+            yearTops.set(startYear, top);
         }
 
         const yearAnchors = [...yearTops.entries()]
@@ -118,6 +89,21 @@
             }
         }
 
+        // Hide year ticks that would fall inside a multi-year entry body (below its mile-dot).
+        // Those years belong in the gap between roles, not beside Earlier bullets.
+        const blockedRanges = entries
+            .filter((entry) => {
+                const start = Number(entry.dataset.startYear);
+                const end = Number(entry.dataset.endYear || start);
+                return Number.isFinite(start) && Number.isFinite(end) && end - start >= 2;
+            })
+            .map((entry) => {
+                const top = dotCenterY(entry);
+                const bottom = entry.getBoundingClientRect().bottom - scaleTop;
+                return top == null ? null : { top: top + 18, bottom };
+            })
+            .filter(Boolean);
+
         for (const tick of scale.querySelectorAll("[data-year-tick]")) {
             const key = tick.getAttribute("data-year-tick");
             if (key === "now") {
@@ -128,6 +114,15 @@
             if (top == null) {
                 continue;
             }
+
+            const insideBody = blockedRanges.some((range) => top > range.top && top < range.bottom - 8);
+            const isAnchor = yearTops.has(year);
+            if (insideBody && !isAnchor) {
+                tick.style.visibility = "hidden";
+                continue;
+            }
+
+            tick.style.visibility = "";
             tick.style.top = `${Math.round(top)}px`;
         }
     };
