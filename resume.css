@@ -2066,9 +2066,8 @@
   box-sizing: border-box;
 }
 
-.experience-entry--recent:not(:last-child) .experience-entry__rail::before,
-.experience-entry--current:not(:last-child) .experience-entry__rail::before {
-  background: color-mix(in srgb, var(--lamp) 55%, var(--border-subtle));
+.experience-entry--recent:not(:last-child) .experience-entry__rail::before {
+  background: color-mix(in srgb, var(--accent) 70%, var(--border-subtle));
 }
 
 .experience-entry--quiet:not(:last-child) .experience-entry__rail::before {
@@ -2077,7 +2076,7 @@
 
 /*
  * Dashed after the current mile-dot — upward into open future.
- * Known past path stays solid through quiet foundation roles.
+ * Rail path stays accent/neutral; lamp color is only on Now title + mile bulb.
  */
 .experience-entry--current .experience-entry__rail::after {
   content: "";
@@ -2089,7 +2088,7 @@
   border: none;
   background: repeating-linear-gradient(
     to bottom,
-    color-mix(in srgb, var(--lamp) 55%, var(--muted)) 0 5px,
+    color-mix(in srgb, var(--accent) 45%, var(--muted)) 0 5px,
     transparent 5px 10px
   );
   transform: none;
