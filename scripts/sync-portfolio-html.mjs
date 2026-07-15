@@ -162,7 +162,9 @@ function careerYearScale(milestones) {
         return "";
     }
 
-    const ticks = [];
+    const ticks = [
+        `            <li class="experience-year-scale__tick experience-year-scale__tick--now">Now</li>`,
+    ];
     for (let year = maxYear; year >= minYear; year -= 1) {
         const isAnchor = anchorYears.has(year);
         ticks.push(
@@ -241,6 +243,9 @@ function renderMilestones(section) {
           <div class="experience-layout">
 ${yearScale}
             <div class="experience-stack">
+            <div class="experience-now" aria-label="Currently open to opportunities">
+              <div class="experience-entry__rail" aria-hidden="true"><span class="experience-now__dot"></span></div>
+            </div>
 ${milestones.map((item) => renderMilestone(item.heading, item.body)).join("\n")}
             </div>
           </div>

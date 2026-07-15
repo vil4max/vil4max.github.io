@@ -1928,7 +1928,7 @@
 .experience-year-scale {
   list-style: none;
   margin: 0;
-  padding: 44px 0 24px;
+  padding: 8px 0 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1950,6 +1950,14 @@
   color: color-mix(in srgb, var(--muted) 72%, transparent);
 }
 
+.experience-year-scale__tick--now {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .experience-year-scale__tick--anchor {
   color: color-mix(in srgb, var(--muted) 92%, var(--fg));
   font-weight: 650;
@@ -1960,16 +1968,16 @@
   display: grid;
   gap: 0;
   position: relative;
-  padding-top: 40px;
+  padding-top: 0;
   min-width: 0;
 }
 
-/* Open path above current role: job search / next step */
+/* Open path: job search / next step (dashed from Now → latest role) */
 .experience-stack::after {
   content: "";
   position: absolute;
-  top: 0;
-  height: 48px;
+  top: 20px;
+  height: 36px;
   left: var(--rail-x);
   width: 0;
   border-left: 2px dashed color-mix(in srgb, var(--muted) 62%, transparent);
@@ -1977,11 +1985,11 @@
   z-index: 0;
 }
 
-/* Career path rail through roles */
+/* Career path rail through past roles */
 .experience-stack::before {
   content: "";
   position: absolute;
-  top: 48px;
+  top: 56px;
   bottom: 28px;
   left: var(--rail-x);
   width: 2px;
@@ -1993,6 +2001,28 @@
     var(--border-subtle) 100%
   );
   z-index: 0;
+}
+
+.experience-now {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 0 24px;
+  padding: 4px 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.experience-now__dot {
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 24%, transparent);
+  display: block;
+  flex: 0 0 auto;
 }
 
 .experience-entry {
@@ -2034,26 +2064,19 @@
   transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-/* Recent: latest two get accent rings; only current is filled */
-.experience-entry:nth-child(-n + 2) .experience-entry__dot {
+/* Recent past roles: blue hollow rings (not filled — current is Now / search) */
+.experience-entry:nth-of-type(-n + 2) .experience-entry__dot {
   border-color: var(--accent);
   background: var(--bg);
   box-shadow: none;
   transform: none;
 }
 
-.experience-entry:nth-child(-n + 2) .experience-entry__company {
+.experience-entry:nth-of-type(-n + 2) .experience-entry__company {
   color: var(--accent);
 }
 
-/* Current position: filled accent node */
-.experience-entry:first-child .experience-entry__dot {
-  background: var(--accent);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 24%, transparent);
-  transform: scale(1.08);
-}
-
-.experience-entry:last-child .experience-entry__company {
+.experience-entry:last-of-type .experience-entry__company {
   color: var(--fg-heading);
 }
 
@@ -2682,11 +2705,15 @@
   }
 
   .experience-year-scale {
-    padding-top: 40px;
+    padding-top: 8px;
   }
 
   .experience-year-scale__tick {
     font-size: 0.66rem;
+  }
+
+  .experience-year-scale__tick--now {
+    font-size: 0.62rem;
   }
 
   .case-study--media,
