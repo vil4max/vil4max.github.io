@@ -160,35 +160,53 @@ function yearsFromDates(dates) {
     return [...String(dates).matchAll(/\b((?:19|20)\d{2})\b/g)].map((match) => Number(match[1]));
 }
 
+function mileYearMeta(id, dates) {
+    const yearBounds = yearsFromDates(dates);
+    if (yearBounds.length === 0) {
+        return { mileYear: null, endYear: null, originYear: null };
+    }
+    const startYear = Math.min(...yearBounds);
+    const endYear = Math.max(...yearBounds);
+    // Foundation: official start Dec 2013 ≈ late 2013 → mile reads as 2014; 2013 stays as muted origin.
+    if (id === "earlier") {
+        return { mileYear: 2014, endYear, originYear: 2013 };
+    }
+    return { mileYear: startYear, endYear, originYear: null };
+}
+
 function careerYearScale(milestones) {
-    const anchorYears = new Set();
-    let minYear = Infinity;
-    let maxYear = -Infinity;
+    const mileYears = new Set();
+    const foundationYears = new Set();
 
     for (const item of milestones) {
-        const years = yearsFromDates(fieldMap(item.body).get("Dates") || "");
-        if (years.length === 0) {
+        if (item.heading === "now") {
             continue;
         }
-        const start = Math.min(...years);
-        const end = Math.max(...years);
-        anchorYears.add(start);
-        minYear = Math.min(minYear, start, end);
-        maxYear = Math.max(maxYear, start, end);
+        const { mileYear, originYear } = mileYearMeta(item.heading, fieldMap(item.body).get("Dates") || "");
+        if (mileYear != null) {
+            mileYears.add(mileYear);
+        }
+        if (originYear != null) {
+            foundationYears.add(originYear);
+        }
     }
 
-    if (!Number.isFinite(minYear) || !Number.isFinite(maxYear)) {
+    const labeledYears = [...new Set([...mileYears, ...foundationYears])].sort((a, b) => b - a);
+    if (labeledYears.length === 0) {
         return "";
     }
 
     const ticks = [
         `            <li class="experience-year-scale__tick experience-year-scale__tick--now" data-year-tick="now">Now</li>`,
     ];
-    for (let year = maxYear; year >= minYear; year -= 1) {
-        const isAnchor = anchorYears.has(year);
-        ticks.push(
-            `            <li class="experience-year-scale__tick${isAnchor ? " experience-year-scale__tick--anchor" : ""}" data-year-tick="${year}">${year}</li>`,
-        );
+    for (const year of labeledYears) {
+        const classes = ["experience-year-scale__tick"];
+        if (foundationYears.has(year) && !mileYears.has(year)) {
+            classes.push("experience-year-scale__tick--foundation");
+        } else if (mileYears.has(year)) {
+            classes.push("experience-year-scale__tick--anchor");
+        }
+        ticks.push(`            <li class="${classes.join(" ")}" data-year-tick="${year}">${year}</li>`);
     }
 
     return `          <ol class="experience-year-scale" aria-hidden="true">
@@ -212,9 +230,7 @@ function renderMilestone(id, body, { isCurrent = false, isRecent = false } = {})
         .map((line) => line.slice(2).trim());
     const legacyLabel = (fields.get("Label") || "").trim();
     const title = company || legacyLabel || id;
-    const yearBounds = yearsFromDates(dates);
-    const startYear = yearBounds.length > 0 ? Math.min(...yearBounds) : null;
-    const endYear = yearBounds.length > 0 ? Math.max(...yearBounds) : null;
+    const { mileYear, endYear, originYear } = mileYearMeta(id, dates);
 
     const meta = [
         role ? `            <p class="experience-entry__role">${escapeHtml(role)}</p>` : "",
@@ -243,8 +259,9 @@ ${signals.map((signal) => `              <li>${escapeHtml(signal)}</li>`).join("
         : "";
 
     const yearAttrs = [
-        startYear != null ? `data-start-year="${startYear}"` : "",
+        mileYear != null ? `data-start-year="${mileYear}"` : "",
         endYear != null ? `data-end-year="${endYear}"` : "",
+        originYear != null ? `data-origin-year="${originYear}"` : "",
     ]
         .filter(Boolean)
         .join(" ");

@@ -1991,10 +1991,14 @@
   font-weight: 650;
 }
 
+.experience-year-scale__tick--foundation {
+  color: color-mix(in srgb, var(--muted) 48%, transparent);
+  font-weight: 500;
+}
+
 .experience-stack {
   --rail-x: 14px;
   --future-dash: 48px;
-  --past-dash: 48px;
   display: grid;
   gap: 0;
   position: relative;
@@ -2017,9 +2021,9 @@
 }
 
 .experience-entry:last-child {
-  /* Breathing room before foundation chapter; mile stays with the section header */
+  /* Breathing room before foundation chapter */
   padding-top: 40px;
-  padding-bottom: calc(12px + var(--past-dash));
+  padding-bottom: 20px;
 }
 
 .experience-entry__rail {
@@ -2052,7 +2056,7 @@
 
 /*
  * Dashed after the current mile-dot — upward into open future.
- * Known past path (Now → … → Earlier) stays solid.
+ * Known past path (Now → … → Earlier) stays solid until the foundation chapter.
  */
 .experience-entry--current .experience-entry__rail::after {
   content: "";
@@ -2067,14 +2071,20 @@
   box-sizing: border-box;
 }
 
-/* Dashed below the earliest mile-dot — fading into deeper past */
+/* Foundation chapter: dashed rail through the full description height into deeper past */
+.experience-entry:last-child .experience-entry__rail {
+  align-self: stretch;
+  min-height: 100%;
+}
+
 .experience-entry:last-child .experience-entry__rail::before {
   content: "";
   position: absolute;
   top: 20px;
+  bottom: 0;
   left: 50%;
   width: 0;
-  height: var(--past-dash);
+  height: auto;
   border-left: 2px dashed color-mix(in srgb, var(--muted) 70%, transparent);
   transform: translateX(-50%);
   z-index: 0;
