@@ -213,19 +213,29 @@ function renderEarlier(section) {
     if (!opening && chapters.length === 0) {
         fail("EARLIER section needs #### Opening and/or #### Chapters");
     }
-    const lead = opening
-        ? `          <p class="cover-earlier__lede">${escapeHtml(opening)}</p>`
-        : `          <p class="cover-section-lead">Continuous primary employment history — compact view.</p>`;
+    const lede = opening
+        ? `            <p class="experience-entry__lede">${escapeHtml(opening)}</p>`
+        : "";
     const list =
         chapters.length > 0
-            ? `          <ul class="earlier-chapters" aria-label="Career chapters">
-${chapters.map((item) => `            <li>${escapeHtml(item)}</li>`).join("\n")}
-          </ul>`
+            ? `            <ul class="experience-entry__bullets" aria-label="Career chapters">
+${chapters.map((item) => `              <li>${escapeHtml(item)}</li>`).join("\n")}
+            </ul>`
             : "";
-    return `        <section class="cover-earlier" id="earlier" aria-labelledby="earlier-heading">
-          <h2 id="earlier-heading">Earlier iOS Career</h2>
-${lead}
+    return `        <section class="cover-experience cover-experience--earlier" aria-labelledby="earlier-heading">
+          <div class="experience-stack">
+            <article class="experience-entry" id="earlier">
+              <div class="experience-entry__rail" aria-hidden="true"><span class="experience-entry__dot"></span></div>
+              <div class="experience-entry__content">
+                <h3 class="experience-entry__company" id="earlier-heading">Earlier iOS Career</h3>
+                <p class="experience-entry__role">iOS Developer</p>
+                <p class="experience-entry__dates">Dec 2013 - Nov 2018</p>
+                <p class="experience-entry__product">AlphaSMS → Electus</p>
+${lede}
 ${list}
+              </div>
+            </article>
+          </div>
         </section>`;
 }
 
