@@ -2140,17 +2140,21 @@
   line-height: 1.45;
 }
 
+.experience-entry__lede,
+.experience-entry__body,
+.experience-entry__bullets li {
+  margin-top: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--fg);
+}
+
 .experience-entry__lede {
   margin: 16px 0 0;
-  font-size: 1.08rem;
-  line-height: 1.55;
-  color: var(--fg);
 }
 
 .experience-entry__body {
   margin: 12px 0 0;
-  line-height: 1.65;
-  color: var(--fg);
 }
 
 .experience-entry__bullets {
@@ -2163,9 +2167,8 @@
 
 .experience-entry__bullets li {
   position: relative;
+  margin: 0;
   padding-left: 18px;
-  line-height: 1.5;
-  color: var(--fg);
 }
 
 .experience-entry__bullets li::before {
@@ -2873,8 +2876,9 @@
   }
 
   .experience-entry__lede,
-  .experience-entry__body {
-    font-size: 0.98rem;
+  .experience-entry__body,
+  .experience-entry__bullets li {
+    font-size: 1.02rem;
   }
 }
 
