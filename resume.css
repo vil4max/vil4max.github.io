@@ -1914,6 +1914,157 @@
   margin-bottom: 28px;
 }
 
+.cover-experience {
+  padding-top: 8px;
+}
+
+.experience-stack {
+  display: grid;
+  gap: 0;
+  position: relative;
+}
+
+.experience-entry {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 0 20px;
+  padding: 0 0 36px;
+  position: relative;
+}
+
+.experience-entry:last-child {
+  padding-bottom: 8px;
+}
+
+.experience-entry__rail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.experience-entry__rail::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: -36px;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, var(--accent) 0%, var(--border-subtle) 100%);
+}
+
+.experience-entry:last-child .experience-entry__rail::before {
+  bottom: 8px;
+  background: var(--border-subtle);
+}
+
+.experience-entry__dot {
+  position: relative;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  margin-top: 6px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--bg);
+  flex: 0 0 auto;
+}
+
+.experience-entry__content {
+  min-width: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.experience-entry:last-child .experience-entry__content {
+  border-bottom: 0;
+}
+
+.experience-entry__company {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.4vw, 1.9rem);
+  letter-spacing: -0.02em;
+  color: var(--fg-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.experience-entry__role {
+  margin: 8px 0 0;
+  font-size: 1.08rem;
+  font-weight: 550;
+  color: var(--fg);
+  line-height: 1.35;
+}
+
+.experience-entry__dates {
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.experience-entry__product {
+  margin: 10px 0 0;
+  font-size: 1.02rem;
+  color: var(--fg);
+  line-height: 1.45;
+}
+
+.experience-entry__lede {
+  margin: 16px 0 0;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: var(--fg);
+}
+
+.experience-entry__body {
+  margin: 12px 0 0;
+  line-height: 1.65;
+  color: var(--fg);
+}
+
+.experience-entry__bullets {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.experience-entry__bullets li {
+  position: relative;
+  padding-left: 18px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+.experience-entry__bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent, #7eb6ff);
+}
+
+.experience-entry__cta {
+  margin: 18px 0 8px;
+}
+
+.experience-entry__cta a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.experience-entry__cta a:hover,
+.experience-entry__cta a:focus-visible {
+  text-decoration: underline;
+}
+
 .career-path {
   list-style: none;
   margin: 0;

@@ -132,97 +132,70 @@ ${actions
 }
 
 function renderTimeline(section) {
-    const lines = section.split("\n").map((line) => line.trimEnd());
-    const lead = lines
-        .filter((line) => line.trim() && !/^\d+\./.test(line.trim()))
-        .join(" ")
-        .trim();
-    const items = lines
-        .map((line) => line.trim())
-        .filter((line) => /^\d+\./.test(line))
-        .map((line) => {
-            const body = line.replace(/^\d+\.\s*/, "");
-            const parts = body.split("|").map((part) => part.trim());
-            const [id, employer, role, dates, detail = ""] = parts;
-            return { id, employer, role, dates, detail };
-        });
-    const defaultId = "globallogic";
-    const leadHtml = lead
-        ? `            <p class="cover-section-lead">${escapeHtml(lead)}</p>\n`
-        : "";
-    return `        <section class="cover-timeline" aria-labelledby="timeline-heading">
-          <div class="cover-timeline__intro">
-            <h2 id="timeline-heading">Timeline</h2>
-${leadHtml}          </div>
-          <ol class="career-path" data-career-roadmap>
-${items
-    .map((item) => {
-        const active = item.id === defaultId;
-        const scroll =
-            item.id === "earlier" || item.id === "direction"
-                ? item.id
-                : `milestone-${item.id}`;
-        const terminus = item.id === "direction";
-        const detailHtml = item.detail
-            ? `\n                  <span class="career-path__detail">${escapeHtml(item.detail)}</span>`
-            : "";
-        return `            <li class="career-path__item${active ? " is-active" : ""}${terminus ? " career-path__item--terminus" : ""}">
-              <button type="button" class="career-path__node" data-milestone="${escapeHtml(item.id)}" data-scroll-target="${escapeHtml(scroll)}" aria-pressed="${active ? "true" : "false"}">
-                <span class="career-path__dot" aria-hidden="true"></span>
-                <span class="career-path__label">
-                  <span class="career-path__employer">${escapeHtml(item.employer)}</span>
-                  <span class="career-path__role">${escapeHtml(item.role)}</span>
-                  <span class="career-path__dates">${escapeHtml(item.dates)}</span>${detailHtml}
-                </span>
-              </button>
-            </li>`;
-    })
-    .join("\n")}
-          </ol>
-        </section>`;
+    // Chip roadmap retired: experience is a vertical LinkedIn-style stack in MILESTONES.
+    void section;
+    return "";
 }
 
 function renderMilestone(id, body) {
     const fields = fieldMap(body);
+    const company = (fields.get("Company") || "").trim();
+    const role = (fields.get("Role") || "").trim();
+    const dates = (fields.get("Dates") || "").trim();
+    const product = (fields.get("Product") || "").trim();
+    const opening = (fields.get("Opening") || "").trim();
+    const story = (fields.get("Story") || "").trim();
+    const project = (fields.get("Project") || "").trim();
     const signals = (fields.get("Signals") || "")
         .split("\n")
         .map((line) => line.trim())
         .filter((line) => line.startsWith("- "))
         .map((line) => line.slice(2).trim());
-    const project = (fields.get("Project") || "").trim();
-    const opening = (fields.get("Opening") || "").trim();
-    const story = (fields.get("Story") || "").trim();
-    const editorial = Boolean(opening || story);
-    const prose = editorial
-        ? [
-              opening ? `            <p class="milestone-story__lede">${escapeHtml(opening)}</p>` : "",
-              story ? `            <p class="milestone-story__body">${escapeHtml(story)}</p>` : "",
-          ]
-              .filter(Boolean)
-              .join("\n")
-        : [
-              `            <p class="milestone-story__context">${escapeHtml(fields.get("Context") || "")}</p>`,
-              `            <p class="milestone-story__role">${escapeHtml(fields.get("Role") || "")}</p>`,
-              `            <p class="milestone-story__work">${escapeHtml(fields.get("Worked on") || "")}</p>`,
-          ].join("\n");
-    const cta = project
-        ? `            <p class="milestone-story__cta"><a href="${escapeHtml(project)}">View project details</a></p>`
-        : "";
-    return `          <article class="milestone-story${editorial ? " milestone-story--editorial" : ""}" id="milestone-${escapeHtml(id)}" data-milestone-panel="${escapeHtml(id)}">
-            <h3 class="milestone-story__title">${escapeHtml(fields.get("Label") || id)}</h3>
-${prose}
-            <ul class="milestone-story__signals" aria-label="Technical signals">
+    const legacyLabel = (fields.get("Label") || "").trim();
+    const title = company || legacyLabel || id;
+
+    const meta = [
+        role ? `            <p class="experience-entry__role">${escapeHtml(role)}</p>` : "",
+        dates ? `            <p class="experience-entry__dates">${escapeHtml(dates)}</p>` : "",
+        product ? `            <p class="experience-entry__product">${escapeHtml(product)}</p>` : "",
+    ]
+        .filter(Boolean)
+        .join("\n");
+
+    const prose = [
+        opening ? `            <p class="experience-entry__lede">${escapeHtml(opening)}</p>` : "",
+        story ? `            <p class="experience-entry__body">${escapeHtml(story)}</p>` : "",
+    ]
+        .filter(Boolean)
+        .join("\n");
+
+    const signalsHtml =
+        signals.length > 0
+            ? `            <ul class="experience-entry__bullets" aria-label="Highlights">
 ${signals.map((signal) => `              <li>${escapeHtml(signal)}</li>`).join("\n")}
-            </ul>
+            </ul>`
+            : "";
+
+    const cta = project
+        ? `            <p class="experience-entry__cta"><a href="${escapeHtml(project)}">View project details</a></p>`
+        : "";
+
+    return `          <article class="experience-entry" id="milestone-${escapeHtml(id)}" data-milestone-panel="${escapeHtml(id)}">
+            <div class="experience-entry__rail" aria-hidden="true"><span class="experience-entry__dot"></span></div>
+            <div class="experience-entry__content">
+              <h3 class="experience-entry__company">${escapeHtml(title)}</h3>
+${meta}
+${prose}
+${signalsHtml}
 ${cta}
+            </div>
           </article>`;
 }
 
 function renderMilestones(section) {
     const milestones = extractSubsections(section, 3);
-    return `        <section class="cover-milestones" aria-labelledby="milestones-heading">
-          <h2 id="milestones-heading">Experience</h2>
-          <div class="milestone-story-stack" data-milestone-stack>
+    return `        <section class="cover-experience" aria-label="Experience">
+          <div class="experience-stack">
 ${milestones.map((item) => renderMilestone(item.heading, item.body)).join("\n")}
           </div>
         </section>`;
