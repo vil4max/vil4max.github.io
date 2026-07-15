@@ -182,12 +182,12 @@ function careerYearScale(milestones) {
     }
 
     const ticks = [
-        `            <li class="experience-year-scale__tick experience-year-scale__tick--now">Now</li>`,
+        `            <li class="experience-year-scale__tick experience-year-scale__tick--now" data-year-tick="now">Now</li>`,
     ];
     for (let year = maxYear; year >= minYear; year -= 1) {
         const isAnchor = anchorYears.has(year);
         ticks.push(
-            `            <li class="experience-year-scale__tick${isAnchor ? " experience-year-scale__tick--anchor" : ""}">${year}</li>`,
+            `            <li class="experience-year-scale__tick${isAnchor ? " experience-year-scale__tick--anchor" : ""}" data-year-tick="${year}">${year}</li>`,
         );
     }
 
@@ -214,6 +214,7 @@ function renderMilestone(id, body, { isCurrent = false, isRecent = false } = {})
     const title = company || legacyLabel || id;
     const yearBounds = yearsFromDates(dates);
     const startYear = yearBounds.length > 0 ? Math.min(...yearBounds) : null;
+    const endYear = yearBounds.length > 0 ? Math.max(...yearBounds) : null;
 
     const meta = [
         role ? `            <p class="experience-entry__role">${escapeHtml(role)}</p>` : "",
@@ -241,7 +242,12 @@ ${signals.map((signal) => `              <li>${escapeHtml(signal)}</li>`).join("
         ? `            <p class="experience-entry__cta"><a href="${escapeHtml(project)}">View project details</a></p>`
         : "";
 
-    const yearAttr = startYear != null ? ` data-start-year="${startYear}"` : "";
+    const yearAttrs = [
+        startYear != null ? `data-start-year="${startYear}"` : "",
+        endYear != null ? `data-end-year="${endYear}"` : "",
+    ]
+        .filter(Boolean)
+        .join(" ");
     const classNames = ["experience-entry"];
     if (isCurrent) {
         classNames.push("experience-entry--current");
@@ -250,7 +256,7 @@ ${signals.map((signal) => `              <li>${escapeHtml(signal)}</li>`).join("
         classNames.push("experience-entry--recent");
     }
 
-    return `          <article class="${classNames.join(" ")}" id="milestone-${escapeHtml(id)}" data-milestone-panel="${escapeHtml(id)}"${yearAttr}>
+    return `          <article class="${classNames.join(" ")}" id="milestone-${escapeHtml(id)}" data-milestone-panel="${escapeHtml(id)}"${yearAttrs ? ` ${yearAttrs}` : ""}>
             <div class="experience-entry__rail" aria-hidden="true"><span class="experience-entry__dot"></span></div>
             <div class="experience-entry__content">
               <h3 class="experience-entry__company">${escapeHtml(title)}</h3>
