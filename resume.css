@@ -1994,6 +1994,7 @@
 .experience-stack {
   --rail-x: 14px;
   --future-dash: 48px;
+  --past-dash: 48px;
   display: grid;
   gap: 0;
   position: relative;
@@ -2016,7 +2017,7 @@
 }
 
 .experience-entry:last-child {
-  padding-bottom: 12px;
+  padding-bottom: calc(12px + var(--past-dash));
 }
 
 .experience-entry__rail {
@@ -2048,8 +2049,8 @@
 }
 
 /*
- * Dashed only after the current mile-dot — upward into open future.
- * Past path (Now → GlobalLogic → …) stays solid.
+ * Dashed after the current mile-dot — upward into open future.
+ * Known past path (Now → … → Earlier) stays solid.
  */
 .experience-entry--current .experience-entry__rail::after {
   content: "";
@@ -2059,6 +2060,20 @@
   width: 0;
   height: var(--future-dash);
   border-left: 2px dashed color-mix(in srgb, var(--accent) 45%, var(--muted));
+  transform: translateX(-50%);
+  z-index: 0;
+  box-sizing: border-box;
+}
+
+/* Dashed below the earliest mile-dot — fading into deeper past */
+.experience-entry:last-child .experience-entry__rail::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 0;
+  height: var(--past-dash);
+  border-left: 2px dashed color-mix(in srgb, var(--muted) 70%, transparent);
   transform: translateX(-50%);
   z-index: 0;
   box-sizing: border-box;
