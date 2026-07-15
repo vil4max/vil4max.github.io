@@ -1744,6 +1744,14 @@
   text-decoration: none;
 }
 
+.cover-nav__cv::before,
+.cover-nav__cv::after {
+  content: "·";
+  margin-inline: 0.45em;
+  opacity: 0.55;
+  font-weight: 400;
+}
+
 .cover-nav__cv:hover,
 .cover-nav__cv:focus-visible {
   color: var(--accent);
@@ -1885,16 +1893,26 @@
 }
 
 .cover-action--primary {
-  border: 1px solid var(--fg-heading);
-  padding: 10px 16px;
-  color: var(--fg-heading);
+  border: none;
+  padding: 10px 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.cover-action--primary::before,
+.cover-action--primary::after {
+  content: "·";
+  margin-inline: 0.45em;
+  opacity: 0.55;
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .cover-action--primary:hover,
 .cover-action--primary:focus-visible {
-  background: var(--fg-heading);
-  color: var(--bg);
-  border-color: var(--fg-heading);
+  background: transparent;
+  color: var(--fg-heading);
+  border-color: transparent;
 }
 
 /* Nav-like CTA: matches site tab "Projects" with clear affordance */
@@ -2902,29 +2920,21 @@ footer.cover-footer a {
   text-decoration: none;
 }
 
+footer.cover-footer a::before,
+footer.cover-footer a::after {
+  content: "·";
+  margin-inline: 0.45em;
+  opacity: 0.55;
+  font-weight: 400;
+}
+
 footer.cover-footer a:hover,
 footer.cover-footer a:focus-visible {
   color: var(--fg-heading);
 }
 
-.cover-footer__note {
-  color: var(--muted);
-  opacity: 0.85;
-}
-
-.cover-footer__note::before {
-  content: "·";
-  margin: 0 0.55em;
-  opacity: 0.55;
-}
-
 .cover-footer p {
   margin: 0;
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0;
 }
 
 /* Projects case studies */
@@ -2977,13 +2987,15 @@ footer.cover-footer a:focus-visible {
 }
 
 .case-era a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.case-era a:hover {
-  color: var(--fg-heading);
+.case-era a:hover,
+.case-era a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .case-narrative {
@@ -3108,6 +3120,17 @@ footer.cover-footer a:focus-visible {
 
 .case-study__media--t4p img:nth-child(4) {
   grid-column: 2 / span 2;
+}
+
+.case-study__media--grh {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.case-study__media--grh img:first-child {
+  grid-column: 1 / -1;
 }
 
 .projects-additional > .case-study--featured {
