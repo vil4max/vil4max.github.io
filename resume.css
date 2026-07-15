@@ -1900,6 +1900,7 @@
 .cover-contact__link {
   display: inline-flex;
   align-items: center;
+  gap: 7px;
   padding: 7px 12px;
   color: var(--fg);
   text-decoration: none;
@@ -1911,12 +1912,25 @@
   transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
 
+.cover-contact__icon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  display: block;
+  opacity: 0.92;
+}
+
 .cover-contact__link:hover,
 .cover-contact__link:focus-visible {
   color: var(--accent);
   border-color: color-mix(in srgb, var(--accent) 55%, var(--border-subtle));
   background: color-mix(in srgb, var(--accent) 10%, transparent);
   outline: none;
+}
+
+.cover-contact__link:hover .cover-contact__icon,
+.cover-contact__link:focus-visible .cover-contact__icon {
+  opacity: 1;
 }
 
 .cover-section-lead {
