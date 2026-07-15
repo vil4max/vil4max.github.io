@@ -1918,12 +1918,50 @@
   padding-top: 8px;
 }
 
+.experience-layout {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  gap: 0 10px;
+  align-items: stretch;
+}
+
+.experience-year-scale {
+  list-style: none;
+  margin: 0;
+  padding: 44px 0 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0;
+  min-height: 100%;
+  user-select: none;
+  pointer-events: none;
+}
+
+.experience-year-scale__tick {
+  margin: 0;
+  padding: 0;
+  font-size: 0.72rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--muted) 72%, transparent);
+}
+
+.experience-year-scale__tick--anchor {
+  color: color-mix(in srgb, var(--muted) 92%, var(--fg));
+  font-weight: 650;
+}
+
 .experience-stack {
   --rail-x: 14px;
   display: grid;
   gap: 0;
   position: relative;
   padding-top: 40px;
+  min-width: 0;
 }
 
 /* Open path above current role: job search / next step */
@@ -2640,6 +2678,19 @@
 }
 
 @media (max-width: 900px) {
+  .experience-layout {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    gap: 0 6px;
+  }
+
+  .experience-year-scale {
+    padding-top: 40px;
+  }
+
+  .experience-year-scale__tick {
+    font-size: 0.66rem;
+  }
+
   .case-study--media,
   .case-compact {
     grid-template-columns: 1fr;

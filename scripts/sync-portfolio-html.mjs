@@ -137,6 +137,44 @@ function renderTimeline(section) {
     return "";
 }
 
+function yearsFromDates(dates) {
+    return [...String(dates).matchAll(/\b((?:19|20)\d{2})\b/g)].map((match) => Number(match[1]));
+}
+
+function careerYearScale(milestones) {
+    const anchorYears = new Set();
+    let minYear = Infinity;
+    let maxYear = -Infinity;
+
+    for (const item of milestones) {
+        const years = yearsFromDates(fieldMap(item.body).get("Dates") || "");
+        if (years.length === 0) {
+            continue;
+        }
+        const start = Math.min(...years);
+        const end = Math.max(...years);
+        anchorYears.add(start);
+        minYear = Math.min(minYear, start, end);
+        maxYear = Math.max(maxYear, start, end);
+    }
+
+    if (!Number.isFinite(minYear) || !Number.isFinite(maxYear)) {
+        return "";
+    }
+
+    const ticks = [];
+    for (let year = maxYear; year >= minYear; year -= 1) {
+        const isAnchor = anchorYears.has(year);
+        ticks.push(
+            `            <li class="experience-year-scale__tick${isAnchor ? " experience-year-scale__tick--anchor" : ""}">${year}</li>`,
+        );
+    }
+
+    return `          <ol class="experience-year-scale" aria-hidden="true">
+${ticks.join("\n")}
+          </ol>`;
+}
+
 function renderMilestone(id, body) {
     const fields = fieldMap(body);
     const company = (fields.get("Company") || "").trim();
@@ -153,6 +191,8 @@ function renderMilestone(id, body) {
         .map((line) => line.slice(2).trim());
     const legacyLabel = (fields.get("Label") || "").trim();
     const title = company || legacyLabel || id;
+    const yearBounds = yearsFromDates(dates);
+    const startYear = yearBounds.length > 0 ? Math.min(...yearBounds) : null;
 
     const meta = [
         role ? `            <p class="experience-entry__role">${escapeHtml(role)}</p>` : "",
@@ -180,7 +220,9 @@ ${signals.map((signal) => `              <li>${escapeHtml(signal)}</li>`).join("
         ? `            <p class="experience-entry__cta"><a href="${escapeHtml(project)}">View project details</a></p>`
         : "";
 
-    return `          <article class="experience-entry" id="milestone-${escapeHtml(id)}" data-milestone-panel="${escapeHtml(id)}">
+    const yearAttr = startYear != null ? ` data-start-year="${startYear}"` : "";
+
+    return `          <article class="experience-entry" id="milestone-${escapeHtml(id)}" data-milestone-panel="${escapeHtml(id)}"${yearAttr}>
             <div class="experience-entry__rail" aria-hidden="true"><span class="experience-entry__dot"></span></div>
             <div class="experience-entry__content">
               <h3 class="experience-entry__company">${escapeHtml(title)}</h3>
@@ -194,9 +236,13 @@ ${cta}
 
 function renderMilestones(section) {
     const milestones = extractSubsections(section, 3);
+    const yearScale = careerYearScale(milestones);
     return `        <section class="cover-experience" aria-label="Experience">
-          <div class="experience-stack">
+          <div class="experience-layout">
+${yearScale}
+            <div class="experience-stack">
 ${milestones.map((item) => renderMilestone(item.heading, item.body)).join("\n")}
+            </div>
           </div>
         </section>`;
 }
