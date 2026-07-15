@@ -235,6 +235,9 @@ function renderOther(section) {
         .map((line) => line.trim())
         .filter((line) => line.startsWith("- "))
         .map((line) => line.slice(2).trim());
+    if (items.length === 0) {
+        return "";
+    }
     return `        <section class="cover-other" aria-labelledby="other-heading">
           <h2 id="other-heading">Other Projects</h2>
           <p class="cover-section-lead">Commercial and personal work outside the primary employment path.</p>
