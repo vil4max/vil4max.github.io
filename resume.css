@@ -7,6 +7,9 @@
       --muted: #656d76;
       --border-subtle: #d0d7de;
       --accent: #0969da;
+      --lamp: #b8821a;
+      --lamp-core: #f0c65a;
+      --lamp-halo: color-mix(in srgb, #e8b84a 35%, transparent);
       --shadow-soft: 0 1px 0 rgba(27, 31, 36, 0.04);
       --radius-lg: 12px;
       --radius-md: 8px;
@@ -23,6 +26,9 @@
         --muted: #a8a8a8;
         --border-subtle: #525252;
         --accent: #9ec9f5;
+        --lamp: #f0c45c;
+        --lamp-core: #ffe5a0;
+        --lamp-halo: color-mix(in srgb, #ffc850 42%, transparent);
         --shadow-soft: 0 0 0 1px rgba(0, 0, 0, 0.15);
       }
     }
@@ -1979,11 +1985,14 @@
 }
 
 .experience-year-scale__tick--now {
-  color: var(--accent);
+  color: var(--lamp);
   font-weight: 700;
   font-size: 0.7rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  text-shadow:
+    0 0 10px color-mix(in srgb, var(--lamp-core) 55%, transparent),
+    0 0 22px var(--lamp-halo);
 }
 
 .experience-year-scale__tick--anchor {
@@ -2058,7 +2067,7 @@
 
 .experience-entry--recent:not(:last-child) .experience-entry__rail::before,
 .experience-entry--current:not(:last-child) .experience-entry__rail::before {
-  border-left-color: color-mix(in srgb, var(--accent) 70%, var(--border-subtle));
+  border-left-color: color-mix(in srgb, var(--lamp) 55%, var(--border-subtle));
 }
 
 .experience-entry--quiet:not(:last-child) .experience-entry__rail::before {
@@ -2076,7 +2085,7 @@
   bottom: calc(100% - 12px);
   width: 0;
   height: var(--future-dash);
-  border-left: 2px dashed color-mix(in srgb, var(--accent) 45%, var(--muted));
+  border-left: 2px dashed color-mix(in srgb, var(--lamp) 48%, var(--muted));
   transform: translateX(-50%);
   z-index: 0;
   box-sizing: border-box;
@@ -2125,17 +2134,59 @@
   transform: none;
 }
 
-.experience-entry--recent .experience-entry__company,
-.experience-entry--current .experience-entry__company {
+.experience-entry--recent .experience-entry__company {
   color: var(--accent);
 }
 
-/* Current open node (Now): filled */
+.experience-entry--current .experience-entry__company {
+  color: var(--lamp);
+  text-shadow:
+    0 0 14px color-mix(in srgb, var(--lamp-core) 45%, transparent),
+    0 0 28px var(--lamp-halo);
+}
+
+/* Current open node (Now): warm lamp bulb */
 .experience-entry--current .experience-entry__dot {
-  border-color: var(--accent);
-  background: var(--accent);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 24%, transparent);
-  transform: scale(1.08);
+  border-color: color-mix(in srgb, var(--lamp-core) 80%, #fff6d0);
+  background:
+    radial-gradient(
+      circle at 32% 28%,
+      #fff8e4 0%,
+      var(--lamp-core) 42%,
+      var(--lamp) 78%,
+      color-mix(in srgb, var(--lamp) 70%, #8a5a10) 100%
+    );
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--lamp) 22%, transparent),
+    0 0 10px color-mix(in srgb, var(--lamp-core) 70%, transparent),
+    0 0 22px var(--lamp-halo),
+    0 0 40px color-mix(in srgb, var(--lamp) 28%, transparent);
+  transform: scale(1.12);
+  animation: lamp-breathe 3.6s ease-in-out infinite;
+}
+
+@keyframes lamp-breathe {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px color-mix(in srgb, var(--lamp) 18%, transparent),
+      0 0 8px color-mix(in srgb, var(--lamp-core) 55%, transparent),
+      0 0 18px var(--lamp-halo),
+      0 0 32px color-mix(in srgb, var(--lamp) 22%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--lamp) 28%, transparent),
+      0 0 14px color-mix(in srgb, var(--lamp-core) 85%, transparent),
+      0 0 28px var(--lamp-halo),
+      0 0 48px color-mix(in srgb, var(--lamp) 36%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-entry--current .experience-entry__dot {
+    animation: none;
+  }
 }
 
 .experience-entry:last-of-type .experience-entry__company {
