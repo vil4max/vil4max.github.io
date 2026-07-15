@@ -1999,8 +1999,10 @@
 }
 
 .experience-year-scale__tick--foundation {
-  color: color-mix(in srgb, var(--muted) 48%, transparent);
-  font-weight: 500;
+  font-size: 0.55rem;
+  font-weight: 450;
+  color: color-mix(in srgb, var(--muted) 38%, transparent);
+  letter-spacing: 0.02em;
 }
 
 .experience-stack {
@@ -2171,7 +2173,8 @@
 
 .experience-entry--quiet {
   padding-bottom: 28px;
-  opacity: 0.88;
+  --quiet-depth: 0;
+  opacity: calc(0.94 - (var(--quiet-depth) * 0.075));
 }
 
 .experience-entry--quiet .experience-entry__dot {
@@ -2182,11 +2185,23 @@
   border-color: color-mix(in srgb, var(--muted) 65%, transparent);
 }
 
+.experience-entry--quiet[data-quiet-depth="3"] .experience-entry__dot,
+.experience-entry--quiet[data-quiet-depth="4"] .experience-entry__dot {
+  width: 10px;
+  height: 10px;
+  border-color: color-mix(in srgb, var(--muted) 48%, transparent);
+}
+
 .experience-entry--quiet .experience-entry__company {
   font-size: clamp(1.05rem, 1.8vw, 1.28rem);
   font-weight: 650;
   color: color-mix(in srgb, var(--fg-heading) 72%, var(--muted));
   letter-spacing: -0.015em;
+}
+
+.experience-entry--quiet[data-quiet-depth="3"] .experience-entry__company,
+.experience-entry--quiet[data-quiet-depth="4"] .experience-entry__company {
+  color: color-mix(in srgb, var(--fg-heading) 58%, var(--muted));
 }
 
 .experience-entry--quiet .experience-entry__role {
@@ -2213,6 +2228,13 @@
   line-height: 1.5;
   color: color-mix(in srgb, var(--fg) 82%, var(--muted));
   max-width: 62ch;
+}
+
+.experience-entry--quiet[data-quiet-depth="3"] .experience-entry__lede,
+.experience-entry--quiet[data-quiet-depth="3"] .experience-entry__body,
+.experience-entry--quiet[data-quiet-depth="4"] .experience-entry__lede,
+.experience-entry--quiet[data-quiet-depth="4"] .experience-entry__body {
+  color: color-mix(in srgb, var(--fg) 68%, var(--muted));
 }
 
 .experience-entry__role {

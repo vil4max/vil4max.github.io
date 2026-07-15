@@ -160,19 +160,63 @@ function yearsFromDates(dates) {
     return [...String(dates).matchAll(/\b((?:19|20)\d{2})\b/g)].map((match) => Number(match[1]));
 }
 
+const MONTH_INDEX = {
+    jan: 1,
+    feb: 2,
+    mar: 3,
+    apr: 4,
+    may: 5,
+    jun: 6,
+    jul: 7,
+    aug: 8,
+    sep: 9,
+    oct: 10,
+    nov: 11,
+    dec: 12,
+};
+
+function parseEmploymentDates(dates) {
+    const matches = [...String(dates).matchAll(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+((?:19|20)\d{2})\b/gi)];
+    if (matches.length === 0) {
+        const years = yearsFromDates(dates);
+        if (years.length === 0) {
+            return null;
+        }
+        return {
+            startMonth: 1,
+            startYear: Math.min(...years),
+            endMonth: 12,
+            endYear: Math.max(...years),
+        };
+    }
+    const start = matches[0];
+    const end = matches[matches.length - 1];
+    return {
+        startMonth: MONTH_INDEX[start[1].toLowerCase()],
+        startYear: Number(start[2]),
+        endMonth: MONTH_INDEX[end[1].toLowerCase()],
+        endYear: Number(end[2]),
+    };
+}
+
 function mileYearMeta(id, dates) {
     void id;
-    const yearBounds = yearsFromDates(dates);
-    if (yearBounds.length === 0) {
+    const parsed = parseEmploymentDates(dates);
+    if (!parsed) {
         return { mileYear: null, endYear: null, originYear: null };
     }
-    const startYear = Math.min(...yearBounds);
-    const endYear = Math.max(...yearBounds);
+    const { startMonth, startYear, endYear } = parsed;
+    // Late calendar starts (Dec) sit on the next mile year; keep the true start as a faint origin tick.
+    // Example: iCenter Dec 2013 → mile 2014, origin 2013 below.
+    if (startMonth === 12) {
+        return { mileYear: startYear + 1, endYear, originYear: startYear };
+    }
     return { mileYear: startYear, endYear, originYear: null };
 }
 
 function careerYearScale(milestones) {
     const mileYears = new Set();
+    const foundationYears = new Set();
     let minYear = Infinity;
     let maxYear = -Infinity;
 
@@ -180,7 +224,10 @@ function careerYearScale(milestones) {
         if (item.heading === "now") {
             continue;
         }
-        const { mileYear, endYear } = mileYearMeta(item.heading, fieldMap(item.body).get("Dates") || "");
+        const { mileYear, endYear, originYear } = mileYearMeta(
+            item.heading,
+            fieldMap(item.body).get("Dates") || "",
+        );
         if (mileYear != null) {
             mileYears.add(mileYear);
             minYear = Math.min(minYear, mileYear);
@@ -189,6 +236,11 @@ function careerYearScale(milestones) {
         if (endYear != null) {
             minYear = Math.min(minYear, endYear);
             maxYear = Math.max(maxYear, endYear);
+        }
+        if (originYear != null) {
+            foundationYears.add(originYear);
+            minYear = Math.min(minYear, originYear);
+            maxYear = Math.max(maxYear, originYear);
         }
     }
 
@@ -201,7 +253,9 @@ function careerYearScale(milestones) {
     ];
     for (let year = maxYear; year >= minYear; year -= 1) {
         const classes = ["experience-year-scale__tick"];
-        if (mileYears.has(year)) {
+        if (foundationYears.has(year) && !mileYears.has(year)) {
+            classes.push("experience-year-scale__tick--foundation");
+        } else if (mileYears.has(year)) {
             classes.push("experience-year-scale__tick--anchor");
         } else {
             classes.push("experience-year-scale__tick--interval");
@@ -234,7 +288,7 @@ ${lines.join("\n")}
               </li>`;
 }
 
-function renderMilestone(id, body, { isCurrent = false, isRecent = false, isQuiet = false, showEraLabel = false } = {}) {
+function renderMilestone(id, body, { isCurrent = false, isRecent = false, isQuiet = false, showEraLabel = false, quietDepth = 0 } = {}) {
     const fields = fieldMap(body);
     const company = (fields.get("Company") || "").trim();
     const role = (fields.get("Role") || "").trim();
@@ -307,8 +361,9 @@ ${signals.map((signal) => `              <li>${escapeHtml(signal)}</li>`).join("
     const eraLabel = showEraLabel
         ? `            <p class="experience-entry__era">Earlier</p>`
         : "";
+    const quietAttr = isQuiet ? ` data-quiet-depth="${quietDepth}" style="--quiet-depth: ${quietDepth}"` : "";
 
-    return `          <article class="${classNames.join(" ")}" id="milestone-${escapeHtml(id)}" data-milestone-panel="${escapeHtml(id)}"${yearAttrs ? ` ${yearAttrs}` : ""}>
+    return `          <article class="${classNames.join(" ")}" id="milestone-${escapeHtml(id)}" data-milestone-panel="${escapeHtml(id)}"${yearAttrs ? ` ${yearAttrs}` : ""}${quietAttr}>
             <div class="experience-entry__rail" aria-hidden="true"><span class="experience-entry__dot"></span></div>
             <div class="experience-entry__content">
 ${eraLabel}
@@ -327,6 +382,7 @@ function renderMilestones(section) {
     const yearScale = careerYearScale(milestones);
     let pastIndex = 0;
     let quietSeen = false;
+    let quietDepth = 0;
     const entries = milestones
         .map((item) => {
             const isCurrent = item.heading === "now";
@@ -339,10 +395,18 @@ function renderMilestones(section) {
             // Pre-2019 roles stay on the rail, but quieter / compact (foundation zone).
             const isQuiet = !isCurrent && mileYear != null && mileYear < 2019;
             const showEraLabel = isQuiet && !quietSeen;
+            const depth = isQuiet ? quietDepth : 0;
             if (isQuiet) {
                 quietSeen = true;
+                quietDepth += 1;
             }
-            return renderMilestone(item.heading, item.body, { isCurrent, isRecent, isQuiet, showEraLabel });
+            return renderMilestone(item.heading, item.body, {
+                isCurrent,
+                isRecent,
+                isQuiet,
+                showEraLabel,
+                quietDepth: depth,
+            });
         })
         .join("\n");
     return `        <section class="cover-experience" aria-label="Experience">
