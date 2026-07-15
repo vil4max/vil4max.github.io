@@ -1991,6 +1991,13 @@
   font-weight: 650;
 }
 
+.experience-year-scale__tick--interval {
+  font-size: 0.58rem;
+  font-weight: 450;
+  color: color-mix(in srgb, var(--muted) 52%, transparent);
+  letter-spacing: 0;
+}
+
 .experience-year-scale__tick--foundation {
   color: color-mix(in srgb, var(--muted) 48%, transparent);
   font-weight: 500;

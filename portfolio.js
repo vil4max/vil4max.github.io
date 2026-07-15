@@ -39,7 +39,7 @@
             rail.style.setProperty("--segment-length", `${Math.max(24, Math.round(span))}px`);
         }
 
-        // Mile years sit opposite mile-dots. Origin year (2013) sits at the foundation bottom.
+        // Mile / origin anchors (emphasized years).
         const yearTops = new Map();
         for (const entry of entries) {
             if (entry.classList.contains("experience-entry--current") && entries.length > 1) {
@@ -58,6 +58,31 @@
             }
         }
 
+        const anchors = [...yearTops.entries()]
+            .map(([year, top]) => ({ year, top }))
+            .sort((left, right) => right.year - left.year);
+
+        const topForYear = (year) => {
+            if (yearTops.has(year)) {
+                return yearTops.get(year);
+            }
+            for (let index = 0; index < anchors.length - 1; index += 1) {
+                const high = anchors[index];
+                const low = anchors[index + 1];
+                if (high.year >= year && year >= low.year) {
+                    const ratio = (high.year - year) / (high.year - low.year);
+                    return high.top + ratio * (low.top - high.top);
+                }
+            }
+            if (anchors.length === 0) {
+                return null;
+            }
+            if (year > anchors[0].year) {
+                return anchors[0].top;
+            }
+            return anchors[anchors.length - 1].top;
+        };
+
         const nowTick = scale.querySelector('[data-year-tick="now"]');
         const current = stack.querySelector(".experience-entry--current");
         if (nowTick && current) {
@@ -74,7 +99,7 @@
                 continue;
             }
             const year = Number(key);
-            const top = yearTops.get(year);
+            const top = topForYear(year);
             if (top == null) {
                 tick.style.visibility = "hidden";
                 continue;

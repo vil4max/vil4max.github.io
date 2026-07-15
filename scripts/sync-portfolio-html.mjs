@@ -177,34 +177,48 @@ function mileYearMeta(id, dates) {
 function careerYearScale(milestones) {
     const mileYears = new Set();
     const foundationYears = new Set();
+    let minYear = Infinity;
+    let maxYear = -Infinity;
 
     for (const item of milestones) {
         if (item.heading === "now") {
             continue;
         }
-        const { mileYear, originYear } = mileYearMeta(item.heading, fieldMap(item.body).get("Dates") || "");
+        const { mileYear, endYear, originYear } = mileYearMeta(
+            item.heading,
+            fieldMap(item.body).get("Dates") || "",
+        );
         if (mileYear != null) {
             mileYears.add(mileYear);
+            minYear = Math.min(minYear, mileYear);
+            maxYear = Math.max(maxYear, mileYear);
+        }
+        if (endYear != null) {
+            minYear = Math.min(minYear, endYear);
+            maxYear = Math.max(maxYear, endYear);
         }
         if (originYear != null) {
             foundationYears.add(originYear);
+            minYear = Math.min(minYear, originYear);
+            maxYear = Math.max(maxYear, originYear);
         }
     }
 
-    const labeledYears = [...new Set([...mileYears, ...foundationYears])].sort((a, b) => b - a);
-    if (labeledYears.length === 0) {
+    if (!Number.isFinite(minYear) || !Number.isFinite(maxYear)) {
         return "";
     }
 
     const ticks = [
         `            <li class="experience-year-scale__tick experience-year-scale__tick--now" data-year-tick="now">Now</li>`,
     ];
-    for (const year of labeledYears) {
+    for (let year = maxYear; year >= minYear; year -= 1) {
         const classes = ["experience-year-scale__tick"];
         if (foundationYears.has(year) && !mileYears.has(year)) {
             classes.push("experience-year-scale__tick--foundation");
         } else if (mileYears.has(year)) {
             classes.push("experience-year-scale__tick--anchor");
+        } else {
+            classes.push("experience-year-scale__tick--interval");
         }
         ticks.push(`            <li class="${classes.join(" ")}" data-year-tick="${year}">${year}</li>`);
     }
