@@ -2028,8 +2028,6 @@
 }
 
 .experience-entry:last-child {
-  /* Breathing room before foundation chapter */
-  padding-top: 40px;
   padding-bottom: 20px;
 }
 
@@ -2061,9 +2059,13 @@
   border-left-color: color-mix(in srgb, var(--accent) 70%, var(--border-subtle));
 }
 
+.experience-entry--quiet:not(:last-child) .experience-entry__rail::before {
+  border-left-color: color-mix(in srgb, var(--muted) 55%, var(--border-subtle));
+}
+
 /*
  * Dashed after the current mile-dot — upward into open future.
- * Known past path (Now → … → Earlier) stays solid until the foundation chapter.
+ * Known past path stays solid through quiet foundation roles.
  */
 .experience-entry--current .experience-entry__rail::after {
   content: "";
@@ -2078,7 +2080,7 @@
   box-sizing: border-box;
 }
 
-/* Foundation chapter: dashed rail through the full description height into deeper past */
+/* Last mile: dashed trail fading into deeper past */
 .experience-entry:last-child .experience-entry__rail {
   align-self: stretch;
   min-height: 100%;
@@ -2150,6 +2152,67 @@
   color: var(--fg-heading);
   font-weight: 700;
   line-height: 1.2;
+}
+
+/* Soft watershed before the first pre-2019 mile — not a year anchor */
+.experience-entry__era {
+  margin: 0 0 14px;
+  font-size: 0.72rem;
+  font-weight: 550;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.experience-entry:not(.experience-entry--quiet) + .experience-entry--quiet {
+  padding-top: 12px;
+}
+
+.experience-entry--quiet {
+  padding-bottom: 28px;
+  opacity: 0.88;
+}
+
+.experience-entry--quiet .experience-entry__dot {
+  width: 12px;
+  height: 12px;
+  margin-top: 6px;
+  border-width: 1.5px;
+  border-color: color-mix(in srgb, var(--muted) 65%, transparent);
+}
+
+.experience-entry--quiet .experience-entry__company {
+  font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+  font-weight: 650;
+  color: color-mix(in srgb, var(--fg-heading) 72%, var(--muted));
+  letter-spacing: -0.015em;
+}
+
+.experience-entry--quiet .experience-entry__role {
+  margin-top: 4px;
+  font-size: 0.92rem;
+  font-weight: 550;
+  color: color-mix(in srgb, var(--fg-heading) 78%, var(--muted));
+}
+
+.experience-entry--quiet .experience-entry__dates {
+  font-size: 0.8rem;
+}
+
+.experience-entry--quiet .experience-entry__product {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--fg-heading) 75%, var(--muted));
+}
+
+.experience-entry--quiet .experience-entry__lede,
+.experience-entry--quiet .experience-entry__body {
+  margin-top: 8px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--fg) 82%, var(--muted));
+  max-width: 62ch;
 }
 
 .experience-entry__role {
