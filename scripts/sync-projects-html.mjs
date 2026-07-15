@@ -23,6 +23,20 @@ function escapeHtml(text) {
         .replace(/"/g, "&quot;");
 }
 
+function inlineMarkdownToHtml(text) {
+    const pattern = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+    let result = "";
+    let lastIndex = 0;
+    let match;
+    while ((match = pattern.exec(text)) !== null) {
+        result += escapeHtml(text.slice(lastIndex, match.index));
+        result += `<a href="${escapeHtml(match[2])}">${escapeHtml(match[1])}</a>`;
+        lastIndex = match.index + match[0].length;
+    }
+    result += escapeHtml(text.slice(lastIndex));
+    return result;
+}
+
 function parseProjectSections(markdown) {
     const lines = markdown.split("\n");
     const projects = [];
@@ -90,7 +104,7 @@ function markdownSectionToHtml(markdown) {
         closeList();
         paragraphIndex += 1;
         const className = paragraphIndex === 1 ? "case-era" : "case-narrative";
-        html.push(`            <p class="${className}">${escapeHtml(line.trim())}</p>`);
+        html.push(`            <p class="${className}">${inlineMarkdownToHtml(line.trim())}</p>`);
     }
     closeList();
     return html.join("\n");

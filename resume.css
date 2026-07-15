@@ -2943,6 +2943,16 @@
   font-size: 0.98rem;
 }
 
+.case-era a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.case-era a:hover {
+  color: var(--fg-heading);
+}
+
 .case-narrative {
   margin: 0 0 12px;
   max-width: 62ch;
@@ -3065,6 +3075,18 @@
 
 .case-study__media--t4p img:nth-child(4) {
   grid-column: 2 / span 2;
+}
+
+.case-study__media--wide {
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-items: stretch;
+  max-width: 520px;
+  justify-self: end;
+}
+
+.case-study__media--wide img {
+  border-radius: 14px;
 }
 
 .projects-additional > .case-study--featured {
