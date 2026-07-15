@@ -1994,26 +1994,26 @@
   display: grid;
   gap: 0;
   position: relative;
-  padding-top: 0;
+  padding-top: 36px;
   min-width: 0;
 }
 
-/* Continuous career rail: Now → past roles */
-.experience-stack::before {
+/* Open future above Now: career path does not terminate */
+.experience-stack:has(.experience-entry--current)::after {
   content: "";
   position: absolute;
-  top: 12px;
-  bottom: 28px;
+  top: 0;
+  height: 40px;
   left: var(--rail-x);
-  width: 2px;
+  width: 0;
+  border-left: 2px dashed color-mix(in srgb, var(--muted) 62%, transparent);
   transform: translateX(-50%);
-  background: linear-gradient(
-    180deg,
-    var(--accent) 0%,
-    color-mix(in srgb, var(--accent) 55%, var(--border-subtle)) 28%,
-    var(--border-subtle) 100%
-  );
   z-index: 0;
+}
+
+/* Past career continuum (solid) starts at the first past role */
+.experience-stack::before {
+  content: none;
 }
 
 .experience-entry {
@@ -2036,8 +2036,30 @@
   width: 28px;
 }
 
-.experience-entry__rail::before {
-  content: none;
+/* Segment to the next entry: solid for past roles */
+.experience-entry:not(:last-child) .experience-entry__rail::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  bottom: -40px;
+  left: 50%;
+  width: 0;
+  border-left: 2px solid color-mix(in srgb, var(--accent) 45%, var(--border-subtle));
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.experience-entry--recent:not(:last-child) .experience-entry__rail::before {
+  border-left-color: color-mix(in srgb, var(--accent) 70%, var(--border-subtle));
+}
+
+/*
+ * After Open to opportunities (### now): always continue dashed.
+ * Career does not end at the current open node — path stays open into the next chapter
+ * and into the connection toward past roles.
+ */
+.experience-entry--current:not(:last-child) .experience-entry__rail::before {
+  border-left: 2px dashed color-mix(in srgb, var(--muted) 62%, transparent);
 }
 
 .experience-entry__dot {
