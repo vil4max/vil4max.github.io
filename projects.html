@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Max Vilchevskiy — Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="resume.css?v=20260715era">
+  <link rel="stylesheet" href="resume.css?v=20260715thanks">
 </head>
 <body class="cover-page projects-page">
   <div class="page cover-shell">
@@ -226,7 +226,7 @@
           </div>
         </article>
 
-        <article class="case-study case-study--featured case-study--media case-study--reverse" id="project-green-riding-hood">
+        <article class="case-study case-study--featured case-study--media" id="project-green-riding-hood">
           <div class="case-study__copy">
             <!-- PROJECT:project-green-riding-hood:CONTENT:START -->
             <h3 class="case-title">Green Riding Hood: interactive book</h3>
@@ -242,7 +242,7 @@
           <!-- PROJECT:project-green-riding-hood:CONTENT:END -->
             <p class="case-links"><a href="https://apps.apple.com/us/app/green-riding-hood-read-aloud/id977242839">App Store</a></p>
           </div>
-          <div class="case-study__media case-study__media--wide" aria-label="Green Riding Hood screenshots">
+          <div class="case-study__media" aria-label="Green Riding Hood screenshots">
             <img src="assets/green-riding-hood/grh-1.jpg" alt="Green Riding Hood — interactive story scene" loading="lazy" width="1200" height="675">
             <img src="assets/green-riding-hood/grh-2.jpg" alt="Green Riding Hood — illustrated story scene" loading="lazy" width="1200" height="675">
             <img src="assets/green-riding-hood/grh-3.jpg" alt="Green Riding Hood — read-aloud story scene" loading="lazy" width="1200" height="675">
@@ -253,8 +253,9 @@
       <section class="projects-personal" aria-labelledby="personal-heading" id="personal-projects">
         <h2 id="personal-heading">Pet projects</h2>
 
-        <article class="case-experiment case-experiment--media" id="project-regional-check">
-          <!-- PROJECT:project-regional-check:CONTENT:START -->
+        <article class="case-study case-study--featured case-study--media" id="project-regional-check">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-regional-check:CONTENT:START -->
             <h3 class="case-title">Regional Check</h3>
             <p class="case-era">Pet project</p>
             <p class="case-narrative">Minimal CarPlay utility that shows the current regional public-notice state for the driver's location. One screen, one region, one refresh - calm informational status, not an emergency, safety, or monitoring product. The iPhone companion mirrors the same experience with localization for English, Russian, and Ukrainian.</p>
@@ -265,8 +266,9 @@
             </ul>
             <p class="case-stack">SwiftUI · CarPlay · CoreLocation · MapKit · URLSession</p>
           <!-- PROJECT:project-regional-check:CONTENT:END -->
-          <p class="case-links"><a href="https://github.com/vil4max/regional-check">GitHub</a></p>
-          <div class="case-study__media case-experiment__media" aria-label="Regional Check screenshots">
+            <p class="case-links"><a href="https://github.com/vil4max/regional-check">GitHub</a></p>
+          </div>
+          <div class="case-study__media" aria-label="Regional Check screenshots">
             <img src="assets/regional-check/rc-quiet.jpg" alt="Regional Check — Quiet status for a selected region" loading="lazy" width="375" height="812">
             <img src="assets/regional-check/rc-checking.jpg" alt="Regional Check — Checking status while refreshing" loading="lazy" width="375" height="812">
             <img src="assets/regional-check/rc-loud.jpg" alt="Regional Check — Loud status for a selected region" loading="lazy" width="375" height="812">
@@ -291,7 +293,10 @@
     </main>
 
     <footer class="cover-footer">
-      <p><a href="index.html">Back to portfolio</a> · <a href="https://vil4max.github.io">vil4max.github.io</a></p>
+      <p>
+        <a href="index.html">Back to portfolio</a>
+        <span class="cover-footer__note">Thanks for reading.</span>
+      </p>
     </footer>
   </div>
 </body>
