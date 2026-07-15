@@ -11,7 +11,7 @@ Do not hand-edit synced marked regions in `index.html` / `projects.html`. Do not
 
 | URL | Purpose |
 |-----|---------|
-| `index.html` | Portfolio landing (`portfolio:sync` ← `career/presentation/portfolio.md`) |
+| `index.html` | Portfolio landing (`portfolio:sync` ← `career/presentation/portfolio.md`). Mechanics: [`../career/presentation/LANDING.md`](../career/presentation/LANDING.md) |
 | `projects.html` | Projects (`projects:sync` ← `career/presentation/projects.md`) |
 | `cv.html` | Redirect to `index.html` |
 | `profile-autofill.html` | Private autofill HTML (not a public page) |

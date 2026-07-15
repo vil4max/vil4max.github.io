@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+/**
+ * Sync career/presentation/portfolio.md → index.html PORTFOLIO:* regions.
+ * Mechanics: ../career/presentation/LANDING.md
+ */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
