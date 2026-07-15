@@ -184,11 +184,11 @@ for (const role of source.roles) {
     }
 }
 
-if (!indexHtml.includes(PDF_CANONICAL_FILENAME) || !indexHtml.includes("Download CV")) {
+if (!indexHtml.includes(PDF_CANONICAL_FILENAME) || !indexHtml.includes("Download PDF")) {
     errors.push(`index.html missing primary CV download (${PDF_CANONICAL_FILENAME})`);
 }
 
-if (!projectsHtml.includes(PDF_CANONICAL_FILENAME) || !projectsHtml.includes("Download CV")) {
+if (!projectsHtml.includes(PDF_CANONICAL_FILENAME) || !projectsHtml.includes("Download PDF")) {
     errors.push(`projects.html missing primary CV download (${PDF_CANONICAL_FILENAME})`);
 }
 

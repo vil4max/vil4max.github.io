@@ -115,7 +115,7 @@ function contactIconSvg(label) {
 }
 
 function actionClassSuffix(label) {
-    if (label === "Download CV") {
+    if (label === "Download PDF" || label === "Download CV" || label === "Download CV · PDF") {
         return " cover-action--primary";
     }
     if (label === "Projects") {

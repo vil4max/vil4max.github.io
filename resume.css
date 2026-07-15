@@ -1744,17 +1744,19 @@
   text-decoration: none;
 }
 
-.cover-nav__cv::before,
-.cover-nav__cv::after {
-  content: "·";
-  margin-inline: 0.45em;
-  opacity: 0.55;
-  font-weight: 400;
-}
-
 .cover-nav__cv:hover,
 .cover-nav__cv:focus-visible {
   color: var(--accent);
+}
+
+.cover-nav__cv.cover-action--primary {
+  font-size: 14px;
+  color: var(--fg-heading);
+}
+
+.cover-nav__cv.cover-action--primary:hover,
+.cover-nav__cv.cover-action--primary:focus-visible {
+  color: var(--bg);
 }
 
 .cover-main {
@@ -1893,26 +1895,16 @@
 }
 
 .cover-action--primary {
-  border: none;
-  padding: 10px 0;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.cover-action--primary::before,
-.cover-action--primary::after {
-  content: "·";
-  margin-inline: 0.45em;
-  opacity: 0.55;
-  color: var(--muted);
-  font-weight: 400;
+  border: 1px solid var(--fg-heading);
+  padding: 10px 16px;
+  color: var(--fg-heading);
 }
 
 .cover-action--primary:hover,
 .cover-action--primary:focus-visible {
-  background: transparent;
-  color: var(--fg-heading);
-  border-color: transparent;
+  background: var(--fg-heading);
+  color: var(--bg);
+  border-color: var(--fg-heading);
 }
 
 /* Nav-like CTA: matches site tab "Projects" with clear affordance */
