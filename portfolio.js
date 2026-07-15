@@ -1,42 +1,35 @@
 (() => {
     const roadmap = document.querySelector("[data-career-roadmap]");
-    const stack = document.querySelector("[data-milestone-stack]");
     if (!roadmap) {
         return;
     }
 
     const nodes = [...roadmap.querySelectorAll("[data-milestone]")];
-    const panels = stack ? [...stack.querySelectorAll("[data-milestone-panel]")] : [];
-    const storyIds = new Set(panels.map((panel) => panel.getAttribute("data-milestone-panel")));
 
-    function activate(id) {
+    function activate(id, { scroll = true } = {}) {
         for (const node of nodes) {
             const active = node.getAttribute("data-milestone") === id;
             node.setAttribute("aria-pressed", active ? "true" : "false");
             node.closest(".career-path__item")?.classList.toggle("is-active", active);
         }
 
-        const scrollTarget = nodes
-            .find((node) => node.getAttribute("data-milestone") === id)
-            ?.getAttribute("data-scroll-target");
-
-        if (scrollTarget) {
-            for (const panel of panels) {
-                panel.hidden = true;
-            }
-            document.getElementById(scrollTarget)?.scrollIntoView({
-                behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-                    ? "auto"
-                    : "smooth",
-                block: "start",
-            });
+        if (!scroll) {
             return;
         }
 
-        for (const panel of panels) {
-            const match = panel.getAttribute("data-milestone-panel") === id;
-            panel.hidden = storyIds.has(id) ? !match : true;
+        const scrollTarget = nodes
+            .find((node) => node.getAttribute("data-milestone") === id)
+            ?.getAttribute("data-scroll-target");
+        if (!scrollTarget) {
+            return;
         }
+
+        document.getElementById(scrollTarget)?.scrollIntoView({
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                ? "auto"
+                : "smooth",
+            block: "start",
+        });
     }
 
     function indexOf(id) {
@@ -84,6 +77,6 @@
         nodes.find((node) => node.getAttribute("data-milestone") === "globallogic") ||
         nodes[0];
     if (initial) {
-        activate(initial.getAttribute("data-milestone"));
+        activate(initial.getAttribute("data-milestone"), { scroll: false });
     }
 })();

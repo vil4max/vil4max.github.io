@@ -158,7 +158,10 @@ ${leadHtml}          </div>
 ${items
     .map((item) => {
         const active = item.id === defaultId;
-        const scroll = item.id === "earlier" || item.id === "direction" ? item.id : "";
+        const scroll =
+            item.id === "earlier" || item.id === "direction"
+                ? item.id
+                : `milestone-${item.id}`;
         const terminus = item.id === "direction";
         const detailHtml = item.detail
             ? `\n                  <span class="career-path__detail">${escapeHtml(item.detail)}</span>`
@@ -187,7 +190,6 @@ function renderMilestone(id, body) {
         .filter((line) => line.startsWith("- "))
         .map((line) => line.slice(2).trim());
     const project = (fields.get("Project") || "").trim();
-    const hidden = id === "globallogic" ? "" : "hidden";
     const opening = (fields.get("Opening") || "").trim();
     const story = (fields.get("Story") || "").trim();
     const editorial = Boolean(opening || story);
@@ -203,20 +205,23 @@ function renderMilestone(id, body) {
               `            <p class="milestone-story__role">${escapeHtml(fields.get("Role") || "")}</p>`,
               `            <p class="milestone-story__work">${escapeHtml(fields.get("Worked on") || "")}</p>`,
           ].join("\n");
-    return `          <article class="milestone-story${editorial ? " milestone-story--editorial" : ""}" data-milestone-panel="${escapeHtml(id)}" ${hidden}>
+    const cta = project
+        ? `            <p class="milestone-story__cta"><a href="${escapeHtml(project)}">View project details</a></p>`
+        : "";
+    return `          <article class="milestone-story${editorial ? " milestone-story--editorial" : ""}" id="milestone-${escapeHtml(id)}" data-milestone-panel="${escapeHtml(id)}">
             <h3 class="milestone-story__title">${escapeHtml(fields.get("Label") || id)}</h3>
 ${prose}
             <ul class="milestone-story__signals" aria-label="Technical signals">
 ${signals.map((signal) => `              <li>${escapeHtml(signal)}</li>`).join("\n")}
             </ul>
-            <p class="milestone-story__cta"><a href="${escapeHtml(project)}">View project details</a></p>
+${cta}
           </article>`;
 }
 
 function renderMilestones(section) {
     const milestones = extractSubsections(section, 3);
     return `        <section class="cover-milestones" aria-labelledby="milestones-heading">
-          <h2 id="milestones-heading" class="visually-hidden">Selected milestones</h2>
+          <h2 id="milestones-heading">Experience</h2>
           <div class="milestone-story-stack" data-milestone-stack>
 ${milestones.map((item) => renderMilestone(item.heading, item.body)).join("\n")}
           </div>
