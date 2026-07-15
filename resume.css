@@ -2317,6 +2317,24 @@
   color: color-mix(in srgb, var(--fg) 68%, var(--muted));
 }
 
+.experience-entry--quiet .experience-entry__bullets {
+  margin-top: 10px;
+  gap: 6px;
+}
+
+.experience-entry--quiet .experience-entry__bullets li {
+  font-size: 0.82rem;
+  color: color-mix(in srgb, var(--fg) 78%, var(--muted));
+}
+
+.experience-entry--quiet .experience-entry__cta {
+  margin-top: 12px;
+}
+
+.experience-entry--quiet .experience-entry__cta a {
+  font-size: 0.84rem;
+}
+
 .experience-entry__role {
   margin: 8px 0 0;
   font-size: 1.12rem;
