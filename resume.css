@@ -1671,7 +1671,7 @@
 }
 
 .cover-page .page {
-  max-width: 1120px;
+  max-width: min(1520px, 94vw);
 }
 
 .cover-page header.cover-nav {
@@ -1699,8 +1699,9 @@
 }
 
 .cover-shell {
-  max-width: 1120px;
+  max-width: min(1520px, 94vw);
   margin: 0 auto;
+  width: 100%;
 }
 
 .cover-nav {
@@ -1708,7 +1709,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 18px 24px 8px;
+  padding: 18px clamp(20px, 3vw, 40px) 10px;
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -1743,29 +1744,29 @@
 }
 
 .cover-main {
-  padding: 36px 24px 64px;
+  padding: 28px clamp(20px, 3vw, 40px) 72px;
   display: flex;
   flex-direction: column;
-  gap: 56px;
+  gap: 40px;
 }
 
 .cover-hero__layout {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0 28px;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 0 36px;
   align-items: start;
-  padding: 20px 0 8px;
+  padding: 12px 0 4px;
   min-height: 0;
 }
 
 .cover-hero__avatar {
-  width: 132px;
-  height: 132px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
   flex-shrink: 0;
-  margin-top: 0.12em;
+  margin-top: 0.08em;
 }
 
 .cover-hero__copy {
@@ -1774,7 +1775,7 @@
 
 .cover-hero h1 {
   margin: 0;
-  font-size: clamp(2.6rem, 5.5vw, 4rem);
+  font-size: clamp(2.6rem, 4.8vw, 4.2rem);
   line-height: 0.98;
   letter-spacing: -0.03em;
   color: var(--fg-heading);
@@ -1789,23 +1790,23 @@
 }
 
 .cover-hero__signal {
-  margin: 14px 0 0;
-  max-width: 42ch;
+  margin: 12px 0 0;
+  max-width: none;
   font-size: 1.05rem;
   line-height: 1.45;
   color: var(--muted);
 }
 
 .cover-about {
-  margin: 16px 0 0;
-  max-width: 58ch;
+  margin: 12px 0 0;
+  max-width: none;
   font-size: 1.05rem;
-  line-height: 1.65;
+  line-height: 1.62;
   color: var(--fg);
 }
 
 .cover-about + .cover-about {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .cover-page .cover-about,
@@ -1889,7 +1890,7 @@
 .cover-section-lead {
   margin: 0 0 22px;
   color: var(--muted);
-  max-width: 62ch;
+  max-width: none;
   line-height: 1.55;
 }
 
@@ -2081,7 +2082,7 @@
 }
 
 .milestone-story {
-  max-width: 72ch;
+  max-width: none;
   padding: 28px 0 32px;
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -2092,7 +2093,7 @@
 }
 
 .milestone-story--editorial {
-  max-width: 68ch;
+  max-width: none;
 }
 
 .milestone-story__title {
@@ -2192,7 +2193,7 @@
 }
 
 .cover-earlier {
-  max-width: 64ch;
+  max-width: none;
 }
 
 .cover-earlier__lede {
@@ -2206,7 +2207,7 @@
 .other-list {
   margin: 0;
   padding-left: 18px;
-  max-width: 70ch;
+  max-width: none;
 }
 
 .earlier-list li,
@@ -2437,20 +2438,19 @@
 }
 
 @media (max-width: 900px) {
-  .cover-hero__layout,
   .case-study--media,
   .case-compact {
     grid-template-columns: 1fr;
   }
 
-  .cover-hero__avatar {
-    width: 112px;
-    height: 112px;
+  .cover-hero__layout {
+    grid-template-columns: 132px minmax(0, 1fr);
+    gap: 0 20px;
   }
 
-  .cover-hero__layout {
-    min-height: 0;
-    gap: 20px;
+  .cover-hero__avatar {
+    width: 132px;
+    height: 132px;
   }
 
   .case-study--reverse .case-study__copy,
@@ -2492,16 +2492,6 @@
     width: 100%;
   }
 
-  .cover-hero__avatar {
-    width: 104px;
-    height: 104px;
-  }
-
-  .cover-hero__layout {
-    gap: 16px 0;
-    align-items: start;
-  }
-
   .career-path__node {
     flex-direction: row;
     align-items: flex-start;
@@ -2513,6 +2503,18 @@
     margin-left: 4px;
     margin-top: 4px;
     flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .cover-hero__layout {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 0 16px;
+  }
+
+  .cover-hero__avatar {
+    width: 96px;
+    height: 96px;
   }
 }
 
