@@ -2027,32 +2027,30 @@
   height: 16px;
   margin-top: 4px;
   border-radius: 50%;
-  border: 2px solid color-mix(in srgb, var(--muted) 70%, var(--accent));
+  border: 2px solid color-mix(in srgb, var(--muted) 78%, transparent);
   background: var(--bg);
   box-shadow: none;
   flex: 0 0 auto;
   transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-/* Fresh roles: latest + previous (GlobalLogic, PASHA) */
+/* Recent: latest two get accent rings; only current is filled */
 .experience-entry:nth-child(-n + 2) .experience-entry__dot {
   border-color: var(--accent);
-  background: var(--accent);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 24%, transparent);
-  transform: scale(1.08);
+  background: var(--bg);
+  box-shadow: none;
+  transform: none;
 }
 
 .experience-entry:nth-child(-n + 2) .experience-entry__company {
   color: var(--accent);
 }
 
-/* Foundation node at the end of the path */
-.experience-entry:last-child .experience-entry__dot {
-  border-style: dashed;
-  border-color: var(--muted);
-  background: var(--bg);
-  box-shadow: none;
-  transform: none;
+/* Current position: filled accent node */
+.experience-entry:first-child .experience-entry__dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 24%, transparent);
+  transform: scale(1.08);
 }
 
 .experience-entry:last-child .experience-entry__company {
