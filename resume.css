@@ -2940,6 +2940,35 @@
   line-height: 1.65;
 }
 
+.case-signals {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  max-width: 62ch;
+}
+
+.case-signals li {
+  position: relative;
+  margin: 0;
+  padding-left: 14px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--fg);
+}
+
+.case-signals li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent, #7eb6ff);
+}
+
 .case-stack {
   margin: 16px 0 0;
   color: var(--muted);

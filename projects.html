@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Max Vilchevskiy — Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="resume.css?v=20260716l">
+  <link rel="stylesheet" href="resume.css?v=20260716m">
 </head>
 <body class="cover-page projects-page">
   <div class="page cover-shell">
@@ -29,8 +29,15 @@
             <!-- PROJECT:project-watch-ai-assistant:CONTENT:START -->
             <h3 class="case-title">Apple Watch Voice AI (R&amp;D / demo)</h3>
             <p class="case-era">GlobalLogic · Voice AI R&amp;D / demo (not a production App Store release) · Jan 2026 - Jun 2026.</p>
-            <p class="case-narrative">Built the watchOS conversation UI for a voice-first companion for field workers operating hands-free. Implemented an iPhone relay for real-time WebSocket and audio under watchOS runtime constraints. Implemented structured AI command flows that map assistant responses to on-device app and UI actions. Evaluated VelocityAI while delivering iOS/watchOS features.</p>
-            <p class="case-stack">watchOS · WatchConnectivity · Realtime Audio · AI Command Flows</p>
+            <p class="case-narrative">Voice-first Apple Watch companion concept for field workers operating outdoors with hands occupied. R&amp;D / demo engagement: incomplete end-to-end product flow at the start, delivered through TestFlight builds for evaluation - not a production field deployment.</p>
+            <p class="case-narrative">Owned deep watchOS implementation on the client, including the Lone Worker safety engine on Watch (check-in cycle, schedule, local notifications, and authoritative session state) and an iPhone Live Activity surface for session sync. Built the watch conversation UI with animated listening state, an iPhone relay carrying realtime WebSocket and audio under watchOS constraints, and structured AI command flows that map assistant responses to on-device app and UI actions. Shared Work Point surfaces covered details, hazards, photos, maps, and compass navigation. Evaluated VelocityAI while shipping iOS/watchOS features on the same employer engagement.</p>
+            <ul class="case-signals">
+              <li>Lone Worker Watch safety engine with live session sync to iPhone</li>
+              <li>Voice conversation UI plus iPhone relay for WebSocket and realtime audio</li>
+              <li>Structured AI command flows driving on-device UI actions</li>
+              <li>Work Point maps, hazards, and navigation surfaces on the watch/phone pair</li>
+            </ul>
+            <p class="case-stack">WatchKit · WatchConnectivity · URLSessionWebSocketTask · AVFoundation · Live Activity</p>
           <!-- PROJECT:project-watch-ai-assistant:CONTENT:END -->
           </div>
         </article>
@@ -39,9 +46,16 @@
           <div class="case-study__copy">
             <!-- PROJECT:project-birmarket:CONTENT:START -->
             <h3 class="case-title">Birmarket: Marketplace &amp; Loyalty</h3>
-            <p class="case-era">PASHA Holding · Birmarket marketplace &amp; loyalty (Umico → Birmarket).</p>
-            <p class="case-narrative">Took primary iOS ownership of Premium Subscription as a product feature, evolved it beyond a single in-app surface, and later reimplemented it as a configurable multi-host SDK with shared analytics. Contributed to modularizing a large iOS codebase and diagnosing memory and UI performance issues. Delivered marketplace and loyalty flow updates on iOS during the Umico → Birmarket expansion in Azerbaijan.</p>
-            <p class="case-stack">Multi-host SDK · Modularization · Analytics Infrastructure · Performance &amp; Runtime Diagnostics</p>
+            <p class="case-era">PASHA Holding · Birmarket marketplace &amp; loyalty (Umico → Birmarket) · Azerbaijan · Loyalty squad.</p>
+            <p class="case-narrative">Senior iOS work on a large production marketplace and loyalty product during the Umico to Birmarket expansion. Contributed feature delivery and production maintenance across loyalty flows, participated in modularizing a long-lived UIKit codebase, and used Instruments to diagnose memory and UI hang issues in production.</p>
+            <p class="case-narrative">Took primary iOS expertise on Premium Subscription: evolved it beyond a single in-app surface and reimplemented it as a configurable multi-host SDK under a Clean Architecture layout (SwiftUI presentation, Domain/Data, use cases, repositories, module Coordinator, DI). Host apps supply identity configuration - theme, endpoints, analytics wiring - and auth tokens; the SDK owns networking and refresh. Designed a shared analytics abstraction, proposed and integrated PostHog for subscription analytics, and published the SDK as a remote SPM package. By departure the module was integrated or in TestFlight paths on host apps including Birmarket, Birbank, and M10 - not confirmed as production across every host after leave.</p>
+            <ul class="case-signals">
+              <li>Premium Subscription extracted into a multi-host SPM SDK with host configuration</li>
+              <li>Shared analytics abstraction with PostHog on the subscription path</li>
+              <li>Modularization work plus Instruments diagnostics for memory and UI hangs</li>
+              <li>Marketplace and loyalty flow delivery through the brand expansion</li>
+            </ul>
+            <p class="case-stack">UIKit · SwiftUI · Clean Architecture · SPM · PostHog · Instruments · Multi-host SDK</p>
           <!-- PROJECT:project-birmarket:CONTENT:END -->
             <p class="case-links"><a href="https://apps.apple.com/ru/app/birmarket/id1458111389?l=uk">App Store</a></p>
           </div>
@@ -56,9 +70,16 @@
           <div class="case-study__copy">
             <!-- PROJECT:project-drinkit:CONTENT:START -->
             <h3 class="case-title">Drinkit: Coffee Ordering App</h3>
-            <p class="case-era">Drinkit · coffee ordering (joined when part of Dodo Brands).</p>
-            <p class="case-narrative">Built the iOS app from scratch with the launch team. Implemented and evolved drink customization while helping refine user flows and scenarios. Helped design and integrate contextual offers, including offer mechanics and client-backend data flow; backend services determine the final offer.</p>
-            <p class="case-stack">UIKit · Product Customization · Contextual Offers</p>
+            <p class="case-era">Drinkit · coffee ordering consumer product (joined when part of Dodo Brands) · Feb 2020 - Feb 2022.</p>
+            <p class="case-narrative">Joined as one of three early iOS engineers when there was no production iOS codebase yet. Built the greenfield UIKit app with the launch team under real commercial constraints for a coffee business tied to physical shops - production shipping product, not an R&amp;D prototype.</p>
+            <p class="case-narrative">Took substantial ownership of drink customization as the product matured beyond simple ready drinks, and participated in refining user flows and ordering scenarios with the team. Helped design and integrate contextual personalized offers - including offer mechanics and the client/backend data path - with backend services determining the final offer. Covered personalized per-drink messaging and order preparation status consumed on iOS via polling; payment happened at the physical counter in the confirmed product story.</p>
+            <ul class="case-signals">
+              <li>Greenfield production iOS with a three-engineer launch team</li>
+              <li>Drink customization as a core evolving product surface</li>
+              <li>Contextual offers with collaborative client/backend data flow</li>
+              <li>Order prep status on iOS via backend polling</li>
+            </ul>
+            <p class="case-stack">UIKit · Product customization · Contextual offers · Polling</p>
           <!-- PROJECT:project-drinkit:CONTENT:END -->
             <p class="case-links"><a href="https://apps.apple.com/us/app/drinkit-order-your-coffee/id1495622004">App Store</a></p>
           </div>
@@ -73,9 +94,15 @@
           <div class="case-study__copy">
             <!-- PROJECT:project-playhera:CONTENT:START -->
             <h3 class="case-title">PLAYHERA: esports tournaments</h3>
-            <p class="case-era">SOLVVE · App Store esports application.</p>
-            <p class="case-narrative">Built team creation and management flows for competitive gaming squads. Implemented and maintained reactive feature flows with RxSwift in an existing UIKit codebase.</p>
-            <p class="case-stack">RxSwift</p>
+            <p class="case-era">SOLVVE · App Store esports / competition platform · Jan 2019 - Feb 2020.</p>
+            <p class="case-narrative">Joined an already shipping Playhera iOS application during team expansion around players, teams, communication, and tournament competitions. Worked as an IC in a large feature-team organization relative to earlier career stages - not a greenfield or sole ownership engagement.</p>
+            <p class="case-narrative">Adapted to RxSwift inside the existing UIKit codebase and delivered assigned production tasks in the tournament-management feature area within established architecture and review practices. Career value from this chapter: large-codebase delivery, esports/tournament domain exposure, and reactive feature work - without claiming a single personal hero tournament feature.</p>
+            <ul class="case-signals">
+              <li>Production task delivery in an existing App Store esports client</li>
+              <li>Tournament-management feature area inside an established architecture</li>
+              <li>RxSwift adaptation in a maintained UIKit codebase</li>
+            </ul>
+            <p class="case-stack">UIKit · RxSwift</p>
           <!-- PROJECT:project-playhera:CONTENT:END -->
             <p class="case-links"><a href="https://apps.apple.com/ua/app/playhera/id1449021935">App Store</a></p>
           </div>
@@ -94,9 +121,15 @@
           <div class="case-study__copy">
             <!-- PROJECT:project-alchemy:CONTENT:START -->
             <h3 class="case-title">Alchemy: gold-backed digital assets</h3>
-            <p class="case-era">Commercial Senior iOS contract · ~2022.</p>
-            <p class="case-narrative">Took primary iOS ownership of a delayed gold-backed digital asset client linked to physical gold value. Rebuilt an incomplete SwiftUI start in UIKit and shipped the core product flows to a working client beta: sign-in, KYC, gold balance, live price chart, buy with Stripe, and sell. The client talked to project backends - not direct chain integration or physical-gold custody.</p>
-            <p class="case-stack">UIKit · Stripe · Gold price charts</p>
+            <p class="case-era">Commercial Senior iOS contract · ~2022 · gold-backed digital asset client.</p>
+            <p class="case-narrative">Took primary iOS ownership on a delayed client for a digital asset product linked to physical gold value, with project backends mediating Ethereum-backed model concerns - not direct chain integration or physical-gold custody on device.</p>
+            <p class="case-narrative">Discarded an incomplete SwiftUI start and rebuilt core flows in UIKit for delivery predictability. As initial primary iOS implementer, shipped auth, KYC, gold balance/portfolio, live gold price chart, buy with Stripe, and sell to a working client beta. Later onboarded a second iOS engineer with handover; architect coordination covered the broader cross-platform delivery.</p>
+            <ul class="case-signals">
+              <li>UIKit rebuild of delayed SwiftUI start for predictable delivery</li>
+              <li>Core client beta: auth, KYC, gold balance, price chart, Stripe buy, sell</li>
+              <li>Backend-mediated asset flows - not on-device chain or custody</li>
+            </ul>
+            <p class="case-stack">Swift · UIKit · Stripe · Gold price charts · MVVM</p>
           <!-- PROJECT:project-alchemy:CONTENT:END -->
           </div>
         </article>
@@ -106,8 +139,15 @@
             <!-- PROJECT:project-electus:CONTENT:START -->
             <h3 class="case-title">Electus: blockchain assistant</h3>
             <p class="case-era">Electus · iOS Developer · Jul 2018 - Nov 2018 · greenfield crypto startup.</p>
-            <p class="case-narrative">Joined as the primary iOS contributor when the mobile app did not exist yet and built it from a clean UIKit codebase. Shipped wallet creation, import, and balance flows with Keychain-backed secure local storage, including seed-phrase presentation and verification UX. The product direction was to hide blockchain complexity for non-technical users - Contacts-based transfer concepts and familiar fiat-denominated value entry were explored in development, with Ethereum client/testnet work through a third-party open-source library. Wallet surfaces reached an internal Family &amp; Friends TestFlight build, not a public App Store launch.</p>
-            <p class="case-stack">Swift · UIKit · Keychain · TestFlight</p>
+            <p class="case-narrative">Primary iOS contributor on a greenfield blockchain assistant when the mobile product did not exist yet. Built the app from a clean UIKit codebase with independent iOS implementation decisions in a small startup team focused on making crypto approachable for non-experts.</p>
+            <p class="case-narrative">Shipped wallet creation, import, and balance flows with Keychain-backed secure local storage, seed-phrase presentation and verification UX, and Touch ID-related protection. Integrated an unnamed third-party Ethereum client for testnet work and displayed crypto-market data with simple chart visualizations. Contacts-based transfer and fiat-denominated value entry were product hypotheses explored in development - transfer flows remained testnet/development rather than confirmed TestFlight surfaces. Wallet create/import/balance reached an internal Family &amp; Friends TestFlight build - not a public App Store launch.</p>
+            <ul class="case-signals">
+              <li>Greenfield primary iOS ownership from a clean UIKit codebase</li>
+              <li>Wallet create/import/balance with Keychain and seed-phrase UX</li>
+              <li>Ethereum client/testnet exploration plus market data charts</li>
+              <li>Family &amp; Friends TestFlight for wallet surfaces (not App Store)</li>
+            </ul>
+            <p class="case-stack">Swift · UIKit · Keychain · Ethereum client (third-party) · TestFlight</p>
           <!-- PROJECT:project-electus:CONTENT:END -->
           </div>
         </article>
@@ -117,8 +157,15 @@
             <!-- PROJECT:project-tap4parking:CONTENT:START -->
             <h3 class="case-title">Tap4Parking</h3>
             <p class="case-era">Tap4Parking · iOS Developer · Nov 2014 - Nov 2015 · digital parking startup.</p>
-            <p class="case-narrative">Primary hands-on iOS implementer on a greenfield parking product with the map as the main screen. Built parking location display, user location, and route-to-parking flows on Google Maps SDK, plus multi-storey floor/building plans with red/green occupancy for parking spaces. Delivered a friends-and-family test version during about a year of full-time startup work.</p>
-            <p class="case-stack">Objective-C · UIKit · Google Maps SDK</p>
+            <p class="case-narrative">Primary hands-on iOS implementer on a greenfield map-first parking product during about a year of full-time startup work. The map was the main screen: parking locations, user location, and route-to-parking flows built on Google Maps SDK, plus multi-storey floor plans with red/green space occupancy.</p>
+            <p class="case-narrative">Worked through location and background-location behavior as a core product concern. Bluetooth beacons were explored for multi-storey context - not a production positioning system. Delivered a friends-and-family test version of the parking client.</p>
+            <ul class="case-signals">
+              <li>Greenfield map-first parking client on Google Maps SDK</li>
+              <li>Multi-storey occupancy plans and route-to-parking flows</li>
+              <li>Location / background-location behavior as a product constraint</li>
+              <li>Friends-and-family test delivery after ~1 year of startup iOS work</li>
+            </ul>
+            <p class="case-stack">UIKit · Google Maps SDK · Core Location</p>
           <!-- PROJECT:project-tap4parking:CONTENT:END -->
             <p class="case-links"><a href="https://www.facebook.com/tap4parking/">Facebook</a></p>
           </div>
@@ -130,8 +177,12 @@
             <div class="case-compact__copy">
               <!-- PROJECT:project-eastern-union:CONTENT:START -->
             <h3 class="case-title">Eastern Union: CRE app</h3>
-            <p class="case-era">GBKSoft · existing real estate client application.</p>
-            <p class="case-narrative">Delivered incremental maintenance on Eastern Union, an existing real estate client app.</p>
+            <p class="case-era">GBKSoft · existing commercial real-estate client application · maintenance slice within 2017 - 2018.</p>
+            <p class="case-narrative">Joined a long-running CRE client app for later-round incremental improvements rather than a greenfield build. Delivered maintenance, polishing, and narrowly scoped client-requested changes in a mature Swift/UIKit codebase - useful practice modifying an existing commercial product, not a flagship ownership story.</p>
+            <ul class="case-signals">
+              <li>Incremental maintenance and polishing on an existing CRE client app</li>
+              <li>Client-requested scoped changes inside a mature Swift/UIKit codebase</li>
+            </ul>
             <p class="case-stack">Swift · UIKit</p>
           <!-- PROJECT:project-eastern-union:CONTENT:END -->
               <p class="case-links"><a href="https://apps.apple.com/us/app/eastern-union/id1125123079">App Store</a> · <a href="https://easternunion.com/">easternunion.com</a></p>
@@ -155,9 +206,14 @@
           <p class="case-experiment__kicker">Pet project</p>
           <!-- PROJECT:project-regional-check:CONTENT:START -->
             <h3 class="case-title">Regional Check</h3>
-            <p class="case-era">Personal pet project · CarPlay + iPhone companion.</p>
-            <p class="case-narrative">Minimal CarPlay utility that shows the current regional public-notice state for the driver's location. One screen, one region, one refresh. iPhone mirrors the same companion experience. Not an emergency or safety product.</p>
-            <p class="case-stack">SwiftUI · CarPlay · CoreLocation · MapKit</p>
+            <p class="case-era">Personal pet project · CarPlay + iPhone companion · public GitHub.</p>
+            <p class="case-narrative">Minimal CarPlay utility that shows the current regional public-notice state for the driver's location. One screen, one region, one refresh - calm informational status, not an emergency, safety, or monitoring product. The iPhone companion mirrors the same experience with localization for English, Russian, and Ukrainian.</p>
+            <ul class="case-signals">
+              <li>CarPlay template surface for a single regional status read</li>
+              <li>iPhone companion with Core Location / MapKit-backed region context</li>
+              <li>Calm public-notice framing - not emergency alerting</li>
+            </ul>
+            <p class="case-stack">SwiftUI · CarPlay · CoreLocation · MapKit · String Catalogs</p>
           <!-- PROJECT:project-regional-check:CONTENT:END -->
           <p class="case-links"><a href="https://github.com/vil4max/regional-check">GitHub</a></p>
         </article>
@@ -166,8 +222,11 @@
           <p class="case-experiment__kicker">Pet project</p>
           <!-- PROJECT:project-pitstop-ios:CONTENT:START -->
             <h3 class="case-title">PitStop</h3>
-            <p class="case-era">Personal pet project · driver's journal.</p>
-            <p class="case-narrative">Personal SwiftUI pet for a driver's journal / car memory concept. Early implementation - useful as a pet surface, not a finished product showcase.</p>
+            <p class="case-era">Personal pet project · driver's journal / car memory.</p>
+            <p class="case-narrative">Early SwiftUI experiment for a personal driver's journal and car memory concept. Useful as a public pet surface and learning scratchpad - not a finished product showcase or production proof point.</p>
+            <ul class="case-signals">
+              <li>Early personal SwiftUI experiment for a driver's journal concept</li>
+            </ul>
             <p class="case-stack">Swift · SwiftUI</p>
           <!-- PROJECT:project-pitstop-ios:CONTENT:END -->
           <p class="case-links"><a href="https://github.com/vil4max/pitstop-ios">GitHub</a></p>
