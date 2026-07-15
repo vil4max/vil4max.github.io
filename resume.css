@@ -2017,6 +2017,8 @@
 }
 
 .experience-entry:last-child {
+  /* Push foundation mile lower: official career starts late 2013 */
+  padding-top: 56px;
   padding-bottom: calc(12px + var(--past-dash));
 }
 

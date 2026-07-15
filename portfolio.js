@@ -24,7 +24,7 @@
             return rect.top + rect.height / 2 - scaleTop;
         };
 
-        // Outgoing rail segments: match length to next entry's dot (fixes stretched dashed bars).
+        // Outgoing rail segments: match length to next entry's dot.
         for (let index = 0; index < entries.length - 1; index += 1) {
             const currentDot = entries[index].querySelector(".experience-entry__dot");
             const nextDot = entries[index + 1].querySelector(".experience-entry__dot");
@@ -39,24 +39,53 @@
             rail.style.setProperty("--segment-length", `${Math.max(24, Math.round(span))}px`);
         }
 
-        // Year anchors from past (and present) role starts — first occurrence of each start year wins.
-        const yearAnchors = [];
-        const seenYears = new Set();
-        for (const entry of entries) {
-            const year = Number(entry.dataset.startYear);
-            const top = dotCenterY(entry);
-            if (!Number.isFinite(year) || top == null || seenYears.has(year)) {
-                continue;
+        // Year → Y map. Newest-first page: role end sits higher, role start sits lower on long spans.
+        const yearTops = new Map();
+        const setYearTop = (year, top, { allowLower = false } = {}) => {
+            if (!Number.isFinite(year) || top == null) {
+                return;
             }
-            // Prefer aligning calendar years to past roles; skip duplicating Now's year onto Now.
+            if (!yearTops.has(year)) {
+                yearTops.set(year, top);
+                return;
+            }
+            if (allowLower && top > yearTops.get(year)) {
+                yearTops.set(year, top);
+            }
+        };
+
+        for (const entry of entries) {
             if (entry.classList.contains("experience-entry--current") && entries.length > 1) {
                 continue;
             }
-            seenYears.add(year);
-            yearAnchors.push({ year, top });
+
+            const startYear = Number(entry.dataset.startYear);
+            const endYear = Number(entry.dataset.endYear || startYear);
+            const top = dotCenterY(entry);
+            if (!Number.isFinite(startYear) || top == null) {
+                continue;
+            }
+
+            const entryRect = entry.getBoundingClientRect();
+            const entryBottom = entryRect.bottom - scaleTop - 28;
+            const isFoundation = entry === entries[entries.length - 1];
+            const spansYears = Number.isFinite(endYear) && endYear > startYear;
+
+            if (spansYears) {
+                // More recent end of the span near the top of the card (after previous role).
+                setYearTop(endYear, top);
+                // Career start lower on the card — foundation began late 2013, not at the header line.
+                const startRatio = isFoundation ? 0.9 : 0.55;
+                const startTop = top + Math.max(24, (entryBottom - top) * startRatio);
+                setYearTop(startYear, startTop, { allowLower: true });
+            } else {
+                setYearTop(startYear, top);
+            }
         }
 
-        yearAnchors.sort((left, right) => right.year - left.year);
+        const yearAnchors = [...yearTops.entries()]
+            .map(([year, top]) => ({ year, top }))
+            .sort((left, right) => right.year - left.year);
 
         const topForYear = (year) => {
             const exact = yearAnchors.find((anchor) => anchor.year === year);
