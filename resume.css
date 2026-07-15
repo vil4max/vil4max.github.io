@@ -1753,7 +1753,7 @@
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: 0 28px;
-  align-items: center;
+  align-items: start;
   padding: 20px 0 8px;
   min-height: 0;
 }
@@ -1765,6 +1765,7 @@
   object-fit: cover;
   display: block;
   flex-shrink: 0;
+  margin-top: 0.12em;
 }
 
 .cover-hero__copy {
