@@ -1915,23 +1915,39 @@
 }
 
 .cover-experience {
-  padding-top: 12px;
+  padding-top: 8px;
 }
 
 .experience-stack {
+  --rail-x: 14px;
   display: grid;
   gap: 0;
   position: relative;
-  padding-left: 2px;
+  padding-top: 40px;
 }
 
+/* Open path above current role: job search / next step */
+.experience-stack::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 48px;
+  left: var(--rail-x);
+  width: 0;
+  border-left: 2px dashed color-mix(in srgb, var(--muted) 62%, transparent);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Career path rail through roles */
 .experience-stack::before {
   content: "";
   position: absolute;
-  top: 12px;
-  bottom: 24px;
-  left: 13px;
+  top: 48px;
+  bottom: 28px;
+  left: var(--rail-x);
   width: 2px;
+  transform: translateX(-50%);
   background: linear-gradient(
     180deg,
     var(--accent) 0%,
@@ -1958,6 +1974,7 @@
   position: relative;
   display: flex;
   justify-content: center;
+  width: 28px;
 }
 
 .experience-entry__rail::before {
@@ -1967,23 +1984,31 @@
 .experience-entry__dot {
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
   width: 16px;
   height: 16px;
   margin-top: 4px;
   border-radius: 50%;
-  border: 2px solid var(--accent);
+  border: 2px solid color-mix(in srgb, var(--muted) 70%, var(--accent));
   background: var(--bg);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 16%, transparent);
+  box-shadow: none;
   flex: 0 0 auto;
-  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.experience-entry:first-child .experience-entry__dot {
+/* Fresh roles: latest + previous (GlobalLogic, PASHA) */
+.experience-entry:nth-child(-n + 2) .experience-entry__dot {
+  border-color: var(--accent);
   background: var(--accent);
   box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 24%, transparent);
   transform: scale(1.08);
 }
 
+.experience-entry:nth-child(-n + 2) .experience-entry__company {
+  color: var(--accent);
+}
+
+/* Foundation node at the end of the path */
 .experience-entry:last-child .experience-entry__dot {
   border-style: dashed;
   border-color: var(--muted);
@@ -1992,7 +2017,7 @@
   transform: none;
 }
 
-.experience-entry[data-milestone-panel="earlier"] .experience-entry__company {
+.experience-entry:last-child .experience-entry__company {
   color: var(--fg-heading);
 }
 
@@ -2008,10 +2033,6 @@
   color: var(--fg-heading);
   font-weight: 700;
   line-height: 1.2;
-}
-
-.experience-entry:first-child .experience-entry__company {
-  color: var(--accent);
 }
 
 .experience-entry__role {
