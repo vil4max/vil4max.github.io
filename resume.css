@@ -1972,24 +1972,11 @@
   min-width: 0;
 }
 
-/* Open path: job search / next step (dashed from Now → latest role) */
-.experience-stack::after {
-  content: "";
-  position: absolute;
-  top: 20px;
-  height: 36px;
-  left: var(--rail-x);
-  width: 0;
-  border-left: 2px dashed color-mix(in srgb, var(--muted) 62%, transparent);
-  transform: translateX(-50%);
-  z-index: 0;
-}
-
-/* Career path rail through past roles */
+/* Continuous career rail: Now → past roles */
 .experience-stack::before {
   content: "";
   position: absolute;
-  top: 56px;
+  top: 12px;
   bottom: 28px;
   left: var(--rail-x);
   width: 2px;
@@ -1997,32 +1984,10 @@
   background: linear-gradient(
     180deg,
     var(--accent) 0%,
-    color-mix(in srgb, var(--accent) 55%, var(--border-subtle)) 42%,
+    color-mix(in srgb, var(--accent) 55%, var(--border-subtle)) 28%,
     var(--border-subtle) 100%
   );
   z-index: 0;
-}
-
-.experience-now {
-  display: grid;
-  grid-template-columns: 28px minmax(0, 1fr);
-  gap: 0 24px;
-  padding: 4px 0 32px;
-  position: relative;
-  z-index: 2;
-}
-
-.experience-now__dot {
-  box-sizing: border-box;
-  width: 16px;
-  height: 16px;
-  margin-top: 4px;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-  background: var(--accent);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 24%, transparent);
-  display: block;
-  flex: 0 0 auto;
 }
 
 .experience-entry {
@@ -2064,16 +2029,25 @@
   transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-/* Recent past roles: blue hollow rings (not filled — current is Now / search) */
-.experience-entry:nth-of-type(-n + 2) .experience-entry__dot {
+/* Recent past roles: blue hollow rings */
+.experience-entry--recent .experience-entry__dot {
   border-color: var(--accent);
   background: var(--bg);
   box-shadow: none;
   transform: none;
 }
 
-.experience-entry:nth-of-type(-n + 2) .experience-entry__company {
+.experience-entry--recent .experience-entry__company,
+.experience-entry--current .experience-entry__company {
   color: var(--accent);
+}
+
+/* Current open node (Now): filled */
+.experience-entry--current .experience-entry__dot {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 24%, transparent);
+  transform: scale(1.08);
 }
 
 .experience-entry:last-of-type .experience-entry__company {

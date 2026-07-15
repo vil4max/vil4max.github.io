@@ -177,7 +177,7 @@ ${ticks.join("\n")}
           </ol>`;
 }
 
-function renderMilestone(id, body) {
+function renderMilestone(id, body, { isCurrent = false, isRecent = false } = {}) {
     const fields = fieldMap(body);
     const company = (fields.get("Company") || "").trim();
     const role = (fields.get("Role") || "").trim();
@@ -223,8 +223,15 @@ ${signals.map((signal) => `              <li>${escapeHtml(signal)}</li>`).join("
         : "";
 
     const yearAttr = startYear != null ? ` data-start-year="${startYear}"` : "";
+    const classNames = ["experience-entry"];
+    if (isCurrent) {
+        classNames.push("experience-entry--current");
+    }
+    if (isRecent) {
+        classNames.push("experience-entry--recent");
+    }
 
-    return `          <article class="experience-entry" id="milestone-${escapeHtml(id)}" data-milestone-panel="${escapeHtml(id)}"${yearAttr}>
+    return `          <article class="${classNames.join(" ")}" id="milestone-${escapeHtml(id)}" data-milestone-panel="${escapeHtml(id)}"${yearAttr}>
             <div class="experience-entry__rail" aria-hidden="true"><span class="experience-entry__dot"></span></div>
             <div class="experience-entry__content">
               <h3 class="experience-entry__company">${escapeHtml(title)}</h3>
@@ -239,14 +246,22 @@ ${cta}
 function renderMilestones(section) {
     const milestones = extractSubsections(section, 3);
     const yearScale = careerYearScale(milestones);
+    let pastIndex = 0;
+    const entries = milestones
+        .map((item) => {
+            const isCurrent = item.heading === "now";
+            const isRecent = !isCurrent && pastIndex < 2;
+            if (!isCurrent) {
+                pastIndex += 1;
+            }
+            return renderMilestone(item.heading, item.body, { isCurrent, isRecent });
+        })
+        .join("\n");
     return `        <section class="cover-experience" aria-label="Experience">
           <div class="experience-layout">
 ${yearScale}
             <div class="experience-stack">
-            <div class="experience-now" aria-label="Currently open to opportunities">
-              <div class="experience-entry__rail" aria-hidden="true"><span class="experience-now__dot"></span></div>
-            </div>
-${milestones.map((item) => renderMilestone(item.heading, item.body)).join("\n")}
+${entries}
             </div>
           </div>
         </section>`;
