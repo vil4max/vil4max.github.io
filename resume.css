@@ -2467,6 +2467,14 @@
   background: var(--accent, #7eb6ff);
 }
 
+.experience-entry--current .experience-entry__bullets li {
+  padding-left: 0;
+}
+
+.experience-entry--current .experience-entry__bullets li::before {
+  content: none;
+}
+
 /* Folded roles inside Earlier: same position canon, compact type */
 .experience-chapters {
   list-style: none;
