@@ -152,6 +152,16 @@
 
     const layoutProductContextMobile = () => layoutProductContext();
 
+    const layoutRow3 = () => ({
+        columns: 3,
+        rows: 1,
+        cells: [
+            { index: 0, column: 0, row: 0, columnSpan: 1, rowSpan: 1 },
+            { index: 1, column: 1, row: 0, columnSpan: 1, rowSpan: 1 },
+            { index: 2, column: 2, row: 0, columnSpan: 1, rowSpan: 1 },
+        ],
+    });
+
     const layoutOnePlusTwoByTwo = (featuredIndex) => {
         const others = [0, 1, 2, 3, 4].filter((index) => index !== featuredIndex).slice(0, 4);
         return {
@@ -191,6 +201,10 @@
             return isMobile ? layoutOnePlusTwoByTwoMobile(featuredIndex) : layoutOnePlusTwoByTwo(featuredIndex);
         }
 
+        if (pattern === "row-3" && count === 3) {
+            return layoutRow3();
+        }
+
         if ((pattern === "hero-details" || pattern === "device-hero") && count === 3) {
             return isMobile ? layoutHeroDetailsMobile() : layoutHeroDetails();
         }
@@ -210,21 +224,69 @@
         return layoutHeroDetails();
     };
 
-    const estimatePlanHeight = (plan, ratios, width) => {
-        const gap = TILE_GAP;
-        const columnWidth = (width - gap * (plan.columns - 1)) / plan.columns;
-        const rowHeights = Array.from({ length: plan.rows }, () => 0);
+    const equalColumnWidths = (columns, width, gap) => {
+        const columnWidth = (width - gap * (columns - 1)) / columns;
+        return Array.from({ length: columns }, () => columnWidth);
+    };
 
+    const wantsSquareHeroWindow = (image, ratio) => {
+        if (!image) {
+            return false;
+        }
+        if (image.dataset.tileHeroShape === "square" || image.dataset.mediaKind === "photo") {
+            return true;
+        }
+        return ratio >= 0.85;
+    };
+
+    const resolveColumnWidths = (plan, width, gap, ratios, images, pattern) => {
+        const isMobile = window.innerWidth < DESKTOP_MEDIA_MIN;
+        const heroPattern = pattern === "hero-details" || pattern === "device-hero";
+        if (
+            heroPattern &&
+            !isMobile &&
+            plan.columns === 2 &&
+            ratios.length >= 3 &&
+            wantsSquareHeroWindow(images[0], ratios[0] ?? DEFAULT_PHONE_RATIO)
+        ) {
+            const targetLeftAspect = 1;
+            const detailA = ratios[1] ?? DEFAULT_PHONE_RATIO;
+            const detailB = ratios[2] ?? DEFAULT_PHONE_RATIO;
+            const denom = 1 + targetLeftAspect / detailA + targetLeftAspect / detailB;
+            const rightWidth = (width - gap * (1 + targetLeftAspect)) / denom;
+            const mosaicHeight = rightWidth / detailA + gap + rightWidth / detailB;
+            const leftWidth = targetLeftAspect * mosaicHeight;
+            if (rightWidth >= 96 && leftWidth >= 96 && leftWidth + gap + rightWidth <= width + 2) {
+                return [leftWidth, rightWidth];
+            }
+            const usable = width - gap;
+            return [(usable * 1.7) / 2.7, usable / 2.7];
+        }
+        return equalColumnWidths(plan.columns, width, gap);
+    };
+
+    const measureRowHeights = (plan, ratios, columnWidths, gap) => {
+        const rowHeights = Array.from({ length: plan.rows }, () => 0);
         for (const cell of plan.cells) {
-            const ratio = ratios[cell.index] ?? 1;
-            const cellWidth = columnWidth * cell.columnSpan + gap * (cell.columnSpan - 1);
+            const ratio = ratios[cell.index] ?? DEFAULT_PHONE_RATIO;
+            let cellWidth = 0;
+            for (let column = cell.column; column < cell.column + cell.columnSpan; column += 1) {
+                cellWidth += columnWidths[column] ?? 0;
+            }
+            cellWidth += gap * Math.max(0, cell.columnSpan - 1);
             const cellHeight = cellWidth / ratio;
             const rowShare = cellHeight / cell.rowSpan;
             for (let row = cell.row; row < cell.row + cell.rowSpan; row += 1) {
                 rowHeights[row] = Math.max(rowHeights[row], rowShare);
             }
         }
+        return rowHeights;
+    };
 
+    const estimatePlanHeight = (plan, ratios, width, images, pattern) => {
+        const gap = TILE_GAP;
+        const columnWidths = resolveColumnWidths(plan, width, gap, ratios, images, pattern);
+        const rowHeights = measureRowHeights(plan, ratios, columnWidths, gap);
         return rowHeights.reduce((sum, height) => sum + height, 0) + gap * (plan.rows - 1);
     };
 
@@ -241,18 +303,19 @@
             return;
         }
 
+        const pattern = container.dataset.tilePattern;
         const featuredRaw = Number(container.dataset.tileFeatured);
         const plan = planTileLayout(images.length, {
-            pattern: container.dataset.tilePattern,
+            pattern,
             featuredIndex: Number.isFinite(featuredRaw) ? featuredRaw : 0,
         });
         const ratios = images.map((img) => getImageRatio(img));
+        const gap = TILE_GAP;
 
         container.classList.add("case-study__media--tiled");
         container.classList.remove("case-study__media--watch");
         container.style.display = "grid";
-        container.style.gap = `${TILE_GAP}px`;
-        container.style.gridTemplateColumns = `repeat(${plan.columns}, minmax(0, 1fr))`;
+        container.style.gap = `${gap}px`;
         container.style.gridTemplateRows = "";
         container.style.width = "100%";
         container.style.maxWidth = "100%";
@@ -281,51 +344,30 @@
         }
 
         const availableWidth = Math.max(160, container.getBoundingClientRect().width || container.clientWidth);
-
         const study = container.closest(".case-study--media");
         const copy = study?.querySelector(".case-study__copy");
-        const naturalHeight = estimatePlanHeight(plan, ratios, availableWidth);
+        const naturalHeight = estimatePlanHeight(plan, ratios, availableWidth, images, pattern);
         if (naturalHeight <= 0) {
             return;
         }
 
         let targetWidth = availableWidth;
-        let targetHeight = naturalHeight;
         const isDesktop = Boolean(copy) && window.innerWidth >= DESKTOP_MEDIA_MIN;
         if (isDesktop) {
             const copyHeight = copy.offsetHeight;
             if (copyHeight > 0 && naturalHeight > copyHeight) {
-                const scale = copyHeight / naturalHeight;
-                targetWidth = Math.max(160, availableWidth * scale);
-                targetHeight = copyHeight;
+                targetWidth = Math.max(160, availableWidth * (copyHeight / naturalHeight));
             }
         }
 
-        const gap = TILE_GAP;
-        const columnWidth = (targetWidth - gap * (plan.columns - 1)) / plan.columns;
-        const rowHeights = Array.from({ length: plan.rows }, () => 0);
+        const columnWidths = resolveColumnWidths(plan, targetWidth, gap, ratios, images, pattern);
+        const rowHeights = measureRowHeights(plan, ratios, columnWidths, gap);
+        const mosaicHeight = rowHeights.reduce((sum, height) => sum + height, 0) + gap * Math.max(0, plan.rows - 1);
 
-        for (const cell of plan.cells) {
-            const ratio = ratios[cell.index] ?? DEFAULT_PHONE_RATIO;
-            const cellWidth = columnWidth * cell.columnSpan + gap * (cell.columnSpan - 1);
-            const cellHeight = cellWidth / ratio;
-            const rowShare = cellHeight / cell.rowSpan;
-            for (let row = cell.row; row < cell.row + cell.rowSpan; row += 1) {
-                rowHeights[row] = Math.max(rowHeights[row], rowShare);
-            }
-        }
-
-        const rowSum = rowHeights.reduce((sum, height) => sum + height, 0);
-        if (rowSum > 0 && Math.abs(rowSum + gap * (plan.rows - 1) - targetHeight) > 1) {
-            const scale = (targetHeight - gap * (plan.rows - 1)) / rowSum;
-            for (let index = 0; index < rowHeights.length; index += 1) {
-                rowHeights[index] *= scale;
-            }
-        }
-
+        container.style.gridTemplateColumns = columnWidths.map((width) => `${Math.max(1, width)}px`).join(" ");
         container.style.width = targetWidth >= availableWidth - 1 ? "100%" : `${Math.floor(targetWidth)}px`;
         container.style.maxWidth = "100%";
-        container.style.height = `${Math.ceil(targetHeight)}px`;
+        container.style.height = `${Math.ceil(mosaicHeight)}px`;
         container.style.gridTemplateRows = rowHeights.map((height) => `${Math.max(1, height)}px`).join(" ");
 
         for (const cell of plan.cells) {
