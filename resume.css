@@ -3059,7 +3059,7 @@ footer.cover-footer a:focus-visible {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  align-items: end;
+  align-items: start;
 }
 
 .case-study__media img {
@@ -3107,19 +3107,39 @@ footer.cover-footer a:focus-visible {
 }
 
 .case-study__media--t4p {
-  grid-template-columns: minmax(120px, 180px) repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(140px, 0.9fr) repeat(2, minmax(0, 1fr));
   grid-template-rows: auto auto;
-  align-items: end;
+  align-items: start;
+  gap: 16px;
 }
 
 .case-study__media--t4p img:first-child {
   grid-row: 1 / span 2;
-  max-width: 180px;
-  align-self: end;
+  max-width: 200px;
+  width: 100%;
+  justify-self: center;
+  align-self: start;
 }
 
 .case-study__media--t4p img:nth-child(4) {
   grid-column: 2 / span 2;
+  align-self: end;
+}
+
+.case-study__media--electus {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.case-study__media--electus img {
+  grid-column: span 2;
+}
+
+.case-study__media--electus img:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.case-study__media--electus img:nth-child(5) {
+  grid-column: 4 / span 2;
 }
 
 .case-study__media--grh {
@@ -3211,6 +3231,57 @@ footer.cover-footer a:focus-visible {
   .case-study--reverse .case-study__copy,
   .case-study--reverse .case-study__media {
     order: initial;
+  }
+
+  .case-study__media {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .case-study__media--t4p {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+
+  .case-study__media--t4p img:first-child {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    max-width: min(280px, 72vw);
+    justify-self: center;
+  }
+
+  .case-study__media--t4p img:nth-child(4) {
+    grid-column: 1 / -1;
+    align-self: start;
+  }
+
+  .case-study__media--electus {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-study__media--electus img {
+    grid-column: auto;
+  }
+
+  .case-study__media--electus img:nth-child(4),
+  .case-study__media--electus img:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .case-study__media--electus img:last-child {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 6px);
+    justify-self: center;
+  }
+
+  .case-study__media:not(.case-study__media--t4p):not(.case-study__media--watch):not(.case-study__media--grh):not(.case-study__media--electus) > img:last-child:nth-child(odd):not(:only-child) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 6px);
+    justify-self: center;
+  }
+
+  .case-study__media--grh {
+    gap: 12px;
   }
 
   .career-path {
