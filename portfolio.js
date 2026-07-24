@@ -327,14 +327,18 @@
         container.style.display = "grid";
         container.style.gap = `${TILE_GAP}px`;
         container.style.gridTemplateColumns = `repeat(${plan.columns}, minmax(0, 1fr))`;
-        container.style.gridTemplateRows = `repeat(${plan.rows}, minmax(0, 1fr))`;
-        container.style.width = "";
-        container.style.maxWidth = "";
-        container.style.height = "";
+        container.style.gridTemplateRows = "";
+        container.style.width = "100%";
+        container.style.maxWidth = "100%";
+        container.style.height = "auto";
 
         for (const image of images) {
             image.style.gridColumn = "";
             image.style.gridRow = "";
+            image.style.aspectRatio = "";
+            image.style.height = "";
+            image.style.width = "";
+            image.style.objectFit = "";
         }
 
         for (const cell of plan.cells) {
@@ -346,42 +350,71 @@
             image.style.gridRow = `${cell.row + 1} / span ${cell.rowSpan}`;
         }
 
+        // Measure the media column track — not the full case-study article width.
+        const availableWidth = Math.max(160, container.getBoundingClientRect().width || container.clientWidth);
+
         const study = container.closest(".case-study--media");
         const copy = study?.querySelector(".case-study__copy");
-        const availableWidth = Math.max(
-            160,
-            container.parentElement?.clientWidth || container.clientWidth || container.offsetWidth,
-        );
-
-        // Mobile / stacked: natural tile height, no stretch to fill.
-        if (!copy || window.innerWidth < DESKTOP_MEDIA_MIN) {
-            const naturalHeight = estimatePlanHeight(plan, ratios, availableWidth);
-            if (naturalHeight > 0) {
-                container.style.width = "100%";
-                container.style.height = `${Math.ceil(naturalHeight)}px`;
-            }
-            return;
-        }
-
-        // Desktop: text height is the priority. Scale the tile block down to
-        // match copy height; never stretch tiles taller than the description.
-        const copyHeight = copy.offsetHeight;
         const naturalHeight = estimatePlanHeight(plan, ratios, availableWidth);
-        if (naturalHeight <= 0 || copyHeight <= 0) {
+        if (naturalHeight <= 0) {
             return;
         }
 
-        if (naturalHeight > copyHeight) {
-            const scale = copyHeight / naturalHeight;
-            const scaledWidth = Math.max(160, availableWidth * scale);
-            container.style.width = `${Math.floor(scaledWidth)}px`;
-            container.style.maxWidth = "100%";
-            container.style.height = `${Math.ceil(copyHeight)}px`;
-            return;
+        // Real asset size is a hard ceiling. Never stretch tiles taller than
+        // their natural aspect. Only shrink when they would exceed text height.
+        let targetWidth = availableWidth;
+        let targetHeight = naturalHeight;
+        const isDesktop = Boolean(copy) && window.innerWidth >= DESKTOP_MEDIA_MIN;
+        if (isDesktop) {
+            const copyHeight = copy.offsetHeight;
+            if (copyHeight > 0 && naturalHeight > copyHeight) {
+                const scale = copyHeight / naturalHeight;
+                targetWidth = Math.max(160, availableWidth * scale);
+                targetHeight = copyHeight;
+            }
         }
 
-        container.style.width = "100%";
-        container.style.height = `${Math.ceil(naturalHeight)}px`;
+        const gap = TILE_GAP;
+        const columnWidth = (targetWidth - gap * (plan.columns - 1)) / plan.columns;
+        const rowHeights = Array.from({ length: plan.rows }, () => 0);
+
+        for (const cell of plan.cells) {
+            const ratio = ratios[cell.index] ?? DEFAULT_PHONE_RATIO;
+            const cellWidth = columnWidth * cell.columnSpan + gap * (cell.columnSpan - 1);
+            const cellHeight = cellWidth / ratio;
+            const rowShare = cellHeight / cell.rowSpan;
+            for (let row = cell.row; row < cell.row + cell.rowSpan; row += 1) {
+                rowHeights[row] = Math.max(rowHeights[row], rowShare);
+            }
+        }
+
+        // If we shrunk to text height, distribute row heights proportionally
+        // so cells keep relative proportions without stretching past natural.
+        const rowSum = rowHeights.reduce((sum, height) => sum + height, 0);
+        if (rowSum > 0 && Math.abs(rowSum + gap * (plan.rows - 1) - targetHeight) > 1) {
+            const scale = (targetHeight - gap * (plan.rows - 1)) / rowSum;
+            for (let index = 0; index < rowHeights.length; index += 1) {
+                rowHeights[index] *= scale;
+            }
+        }
+
+        container.style.width = targetWidth >= availableWidth - 1 ? "100%" : `${Math.floor(targetWidth)}px`;
+        container.style.maxWidth = "100%";
+        container.style.height = `${Math.ceil(targetHeight)}px`;
+        container.style.gridTemplateRows = rowHeights.map((height) => `${Math.max(1, height)}px`).join(" ");
+
+        for (const cell of plan.cells) {
+            const image = images[cell.index];
+            if (!image) {
+                continue;
+            }
+            const ratio = ratios[cell.index] ?? DEFAULT_PHONE_RATIO;
+            image.style.width = "100%";
+            image.style.height = "100%";
+            image.style.objectFit = "cover";
+            image.style.objectPosition = "center top";
+            image.style.aspectRatio = `${ratio}`;
+        }
     };
 
     const layoutProjectMediaTiles = () => {
