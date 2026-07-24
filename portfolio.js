@@ -1,8 +1,5 @@
 (() => {
-    const PORTRAIT_MAX = 1.0;
-    const LANDSCAPE_MIN = 1.25;
     const DEFAULT_PHONE_RATIO = 0.46;
-    const RATIO_TOLERANCE = 0.14;
     const DESKTOP_MEDIA_MIN = 901;
     const TILE_GAP = 12;
 
@@ -31,7 +28,6 @@
             return rect.top + rect.height / 2 - scaleTop;
         };
 
-        // Outgoing rail segments: match length to next entry's dot.
         for (let index = 0; index < entries.length - 1; index += 1) {
             const currentDot = entries[index].querySelector(".experience-entry__dot");
             const nextDot = entries[index + 1].querySelector(".experience-entry__dot");
@@ -46,7 +42,6 @@
             rail.style.setProperty("--segment-length", `${Math.max(24, Math.round(span))}px`);
         }
 
-        // Mile / origin anchors (emphasized years).
         const yearTops = new Map();
         for (const entry of entries) {
             if (entry.classList.contains("experience-entry--current") && entries.length > 1) {
@@ -125,29 +120,17 @@
         return width / height;
     };
 
-    const ratiosAreSimilar = (ratios) => {
-        if (ratios.length < 2) {
-            return true;
-        }
-        const average = ratios.reduce((sum, ratio) => sum + ratio, 0) / ratios.length;
-        return ratios.every((ratio) => Math.abs(ratio - average) / average <= RATIO_TOLERANCE);
-    };
+    const layoutHeroDetails = () => ({
+        columns: 2,
+        rows: 2,
+        cells: [
+            { index: 0, column: 0, row: 0, columnSpan: 1, rowSpan: 2 },
+            { index: 1, column: 1, row: 0, columnSpan: 1, rowSpan: 1 },
+            { index: 2, column: 1, row: 1, columnSpan: 1, rowSpan: 1 },
+        ],
+    });
 
-    const gridPlan = (count, columns, rows) => {
-        const cells = [];
-        for (let index = 0; index < count; index += 1) {
-            cells.push({
-                index,
-                column: index % columns,
-                row: Math.floor(index / columns),
-                columnSpan: 1,
-                rowSpan: 1,
-            });
-        }
-        return { columns, rows, cells };
-    };
-
-    const layoutThreeLandscape = () => ({
+    const layoutHeroDetailsMobile = () => ({
         columns: 2,
         rows: 2,
         cells: [
@@ -157,17 +140,17 @@
         ],
     });
 
-    const layoutFivePortrait = () => ({
-        columns: 6,
+    const layoutProductContext = () => ({
+        columns: 2,
         rows: 2,
         cells: [
             { index: 0, column: 0, row: 0, columnSpan: 2, rowSpan: 1 },
-            { index: 1, column: 2, row: 0, columnSpan: 2, rowSpan: 1 },
-            { index: 2, column: 4, row: 0, columnSpan: 2, rowSpan: 1 },
-            { index: 3, column: 1, row: 1, columnSpan: 2, rowSpan: 1 },
-            { index: 4, column: 3, row: 1, columnSpan: 2, rowSpan: 1 },
+            { index: 1, column: 0, row: 1, columnSpan: 1, rowSpan: 1 },
+            { index: 2, column: 1, row: 1, columnSpan: 1, rowSpan: 1 },
         ],
     });
+
+    const layoutProductContextMobile = () => layoutProductContext();
 
     const layoutOnePlusTwoByTwo = (featuredIndex) => {
         const others = [0, 1, 2, 3, 4].filter((index) => index !== featuredIndex).slice(0, 4);
@@ -199,46 +182,7 @@
         };
     };
 
-    const layoutMosaicFour = (portraitIndex) => {
-        const others = [0, 1, 2, 3].filter((index) => index !== portraitIndex);
-        return {
-            columns: 3,
-            rows: 2,
-            cells: [
-                { index: portraitIndex, column: 0, row: 0, columnSpan: 1, rowSpan: 2 },
-                { index: others[0], column: 1, row: 0, columnSpan: 1, rowSpan: 1 },
-                { index: others[1], column: 2, row: 0, columnSpan: 1, rowSpan: 1 },
-                { index: others[2], column: 1, row: 1, columnSpan: 2, rowSpan: 1 },
-            ],
-        };
-    };
-
-    const layoutMosaicFourMobile = (portraitIndex) => {
-        const others = [0, 1, 2, 3].filter((index) => index !== portraitIndex);
-        return {
-            columns: 2,
-            rows: 3,
-            cells: [
-                { index: portraitIndex, column: 0, row: 0, columnSpan: 2, rowSpan: 1 },
-                { index: others[0], column: 0, row: 1, columnSpan: 1, rowSpan: 1 },
-                { index: others[1], column: 1, row: 1, columnSpan: 1, rowSpan: 1 },
-                { index: others[2], column: 0, row: 2, columnSpan: 2, rowSpan: 1 },
-            ],
-        };
-    };
-
-    const resolveMosaicPortraitIndex = (ratios) => {
-        const portraitIndexes = ratios
-            .map((ratio, index) => ({ ratio, index }))
-            .filter(({ ratio }) => ratio < PORTRAIT_MAX);
-        if (portraitIndexes.length === 1) {
-            return portraitIndexes[0].index;
-        }
-        return portraitIndexes.sort((left, right) => left.ratio - right.ratio)[0]?.index ?? 0;
-    };
-
-    const planTileLayout = (ratios, options = {}) => {
-        const count = ratios.length;
+    const planTileLayout = (count, options = {}) => {
         const isMobile = window.innerWidth < DESKTOP_MEDIA_MIN;
         const pattern = options.pattern;
         const featuredIndex = Number.isFinite(options.featuredIndex) ? options.featuredIndex : 0;
@@ -247,50 +191,23 @@
             return isMobile ? layoutOnePlusTwoByTwoMobile(featuredIndex) : layoutOnePlusTwoByTwo(featuredIndex);
         }
 
-        const allPortrait = ratios.every((ratio) => ratio < PORTRAIT_MAX);
-        const allLandscape = ratios.every((ratio) => ratio >= LANDSCAPE_MIN);
-        const similar = ratiosAreSimilar(ratios);
-        const portraitCount = ratios.filter((ratio) => ratio < PORTRAIT_MAX).length;
-        const landscapeCount = ratios.filter((ratio) => ratio >= LANDSCAPE_MIN).length;
-        const isMosaicFour =
-            count === 4 &&
-            ((portraitCount === 1 && landscapeCount === 3) || (portraitCount === 3 && landscapeCount === 1));
-
-        if (isMosaicFour) {
-            const portraitIndex = resolveMosaicPortraitIndex(ratios);
-            return isMobile ? layoutMosaicFourMobile(portraitIndex) : layoutMosaicFour(portraitIndex);
+        if ((pattern === "hero-details" || pattern === "device-hero") && count === 3) {
+            return isMobile ? layoutHeroDetailsMobile() : layoutHeroDetails();
         }
 
-        if (similar && allPortrait) {
-            if (count === 3) {
-                return gridPlan(3, 3, 1);
-            }
-            if (count === 4) {
-                return gridPlan(4, 2, 2);
-            }
-            if (count === 5) {
-                return layoutFivePortrait();
-            }
-            if (count === 6) {
-                return gridPlan(6, 3, 2);
-            }
+        if (pattern === "product-context" && count === 3) {
+            return isMobile ? layoutProductContextMobile() : layoutProductContext();
         }
 
-        if (similar && allLandscape) {
-            if (count === 3) {
-                return layoutThreeLandscape();
-            }
-            if (count === 4) {
-                return gridPlan(4, 2, 2);
-            }
+        if (count === 3) {
+            return isMobile ? layoutHeroDetailsMobile() : layoutHeroDetails();
         }
 
-        if (count === 5 && ratios.every((ratio) => ratio < 1)) {
-            return layoutFivePortrait();
+        if (count === 5) {
+            return isMobile ? layoutOnePlusTwoByTwoMobile(0) : layoutOnePlusTwoByTwo(0);
         }
 
-        const columns = isMobile ? Math.min(3, count) : Math.min(3, count);
-        return gridPlan(count, columns, Math.ceil(count / columns));
+        return layoutHeroDetails();
     };
 
     const estimatePlanHeight = (plan, ratios, width) => {
@@ -311,19 +228,28 @@
         return rowHeights.reduce((sum, height) => sum + height, 0) + gap * (plan.rows - 1);
     };
 
+    const objectPositionForImage = (image) => {
+        if (image.dataset.mediaKind === "photo") {
+            return "center center";
+        }
+        return "center top";
+    };
+
     const applyTileLayout = (container) => {
         const images = [...container.querySelectorAll("img")];
         if (images.length === 0) {
             return;
         }
 
-        const ratios = images.map((img) => getImageRatio(img));
-        const plan = planTileLayout(ratios, {
+        const featuredRaw = Number(container.dataset.tileFeatured);
+        const plan = planTileLayout(images.length, {
             pattern: container.dataset.tilePattern,
-            featuredIndex: Number(container.dataset.tileFeatured),
+            featuredIndex: Number.isFinite(featuredRaw) ? featuredRaw : 0,
         });
+        const ratios = images.map((img) => getImageRatio(img));
 
         container.classList.add("case-study__media--tiled");
+        container.classList.remove("case-study__media--watch");
         container.style.display = "grid";
         container.style.gap = `${TILE_GAP}px`;
         container.style.gridTemplateColumns = `repeat(${plan.columns}, minmax(0, 1fr))`;
@@ -331,6 +257,8 @@
         container.style.width = "100%";
         container.style.maxWidth = "100%";
         container.style.height = "auto";
+        container.style.aspectRatio = "";
+        container.style.justifySelf = "center";
 
         for (const image of images) {
             image.style.gridColumn = "";
@@ -339,6 +267,8 @@
             image.style.height = "";
             image.style.width = "";
             image.style.objectFit = "";
+            image.style.objectPosition = "";
+            image.classList.remove("case-study__media--watch-tall");
         }
 
         for (const cell of plan.cells) {
@@ -350,7 +280,6 @@
             image.style.gridRow = `${cell.row + 1} / span ${cell.rowSpan}`;
         }
 
-        // Measure the media column track — not the full case-study article width.
         const availableWidth = Math.max(160, container.getBoundingClientRect().width || container.clientWidth);
 
         const study = container.closest(".case-study--media");
@@ -360,8 +289,6 @@
             return;
         }
 
-        // Real asset size is a hard ceiling. Never stretch tiles taller than
-        // their natural aspect. Only shrink when they would exceed text height.
         let targetWidth = availableWidth;
         let targetHeight = naturalHeight;
         const isDesktop = Boolean(copy) && window.innerWidth >= DESKTOP_MEDIA_MIN;
@@ -388,8 +315,6 @@
             }
         }
 
-        // If we shrunk to text height, distribute row heights proportionally
-        // so cells keep relative proportions without stretching past natural.
         const rowSum = rowHeights.reduce((sum, height) => sum + height, 0);
         if (rowSum > 0 && Math.abs(rowSum + gap * (plan.rows - 1) - targetHeight) > 1) {
             const scale = (targetHeight - gap * (plan.rows - 1)) / rowSum;
@@ -412,14 +337,136 @@
             image.style.width = "100%";
             image.style.height = "100%";
             image.style.objectFit = "cover";
-            image.style.objectPosition = "center top";
+            image.style.objectPosition = objectPositionForImage(image);
             image.style.aspectRatio = `${ratio}`;
+            image.tabIndex = 0;
+            image.setAttribute("role", "button");
+            image.setAttribute("aria-label", `Open ${image.alt || "image"} fullscreen`);
         }
     };
 
     const layoutProjectMediaTiles = () => {
-        for (const container of document.querySelectorAll(".case-study__media:not(.case-study__media--watch)")) {
+        for (const container of document.querySelectorAll(".case-study__media[data-tile-pattern]")) {
             applyTileLayout(container);
+        }
+    };
+
+    const createLightbox = () => {
+        const dialog = document.createElement("dialog");
+        dialog.className = "media-lightbox";
+        dialog.setAttribute("aria-label", "Fullscreen image");
+        dialog.innerHTML = `
+            <div class="media-lightbox__frame">
+                <button type="button" class="media-lightbox__close" aria-label="Close">Close</button>
+                <button type="button" class="media-lightbox__nav media-lightbox__nav--prev" aria-label="Previous image">Prev</button>
+                <img class="media-lightbox__image" alt="">
+                <button type="button" class="media-lightbox__nav media-lightbox__nav--next" aria-label="Next image">Next</button>
+            </div>
+        `;
+        document.body.appendChild(dialog);
+
+        const imageEl = dialog.querySelector(".media-lightbox__image");
+        const closeBtn = dialog.querySelector(".media-lightbox__close");
+        const prevBtn = dialog.querySelector(".media-lightbox__nav--prev");
+        const nextBtn = dialog.querySelector(".media-lightbox__nav--next");
+
+        let gallery = [];
+        let index = 0;
+        let trigger = null;
+
+        const render = () => {
+            const current = gallery[index];
+            if (!current || !imageEl) {
+                return;
+            }
+            imageEl.src = current.currentSrc || current.src;
+            imageEl.alt = current.alt || "";
+            const multi = gallery.length > 1;
+            prevBtn.hidden = !multi;
+            nextBtn.hidden = !multi;
+        };
+
+        const open = (images, startIndex, from) => {
+            gallery = images;
+            index = startIndex;
+            trigger = from;
+            render();
+            if (typeof dialog.showModal === "function") {
+                dialog.showModal();
+            } else {
+                dialog.setAttribute("open", "");
+            }
+            closeBtn.focus();
+        };
+
+        const close = () => {
+            if (typeof dialog.close === "function") {
+                dialog.close();
+            } else {
+                dialog.removeAttribute("open");
+            }
+            if (trigger && typeof trigger.focus === "function") {
+                trigger.focus();
+            }
+            trigger = null;
+        };
+
+        const step = (delta) => {
+            if (gallery.length < 2) {
+                return;
+            }
+            index = (index + delta + gallery.length) % gallery.length;
+            render();
+        };
+
+        closeBtn.addEventListener("click", close);
+        prevBtn.addEventListener("click", () => step(-1));
+        nextBtn.addEventListener("click", () => step(1));
+
+        dialog.addEventListener("click", (event) => {
+            if (event.target === dialog) {
+                close();
+            }
+        });
+
+        dialog.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") {
+                event.preventDefault();
+                step(-1);
+            } else if (event.key === "ArrowRight") {
+                event.preventDefault();
+                step(1);
+            }
+        });
+
+        return { open };
+    };
+
+    const lightbox = createLightbox();
+
+    const bindLightbox = () => {
+        for (const container of document.querySelectorAll(".case-study__media")) {
+            const images = [...container.querySelectorAll("img")];
+            for (const [imageIndex, image] of images.entries()) {
+                if (image.dataset.lightboxBound) {
+                    continue;
+                }
+                image.dataset.lightboxBound = "1";
+                image.tabIndex = 0;
+                image.setAttribute("role", "button");
+                if (!image.getAttribute("aria-label")) {
+                    image.setAttribute("aria-label", `Open ${image.alt || "image"} fullscreen`);
+                }
+
+                const openFrom = () => lightbox.open(images, imageIndex, image);
+                image.addEventListener("click", openFrom);
+                image.addEventListener("keydown", (event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        openFrom();
+                    }
+                });
+            }
         }
     };
 
@@ -427,6 +474,7 @@
         window.requestAnimationFrame(() => {
             layoutExperienceTimeline();
             layoutProjectMediaTiles();
+            bindLightbox();
         });
     };
 
@@ -446,14 +494,14 @@
         new ResizeObserver(scheduleLayout).observe(stack);
     }
 
-    for (const container of document.querySelectorAll(".case-study__media:not(.case-study__media--watch)")) {
-        for (const image of container.querySelectorAll("img")) {
+    for (const study of document.querySelectorAll(".case-study--media")) {
+        if (typeof ResizeObserver !== "undefined") {
+            new ResizeObserver(scheduleLayout).observe(study);
+        }
+        for (const image of study.querySelectorAll(".case-study__media img")) {
             if (!image.complete) {
                 image.addEventListener("load", scheduleLayout, { once: true });
             }
-        }
-        if (typeof ResizeObserver !== "undefined") {
-            new ResizeObserver(scheduleLayout).observe(container);
         }
     }
 
