@@ -169,6 +169,36 @@
         ],
     });
 
+    const layoutOnePlusTwoByTwo = (featuredIndex) => {
+        const others = [0, 1, 2, 3, 4].filter((index) => index !== featuredIndex).slice(0, 4);
+        return {
+            columns: 3,
+            rows: 2,
+            cells: [
+                { index: featuredIndex, column: 0, row: 0, columnSpan: 1, rowSpan: 2 },
+                { index: others[0], column: 1, row: 0, columnSpan: 1, rowSpan: 1 },
+                { index: others[1], column: 2, row: 0, columnSpan: 1, rowSpan: 1 },
+                { index: others[2], column: 1, row: 1, columnSpan: 1, rowSpan: 1 },
+                { index: others[3], column: 2, row: 1, columnSpan: 1, rowSpan: 1 },
+            ],
+        };
+    };
+
+    const layoutOnePlusTwoByTwoMobile = (featuredIndex) => {
+        const others = [0, 1, 2, 3, 4].filter((index) => index !== featuredIndex).slice(0, 4);
+        return {
+            columns: 2,
+            rows: 3,
+            cells: [
+                { index: featuredIndex, column: 0, row: 0, columnSpan: 2, rowSpan: 1 },
+                { index: others[0], column: 0, row: 1, columnSpan: 1, rowSpan: 1 },
+                { index: others[1], column: 1, row: 1, columnSpan: 1, rowSpan: 1 },
+                { index: others[2], column: 0, row: 2, columnSpan: 1, rowSpan: 1 },
+                { index: others[3], column: 1, row: 2, columnSpan: 1, rowSpan: 1 },
+            ],
+        };
+    };
+
     const layoutMosaicFour = (portraitIndex) => {
         const others = [0, 1, 2, 3].filter((index) => index !== portraitIndex);
         return {
@@ -207,9 +237,16 @@
         return portraitIndexes.sort((left, right) => left.ratio - right.ratio)[0]?.index ?? 0;
     };
 
-    const planTileLayout = (ratios) => {
+    const planTileLayout = (ratios, options = {}) => {
         const count = ratios.length;
         const isMobile = window.innerWidth < DESKTOP_MEDIA_MIN;
+        const pattern = options.pattern;
+        const featuredIndex = Number.isFinite(options.featuredIndex) ? options.featuredIndex : 0;
+
+        if (pattern === "one-plus-2x2" && count === 5) {
+            return isMobile ? layoutOnePlusTwoByTwoMobile(featuredIndex) : layoutOnePlusTwoByTwo(featuredIndex);
+        }
+
         const allPortrait = ratios.every((ratio) => ratio < PORTRAIT_MAX);
         const allLandscape = ratios.every((ratio) => ratio >= LANDSCAPE_MIN);
         const similar = ratiosAreSimilar(ratios);
@@ -281,7 +318,10 @@
         }
 
         const ratios = images.map((img) => getImageRatio(img));
-        const plan = planTileLayout(ratios);
+        const plan = planTileLayout(ratios, {
+            pattern: container.dataset.tilePattern,
+            featuredIndex: Number(container.dataset.tileFeatured),
+        });
 
         container.classList.add("case-study__media--tiled");
         container.style.display = "grid";
