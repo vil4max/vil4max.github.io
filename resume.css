@@ -3122,6 +3122,10 @@ footer.cover-footer a:focus-visible {
   grid-column: 2 / span 2;
 }
 
+.case-study__media--drinkit img:nth-child(4) {
+  grid-column: 1 / -1;
+}
+
 .case-study__media--grh {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
