@@ -2961,8 +2961,8 @@ footer.cover-footer a:focus-visible {
 }
 
 .case-study--media {
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.85fr);
+  align-items: start;
 }
 
 .case-study--reverse .case-study__copy {
@@ -3072,6 +3072,7 @@ footer.cover-footer a:focus-visible {
 
 .case-study__media--tiled {
   min-height: 0;
+  max-width: 100%;
 }
 
 .case-study__media--tiled img {
@@ -3083,7 +3084,12 @@ footer.cover-footer a:focus-visible {
 }
 
 .case-study--media .case-study__media--tiled {
-  align-self: stretch;
+  align-self: start;
+  justify-self: end;
+}
+
+.case-study--reverse .case-study__media--tiled {
+  justify-self: start;
 }
 
 .case-study__media--watch {

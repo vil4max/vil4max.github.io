@@ -328,6 +328,9 @@
         container.style.gap = `${TILE_GAP}px`;
         container.style.gridTemplateColumns = `repeat(${plan.columns}, minmax(0, 1fr))`;
         container.style.gridTemplateRows = `repeat(${plan.rows}, minmax(0, 1fr))`;
+        container.style.width = "";
+        container.style.maxWidth = "";
+        container.style.height = "";
 
         for (const image of images) {
             image.style.gridColumn = "";
@@ -345,23 +348,40 @@
 
         const study = container.closest(".case-study--media");
         const copy = study?.querySelector(".case-study__copy");
-        container.style.height = "";
+        const availableWidth = Math.max(
+            160,
+            container.parentElement?.clientWidth || container.clientWidth || container.offsetWidth,
+        );
 
+        // Mobile / stacked: natural tile height, no stretch to fill.
         if (!copy || window.innerWidth < DESKTOP_MEDIA_MIN) {
-            const naturalHeight = estimatePlanHeight(plan, ratios, container.clientWidth || container.offsetWidth);
+            const naturalHeight = estimatePlanHeight(plan, ratios, availableWidth);
             if (naturalHeight > 0) {
+                container.style.width = "100%";
                 container.style.height = `${Math.ceil(naturalHeight)}px`;
             }
             return;
         }
 
-        const width = container.clientWidth || container.offsetWidth;
+        // Desktop: text height is the priority. Scale the tile block down to
+        // match copy height; never stretch tiles taller than the description.
         const copyHeight = copy.offsetHeight;
-        const naturalHeight = estimatePlanHeight(plan, ratios, width);
-        const targetHeight = Math.max(copyHeight, naturalHeight);
-        if (targetHeight > 0) {
-            container.style.height = `${Math.ceil(targetHeight)}px`;
+        const naturalHeight = estimatePlanHeight(plan, ratios, availableWidth);
+        if (naturalHeight <= 0 || copyHeight <= 0) {
+            return;
         }
+
+        if (naturalHeight > copyHeight) {
+            const scale = copyHeight / naturalHeight;
+            const scaledWidth = Math.max(160, availableWidth * scale);
+            container.style.width = `${Math.floor(scaledWidth)}px`;
+            container.style.maxWidth = "100%";
+            container.style.height = `${Math.ceil(copyHeight)}px`;
+            return;
+        }
+
+        container.style.width = "100%";
+        container.style.height = `${Math.ceil(naturalHeight)}px`;
     };
 
     const layoutProjectMediaTiles = () => {
