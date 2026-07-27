@@ -1,0 +1,24 @@
+---
+description: Consume career facts via career WORKFLOW; do not invent or strengthen public claims
+globs: index.html, projects.html, content/**, scripts/**, package.json, README.md
+alwaysApply: false
+---
+
+# Career source consumer
+
+Canonical career facts and operating workflow live in the sibling `career` repository.
+
+- Entry: `../career/README.md`
+- Workflow: `../career/WORKFLOW.md`
+- SOT: `../career/career.md`
+- Public Phase B: `../career/presentation/AGENT_PUBLIC_UPDATE.md`
+
+This repository is the public site renderer and resume/autofill build layer only.
+
+## Rules
+
+- Do not treat this repo as the career SOT.
+- Do not hand-edit synced marked regions in `index.html` or `projects.html`.
+- Follow `../career/WORKFLOW.md` for projection, validation, sync, and build commands.
+- `resume:build` does not rewrite landing `PORTFOLIO:*` regions.
+- Profile Autofill is private/internal.
