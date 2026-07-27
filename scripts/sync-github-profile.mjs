@@ -2,8 +2,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { presentationGitHubProfilePath, publicProfileRoot } from "../../career/resume/lib/resume-paths.mjs";
+import { presentationGitHubProfilePath } from "../../career/resume/lib/resume-paths.mjs";
 import { validatePresentationBoundary } from "../../career/resume/scripts/validate-presentation-boundary.mjs";
+
+const PROFILE_LINKS_PLACEHOLDER = "{{PROFILE_LINKS}}";
+const publicProfileRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "vil4max");
 
 function fail(message) {
     console.error(`profile:sync failed: ${message}`);
@@ -12,12 +15,20 @@ function fail(message) {
 
 validatePresentationBoundary();
 
-function extractSection(markdown, heading) {
+function extractSection(markdown, heading, { untilHeading } = {}) {
     const start = markdown.indexOf(`## ${heading}\n`);
     if (start < 0) {
         fail(`missing ## ${heading} in github-profile.md`);
     }
     const from = start + `## ${heading}\n`.length;
+    if (untilHeading) {
+        const endMarker = `\n## ${untilHeading}\n`;
+        const end = markdown.indexOf(endMarker, from);
+        if (end < 0) {
+            fail(`missing ## ${untilHeading} after ## ${heading} in github-profile.md`);
+        }
+        return markdown.slice(from, end).trim();
+    }
     const next = markdown.slice(from).search(/\n## /);
     return (next < 0 ? markdown.slice(from) : markdown.slice(from, from + next)).trim();
 }
@@ -37,8 +48,16 @@ function parseFooterLinks(section) {
         });
 }
 
+function renderProfileLinks(footer) {
+    return `<div align="center">
+  <p>
+    ${footer.map((item) => `<a href="${item.href}">${item.label}</a>`).join(" ·\n    ")}
+  </p>
+</div>`;
+}
+
 const markdown = fs.readFileSync(presentationGitHubProfilePath, "utf8");
-const body = extractSection(markdown, "Body");
+const body = extractSection(markdown, "Body", { untilHeading: "Footer links" });
 const footer = parseFooterLinks(extractSection(markdown, "Footer links"));
 
 if (!body) {
@@ -47,15 +66,11 @@ if (!body) {
 if (footer.length < 3) {
     fail("Footer links section is incomplete");
 }
+if (!body.includes(PROFILE_LINKS_PLACEHOLDER)) {
+    fail(`Body must include ${PROFILE_LINKS_PLACEHOLDER} for contact links`);
+}
 
-const readme = `${body}
-
-<div align="center">
-  <p>
-    ${footer.map((item) => `<a href="${item.href}">${item.label}</a>`).join(" ·\n    ")}
-  </p>
-</div>
-`;
+const readme = body.replaceAll(PROFILE_LINKS_PLACEHOLDER, renderProfileLinks(footer));
 
 const outPath = path.join(publicProfileRoot, "README.md");
 fs.writeFileSync(outPath, `${readme.trim()}\n`);
