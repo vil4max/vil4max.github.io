@@ -3206,6 +3206,12 @@ footer.cover-footer a:focus-visible {
   padding-bottom: 8px;
 }
 
+.projects-personal > .case-study + .case-study {
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 8px;
+  padding-top: 28px;
+}
+
 .case-experiment {
   padding: 24px 0 8px;
   border-top: 1px solid var(--fg-heading);
