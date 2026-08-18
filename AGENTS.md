@@ -1,6 +1,8 @@
 # AGENTS.md
 
-Thin project notes for the public portfolio site (`vil4max.github.io`). Career facts stay in the sibling `career` repo.
+Thin project notes for the public portfolio site (`vil4max.github.io`).
+
+Root `README.md` is visitor-facing. Do not put pipeline, SOT paths, autofill, or sync commands there. Operator workflow lives in the private sibling career repo (`WORKFLOW.md`). Career facts stay there too.
 
 ## Ownership
 
