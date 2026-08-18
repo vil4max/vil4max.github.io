@@ -1700,6 +1700,23 @@
   border: 0;
 }
 
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 20;
+  padding: 8px 12px;
+  background: var(--fg-heading);
+  color: var(--bg);
+  text-decoration: none;
+  border-radius: 6px;
+  transform: translateY(-140%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
 .cover-page {
   background: var(--bg);
 }
