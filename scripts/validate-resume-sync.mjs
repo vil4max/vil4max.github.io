@@ -209,7 +209,7 @@ if (indexHtml.includes("Vilchevskiy_iOS_Engineer")) {
 
 const autofillText = decodeHtmlEntities(autofillHtml).replace(/<[^>]+>/g, " ");
 const detailedRequired = [
-    "Worked commercially with RxSwift",
+    "Adapted to RxSwift reactive feature flows",
     "command-driven watchOS flows",
     "structured client commands",
 ];

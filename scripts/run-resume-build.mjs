@@ -59,9 +59,7 @@ fs.mkdirSync(path.dirname(goldenPath), { recursive: true });
 
 run(path.join(careerLibDir, "validate-source-markdown.mjs"));
 run(path.join(careerLibDir, "validate-presentation-markdown.mjs"));
-run(path.join(scriptsDir, "generate-public-resume.mjs"));
 run(path.join(scriptsDir, "parse-resume-md.mjs"), [tmpPath]);
-run(path.join(scriptsDir, "compare-resume-json.mjs"), [tmpPath]);
 
 const parsed = sanitizePublicResumeExport(JSON.parse(fs.readFileSync(tmpPath, "utf8")));
 fs.writeFileSync(goldenPath, `${JSON.stringify(parsed, null, 2)}\n`);

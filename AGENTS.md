@@ -4,10 +4,33 @@ Thin project notes for the public portfolio site (`vil4max.github.io`).
 
 Root `README.md` is visitor-facing. Do not put pipeline, SOT paths, autofill, or sync commands there. Operator workflow lives in the private sibling career repo (`WORKFLOW.md`). Career facts stay there too.
 
+## Public/private boundary
+
+This GitHub repository is **public**. Treat every tracked file and generated HTML region as internet-visible.
+
+- Private source: sibling `../career` (private GitHub repository).
+- Allowed inputs: validated `../career/presentation/*.md` channel sources and their generated public contexts.
+- Forbidden: full `career.md`, `PRIVATE_INTERVIEW`, `NDA_SENSITIVE`, Future direction, Career CRM data, private evidence notes, and Profile Autofill content or PDF in public assets.
+- The private Profile Autofill PDF may be generated into `../career/resume/build/` and iCloud only. Never publish or link it from this repository.
+
 ## Ownership
 
-- Synced copy: career `presentation/projects.md` → marked `PROJECT:*:CONTENT` regions in `projects.html` / landing.
+- Synced copy: career `presentation/portfolio.md` → marked `PORTFOLIO:*` regions in `index.html`.
+- Synced copy: career `presentation/projects.md` → marked `PROJECT:*:CONTENT` regions in `projects.html`.
+- Synced copy: career `presentation/github-profile.md` → public sibling `../vil4max/README.md`.
+- Public Resume PDF: career `career.md` + `presentation/resume.md` → `../vil4max/assets/Max_Vilchevskiy_Senior_iOS_Engineer.pdf` and this repo's matching public asset.
 - Page layout and media (screenshots, grids, App Store links) stay HTML/JS-owned. Do not put mosaic markup inside synced CONTENT regions.
+
+## Required commands after source changes
+
+- Portfolio: `npm run portfolio:sync`
+- Projects: `npm run projects:sync`
+- GitHub profile: `npm run profile:sync`
+- All public text surfaces: `npm run presentation:sync`
+- Public Resume plus private Autofill PDFs: `CAREER_CANONICAL_UPDATE=1 npm run resume:build` while authorized `career.md` changes are uncommitted
+- PDF freshness and page-count check: `npm run resume:check`
+
+Every sync validates the private-to-public boundary before writing. Never hand-edit generated marker regions or generated public profile content. After generation, inspect diffs in this public repo and `../vil4max`; visually inspect PDFs before reporting completion.
 
 ## Case-study media mosaic
 

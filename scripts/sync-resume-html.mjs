@@ -8,6 +8,7 @@ import { resumeSourceJsonPath } from "./resume-paths.mjs";
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourcePath = resumeSourceJsonPath;
 const autofillPath = path.join(root, "profile-autofill.html");
+const autofillTemplatePath = path.join(root, "templates", "profile-autofill.html");
 
 const source = readJson(sourcePath);
 
@@ -225,6 +226,10 @@ function replaceSectionContent(html, sectionClass, innerHtml) {
         throw new Error(`Section close not found: ${sectionClass}`);
     }
     return html.slice(0, contentStart) + `\n${innerHtml}\n      ` + html.slice(end);
+}
+
+if (!fs.existsSync(autofillPath)) {
+    fs.copyFileSync(autofillTemplatePath, autofillPath);
 }
 
 let autofillHtml = fs.readFileSync(autofillPath, "utf8");

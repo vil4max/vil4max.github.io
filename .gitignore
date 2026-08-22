@@ -2,11 +2,8 @@ node_modules/
 .DS_Store
 vil4max/
 content/source-of-truth.md
-content/resume.md
-content/resume-source.json
-content/.resume-source.json.tmp
 .tmp-visual-review/
-profile-autofill.html
+/profile-autofill.html
 
 # Cursor local-only (project rules committed)
 .cursor/plans/
