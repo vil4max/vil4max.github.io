@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Max Vilchevskiy - Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Software engineer with 13 years of commercial experience, from greenfield startups to large consumer products and fintech platforms. I have built and evolved iOS products from initial releases to production scale, including Drinkit and the Umico-to-Birmarket marketplace, where I later designed a reusable multi-host subscription SDK. Recent work also includes a watchOS voice client with an iPhone relay and two released personal apps, DriveCheckUA and OneCart Family.">
+  <meta name="theme-color" content="#f6f8fa">
+  <link rel="canonical" href="https://vil4max.github.io/projects.html">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:title" content="Max Vilchevskiy - Projects">
+  <meta property="og:description" content="Software engineer with 13 years of commercial experience, from greenfield startups to large consumer products and fintech platforms. I have built and evolved iOS products from initial releases to production scale, including Drinkit and the Umico-to-Birmarket marketplace, where I later designed a reusable multi-host subscription SDK. Recent work also includes a watchOS voice client with an iPhone relay and two released personal apps, DriveCheckUA and OneCart Family.">
+  <meta property="og:image" content="https://vil4max.github.io/assets/og-preview.jpg">
+  <meta property="og:url" content="https://vil4max.github.io/projects.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Max Vilchevskiy - Projects">
+  <meta name="twitter:description" content="Software engineer with 13 years of commercial experience, from greenfield startups to large consumer products and fintech platforms. I have built and evolved iOS products from initial releases to production scale, including Drinkit and the Umico-to-Birmarket marketplace, where I later designed a reusable multi-host subscription SDK. Recent work also includes a watchOS voice client with an iPhone relay and two released personal apps, DriveCheckUA and OneCart Family.">
+  <meta name="twitter:image" content="https://vil4max.github.io/assets/og-preview.jpg">
+  <link rel="stylesheet" href="resume.css?v=20260826web3">
+  <script src="portfolio.js?v=20260818hire" defer></script>
+</head>
+<body class="cover-page projects-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page cover-shell">
+    <header class="cover-nav" aria-label="Site">
+      <nav class="cover-nav__links">
+        <a href="index.html">Portfolio</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+      </nav>
+      <a class="cover-nav__cv cover-action cover-action--primary" href="assets/Vilchevskiy_Software_Engineer.pdf">Download PDF</a>
+    </header>
+
+    <main id="main" class="cover-main projects-main" aria-label="Projects">
+      <section class="projects-featured" aria-label="Featured projects">
+
+        <article class="case-study case-study--featured case-study--media" id="project-watch-ai-assistant">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-watch-ai-assistant:CONTENT:START -->
+<h3 class="case-title">Apple Watch Voice AI (R&amp;D / demo)</h3><p class="case-era"><a href="index.html#milestone-globallogic">GlobalLogic</a></p>
+<p class="case-narrative">I built the watchOS conversation UI and implemented the iPhone relay for live audio and WebSocket traffic under watchOS runtime constraints. The product was a voice companion for field workers who often had their hands occupied.</p>
+<p class="case-narrative">The assistant returned structured replies that the client turned into screens and actions on the Watch. I implemented that mapping and also designed a custom emergency flow. After the client engagement, I participated in an internal evaluation of AI-assisted iOS delivery workflows.</p>
+<ul class="case-signals"><li>Custom emergency flow on watchOS</li><li>Voice conversation UI plus iPhone relay for WebSocket and realtime audio</li><li>Structured AI command flows driving on-device UI actions</li><li>Work Point maps, hazards, and navigation on the watch/phone pair</li></ul><p class="case-stack">WatchKit · WatchConnectivity · URLSessionWebSocketTask · AVFoundation</p>
+<!-- PROJECT:project-watch-ai-assistant:CONTENT:END -->
+          </div>
+          <div class="case-study__media" data-tile-pattern="device-hero" aria-label="Apple Watch Voice AI screenshots">
+            <img src="assets/watch-ai/watch-detail-finish.jpg" alt="Apple Watch - Work order finish for today and activities" loading="lazy" width="184" height="520" data-media-kind="ui">
+            <img src="assets/watch-ai/watch-work-orders.jpg" alt="Apple Watch - Work orders list with Morning Briefing" loading="lazy" width="184" height="260" data-media-kind="ui">
+            <img src="assets/watch-ai/watch-detail-progress.jpg" alt="Apple Watch - Work order in progress" loading="lazy" width="184" height="260" data-media-kind="ui">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-birmarket">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-birmarket:CONTENT:START -->
+<h3 class="case-title">Birmarket: Marketplace &amp; Loyalty</h3><p class="case-era"><a href="index.html#milestone-pasha">PASHA Holding</a></p>
+<p class="case-narrative">I joined Umico in 2022 during its startup stage and delivered marketplace features as it grew into Birmarket, a major e-commerce marketplace, by 2025. In the final phase, I extracted and rebuilt Premium Subscription for integration across multiple host apps. <a href="https://bir.az/en/news/bir-ecosystem-strengthens-its-position-with-birmarket-the-countrys-largest-e-commerce-platform">Birmarket product context</a>.</p>
+<p class="case-narrative">Birmarket, Birbank, and M10 integrated the same remote Swift Package. Each host kept its own authentication, session, and token refresh. It passed a scoped access token through a small public API, while the SDK handled its own networking. I also worked on the shared analytics layer and broader modularization of the larger UIKit codebase (~20+ iOS, ~50+ mobile).</p>
+<ul class="case-signals"><li>Reimplemented Premium Subscription as a configurable multi-host SPM SDK</li><li>Defined host/SDK API boundaries with backend and platform teams</li><li>Diagnosed memory leaks, retain cycles, and UI hangs in production using Xcode Instruments</li><li>Worked on modularizing a large production iOS codebase</li></ul><p class="case-stack">UIKit · SwiftUI · SPM · Clean Architecture · PostHog · Multi-host SDK</p>
+<!-- PROJECT:project-birmarket:CONTENT:END -->
+            <p class="case-links"><a href="https://apps.apple.com/us/app/birmarket-online-shopping-app/id1458111389">App Store</a></p>
+          </div>
+          <div class="case-study__media" data-tile-pattern="row-3" aria-label="Birmarket screenshots">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/85/61/cc/8561ccb3-d030-fcc7-4e44-35cd30aaa471/App_Store__1284__U0445_2778_1.1.png/600x1300bb.webp" alt="Birmarket - premium marketplace home" loading="lazy" width="600" height="1300" data-media-kind="ui">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/7f/6f/017f6f52-d85f-4125-8aa4-ae7858c65a17/App_Store__1284__U0445_2778_1.1-3.png/600x1300bb.webp" alt="Birmarket - loyalty state" loading="lazy" width="600" height="1300" data-media-kind="ui">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/14/e0/dc/14e0dcd6-7c52-684e-3cba-1128df2e0b41/App_Store__1284__U0445_2778_1.1-2.png/600x1300bb.webp" alt="Birmarket - contrasting product state" loading="lazy" width="600" height="1300" data-media-kind="ui">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media case-study--reverse" id="project-drinkit">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-drinkit:CONTENT:START -->
+<h3 class="case-title">Drinkit: Coffee Ordering App</h3><p class="case-era"><a href="index.html#milestone-drinkit">Drinkit</a></p>
+<p class="case-narrative">I joined Drinkit while the team was opening its first physical coffee shop. There were three iOS engineers, and we built the production app from an empty codebase and released it on the App Store.</p>
+<p class="case-narrative">I stayed for two years as the product grew beyond a simple menu of ready drinks. I implemented substantial parts of drink customization, where options depended on each other and on shop availability. I also integrated contextual offers, with the backend choosing the final offer, and worked on order status updates delivered through polling.</p>
+<ul class="case-signals"><li>First-coffee-shop launch with a three-engineer iOS team; App Store release during the engagement</li><li>Two years of product evolution across the digital and physical customer journey</li><li>Substantial implementation work on drink customization as a core evolving product surface</li><li>Contextual offers with a shared client/backend data flow</li><li>Order prep status on iOS via backend polling</li></ul><p class="case-stack">UIKit · URLSession · REST</p>
+<!-- PROJECT:project-drinkit:CONTENT:END -->
+            <p class="case-links"><a href="https://apps.apple.com/us/app/drinkit-order-your-coffee/id1495622004">App Store</a></p>
+          </div>
+          <div class="case-study__media" data-tile-pattern="hero-details" aria-label="Drinkit screenshots and pickup station">
+            <img src="assets/drinkit/drinkit-pickup-station.jpg" alt="Drinkit smart pickup counter with order displays" loading="lazy" width="900" height="367" data-media-kind="photo" data-tile-hero-shape="square">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a4/ba/7b/a4ba7b1e-8b4e-51db-0910-975cac31622f/01.png/600x1300bb.webp" alt="Drinkit - order screen" loading="lazy" width="300" height="650" data-media-kind="ui">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7d/9c/b9/7d9cb999-b39c-7a9d-0a44-fb632410784b/02.png/600x1300bb.webp" alt="Drinkit - drink customization" loading="lazy" width="300" height="650" data-media-kind="ui">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-playhera">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-playhera:CONTENT:START -->
+<h3 class="case-title">PLAYHERA: esports tournaments</h3><p class="case-era"><a href="index.html#milestone-solvve">SOLVVE</a></p>
+<p class="case-narrative">I joined a live App Store esports client and shipped production work in the tournament-management area of a product with teams, players, schedules, matches, and results.</p>
+<p class="case-narrative">I adapted to RxSwift feature flows inside the existing UIKit codebase and review process.</p>
+<ul class="case-signals"><li>Production work in a live App Store esports client</li><li>Tournament-management area in an established architecture</li><li>RxSwift feature work in a maintained UIKit codebase</li></ul><p class="case-stack">Swift · UIKit · RxSwift</p>
+<!-- PROJECT:project-playhera:CONTENT:END -->
+            <p class="case-links"><a href="https://apps.apple.com/ua/app/playhera/id1449021935">App Store</a></p>
+          </div>
+          <div class="case-study__media" data-tile-pattern="row-3" aria-label="PlayHera screenshots">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/09/75/8d/09758de1-772a-dd1a-bb2f-112a83ab832b/11594ffd-5a8a-4988-8449-76a21e3a1122_screen1.png/392x696bb.png" alt="PlayHera - primary tournament screen" loading="lazy" width="392" height="696" data-media-kind="ui">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/3e/83/f2/3e83f2f4-b664-3d58-5ff0-a87b5f4c3408/5dd85cd3-c4c8-49fb-b8e5-2248471a9871_screen2.png/392x696bb.png" alt="PlayHera - detail state" loading="lazy" width="392" height="696" data-media-kind="ui">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/04/81/ca/0481caa9-378b-5259-9594-7711eb419969/af75a998-227f-4986-aee5-6d0184cc55ef_screen3.png/392x696bb.png" alt="PlayHera - secondary state" loading="lazy" width="392" height="696" data-media-kind="ui">
+          </div>
+        </article>
+      </section>
+
+      <section class="projects-additional" aria-label="Web3, fintech, earlier and other projects">
+
+        <h3 class="projects-group-title">Web3 / Fintech</h3>
+
+        <article class="case-study case-study--featured" id="project-fintech-rd">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-fintech-rd:CONTENT:START -->
+<h3 class="case-title">FinTech R&amp;D</h3><p class="case-era">Part-time project · Client-delivered beta</p>
+<p class="case-narrative">This was a fintech R&amp;D project built around ownership records for physical gold measured in grams. I was the primary iOS engineer. The backend owned the Ethereum and smart-contract logic; the app used its middleware API and handled the customer-facing flows.</p>
+<p class="case-narrative">I completed a demo-ready purchase flow with third-party KYC, Stripe, and Apple Pay. The app also covered authorization, the customer's gold balance and portfolio, price charts, and sell flows. The system recorded the resulting ownership state in grams. For transaction information, the iOS client could query public Ethereum APIs, but purchases and other business operations still went through the backend. I later handed the project over to a second iOS engineer.</p>
+<ul class="case-signals"><li>Implemented the UIKit iOS application</li><li>Demo-ready beta: auth, KYC, gold balance, price chart, Stripe buy, Apple Pay, sell</li><li>Gram-denominated ownership records tracked by the backend system</li><li>Clear boundary: backend owned chain logic; iOS owned the customer experience</li></ul><p class="case-stack">Swift · UIKit · Stripe · Apple Pay · REST · MVVM</p>
+<!-- PROJECT:project-fintech-rd:CONTENT:END -->
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media case-study--reverse" id="project-electus">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-electus:CONTENT:START -->
+<h3 class="case-title">Electus: Web3 consumer wallet</h3><p class="case-era"><a href="index.html#milestone-electus">Electus</a></p>
+<p class="case-narrative">When I joined Electus, there was no iOS app yet. I became the primary iOS contributor. The larger idea was a consumer crypto product, but the first working version concentrated on the wallet, with Ethereum and Bitcoin as its main assets.</p>
+<p class="case-narrative">I built wallet creation, import, and balance flows with Keychain storage, Touch ID, and seed-phrase verification. The app showed assets, market data, and simple charts. It used a third-party Ethereum client for testnet development and transaction tracking, and it could retrieve Bitcoin balance and network data. I also worked with the team on making transfers easier to understand through contacts and fiat amounts. Those ideas were still in development; swap and buy remained roadmap concepts.</p>
+<ul class="case-signals"><li>Primary iOS ownership from a clean codebase with real product input</li><li>Wallet create/import/balance with Keychain, Touch ID, and seed-phrase verification</li><li>Asset/balance visibility with market data and charts</li><li>Ethereum testnet client integration plus Bitcoin balance display</li><li>Reached an internal pre-release build; swap and buy stayed unimplemented roadmap concepts</li></ul><p class="case-stack">Swift · UIKit · Keychain · Touch ID · Ethereum testnet</p>
+<!-- PROJECT:project-electus:CONTENT:END -->
+          </div>
+          <div class="case-study__media" data-tile-pattern="one-plus-2x2" data-tile-featured="0" aria-label="Electus design screenshots">
+            <img src="assets/electus/electus-login.png" alt="Electus login - design mock" loading="lazy" width="375" height="600" data-media-kind="ui">
+            <img src="assets/electus/electus-portfolio.png" alt="Electus portfolio - design mock" loading="lazy" width="375" height="386" data-media-kind="ui">
+            <img src="assets/electus/electus-rates.png" alt="Electus rates chart - design mock" loading="lazy" width="375" height="788" data-media-kind="ui">
+            <img src="assets/electus/electus-exchanger.png" alt="Electus exchanger - design mock" loading="lazy" width="375" height="761" data-media-kind="ui">
+            <img src="assets/electus/electus-transactions.png" alt="Electus transaction history - design mock" loading="lazy" width="375" height="599" data-media-kind="ui">
+          </div>
+        </article>
+
+        <h3 class="projects-group-title">Earlier client work</h3>
+
+        <article class="case-study case-study--featured case-study--media" id="project-alert">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-alert:CONTENT:START -->
+<h3 class="case-title">ALERT: law enforcement resilience training</h3><p class="case-era"><a href="index.html#milestone-amconsoft">Amconsoft</a></p>
+<p class="case-narrative">I built an access-gated coaching app from supplied flow, design, and audio. ALERT is skill practice for law-enforcement users: categories, guided One Way exercises, on-device audio, and reminder settings.</p>
+<p class="case-narrative">The product is resilience coaching, not dispatch or emergency alerting.</p>
+<ul class="case-signals"><li>Independent client iOS build from supplied flow, design, and audio</li><li>Access-gated entry plus practice categories and One Way guided exercises</li><li>On-device audio playback and reminder-frequency settings</li></ul><p class="case-stack">UIKit · AVFoundation · UserNotifications</p>
+<!-- PROJECT:project-alert:CONTENT:END -->
+          </div>
+          <div class="case-study__media" data-tile-pattern="row-3" aria-label="ALERT app screenshots">
+            <img src="assets/alert/alert-splash.png" alt="ALERT splash - Advanced Law Enforcement Resilience Training" loading="lazy" width="375" height="742" data-media-kind="ui">
+            <img src="assets/alert/alert-categories.png" alt="ALERT category selection - design mock" loading="lazy" width="375" height="742" data-media-kind="ui">
+            <img src="assets/alert/alert-observe.png" alt="ALERT One Way Observe exercise with audio - design mock" loading="lazy" width="375" height="742" data-media-kind="ui">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-eastern-union">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-eastern-union:CONTENT:START -->
+<h3 class="case-title">Eastern Union: CRE app</h3><p class="case-era"><a href="index.html#milestone-gbksoft">GBKSoft</a></p>
+<p class="case-narrative">I delivered maintenance and scoped client changes on a long-running commercial real-estate app in a mature Swift/UIKit codebase.</p>
+<ul class="case-signals"><li>Incremental maintenance and polishing on an existing CRE client app</li><li>Client-requested scoped changes inside a mature Swift/UIKit codebase</li></ul><p class="case-stack">Swift · UIKit</p>
+<!-- PROJECT:project-eastern-union:CONTENT:END -->
+            <p class="case-links"><a href="https://apps.apple.com/us/app/eastern-union/id1125123079">App Store</a> · <a href="https://easternunion.com/">easternunion.com</a></p>
+          </div>
+          <div class="case-study__media" data-tile-pattern="row-3" aria-label="Eastern Union screenshots">
+            <img src="assets/eastern-union/eu-ecalc-home.png" alt="Eastern Union eCALC calculators - screenshot" loading="lazy" width="375" height="710" data-media-kind="ui">
+            <img src="assets/eastern-union/eu-blended-mortgages.png" alt="Eastern Union Blended Mortgages - screenshot" loading="lazy" width="375" height="742" data-media-kind="ui">
+            <img src="assets/eastern-union/eu-irr.png" alt="Eastern Union IRR calculator - screenshot" loading="lazy" width="375" height="735" data-media-kind="ui">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-tap4parking">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-tap4parking:CONTENT:START -->
+<h3 class="case-title">Tap4Parking</h3><p class="case-era"><a href="index.html#milestone-tap4parking">Tap4Parking</a></p>
+<p class="case-narrative">I was the primary iOS implementer on a map-first parking product for about a year. The map was the main screen: parking locations, user location, and routes on Google Maps SDK, plus multi-storey floor plans with red/green occupancy.</p>
+<p class="case-narrative">Location behavior was a core product concern. Bluetooth beacons were an exploration for multi-storey context.</p>
+<ul class="case-signals"><li>Map-first parking client on Google Maps SDK</li><li>Multi-storey occupancy plans and route-to-parking flows</li><li>Location behavior as a product constraint</li></ul><p class="case-stack">UIKit · Google Maps SDK · CoreLocation</p>
+<!-- PROJECT:project-tap4parking:CONTENT:END -->
+            <p class="case-links"><a href="https://www.facebook.com/tap4parking/">Facebook</a> · <a href="https://web.archive.org/web/20150505080103/http://tap4parking.com/">tap4parking.com (archive)</a></p>
+          </div>
+          <div class="case-study__media" data-tile-pattern="product-context" aria-label="Tap4Parking product visuals">
+            <img src="assets/tap4parking/t4p-promo-car.jpg" alt="Tap4Parking - map search in car context (product photo)" loading="lazy" width="456" height="168" data-media-kind="photo">
+            <img src="assets/tap4parking/t4p-map.jpg" alt="Tap4Parking iOS map - parking clusters and pins in Kyiv" loading="lazy" width="375" height="714" data-media-kind="ui">
+            <img src="assets/tap4parking/t4p-promo-desk.jpg" alt="Tap4Parking - find parking on map (product photo)" loading="lazy" width="512" height="296" data-media-kind="photo">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-green-riding-hood">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-green-riding-hood:CONTENT:START -->
+<h3 class="case-title">Green Riding Hood: interactive book</h3><p class="case-era">Early commercial</p>
+<p class="case-narrative">Early-career contribution on a published App Store interactive read-aloud book for kids. Illustrated scenes, play, and healthy-living themes.</p>
+<ul class="case-signals"><li>Published App Store interactive children's read-aloud book</li><li>Illustrated animated fairy-tale scenes with interactive content</li><li>Early commercial iOS work on a shipping children's product</li></ul><p class="case-stack">iOS · Interactive book</p>
+<!-- PROJECT:project-green-riding-hood:CONTENT:END -->
+            <p class="case-links"><a href="https://apps.apple.com/us/app/green-riding-hood-read-aloud/id977242839">App Store</a></p>
+          </div>
+          <div class="case-study__media" data-tile-pattern="product-context" aria-label="Green Riding Hood screenshots">
+            <img src="assets/green-riding-hood/grh-1.jpg" alt="Green Riding Hood - interactive story scene" loading="lazy" width="1200" height="675" data-media-kind="photo">
+            <img src="assets/green-riding-hood/grh-2.jpg" alt="Green Riding Hood - illustrated story scene" loading="lazy" width="1200" height="675" data-media-kind="photo">
+            <img src="assets/green-riding-hood/grh-3.jpg" alt="Green Riding Hood - read-aloud story scene" loading="lazy" width="1200" height="675" data-media-kind="photo">
+          </div>
+        </article>
+      </section>
+
+      <section class="projects-personal" aria-label="Pet projects" id="personal-projects">
+
+        <article class="case-study case-study--featured case-study--media" id="project-regional-check">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-regional-check:CONTENT:START -->
+<h3 class="case-title">DriveCheckUA</h3><p class="case-era">Pet project</p>
+<p class="case-narrative">DriveCheckUA is a small CarPlay utility I shipped for drivers: glance regional alert status for the current location without picking up the phone. One screen, one region, one refresh. The iPhone companion adds a country overview with an on-device Apple Foundation Models summary and deterministic fallback, in English, Russian, and Ukrainian.</p>
+<p class="case-narrative">Informational status only.</p>
+<p class="case-narrative">Separate engineering work includes a bounded Swift agent/tool runtime, a 38-case scripted evaluation corpus, and Foundation Models device validation. This runtime is distinct from the released country summary.</p>
+<ul class="case-signals"><li>CarPlay template for a single regional status read</li><li>iPhone companion with Core Location / MapKit region context</li><li>Localized in English, Russian, and Ukrainian</li></ul><p class="case-stack">SwiftUI · CarPlay · Core Location · MapKit · URLSession · Apple Foundation Models</p>
+<!-- PROJECT:project-regional-check:CONTENT:END -->
+            <p class="case-links"><a href="https://apps.apple.com/us/app/drivecheckua/id6793023910">App Store</a> · <a href="https://github.com/vil4labs/regional-check">GitHub</a> · <a href="regional-check/privacy-policy.html">Privacy</a></p>
+          </div>
+          <div class="case-study__media" data-tile-pattern="row-3" aria-label="DriveCheckUA screenshots">
+            <img src="assets/regional-check/dc-onboarding.jpg" alt="DriveCheckUA - Onboarding with Get Started" loading="lazy" width="369" height="800" data-media-kind="ui">
+            <img src="assets/regional-check/dc-all-clear.jpg" alt="DriveCheckUA - All Clear status for Kyiv" loading="lazy" width="369" height="800" data-media-kind="ui">
+            <img src="assets/regional-check/dc-alert-active.jpg" alt="DriveCheckUA - Alert Active status for Kharkiv Oblast" loading="lazy" width="369" height="800" data-media-kind="ui">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-onecart">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-onecart:CONTENT:START -->
+<h3 class="case-title">OneCart Family</h3><p class="case-era">Pet project</p>
+<p class="case-narrative">OneCart Family is a shared family shopping cart built collaboratively. We developed and released it with AI-assisted engineering, SwiftUI, and live CloudKit sync: add what the household needs, check items off in the trolley, and keep purchase history in one place.</p>
+<ul class="case-signals"><li>Collaborative project we use at home</li><li>Shared family cart with trolley checkoffs and purchase history</li><li>Live sync via iCloud / CloudKit and Sign in with Apple</li></ul><p class="case-stack">SwiftUI · Core Data · CloudKit · Sign in with Apple</p>
+<!-- PROJECT:project-onecart:CONTENT:END -->
+            <p class="case-links"><a href="https://apps.apple.com/app/id6793219621">App Store</a> · <a href="https://github.com/vil4labs/OneCart">GitHub</a></p>
+          </div>
+          <div class="case-study__media" data-tile-pattern="row-3" aria-label="OneCart Family screenshots">
+            <img src="assets/onecart/oc-welcome.jpg" alt="OneCart Family - Welcome and Sign in with Apple" loading="lazy" width="369" height="800" data-media-kind="ui">
+            <img src="assets/onecart/oc-cart.jpg" alt="OneCart Family - Shared family cart with trolley checkoffs" loading="lazy" width="369" height="800" data-media-kind="ui">
+            <img src="assets/onecart/oc-history.jpg" alt="OneCart Family - Purchase history sessions" loading="lazy" width="369" height="800" data-media-kind="ui">
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="cover-footer">
+      <p><a href="index.html">Back to Portfolio</a></p>
+    </footer>
+  </div>
+</body>
+</html>
