@@ -61,10 +61,6 @@
       border-bottom: 1px solid var(--border-subtle);
     }
 
-    header-inner {
-      display: block;
-    }
-
     .header-inner {
       max-width: 960px;
       margin: 0 auto;
