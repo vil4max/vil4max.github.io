@@ -20,7 +20,7 @@ I'm looking for Software Engineer or Senior Software Engineer roles on long-term
 
 **Architecture & Delivery:** Swift Package Manager (SPM) · Modular Architecture · MVVM · Clean Architecture · Dependency Injection · Protocol-Oriented Programming · XCTest · Xcode Instruments · Performance Optimization · CI/CD · App Store Connect
 
-**AI Engineering & Development:** Apple Foundation Models · Context Engineering · Agentic Workflows · Tool Calling · Structured Outputs · AI-Assisted Development
+**AI Engineering & Development:** Apple Foundation Models · Context Engineering · Agentic SDLC · Agentic Workflows · Tool Calling · Structured Outputs · Continuous Evaluation · Deterministic Verification · Human-in-the-Loop Engineering · AI-Assisted Development
 
 ## Experience
 
