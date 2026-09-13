@@ -10,3 +10,4 @@ content/source-of-truth.md
 .cursor/project-context
 .cursor/project-context.yaml
 .cursor/**/*.bak*
+.agents/project-context.yaml
