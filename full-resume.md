@@ -190,6 +190,8 @@ Umico was an existing PASHA-ecosystem product growing toward a leading marketpla
 
 **Technologies:** UIKit · SwiftUI · Swift Concurrency · Swift Package Manager (SPM) · Modular Architecture · Clean Architecture · Multi-host SDK · Unit Testing · Integration Testing · CI/CD · Xcode Instruments · A/B Testing · Feature Flags · Remote Configuration · Product Analytics · Firebase · PostHog
 
+[App Store](https://apps.apple.com/us/app/birmarket-online-shopping-app/id1458111389)
+
 ### Drinkit: Coffee Ordering App
 
 [Drinkit](https://vil4max.github.io/index.html#milestone-drinkit)
@@ -204,6 +206,8 @@ Drinkit began as a digital coffee-shop startup within Dodo Brands, connecting mo
 
 **Technologies:** Swift · UIKit · Combine · Swift Package Manager (SPM) · Grand Central Dispatch (GCD) · OperationQueue · MVP · Coordinator · AVFoundation · AVPlayer · File-system Caching · Payment SDK Integration · Unit Testing · Integration Testing · URLSession · REST APIs · A/B Testing · Feature Flags · Remote Configuration
 
+[App Store](https://apps.apple.com/us/app/drinkit-order-your-coffee/id1495622004)
+
 ### PLAYHERA: esports tournaments
 
 [SOLVVE](https://vil4max.github.io/index.html#milestone-solvve)
@@ -216,6 +220,8 @@ Playhera was an established international esports platform for managing tourname
 
 **Technologies:** Swift · UIKit · RxSwift · Reactive UI · Production Maintenance · Code Review
 
+[App Store](https://apps.apple.com/ua/app/playhera/id1449021935)
+
 ### Eastern Union: CRE app
 
 [GBKSoft](https://vil4max.github.io/index.html#milestone-gbksoft)
@@ -226,6 +232,8 @@ Eastern Union was an established commercial real-estate application maintained f
 - Implemented client-requested changes within its Swift/UIKit codebase
 
 **Technologies:** Swift · UIKit · Requirements Analysis · Feature Development · Production Maintenance
+
+[App Store](https://apps.apple.com/us/app/eastern-union/id1125123079)
 
 ### FinTech R&D
 
@@ -288,6 +296,8 @@ Green Riding Hood was an interactive read-aloud children’s book combining illu
 - The book featured illustrated, animated fairy-tale scenes and interactive activities
 
 **Technologies:** iOS · Interactive book
+
+[App Store](https://apps.apple.com/us/app/green-riding-hood-read-aloud/id977242839)
 
 ### DriveCheckUA
 
