@@ -15,6 +15,9 @@
             return;
         }
 
+        // Measure without the previous run's min-height: the layout grid stretches the stack to the scale,
+        // so a stale value would pad every entry after the content shrinks (web font load, wider window).
+        scale.style.minHeight = "";
         const scaleTop = scale.getBoundingClientRect().top;
         const scaleHeight = Math.max(scale.getBoundingClientRect().height, stack.getBoundingClientRect().height);
         scale.style.minHeight = `${Math.ceil(scaleHeight)}px`;
