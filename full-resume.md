@@ -4,6 +4,8 @@ Senior iOS Engineer | AI-Enabled Software Development
 
 Kyiv, Ukraine · Remote
 
+Available immediately · Employment or contractor (FOP)
+
 [vil4max@gmail.com](mailto:vil4max@gmail.com) · [Telegram](https://t.me/vil4max) · [LinkedIn](https://www.linkedin.com/in/vil4max/) · [Portfolio](https://vil4max.github.io) · [GitHub](https://github.com/vil4max)
 
 ## About
@@ -24,7 +26,7 @@ I'm looking for Senior iOS Engineer roles on long-term products, particularly in
 
 ## Experience
 
-### Senior iOS Engineer · GlobalLogic
+### Senior iOS Engineer · GlobalLogic (contract R&D)
 
 Jan 2026 - Jun 2026
 
