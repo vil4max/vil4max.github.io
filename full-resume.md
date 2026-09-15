@@ -30,7 +30,7 @@ Jan 2026 - Jun 2026
 
 Apple Watch voice assistant · Hands-free fieldwork
 
-An R&D Apple Watch voice assistant for hands-free fieldwork. Worked with the wider R&D team on the Apple platform client. Led watchOS interaction flows, audio streaming, and the iPhone relay. Mapped structured AI/backend responses to navigation, application state, warnings, and UI actions. Implemented Work Point details, hazards, maps, and navigation, together with a custom emergency flow. The iPhone relay handled real-time communication within watchOS runtime limits. After the client engagement, I created Jira evaluation scenarios for VelocityAI, checked generated implementations against requirements and visual references, and reviewed fixes and regressions. Shipped a TestFlight demo, codebase, and documentation for client evaluation.
+An R&D Apple Watch voice assistant for hands-free fieldwork. Worked with the wider R&D team on the Apple platform client. Led watchOS interaction flows, audio streaming, and the iPhone relay. Mapped structured AI/backend responses to navigation, application state, warnings, and UI actions. Implemented Work Point details, hazards, maps, and navigation, together with a custom emergency flow. The iPhone relay handled real-time communication within watchOS runtime limits. Once the demo was delivered, I created Jira evaluation scenarios for VelocityAI, checked generated implementations against requirements and visual references, and reviewed fixes and regressions. Shipped a TestFlight demo package with codebase and documentation.
 
 - Built the watchOS conversation interface, translating structured assistant responses into concrete device actions and haptics.
 - Implemented the companion iPhone relay for live audio and realtime WebSocket communication within watchOS runtime limits.
@@ -78,7 +78,7 @@ Jan 2019 - Feb 2020
 
 PLAYHERA · Esports tournament platform
 
-PLAYHERA, an established esports platform for running tournaments across teams, players and results. Joined the existing iOS team at SOLVVE, working inside its architecture and review process. Implemented assigned tournament, profile and news features in the Swift/UIKit codebase using RxSwift. The product included schedules, matches, ratings, team communication, and player information. My implementation work used the existing reactive feature flows and team conventions. Shipped the work in App Store updates to the live application.
+PLAYHERA, an established esports tournament platform. Joined the iOS team at SOLVVE, working in its architecture and review process. Implemented assigned tournament, profile and news features in the RxSwift/UIKit codebase. The product included schedules, matches, ratings, team communication, and player information. My implementation work used the existing reactive feature flows and team conventions. Shipped in App Store updates to the live application.
 
 - Implemented tournament tables, profiles, and settings within the existing UIKit architecture.
 - Developed news and feed functionality using RxSwift and the team’s code-review process.
@@ -108,11 +108,11 @@ Jun 2017 - Jun 2018
 
 Clovis · Online retail; Eastern Union · Real estate; Bluetooth trackers and offline games
 
-GBKSoft delivered outsourced client apps, including retail, real estate, an offline game, and Bluetooth hardware R&D. Worked across client teams and was the primary developer of the Clovis storefront. Implemented storefront features and BLE integration, tested physical tracker prototypes, and maintained existing apps. Configured Bluetooth tracker prototypes, measured their behavior, and debugged the software/device integration. The R&D application did not reach the App Store. Clovis covered product browsing, authentication, and purchasing for a US sports-nutrition business. Eastern Union work involved reading domain-specific requirements and implementing requested changes with the team. Extended the existing Defend Ukraine offline game with local difficulty levels, including changes to opponent counts. Released Clovis and later updates; delivered tracker TestFlight builds and game changes that reached the App Store.
+The work spanned retail, real estate, an offline game, and Bluetooth hardware R&D. Worked in product teams and was the primary developer of the Clovis storefront. Implemented storefront features and BLE integration, tested physical tracker prototypes, and maintained existing apps. Configured Bluetooth tracker prototypes, measured their behavior, and debugged the software/device integration. The R&D application did not reach the App Store. Clovis covered product browsing, authentication, and purchasing for a US sports-nutrition business. Eastern Union work involved translating domain rules into screen behavior and information structure. Extended the existing Defend Ukraine offline game with local difficulty levels, including changes to opponent counts. Released Clovis and later updates; delivered tracker TestFlight builds and game changes that reached the App Store.
 
 - Developed and tested CoreBluetooth integration with physical tracker prototypes.
 - Built Clovis storefront flows and delivered subsequent App Store updates.
-- Implemented requested real-estate features, defect fixes, and offline game difficulty levels.
+- Implemented real-estate features, defect fixes, and offline game difficulty levels.
 
 **Technologies:** REST APIs · CoreBluetooth · Physical Device Testing · TestFlight · Swift · UIKit · Requirements Analysis · Feature Development · Production Maintenance
 
@@ -124,7 +124,7 @@ Nov 2015 - Jun 2017
 
 AcuCharting · Patient records; ALERT · Resilience training; FlipTaxi · Taxi ordering
 
-Client applications covered acupuncture patient records, resilience training for law-enforcement users, and taxi ordering. Developed AcuCharting and ALERT independently and worked with a team on FlipTaxi. Implemented offline records and interactive 3D treatment mapping, audio exercises and reminders, and passenger-side maps and location updates. AcuCharting used SceneKit body models and Core Data for patient visits and needle-placement history. I implemented rotation, zoom, and editing treatment points, then delivered later App Store updates. ALERT used supplied designs, user flows, and audio assets. FlipTaxi covered authorization and taxi-order flows; the passenger client polled backend positions supplied by driver clients. Released AcuCharting and ALERT on the App Store; FlipTaxi reached a backend-connected beta.
+The applications covered acupuncture patient records, resilience training for law-enforcement users, and taxi ordering. Developed AcuCharting and ALERT independently and worked with a team on FlipTaxi. Implemented offline records and interactive 3D treatment mapping, audio exercises and reminders, and passenger-side maps and location updates. AcuCharting used SceneKit body models and Core Data for patient visits and needle-placement history. I implemented rotation, zoom, and editing treatment points, then delivered later App Store updates. ALERT delivered guided exercises with local audio playback and scheduled reminders. FlipTaxi covered authorization and taxi-order flows; the passenger client polled backend positions supplied by driver clients. Released AcuCharting and ALERT on the App Store; FlipTaxi reached a backend-connected beta.
 
 - Built offline patient records and interactive treatment mapping on a 3D body model.
 - Implemented local audio playback, seeking, and scheduled reminders in ALERT.
@@ -155,9 +155,9 @@ Dec 2013 - Nov 2014
 
 AlphaSMS · Bulk messaging; Ukrainian news aggregator
 
-AlphaSMS brought an existing bulk-messaging service to mobile; a second app aggregated Ukrainian news. Worked alongside an Android developer on AlphaSMS, each responsible for one platform. Built the iOS clients from supplied requirements in a junior role, covering interface, navigation, API integration, and manual testing. AlphaSMS included message composition, drafts, scheduled sends, mailing history, and a contact book. I separated networking, UI, and basic business logic as the implementation evolved. The news client let users select sources and browse a chronological feed with images, headlines, and links to the original articles. Released both applications on the App Store, taking the news client from idea to delivery.
+AlphaSMS brought an existing bulk-messaging service to mobile; a second app aggregated Ukrainian news. Worked alongside an Android developer on AlphaSMS, each responsible for one platform. Built the iOS clients in a junior role, covering interface, navigation, API integration, and manual testing. AlphaSMS included message composition, drafts, scheduled sends, mailing history, and a contact book. I separated networking, UI, and basic business logic as the implementation evolved. The news client let users select sources and browse a chronological feed with images, headlines, and links to the original articles. Released both applications on the App Store, taking the news client from idea to delivery.
 
-- Implemented AlphaSMS messaging flows and service API integration from the customer’s documentation.
+- Implemented AlphaSMS messaging flows and service API integration.
 - Developed source subscriptions and a chronological news feed, with navigation to original articles.
 
 **Technologies:** Objective-C · UIKit · API Integration · Separation of Concerns · Manual Testing · App Store Delivery
@@ -168,7 +168,7 @@ AlphaSMS brought an existing bulk-messaging service to mobile; a second app aggr
 
 [GlobalLogic](https://vil4max.github.io/index.html#milestone-globallogic)
 
-An internal R&D project explored a hands-free voice assistant for field workers using Apple Watch. Worked within the wider R&D team on the Apple-platform client. Designed and implemented watchOS interaction flows, an iPhone relay for live audio and WebSocket traffic, and structured-response mapping within agreed contracts. Implemented a custom emergency flow and Work Point details, hazards, maps, and navigation across the watch and phone. Structured replies selected known screens and actions rather than executing arbitrary model instructions. The iPhone relay carried live audio and WebSocket traffic within watchOS runtime limits. After the engagement, I evaluated an internal AI-assisted iOS development workflow using Jira requirements and visual references. Delivered a TestFlight demo, codebase, and documentation for client evaluation, then evaluated AI-assisted development workflows.
+An internal R&D project explored a hands-free voice assistant for field workers using Apple Watch. Worked within the wider R&D team on the Apple-platform client. Designed and implemented watchOS interaction flows, an iPhone relay for live audio and WebSocket traffic, and structured-response mapping within agreed contracts. Implemented a custom emergency flow and Work Point details, hazards, maps, and navigation across the watch and phone. Structured replies selected known screens and actions rather than executing arbitrary model instructions. The iPhone relay carried live audio and WebSocket traffic within watchOS runtime limits. After the engagement, I evaluated an internal AI-assisted iOS development workflow using Jira requirements and visual references. Delivered a TestFlight demo package with codebase and documentation, then evaluated AI-assisted development workflows.
 
 - Designed a custom emergency flow on watchOS
 - Built the voice conversation interface and an iPhone relay for WebSocket communication and live audio
@@ -226,10 +226,10 @@ Playhera was an established international esports platform for managing tourname
 
 [GBKSoft](https://vil4max.github.io/index.html#milestone-gbksoft)
 
-Eastern Union was an established commercial real-estate application maintained for an outsourcing client. Worked as part of the GBKSoft development team on requested changes. Interpreted domain-specific documentation, implemented features, and corrected defects within the existing Swift/UIKit codebase while following the client’s requirements. The work involved translating real-estate documentation into screen behavior and information structure. Changes were incremental additions and refinements to the existing application. Delivered scoped maintenance and feature changes to the existing client application.
+Eastern Union was an established commercial real-estate application under ongoing development. Worked as part of the GBKSoft development team. Interpreted domain-specific documentation, implemented features, and corrected defects within the existing Swift/UIKit codebase. The work involved translating real-estate documentation into screen behavior and information structure. Changes were incremental additions and refinements to the existing application. Delivered scoped maintenance and feature changes to the existing application.
 
 - Maintained and refined the existing commercial real-estate app
-- Implemented client-requested changes within its Swift/UIKit codebase
+- Implemented features and fixes within its Swift/UIKit codebase
 
 **Technologies:** Swift · UIKit · Requirements Analysis · Feature Development · Production Maintenance
 
@@ -237,9 +237,9 @@ Eastern Union was an established commercial real-estate application maintained f
 
 ### FinTech R&D
 
-Part-time project · Client-delivered beta
+R&D prototype · Beta
 
-A fintech prototype for buying and selling physical gold, with ownership recorded on Ethereum. Worked on iOS alongside backend engineers, integrating customer flows with backend services. Owned the customer-facing iOS application, from authorization and KYC flows to portfolio and buy/sell screens. The app used the backend middleware API for business operations and could query public Ethereum APIs for transaction information. Gold balances and ownership records were maintained by the backend. Integrated third-party KYC, Stripe, and Apple Pay into the beta purchase flow. The UIKit client also displayed portfolio balances and price charts and supported selling gold. Delivered a functional client beta and handed over the codebase.
+A fintech prototype for buying and selling physical gold, with ownership recorded on Ethereum. Worked on iOS alongside backend engineers, integrating customer flows with backend services. Owned the customer-facing iOS application, from authorization and KYC flows to portfolio and buy/sell screens. The app used the backend middleware API for business operations and could query public Ethereum APIs for transaction information. Gold balances and ownership records were maintained by the backend. Integrated third-party KYC, Stripe, and Apple Pay into the beta purchase flow. The UIKit client also displayed portfolio balances and price charts and supported selling gold. Delivered a working beta with KYC, portfolio, price charts and buy/sell flows.
 
 - Implemented the UIKit iOS application
 - Delivered a beta with authorization, KYC, gold balances, price charts, and buy/sell flows; integrated Stripe and Apple Pay for purchases
@@ -266,9 +266,9 @@ Electus was a consumer-crypto startup developing a wallet for Ethereum and Bitco
 
 [Amconsoft](https://vil4max.github.io/index.html#milestone-amconsoft)
 
-ALERT provided resilience training for law-enforcement users through guided exercises, audio practice, and reminders. Implemented the iOS application independently from supplied designs, user flows, and audio assets. Built restricted access, exercise categories, guided One Way practice, local audio playback controls, and configurable reminder frequency. Audio was stored on the device and supported playback seeking. The application focused on resilience coaching; dispatch and emergency-alert functionality were outside its scope. Completed the application and released it on the App Store with scheduled local reminders.
+ALERT provided resilience training for law-enforcement users through guided exercises, audio practice, and reminders. Implemented the iOS application independently, covering access, exercises, audio and reminders. Built restricted access, exercise categories, guided One Way practice, local audio playback controls, and configurable reminder frequency. Audio was stored on the device and supported playback seeking. The application focused on resilience coaching; dispatch and emergency-alert functionality were outside its scope. Completed the application and released it on the App Store with scheduled local reminders.
 
-- Independently built the iOS app from supplied user flows, designs, and audio
+- Independently built the iOS app and released it on the App Store
 - Implemented restricted access, practice categories, and guided One Way exercises
 - Added local audio playback and configurable reminder frequency
 
