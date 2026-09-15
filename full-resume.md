@@ -78,7 +78,7 @@ Jan 2019 - Feb 2020
 
 PLAYHERA · Esports tournament platform
 
-PLAYHERA, an established esports tournament platform. Joined the iOS team at SOLVVE, working in its architecture and review process. Implemented assigned tournament, profile and news features in the RxSwift/UIKit codebase. The product included schedules, matches, ratings, team communication, and player information. My implementation work used the existing reactive feature flows and team conventions. Shipped in App Store updates to the live application.
+PLAYHERA, an established esports tournament platform. Joined the iOS team at SOLVVE, working in its architecture and review process. Implemented assigned tournament, profile and news features in the RxSwift/UIKit codebase. The product included schedules, matches, ratings, team communication, and player information. My implementation work used the existing reactive feature flows and team conventions. Maintained production App Store releases for the live esports application.
 
 - Implemented tournament tables, profiles, and settings within the existing UIKit architecture.
 - Developed news and feed functionality using RxSwift and the team’s code-review process.
@@ -239,7 +239,7 @@ Eastern Union was an established commercial real-estate application under ongoin
 
 R&D prototype · Beta
 
-A fintech prototype for buying and selling physical gold, with ownership recorded on Ethereum. Worked on iOS alongside backend engineers, integrating customer flows with backend services. Owned the customer-facing iOS application, from authorization and KYC flows to portfolio and buy/sell screens. The app used the backend middleware API for business operations and could query public Ethereum APIs for transaction information. Gold balances and ownership records were maintained by the backend. Integrated third-party KYC, Stripe, and Apple Pay into the beta purchase flow. The UIKit client also displayed portfolio balances and price charts and supported selling gold. Delivered a working beta with KYC, portfolio, price charts and buy/sell flows.
+A fintech prototype for buying and selling physical gold, with ownership recorded on Ethereum. Worked on iOS alongside backend engineers, integrating customer flows with backend services. Owned the customer-facing iOS application, from authorization and KYC flows to portfolio and buy/sell screens. The app used the backend middleware API for business operations and could query public Ethereum APIs for transaction information. Gold balances and ownership records were maintained by the backend. Integrated third-party KYC, Stripe, and Apple Pay into the beta purchase flow. The UIKit client also displayed portfolio balances and price charts and supported selling gold. Delivered a functional client beta with live Ethereum ownership verification.
 
 - Implemented the UIKit iOS application
 - Delivered a beta with authorization, KYC, gold balances, price charts, and buy/sell flows; integrated Stripe and Apple Pay for purchases
@@ -266,7 +266,7 @@ Electus was a consumer-crypto startup developing a wallet for Ethereum and Bitco
 
 [Amconsoft](https://vil4max.github.io/index.html#milestone-amconsoft)
 
-ALERT provided resilience training for law-enforcement users through guided exercises, audio practice, and reminders. Implemented the iOS application independently, covering access, exercises, audio and reminders. Built restricted access, exercise categories, guided One Way practice, local audio playback controls, and configurable reminder frequency. Audio was stored on the device and supported playback seeking. The application focused on resilience coaching; dispatch and emergency-alert functionality were outside its scope. Completed the application and released it on the App Store with scheduled local reminders.
+ALERT provided resilience training for law-enforcement users through guided exercises, audio practice, and reminders. Implemented the iOS application independently as the sole mobile developer. Built restricted access, exercise categories, guided One Way practice, local audio playback controls, and configurable reminder frequency. Audio was stored on the device and supported playback seeking. The application focused on resilience coaching; dispatch and emergency-alert functionality were outside its scope. Completed the application and released it on the App Store with scheduled local reminders.
 
 - Independently built the iOS app and released it on the App Store
 - Implemented restricted access, practice categories, and guided One Way exercises
