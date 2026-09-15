@@ -4,7 +4,7 @@ Senior iOS Engineer | AI-Enabled Software Development
 
 Kyiv, Ukraine · Remote
 
-[vil4max@gmail.com](mailto:vil4max@gmail.com) · [Telegram](https://t.me/vil4max) · [LinkedIn](https://www.linkedin.com/in/vil4max/) · [Portfolio](https://vil4max.github.io)
+[vil4max@gmail.com](mailto:vil4max@gmail.com) · [Telegram](https://t.me/vil4max) · [LinkedIn](https://www.linkedin.com/in/vil4max/) · [Portfolio](https://vil4max.github.io) · [GitHub](https://github.com/vil4max)
 
 ## About
 
@@ -16,7 +16,7 @@ I'm looking for Senior iOS Engineer roles on long-term products, particularly in
 
 ## Skills
 
-**iOS & Apple Platforms:** Swift · Objective-C · UIKit · SwiftUI · Foundation · iOS SDK · Xcode · Swift Concurrency · Combine · Auto Layout · URLSession · REST APIs · WebSockets · Core Data · Keychain Services · StoreKit 2 · watchOS · WatchConnectivity · Realtime Audio Streaming
+**iOS & Apple Platforms:** Swift · Objective-C · UIKit · SwiftUI · Swift Concurrency · Combine · URLSession · REST APIs · WebSockets · Core Data · Keychain Services · StoreKit 2 · watchOS · WatchConnectivity · Realtime Audio Streaming
 
 **Architecture & Delivery:** Swift Package Manager (SPM) · Modular Architecture · MVVM · Clean Architecture · Dependency Injection · Protocol-Oriented Programming · XCTest · Xcode Instruments · Performance Optimization · CI/CD · App Store Connect
 
@@ -32,9 +32,9 @@ Apple Watch voice assistant · Hands-free fieldwork
 
 An R&D Apple Watch voice assistant for hands-free fieldwork. Worked with the wider R&D team on the Apple platform client. Led watchOS interaction flows, audio streaming, and the iPhone relay. Mapped structured AI/backend responses to navigation, application state, warnings, and UI actions. Implemented Work Point details, hazards, maps, and navigation, together with a custom emergency flow. The iPhone relay handled real-time communication within watchOS runtime limits. Once the demo was delivered, I created Jira evaluation scenarios for VelocityAI, checked generated implementations against requirements and visual references, and reviewed fixes and regressions. Shipped a TestFlight demo package with codebase and documentation.
 
-- Built the watchOS conversation interface, translating structured assistant responses into concrete device actions and haptics.
-- Implemented the companion iPhone relay for live audio and realtime WebSocket communication within watchOS runtime limits.
-- Evaluated AI-assisted engineering delivery using structured implementation checks and reviews of fixes and regressions.
+- Built the watchOS voice interface with persistent listening sessions and haptics, mapping structured assistant responses onto known screens and actions rather than executing arbitrary model instructions.
+- Implemented the iPhone relay for realtime audio and WebSocket traffic around watchOS runtime limits, plus Work Point maps with compass navigation and a custom emergency flow.
+- Evaluated GlobalLogic's VelocityAI SDLC hands-on, authoring scenarios and checking implementations against spec.
 
 **Technologies:** WebSockets · WatchKit · Swift Concurrency · WatchConnectivity · URLSessionWebSocketTask · AVFoundation · Audio Streaming · Structured AI Responses
 
@@ -46,11 +46,11 @@ Apr 2022 - Jan 2026
 
 Birmarket · Marketplace shopping and loyalty
 
-Birmarket (formerly Umico) is a consumer marketplace in the PASHA ecosystem. Embedded in the loyalty engineering team alongside backend and QA specialists. Shipped core loyalty features and spearheaded subscription modularization. Joined the existing product in 2022. Competo had been a PASHA Holding subsidiary since March 2020; the marketplace was renamed Birmarket in July 2025. Official company context: https://pasha-holding.az/en/ecosystem/competo/. Marketplace work covered ordering, delivery, profiles, partner information, and loyalty. Extracted feature modules and shared infrastructure while continuing feature delivery, and diagnosed memory leaks, retain cycles, and UI hangs with Xcode Instruments. During the final year, rebuilt Premium Subscription as a remote Swift Package for Birmarket, Birbank, and M10. Hosts retained authentication and token refresh; the SDK accepted a scoped token and managed its own networking. I defined integration contracts and worked on shared analytics. Onboarded a new iOS engineer, coordinated feature assignments, and participated in mandatory code reviews. The larger mobile organization used several feature teams with dedicated technical leadership. Used A/B tests, feature flags, and remote configuration. Designed and implemented the SDK analytics abstraction with PostHog independently of host-level Firebase analytics. Delivered a unified Swift package powering subscriptions across Birmarket, Birbank, and m10.
+Birmarket (formerly Umico) is a consumer marketplace in the PASHA ecosystem. Embedded in the loyalty engineering team alongside backend and QA specialists. Shipped core loyalty features and spearheaded subscription modularization. Joined the existing product in 2022. Competo had been a PASHA Holding subsidiary since March 2020; the marketplace was renamed Birmarket in July 2025. Official company context: https://pasha-holding.az/en/ecosystem/competo/. Marketplace work covered ordering, delivery, profiles, partner information, and loyalty. Extracted feature modules and shared infrastructure while continuing feature delivery, and diagnosed memory leaks, retain cycles, and UI hangs with Xcode Instruments. During the final year, rebuilt Premium Subscription as a remote Swift Package for Birmarket, Birbank, and M10. Hosts retained authentication and token refresh; the SDK accepted a scoped token and managed its own networking. I defined integration contracts and worked on shared analytics. Onboarded a new iOS engineer, coordinated feature assignments, and participated in mandatory code reviews. The larger mobile organization used several feature teams with dedicated technical leadership. Used A/B tests, feature flags, and remote configuration. Designed and implemented the SDK analytics abstraction with PostHog independently of host-level Firebase analytics. Validated the unified subscription package through host integration and TestFlight.
 
-- Shipped high-traffic marketplace features while untangling monolithic dependencies into modular Swift packages.
-- Built the multi-host Subscription SDK with an independent PostHog analytics layer, defining clean contracts for host apps.
-- Onboarded an iOS engineer, coordinated feature assignments, and reviewed code within the loyalty team.
+- Extracted Premium Subscription from the Birmarket monolith into a remote Swift Package for three host apps — Birmarket, Birbank, and m10 — breaking cyclic host dependencies on networking and themes.
+- Designed the module's integration surface: hosts keep authentication and token refresh; the SDK owns networking and PostHog analytics.
+- Diagnosed production memory leaks, retain cycles, and UI hangs with Instruments; onboarded an iOS engineer, coordinated feature assignments, and reviewed code in the loyalty team.
 
 **Technologies:** UIKit · SwiftUI · Swift Concurrency · Swift Package Manager (SPM) · Modular Architecture · Clean Architecture · Multi-host SDK · Unit Testing · Integration Testing · CI/CD · Xcode Instruments · A/B Testing · Feature Flags · Remote Configuration · Product Analytics · Firebase · PostHog
 
@@ -239,7 +239,7 @@ Eastern Union was an established commercial real-estate application under ongoin
 
 R&D prototype · Beta
 
-A fintech prototype for buying and selling physical gold, with ownership recorded on Ethereum. Worked on iOS alongside backend engineers, integrating customer flows with backend services. Owned the customer-facing iOS application, from authorization and KYC flows to portfolio and buy/sell screens. The app used the backend middleware API for business operations and could query public Ethereum APIs for transaction information. Gold balances and ownership records were maintained by the backend. Integrated third-party KYC, Stripe, and Apple Pay into the beta purchase flow. The UIKit client also displayed portfolio balances and price charts and supported selling gold. Delivered a functional client beta with live Ethereum ownership verification.
+A fintech prototype for trading physical gold with Ethereum ownership records. Collaborated on iOS alongside backend engineers. Owned the client app across KYC onboarding, portfolio tracking, and buy/sell flows. The app used the backend middleware API for business operations and could query public Ethereum APIs for transaction information. Gold balances and ownership records were maintained by the backend. Integrated third-party KYC, Stripe, and Apple Pay into the beta purchase flow. The UIKit client also displayed portfolio balances and price charts and supported selling gold. Delivered a functional beta with Stripe and Apple Pay checkout.
 
 - Implemented the UIKit iOS application
 - Delivered a beta with authorization, KYC, gold balances, price charts, and buy/sell flows; integrated Stripe and Apple Pay for purchases
@@ -303,7 +303,7 @@ Green Riding Hood was an interactive read-aloud children’s book combining illu
 
 Personal project · App Store release
 
-DriveCheckUA helps drivers check regional safety alerts on iPhone and CarPlay. Independent development with coding agents. Responsible for app architecture, AI integration, and verification. Swift code classifies alert status before the model receives supplied facts. The AI integration checks model availability, limits generation time, handles cancellation, validates output, and falls back deterministically when needed. Separately built a bounded Swift agent/tool runtime with a 38-case scripted evaluation corpus and documented real-device validation. Checks cover tool selection, execution budgets, malformed results, cancellation, deadlines, and fallback behavior. This runtime is separate from the released country-summary feature. Released on the App Store; separately evaluated a Swift agent/tool runtime.
+DriveCheckUA displays regional safety alerts on iPhone and CarPlay. Built independently with coding agents. Architected the client, on-device AI integration, and CarPlay UI. Swift code classifies alert status before the model receives supplied facts. The AI integration checks model availability, limits generation time, handles cancellation, validates output, and falls back deterministically when needed. Separately built a bounded Swift agent/tool runtime with a 38-case scripted evaluation corpus and documented real-device validation. Checks cover tool selection, execution budgets, malformed results, cancellation, deadlines, and fallback behavior. This runtime is separate from the released country-summary feature. Released on the App Store; evaluated a bounded Swift agent runtime.
 
 - Built and released the CarPlay and iPhone app with coding agents
 - Integrated an on-device Foundation Models summary with validation and fallback
@@ -317,7 +317,7 @@ DriveCheckUA helps drivers check regional safety alerts on iPhone and CarPlay. I
 
 Personal project · App Store release
 
-OneCart Family is a family shopping app with a shared iCloud list and purchase history. Independent development with coding agents. Responsible for product, implementation, and release quality. Core Data uses private and shared CloudKit stores with CKShare invitations. Edits persist locally before cloud propagation. The app handles membership changes, duplicate records, and recovery when cloud account deletion fails. WidgetKit snapshots and App Intents support widget actions. XCTest regression suites cover cart state, sharing, persistence, synchronization errors, and deletion recovery. I reviewed generated changes, investigated defects, and verified releases. Released on the App Store.
+OneCart Family is a family shopping app with shared iCloud lists. Built independently with coding agents. Led architecture, data synchronization, and release verification. Core Data uses private and shared CloudKit stores with CKShare invitations. Edits persist locally before cloud propagation. The app handles membership changes, duplicate records, and recovery when cloud account deletion fails. WidgetKit snapshots and App Intents support widget actions. XCTest regression suites cover cart state, sharing, persistence, synchronization errors, and deletion recovery. I reviewed generated changes, investigated defects, and verified releases. Released on the App Store.
 
 - Built and released a shared shopping app with coding agents
 - Implemented Core Data and CloudKit persistence, CKShare invitations, and offline edits
