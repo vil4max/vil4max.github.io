@@ -7,7 +7,7 @@ constructor. Career facts live in its `CAREER_SOT_PRIVATE.md`; output wording
 and selections live in `resume/presentation.json`, and layout shells in
 `resume/templates/`. Build, check, and explicitly publish from that repository.
 Do not hand-edit generated `index.html`, `projects.html`, `full-resume.md`,
-`full-resume.html`, or the single `assets/Vilchevskiy_Software_Engineer.pdf`.
+`full-resume.html`, or the single `assets/Vilchevskiy_Senior_iOS_Engineer.pdf`.
 Site CSS, JavaScript, and media remain owned here. There is no separate local
 resume build or source. Do not copy private career records or form data here.
 Inspect generated diffs and visual layout; commit/push only when asked.

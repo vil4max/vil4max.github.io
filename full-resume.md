@@ -1,6 +1,6 @@
 # Max Vilchevskiy
 
-Software Engineer | iOS | AI-Augmented Engineering
+Senior iOS Engineer | AI-Enabled Software Development
 
 Kyiv, Ukraine · Remote
 
@@ -8,11 +8,11 @@ Kyiv, Ukraine · Remote
 
 ## About
 
-I'm a software engineer with 13 years of experience in iOS, consumer products, and fintech. I've built apps from scratch and worked on established products through years of growth. At Drinkit, I was part of the team that launched the app with its first coffee shop. At Umico, I developed marketplace features as the product grew into Birmarket, then built a subscription SDK for several host apps. My recent work also includes a watchOS voice client with an iPhone relay.
+I'm a Senior iOS Engineer with 13 years of experience in iOS, consumer products, and fintech. I've built apps from scratch and worked on established products through years of growth. At Drinkit, I was part of the team that launched the app with its first coffee shop. At Umico, I developed marketplace features as the product grew into Birmarket, then built a subscription SDK for several host apps. My recent work also includes a watchOS voice client with an iPhone relay.
 
 I use coding agents for planning, implementation, testing, verification, and code review in released products and R&D work. I make the technical decisions and check the results. I built and released DriveCheckUA and OneCart Family this way. DriveCheckUA includes a Foundation Models summary with structured output, validation, and deterministic fallback. I also built a separate Swift agent/tool runtime with a 38-case evaluation corpus and validation on a real device.
 
-I'm looking for Software Engineer or Senior Software Engineer roles on long-term products, particularly in iOS and fintech. I can take a feature from technical planning through implementation and release, and I'd like to contribute to other parts of the product as well. AI-assisted development is part of how I work day to day.
+I'm looking for Senior iOS Engineer roles on long-term products, particularly in iOS and fintech. I can take a feature from technical planning through implementation and release, and I'd like to contribute to other parts of the product over time. AI-enabled development is part of how I work day to day.
 
 ## Skills
 
