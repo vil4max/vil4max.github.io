@@ -45,21 +45,22 @@
             rail.style.setProperty("--segment-length", `${Math.max(24, Math.round(span))}px`);
         }
 
+        // Anchor each entry's start year to the BOTTOM of its own card, not its dot at the top.
+        // The dot sits at the entry's most-recent boundary (hand-off from the entry above), while
+        // startYear is its oldest boundary, adjacent to the next, older entry below it. Anchoring
+        // startYear there means a long entry's own card supplies the pixel span its in-between
+        // years interpolate across, instead of borrowing space from a short entry stacked above it
+        // (e.g. a text-heavy 6-month contract role no longer swallows the years of a 4-year role
+        // that follows it in the list).
         const yearTops = new Map();
         for (const entry of entries) {
             if (entry.classList.contains("experience-entry--current") && entries.length > 1) {
                 continue;
             }
-            const mileYear = Number(entry.dataset.startYear);
-            const top = dotCenterY(entry);
-            if (Number.isFinite(mileYear) && top != null && !yearTops.has(mileYear)) {
-                yearTops.set(mileYear, top);
-            }
-
-            const originYear = Number(entry.dataset.originYear);
-            if (Number.isFinite(originYear)) {
+            const startYear = Number(entry.dataset.startYear);
+            if (Number.isFinite(startYear) && !yearTops.has(startYear)) {
                 const bottom = entry.getBoundingClientRect().bottom - scaleTop - 10;
-                yearTops.set(originYear, Math.max(top ?? 0, bottom));
+                yearTops.set(startYear, bottom);
             }
         }
 
