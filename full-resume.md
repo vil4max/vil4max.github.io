@@ -1,6 +1,6 @@
 # Max Vilchevskiy
 
-Senior iOS Engineer | AI-Enabled Software Development
+Senior iOS Engineer | Agentic AI Engineering
 
 Kyiv, Ukraine · Remote
 
@@ -14,15 +14,15 @@ I'm a Senior iOS Engineer with 13 years of experience in iOS, consumer products,
 
 I use coding agents for planning, implementation, testing, verification, and code review in released products and R&D work. I make the technical decisions and check the results. I built and released DriveCheckUA and OneCart Family this way. DriveCheckUA includes a Foundation Models summary with structured output, validation, and deterministic fallback. I also built a separate Swift agent/tool runtime with a 38-case evaluation corpus and validation on a real device.
 
-I'm looking for Senior iOS Engineer roles on long-term products, particularly in iOS and fintech. I can take a feature from technical planning through implementation and release, and I'd like to contribute to other parts of the product over time. AI-enabled development is part of how I work day to day.
+I'm looking for two kinds of roles: Senior iOS Engineer positions on long-term products, particularly in iOS and fintech, and Applied AI / AI engineering roles centered on agent orchestration, tool calling, and evaluation — the same discipline behind the Swift agent/tool runtime above. I can take a feature from technical planning through implementation and release, and I'd like to contribute to other parts of the product over time.
 
 ## Skills
 
 **iOS & Apple Platforms:** Swift · Objective-C · UIKit · SwiftUI · Swift Concurrency · Combine · URLSession · REST APIs · WebSockets · Core Data · Keychain Services · StoreKit 2 · watchOS · WatchConnectivity · Realtime Audio Streaming
 
-**Architecture & Delivery:** Swift Package Manager (SPM) · Modular Architecture · MVVM · Clean Architecture · Dependency Injection · Protocol-Oriented Programming · XCTest · Xcode Instruments · Performance Optimization · CI/CD · App Store Connect
-
 **AI Engineering & Development:** Apple Foundation Models · Context Engineering · Agentic SDLC · Agentic Workflows · Tool Calling · Structured Outputs · Continuous Evaluation · Deterministic Verification · Human-in-the-Loop Engineering · AI-Assisted Development
+
+**Architecture & Delivery:** Swift Package Manager (SPM) · Modular Architecture · MVVM · Clean Architecture · Dependency Injection · Protocol-Oriented Programming · XCTest · Xcode Instruments · Performance Optimization · CI/CD · App Store Connect
 
 ## Experience
 
