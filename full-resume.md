@@ -331,5 +331,6 @@ OneCart Family is a family shopping app with shared iCloud lists. Built independ
 
 ## Languages
 
+- Ukrainian - Fluent
 - Russian - Native
 - English - Upper-Intermediate (B2)
