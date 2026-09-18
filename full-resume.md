@@ -12,15 +12,15 @@ Available immediately · Employment or contractor (FOP)
 
 I'm a Senior iOS Engineer with 13 years of experience in iOS, consumer products, and fintech. I've built apps from scratch and worked on established products through years of growth. At Drinkit, I was part of the team that launched the app with its first coffee shop. At Umico, I developed marketplace features as the product grew into Birmarket, then built a subscription SDK for several host apps. My recent work also includes a watchOS voice client with an iPhone relay.
 
-I use coding agents for planning, implementation, testing, verification, and code review in released products and R&D work. I make the technical decisions and check the results. I built and released DriveCheckUA and OneCart Family this way. DriveCheckUA includes a Foundation Models summary with structured output, validation, and deterministic fallback. I also built a separate Swift agent/tool runtime with a 38-case evaluation corpus and validation on a real device.
+I use coding agents for planning, implementation, testing, verification, and code review in released products and R&D work. I make the technical decisions and check the results. I also built agent-engineering-kit and ios-agent-toolchain to manage the environment those agents work in: repository-aware instructions, reusable workflows, existing MCP tools, and deterministic execution and verification, checked with scenarios and regression tests. I built and released DriveCheckUA and OneCart Family this way. DriveCheckUA includes a Foundation Models summary with structured output, validation, and deterministic fallback. I also built a separate Swift agent/tool runtime with a 38-case evaluation corpus that includes injection-like inputs, and validated it on a real device.
 
-I'm looking for two kinds of roles: Senior iOS Engineer positions on long-term products, particularly in iOS and fintech, and Applied AI / AI engineering roles centered on agent orchestration, tool calling, and evaluation — the same discipline behind the Swift agent/tool runtime above. I can take a feature from technical planning through implementation and release, and I'd like to contribute to other parts of the product over time.
+I'm looking for two kinds of roles: Senior iOS Engineer positions on long-term products, particularly in iOS and fintech, and AI-native / agentic engineering roles centered on agent harnesses, context, tool calling, evaluation, and verification — the same discipline behind my Swift agent/tool runtime and agent tooling. I can take a feature from technical planning through implementation and release, and I'd like to contribute to other parts of the product over time.
 
 ## Skills
 
 **iOS & Apple Platforms:** Swift · Objective-C · UIKit · SwiftUI · Swift Concurrency · Combine · URLSession · REST APIs · WebSockets · Core Data · Keychain Services · StoreKit 2 · watchOS · WatchConnectivity · Realtime Audio Streaming
 
-**AI Engineering & Development:** Apple Foundation Models · Context Engineering · Agentic SDLC · Agentic Workflows · Tool Calling · Structured Outputs · Continuous Evaluation · Deterministic Verification · Human-in-the-Loop Engineering · AI-Assisted Development
+**AI Engineering & Development:** Apple Foundation Models · Context Engineering · Agentic SDLC · Agentic Workflows · Tool Calling · Structured Outputs · Model Context Protocol (MCP) · Guardrails · Prompt Injection Testing · Continuous Evaluation · Deterministic Verification · Human-in-the-Loop Engineering · AI-Assisted Development
 
 **Architecture & Delivery:** Swift Package Manager (SPM) · Modular Architecture · MVVM · Clean Architecture · Dependency Injection · Protocol-Oriented Programming · XCTest · Xcode Instruments · Performance Optimization · CI/CD · App Store Connect
 
@@ -305,13 +305,13 @@ Green Riding Hood was an interactive read-aloud children’s book combining illu
 
 Personal project · App Store release
 
-DriveCheckUA displays regional safety alerts on iPhone and CarPlay. Built independently with coding agents. Architected the client, on-device AI integration, and CarPlay UI. Swift code classifies alert status before the model receives supplied facts. The AI integration checks model availability, limits generation time, handles cancellation, validates output, and falls back deterministically when needed. Separately built a bounded Swift agent/tool runtime with a 38-case scripted evaluation corpus and documented real-device validation. Checks cover tool selection, execution budgets, malformed results, cancellation, deadlines, and fallback behavior. This runtime is separate from the released country-summary feature. Released on the App Store; evaluated a bounded Swift agent runtime.
+DriveCheckUA displays regional safety alerts on iPhone and CarPlay. Built independently with coding agents. Architected the client, on-device AI integration, and CarPlay UI. Swift code classifies alert status before the model receives supplied facts. The AI integration checks model availability, limits generation time, handles cancellation, validates output, and falls back deterministically when needed. Separately built a bounded Swift agent/tool runtime with a 38-case scripted evaluation corpus and documented real-device validation. Checks cover tool selection, execution budgets, malformed results, injection-like inputs, cancellation, deadlines, and fallback behavior. This runtime is separate from the released country-summary feature. Released on the App Store; evaluated a bounded Swift agent runtime.
 
 - Built and released the CarPlay and iPhone app with coding agents
 - Integrated an on-device Foundation Models summary with validation and fallback
 - Built a separate bounded agent/tool runtime with an evaluation corpus and device checks
 
-**Technologies:** SwiftUI · Swift Concurrency · CarPlay · Core Location · MapKit · URLSession · Apple Foundation Models · Structured Outputs · Tool Calling · Cancellation · Evaluation Corpus · Swift Testing
+**Technologies:** SwiftUI · Swift Concurrency · CarPlay · Core Location · MapKit · URLSession · Apple Foundation Models · Structured Outputs · Tool Calling · Guardrails · Prompt Injection Testing · Cancellation · Evaluation Corpus · Swift Testing
 
 [App Store](https://apps.apple.com/app/id6793023910) · [Source code](https://github.com/vil4max/regional-check)
 
