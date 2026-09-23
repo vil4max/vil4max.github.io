@@ -1,6 +1,6 @@
 # Max Vilchevskiy
 
-Senior iOS Engineer | AI-Native Development
+Senior iOS Engineer | Agentic Engineering & Agent-Ready Apps
 
 Kyiv, Ukraine (EET) · Open to remote
 
