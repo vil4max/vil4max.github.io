@@ -2,7 +2,7 @@
 
 Senior iOS Engineer | Agentic Engineering & Agent-Ready Apps
 
-Kyiv, Ukraine (EET) · Open to remote
+Kyiv, Ukraine · Open to remote
 
 Available immediately · Employment or contractor (FOP)
 
@@ -20,11 +20,11 @@ I'm looking for two kinds of roles: Senior iOS Engineer positions on long-term p
 
 **Core:** Swift · SwiftUI · UIKit · Objective-C · Swift Concurrency · Actors · Sendable · Combine · Grand Central Dispatch (GCD)
 
-**Native iOS:** Auto Layout · Core Data · URLSession · REST APIs · WebSockets · Keychain Services · APNs · Background Tasks
+**Native iOS:** Auto Layout · Core Data · URLSession · REST APIs · WebSockets · Keychain Services · APNs · Background Tasks · StoreKit 2 · In-App Subscriptions
 
 **Architecture:** MVVM · Clean Architecture · Modular Architecture · Swift Package Manager (SPM) · Dependency Injection
 
-**Quality & Delivery:** XCTest · Unit Testing · Integration Testing · Xcode Instruments · CI/CD · Git · TestFlight · A/B Testing
+**Quality & Delivery:** XCTest · Unit Testing · Integration Testing · Xcode Instruments · CI/CD · Git · TestFlight · A/B Testing · Agile
 
 **Libraries:** Alamofire · Moya · SnapKit · Swinject · RxSwift · Firebase · PostHog
 
@@ -38,21 +38,21 @@ Jun 2026 - Present
 
 Agentic iOS development
 
-Runtime tooling that lets AI coding agents work inside iOS projects, developed against real App Store releases rather than demos. One engineer directing several coding agents, with human approval at feature acceptance. A feature goes from exploration through planning, implementation, and verification to App Store release. Builds personal iOS products and the agent tooling behind them, running coding agents across planning, implementation, testing, verification, and code review while keeping the technical decisions and the acceptance of each feature human. Released App Store applications through this workflow, including on-device Foundation Models integration with structured output, validation, and deterministic fallback. The same cycle serves the applications and the tooling around them.
+Owns requirements, plan approval, architecture and every release; coding agents write the code and tests, and work is done only when every approved requirement has a passing test or an accepted device check. One engineer directing several coding agents, with human approval at feature acceptance. A feature goes from exploration through planning, implementation, and verification to App Store release. Runtime tooling that lets AI coding agents work inside iOS projects, developed against real App Store releases rather than demos. Released App Store applications through this workflow, including on-device Foundation Models integration with structured output, validation, and deterministic fallback. The same cycle serves the applications and the tooling around them.
 
-- Built the runtime tooling: a stable command API, an environment doctor, and verification steps installed into each application, with agent behavior codified in repository-aware instructions, reusable workflows, and MCP tools.
-- Proved the workflow on two SwiftUI App Store releases: [DriveCheckUA](https://apps.apple.com/us/app/regional-check/id6793023910) for iPhone and CarPlay, and [OneCart Family](https://apps.apple.com/us/app/onecart-family/id6793219621) for shared household shopping.
-- Used it to deliver the riskiest parts: on-device Foundation Models with structured output, typed validation, and deterministic fallback; CloudKit sharing with offline-first sync; widgets, App Intents, and Live Activities.
+- Built the process that takes a feature from requirement to a TestFlight build: one agent writes the code and tests, another reviews it independently, and every change passes automated build and test checks before it lands.
+- Measured the process in a first pilot across three apps: independent review caught 41 issues (9 medium, none high) before they landed, and the pilot's wait-time data cut approvals to one per round.
+- Shipped three apps through this process: [DriveCheckUA](https://apps.apple.com/us/app/regional-check/id6793023910) for iPhone and CarPlay and [OneCart Family](https://apps.apple.com/us/app/onecart-family/id6793219621) on the App Store, PitStop on TestFlight, including on-device Foundation Models with structured output and deterministic fallback, CloudKit sharing with offline-first sync, widgets, App Intents, and Live Activities.
 
 **Technologies:** Swift · SwiftUI · Swift Concurrency · Agentic SDLC · AI-Assisted Development · Coding Agents · Claude Code · Codex · Model Context Protocol (MCP) · Apple Foundation Models · Deterministic Verification · App Store Delivery · Swift 6
 
-### Senior iOS Engineer · GlobalLogic (contract R&D)
+### Senior iOS Engineer · GlobalLogic (gig contract R&D)
 
 Jan 2026 - Jun 2026
 
 Voice AI assistant on Apple Watch
 
-A voice AI assistant on Apple Watch. Designed and built the key watchOS flows and shaped the client architecture with the wider team. The flows cover conversation, work-point maps, and a custom emergency flow. Mapped structured AI/backend responses to navigation, application state, warnings, and UI actions. Implemented Work Point details, hazards, maps, and navigation, together with a custom emergency flow. The iPhone relay handled real-time communication within watchOS runtime limits. Once the demo was delivered, I created Jira evaluation scenarios for VelocityAI, checked generated implementations against requirements and visual references, and reviewed fixes and regressions. Took the watch client and its iPhone relay from design to a working demo for the customer's executives.
+A voice AI assistant on Apple Watch. Designed and built the key watchOS flows and shaped the client architecture with the wider team. The flows cover conversation, work-point maps, and a custom emergency flow. Mapped structured AI/backend responses to navigation, application state, warnings, and UI actions. Implemented Work Point details, hazards, maps, and navigation, together with a custom emergency flow. The iPhone relay handled real-time communication within watchOS runtime limits. Once the demo was delivered, I created Jira evaluation scenarios for VelocityAI, checked generated implementations against requirements and visual references, and reviewed fixes and regressions. The engagement ended once the demo was delivered and evaluated by the client's executives. Took the watch client and its iPhone relay from design to a working demo for the customer's executives.
 
 - Constrained model output to safe actions: structured responses map onto known screens and alerts instead of executing model instructions.
 - Built the iPhone relay that carries the watch's live audio and WebSocket traffic.
@@ -74,7 +74,7 @@ Birmarket, formerly Umico, is a consumer marketplace in the PASHA ecosystem serv
 - Shipped features across the whole app in UIKit and SwiftUI for four years (home, promotions, cart, delivery, profile, loyalty, subscription) and through the Umico-to-Birmarket redesign.
 - Maintained the stability and code quality of a production app on a two-week release cycle: on-call crash response, leak and hang fixes, code review, and onboarding of two engineers.
 
-**Technologies:** UIKit · Auto Layout · SwiftUI · Swift Concurrency · Swift Package Manager (SPM) · Modular Architecture · Clean Architecture · Multi-host SDK · Unit Testing · Integration Testing · CI/CD · Xcode Instruments · A/B Testing · Feature Flags · Remote Configuration · APNs · LocalAuthentication · Face ID · Product Analytics · Firebase · PostHog · Dependency Injection · Crash Analysis · AI-Assisted Development · Git · Xcode · XCTest · Memory Management · Performance Optimization · Background Tasks · UserNotifications · Combine
+**Technologies:** UIKit · Auto Layout · SwiftUI · Swift Concurrency · Swift Package Manager (SPM) · Modular Architecture · Clean Architecture · Multi-host SDK · Unit Testing · Integration Testing · CI/CD · Xcode Instruments · A/B Testing · Agile · Feature Flags · Remote Configuration · APNs · LocalAuthentication · Face ID · Product Analytics · Firebase · PostHog · Dependency Injection · Crash Analysis · AI-Assisted Development · Git · Xcode · XCTest · Memory Management · Performance Optimization · Background Tasks · UserNotifications · Combine
 
 [Project details](https://vil4max.github.io/projects.html#project-birmarket)
 
@@ -90,7 +90,7 @@ A concept for a personalized digital coffee shop that has since grown into a cha
 - Implemented and shipped the dynamic menu: a client-side constructor that assembles a personal menu by time of day, location, and customer preferences.
 - Shared responsibility for delivery: chose the architecture with the other iOS engineers, built drink customization and pricing, integrated the payment SDK, set up the GitLab CI release workflow, and took releases to the App Store.
 
-**Technologies:** Swift · UIKit · Auto Layout · Combine · Swift Package Manager (SPM) · Grand Central Dispatch (GCD) · OperationQueue · MVP · Coordinator · AVFoundation · AVPlayer · File-system Caching · Payment SDK Integration · Unit Testing · Integration Testing · URLSession · REST APIs · APNs · LocalAuthentication · Face ID · A/B Testing · Feature Flags · Remote Configuration · Alamofire · Dependency Injection · Swinject · GitLab CI · CI/CD · App Store Delivery · Git · Xcode · XCTest · TestFlight · Background Tasks · UserNotifications
+**Technologies:** Swift · UIKit · Auto Layout · Combine · Swift Package Manager (SPM) · Grand Central Dispatch (GCD) · OperationQueue · MVP · Coordinator · AVFoundation · AVPlayer · File-system Caching · Payment SDK Integration · Unit Testing · Integration Testing · URLSession · REST APIs · APNs · LocalAuthentication · Face ID · A/B Testing · Agile · Feature Flags · Remote Configuration · Alamofire · Dependency Injection · Swinject · GitLab CI · CI/CD · App Store Delivery · Git · Xcode · XCTest · TestFlight · Background Tasks · UserNotifications
 
 [Project details](https://vil4max.github.io/projects.html#project-drinkit)
 
@@ -210,7 +210,7 @@ Umico was an existing PASHA-ecosystem product growing toward a leading marketpla
 - Diagnosed memory leaks, retain cycles, and UI hangs in production using Xcode Instruments
 - Worked on modularizing a large production iOS codebase
 
-**Technologies:** UIKit · Auto Layout · SwiftUI · Swift Concurrency · Swift Package Manager (SPM) · Modular Architecture · Clean Architecture · Multi-host SDK · Unit Testing · Integration Testing · CI/CD · Xcode Instruments · A/B Testing · Feature Flags · Remote Configuration · APNs · LocalAuthentication · Face ID · Product Analytics · Firebase · PostHog · Dependency Injection · Crash Analysis · AI-Assisted Development · Git · Xcode · XCTest · Memory Management · Performance Optimization · Background Tasks · UserNotifications · Combine
+**Technologies:** UIKit · Auto Layout · SwiftUI · Swift Concurrency · Swift Package Manager (SPM) · Modular Architecture · Clean Architecture · Multi-host SDK · Unit Testing · Integration Testing · CI/CD · Xcode Instruments · A/B Testing · Agile · Feature Flags · Remote Configuration · APNs · LocalAuthentication · Face ID · Product Analytics · Firebase · PostHog · Dependency Injection · Crash Analysis · AI-Assisted Development · Git · Xcode · XCTest · Memory Management · Performance Optimization · Background Tasks · UserNotifications · Combine
 
 [App Store](https://apps.apple.com/us/app/birmarket-online-shopping-app/id1458111389)
 
@@ -226,7 +226,7 @@ Drinkit began as a digital coffee-shop startup within Dodo Brands, connecting mo
 - Integrated contextual offers using shared client and backend data
 - Displayed order-preparation status through backend polling
 
-**Technologies:** Swift · UIKit · Auto Layout · Combine · Swift Package Manager (SPM) · Grand Central Dispatch (GCD) · OperationQueue · MVP · Coordinator · AVFoundation · AVPlayer · File-system Caching · Payment SDK Integration · Unit Testing · Integration Testing · URLSession · REST APIs · APNs · LocalAuthentication · Face ID · A/B Testing · Feature Flags · Remote Configuration · Alamofire · Dependency Injection · Swinject · GitLab CI · CI/CD · App Store Delivery · Git · Xcode · XCTest · TestFlight · Background Tasks · UserNotifications
+**Technologies:** Swift · UIKit · Auto Layout · Combine · Swift Package Manager (SPM) · Grand Central Dispatch (GCD) · OperationQueue · MVP · Coordinator · AVFoundation · AVPlayer · File-system Caching · Payment SDK Integration · Unit Testing · Integration Testing · URLSession · REST APIs · APNs · LocalAuthentication · Face ID · A/B Testing · Agile · Feature Flags · Remote Configuration · Alamofire · Dependency Injection · Swinject · GitLab CI · CI/CD · App Store Delivery · Git · Xcode · XCTest · TestFlight · Background Tasks · UserNotifications
 
 [App Store](https://apps.apple.com/us/app/drinkit-order-your-coffee/id1495622004)
 
@@ -331,7 +331,7 @@ DriveCheckUA displays regional safety alerts on iPhone and CarPlay. Built indepe
 - Integrated an on-device Foundation Models summary with validation and fallback
 - Built a separate bounded agent/tool runtime with an evaluation corpus and device checks
 
-**Technologies:** SwiftUI · Swift Concurrency · CarPlay · Core Location · MapKit · URLSession · Apple Foundation Models · Structured Outputs · Tool Calling · Guardrails · Prompt Injection Testing · Cancellation · Evaluation Corpus · Swift Testing · StoreKit 2 · AI-Assisted Development · Agentic SDLC · Model Context Protocol (MCP) · Dependency Injection · Claude Code · Codex · Coding Agents · Context Engineering · Deterministic Verification · Human-in-the-Loop Engineering · WidgetKit · Live Activities · App Intents · Actors · Sendable · Swift 6
+**Technologies:** SwiftUI · Swift Concurrency · CarPlay · Core Location · MapKit · URLSession · Apple Foundation Models · Structured Outputs · Tool Calling · Guardrails · Prompt Injection Testing · Cancellation · Evaluation Corpus · Swift Testing · StoreKit 2 · In-App Subscriptions · AI-Assisted Development · Agentic SDLC · Model Context Protocol (MCP) · Dependency Injection · Claude Code · Codex · Coding Agents · Context Engineering · Deterministic Verification · Human-in-the-Loop Engineering · WidgetKit · Live Activities · App Intents · Actors · Sendable · Swift 6
 
 [App Store](https://apps.apple.com/app/id6793023910) · [Source code](https://github.com/vil4max/regional-check)
 
@@ -347,7 +347,7 @@ OneCart Family is a family shopping app with shared iCloud lists. Built independ
 
 **Technologies:** Swift · SwiftUI · Swift Concurrency · Core Data · CloudKit · CKShare · WidgetKit · App Intents · XCTest · Offline Persistence · Synchronization Recovery · AI-Assisted Development · Agentic SDLC · Dependency Injection · Claude Code · Codex · Coding Agents · Agentic Workflows · Deterministic Verification · UserNotifications · Actors · Sendable
 
-[App Store](https://apps.apple.com/app/id6793219621) · [Source code](https://github.com/vil4max/OneCart)
+[App Store](https://apps.apple.com/app/id6793219621) · [Source code](https://github.com/vil4max/onecart-ios)
 
 ## Education
 
