@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="t d">
+  <title id="t">Stampwork flow</title>
+  <desc id="d">A change moves in six steps. A person approves a numbered requirement. A task brief cites the requirement ids and the specs, and a person approves the iteration plan. A writer agent implements the card in its own worktree. The automated gate (format, lint, build, tests) runs locally and is re-run by hosted CI on every push. An independent review looks for defects the change introduced, and findings go back to the writer within a bounded repair budget. A person authorizes the commit.</desc>
+  <style>
+    :root { --ink: #1c1c1e; --muted: #6b6b70; --box: #f3f4f6; --line: #9a9aa2; --person: #2f6f5e; --bg: #ffffff; }
+    @media (prefers-color-scheme: dark) { :root { --ink: #f2f2f4; --muted: #a0a0a8; --box: #2a2a2e; --line: #6b6b73; --person: #5fb59c; --bg: #1c1c1e; } }
+    .bg { fill: var(--bg); }
+    .box { fill: var(--box); stroke: var(--line); stroke-width: 1.5; }
+    .human { fill: var(--box); stroke: var(--person); stroke-width: 2.5; }
+    .num { fill: var(--muted); font: 600 12px system-ui, sans-serif; }
+    .txt { fill: var(--ink); font: 600 14px system-ui, sans-serif; }
+    .sub { fill: var(--muted); font: 12px system-ui, sans-serif; }
+    .who { fill: var(--person); font: 600 12px system-ui, sans-serif; }
+    .arrow { stroke: var(--line); stroke-width: 2; fill: none; marker-end: url(#a); }
+    .head { fill: var(--line); }
+    .title { fill: var(--ink); font: 700 16px system-ui, sans-serif; }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path class="head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="720" height="340"/>
+  <text class="title" x="30" y="30">How a change moves</text>
+
+  <rect class="human" x="30"  y="52" width="200" height="90" rx="10"/>
+  <text class="num" x="44" y="73">1</text>
+  <text class="txt" x="44" y="95">Requirement approved</text>
+  <text class="sub" x="44" y="113">numbered, approval recorded</text>
+  <text class="who" x="44" y="131">a person decides</text>
+
+  <rect class="human" x="260" y="52" width="200" height="90" rx="10"/>
+  <text class="num" x="274" y="73">2</text>
+  <text class="txt" x="274" y="95">Task brief and plan</text>
+  <text class="sub" x="274" y="113">cites ids and executable specs</text>
+  <text class="who" x="274" y="131">plan approved by a person</text>
+
+  <rect class="box" x="490" y="52" width="200" height="90" rx="10"/>
+  <text class="num" x="504" y="73">3</text>
+  <text class="txt" x="504" y="95">Writer agent</text>
+  <text class="sub" x="504" y="113">implements the card</text>
+  <text class="sub" x="504" y="131">in its own worktree</text>
+
+  <path class="arrow" d="M230 97 H256"/>
+  <path class="arrow" d="M460 97 H486"/>
+  <path class="arrow" d="M590 142 V186"/>
+
+  <rect class="box" x="490" y="188" width="200" height="90" rx="10"/>
+  <text class="num" x="504" y="209">4</text>
+  <text class="txt" x="504" y="231">Automated gate</text>
+  <text class="sub" x="504" y="249">format, lint, build, tests</text>
+  <text class="sub" x="504" y="267">local, and hosted CI on push</text>
+
+  <rect class="box" x="260" y="188" width="200" height="90" rx="10"/>
+  <text class="num" x="274" y="209">5</text>
+  <text class="txt" x="274" y="231">Independent review</text>
+  <text class="sub" x="274" y="249">defects the change introduced</text>
+  <text class="sub" x="274" y="267">findings go back to the writer</text>
+
+  <rect class="human" x="30" y="188" width="200" height="90" rx="10"/>
+  <text class="num" x="44" y="209">6</text>
+  <text class="txt" x="44" y="231">Commit</text>
+  <text class="sub" x="44" y="249">the evidence refers to it</text>
+  <text class="who" x="44" y="267">authorized by a person</text>
+
+  <path class="arrow" d="M490 233 H464"/>
+  <path class="arrow" d="M260 233 H234"/>
+
+  <text class="sub" x="30" y="305">A person also decides: a release tag, a push that publishes a site or changes</text>
+  <text class="sub" x="30" y="322">a protected path, and history rewrites. Repair rounds are bounded.</text>
+</svg>

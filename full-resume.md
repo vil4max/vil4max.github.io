@@ -10,11 +10,11 @@ Available immediately · Employment or contractor (FOP)
 
 ## About
 
-I'm a Senior iOS Engineer with 13 years of experience in iOS, consumer products, and fintech. I've built apps from scratch and worked on established products through years of growth. At Drinkit, I was part of the team that launched the app with its first coffee shop. At Umico, I developed marketplace features as the product grew into Birmarket, then built a subscription SDK for several host apps. My recent work also includes a watchOS voice client with an iPhone relay.
+Senior iOS Engineer with 13 years of experience in iOS, consumer products, and fintech. Built apps from scratch and worked on established products through years of growth. Part of the team that launched the Drinkit app with its first coffee shop. At Umico, developed marketplace features as the product grew into Birmarket, then built a subscription SDK for three host apps. Recent work also includes a watchOS voice client with an iPhone relay.
 
-I use coding agents across planning, implementation, testing, verification, and code review, and I make the technical decisions and accept each feature myself. To keep that reliable I built agent-engineering-kit and ios-agent-toolchain: repository-aware instructions, reusable workflows, existing MCP tools, and deterministic execution and verification checked with scenarios and regression tests. DriveCheckUA and OneCart Family were built this way, and DriveCheckUA ships an on-device Foundation Models summary with structured output, validation, and deterministic fallback.
+Coding agents work across planning, implementation, testing, verification, and code review, while the technical decisions and the acceptance of each feature stay with me. Built agent-engineering-kit and ios-agent-toolchain to keep that reliable: repository-aware instructions, reusable workflows, existing MCP tools, and deterministic execution and verification checked with scenarios and regression tests. DriveCheckUA and OneCart Family were built this way, and DriveCheckUA ships an on-device Foundation Models summary with structured output, validation, and deterministic fallback.
 
-I'm looking for two kinds of roles: Senior iOS Engineer positions on long-term products, particularly in iOS and fintech, and AI-native / agentic engineering roles centered on agent harnesses, context, tool calling, evaluation, and verification — the same discipline behind my Swift agent/tool runtime and agent tooling. I can take a feature from technical planning through implementation and release, and I'd like to contribute to other parts of the product over time.
+Looking for two kinds of roles: Senior iOS Engineer positions on long-term products, particularly in consumer apps and fintech, and AI-native / agentic engineering roles centered on agent harnesses, context, tool calling, evaluation, and verification: the same discipline behind Stampwork and my Swift agent/tool runtime. Able to take a feature from technical planning through implementation and release, and interested in contributing to other parts of the product over time.
 
 ## Skills
 
@@ -36,17 +36,19 @@ I'm looking for two kinds of roles: Senior iOS Engineer positions on long-term p
 
 Jun 2026 - Present
 
-Agentic iOS development
+Stampwork · Spec-driven iOS delivery with coding agents
 
-Owns requirements, plan approval, architecture and every release; coding agents write the code and tests, and work is done only when every approved requirement has a passing test or an accepted device check. One engineer directing several coding agents, with human approval at feature acceptance. A feature goes from exploration through planning, implementation, and verification to App Store release. Runtime tooling that lets AI coding agents work inside iOS projects, developed against real App Store releases rather than demos. Released App Store applications through this workflow, including on-device Foundation Models integration with structured output, validation, and deterministic fallback. The same cycle serves the applications and the tooling around them.
+Owns requirements, architecture and every release. One engineer directing several coding agents that write the code and tests; a person approves requirements and each iteration's plan, authorizes commits and accepts each feature after reviewing the evidence. A feature goes from exploration through planning, implementation, and verification to App Store release. AI coding tools in daily work since spring 2025; this agentic process since 2026. The same cycle serves the applications and the tooling around them.
 
-- Built the process that takes a feature from requirement to a TestFlight build: one agent writes the code and tests, another reviews it independently, and every change passes automated build and test checks before it lands.
-- Measured the process in a first pilot across three apps: independent review caught 41 issues (9 medium, none high) before they landed, and the pilot's wait-time data cut approvals to one per round.
+- Built Stampwork for spec-driven iOS feature delivery: a coding agent implements approved requirements, and every change passes an automated gate (format, lint, build, tests) and an independent review.
+- Developing its toolkit: a runtime added to each app with a stable command API, environment checks, the build-and-test gate, and tracing from each requirement to its tests.
 - Shipped three apps through this process: [DriveCheckUA](https://apps.apple.com/us/app/regional-check/id6793023910) for iPhone and CarPlay and [OneCart Family](https://apps.apple.com/us/app/onecart-family/id6793219621) on the App Store, PitStop on TestFlight, including on-device Foundation Models with structured output and deterministic fallback, CloudKit sharing with offline-first sync, widgets, App Intents, and Live Activities.
 
 **Technologies:** Swift · SwiftUI · Swift Concurrency · Agentic SDLC · AI-Assisted Development · Coding Agents · Claude Code · Codex · Model Context Protocol (MCP) · Apple Foundation Models · Deterministic Verification · App Store Delivery · Swift 6
 
-### Senior iOS Engineer · GlobalLogic (gig contract R&D)
+[Project details](https://vil4max.github.io/projects.html#project-stampwork)
+
+### Senior iOS Engineer · GlobalLogic (contract)
 
 Jan 2026 - Jun 2026
 
@@ -82,9 +84,9 @@ Birmarket, formerly Umico, is a consumer marketplace in the PASHA ecosystem serv
 
 Feb 2020 - Feb 2022
 
-Dodo Brands · Digital coffee-shop startup
+Dodo Brands · Digital coffee shop
 
-A concept for a personalized digital coffee shop that has since grown into a chain across five countries. Worked in a product team of about 20 across engineering, design, QA, and product. Brought in the mobile team and worked as a product-oriented iOS engineer across menu, ordering, and pickup. Organized an existing team of three iOS and two Android engineers to join the product. Responsibilities spanned menu features, shared integrations, and the connected ordering and pickup flow. Implemented much of drink customization, including ingredient dependencies, availability, and price calculations from backend parameters. Integrated contextual offers selected by the backend and host-side interaction with a separately developed payment SDK. Implemented looping menu videos and offline caching; covered financial calculations, cart state, selected services, and APIs with tests. Drinkit later expanded internationally; its official site lists 250+ coffee shops in operation across five countries: https://drinkit.io/. Worked with A/B tests, feature flags, and remote configuration as the product evolved. Grew the app alongside the chain's first two years, from one shop to eight.
+A concept for a personalized digital coffee shop that has since grown into a chain across five countries. Worked in a product team of about 20 across engineering, design, QA, and product. Brought in the mobile team and worked as a product-oriented iOS engineer across menu, ordering, and pickup. Organized an existing team of three iOS and two Android engineers to join the product. Responsibilities spanned menu features, shared integrations, and the connected ordering and pickup flow. Implemented much of drink customization, including ingredient dependencies, availability, and price calculations from backend parameters. Integrated contextual offers selected by the backend and host-side interaction with a separately developed payment SDK. Implemented looping menu videos and offline caching; covered financial calculations, cart state, selected services, and APIs with tests. Drinkit later expanded internationally; its official site (drinkit.io) lists 250+ coffee shops in operation across five countries. Worked with A/B tests, feature flags, and remote configuration as the product evolved. Grew the app alongside the chain's first two years, from one shop to eight.
 
 - Shaped customer scenarios into product features with management, product, and design, from the first concept to launch.
 - Implemented and shipped the dynamic menu: a client-side constructor that assembles a personal menu by time of day, location, and customer preferences.
@@ -218,7 +220,7 @@ Umico was an existing PASHA-ecosystem product growing toward a leading marketpla
 
 [Drinkit](https://vil4max.github.io/index.html#milestone-drinkit)
 
-Drinkit began as a digital coffee-shop startup within Dodo Brands, connecting mobile ordering with preparation and pickup. Worked in a product team of about twenty people across mobile, backend, design, QA, product, and hardware. Developed the iOS app, organized the mobile team’s arrival, and shaped features and architecture collaboratively. The mobile group had three iOS and two Android engineers. I organized its move into Drinkit and worked with startup management and the team on features and the initial technical approach. Drink customization depended on ingredient relationships, shop availability, and backend pricing parameters. I implemented much of that functionality, integrated backend-selected offers, and displayed order status through polling. Implemented looping menu videos, offline data caching, and host-side payment SDK integration. The app connected customer orders to backend preparation state and in-shop pickup displays. Used A/B tests, feature flags, and remote configuration during product development. Launched the app with the first coffee shop; the chain grew to eight locations during two years of development.
+Drinkit is a digital coffee shop product within Dodo Brands, connecting mobile ordering with preparation and pickup. Worked in a product team of about twenty people across mobile, backend, design, QA, product, and hardware. Developed the iOS app, organized the mobile team’s arrival, and shaped features and architecture collaboratively. The mobile group had three iOS and two Android engineers. I organized its move into Drinkit and worked with product management and the team on features and the initial technical approach. Drink customization depended on ingredient relationships, shop availability, and backend pricing parameters. I implemented much of that functionality, integrated backend-selected offers, and displayed order status through polling. Implemented looping menu videos, offline data caching, and host-side payment SDK integration. The app connected customer orders to backend preparation state and in-shop pickup displays. Used A/B tests, feature flags, and remote configuration during product development. Launched the app with the first coffee shop; the chain grew to eight locations during two years of development.
 
 - Built and released the iOS app with a three-engineer team for the first coffee-shop launch
 - Developed the product for two years, connecting ordering in the app with preparation and pickup in the shop
@@ -261,7 +263,7 @@ Eastern Union was an established commercial real-estate application under ongoin
 
 R&D prototype · Beta
 
-A fintech prototype for trading physical gold with Ethereum ownership records. Collaborated on iOS alongside backend engineers. Owned the client app across KYC onboarding, portfolio tracking, and buy/sell flows. The app used the backend middleware API for business operations and could query public Ethereum APIs for transaction information. Gold balances and ownership records were maintained by the backend. Integrated third-party KYC, Stripe, and Apple Pay into the beta purchase flow. The UIKit client also displayed portfolio balances and price charts and supported selling gold. Delivered a functional beta with Stripe and Apple Pay checkout.
+A fintech prototype for trading physical gold with Ethereum ownership records. Was the sole iOS developer for the first version, built over seven months and then handed over to a new iOS developer; worked alongside backend engineers. Owned the client app across KYC onboarding, portfolio tracking, and buy/sell flows. The app used the backend middleware API for business operations and could query public Ethereum APIs for transaction information. Gold balances and ownership records were maintained by the backend. Integrated third-party KYC, Stripe, and Apple Pay into the beta purchase flow. The UIKit client also displayed portfolio balances and price charts and supported selling gold. Delivered a functional beta with Stripe and Apple Pay checkout.
 
 - Implemented the UIKit iOS application
 - Delivered a beta with authorization, KYC, gold balances, price charts, and buy/sell flows; integrated Stripe and Apple Pay for purchases
@@ -325,11 +327,11 @@ Green Riding Hood was an interactive read-aloud children’s book combining illu
 
 Personal project · App Store release
 
-DriveCheckUA displays regional safety alerts on iPhone and CarPlay. Built independently with coding agents. Architected the client, on-device AI integration, and CarPlay UI. Swift code classifies alert status before the model receives supplied facts. The AI integration checks model availability, limits generation time, handles cancellation, validates output, and falls back deterministically when needed. Separately built a bounded Swift agent/tool runtime with a 38-case scripted evaluation corpus and documented real-device validation. Checks cover tool selection, execution budgets, malformed results, injection-like inputs, cancellation, deadlines, and fallback behavior. This runtime is separate from the released country-summary feature. Released on the App Store; evaluated a bounded Swift agent runtime.
+DriveCheckUA displays regional safety alerts on iPhone and CarPlay. Built independently with coding agents. Architected the client, on-device AI integration, and CarPlay UI. Swift code classifies alert status before the model receives supplied facts. The AI integration checks model availability, limits generation time, handles cancellation, validates output, and falls back deterministically when needed. Separately built a bounded Swift agent/tool runtime with a 38-case scripted evaluation corpus and documented real-device validation. Checks covered tool selection, execution budgets, malformed results, injection-like inputs, cancellation, deadlines, and fallback behavior. This runtime was separate from the released country-summary feature and has since been removed from the app. Released on the App Store; evaluated a bounded Swift agent runtime.
 
 - Built and released the CarPlay and iPhone app with coding agents
 - Integrated an on-device Foundation Models summary with validation and fallback
-- Built a separate bounded agent/tool runtime with an evaluation corpus and device checks
+- Built a separate bounded agent/tool runtime with an evaluation corpus and device checks (since removed from the app)
 
 **Technologies:** SwiftUI · Swift Concurrency · CarPlay · Core Location · MapKit · URLSession · Apple Foundation Models · Structured Outputs · Tool Calling · Guardrails · Prompt Injection Testing · Cancellation · Evaluation Corpus · Swift Testing · StoreKit 2 · In-App Subscriptions · AI-Assisted Development · Agentic SDLC · Model Context Protocol (MCP) · Dependency Injection · Claude Code · Codex · Coding Agents · Context Engineering · Deterministic Verification · Human-in-the-Loop Engineering · WidgetKit · Live Activities · App Intents · Actors · Sendable · Swift 6
 
@@ -339,7 +341,7 @@ DriveCheckUA displays regional safety alerts on iPhone and CarPlay. Built indepe
 
 Personal project · App Store release
 
-OneCart Family is a family shopping app with shared iCloud lists. Built independently with coding agents. Led architecture, data synchronization, and release verification. Core Data uses private and shared CloudKit stores with CKShare invitations. Edits persist locally before cloud propagation. The app handles membership changes, duplicate records, and recovery when cloud account deletion fails. WidgetKit snapshots and App Intents support widget actions. XCTest regression suites cover cart state, sharing, persistence, synchronization errors, and deletion recovery. I reviewed generated changes, investigated defects, and verified releases. Released on the App Store.
+OneCart Family is a family shopping app with shared iCloud lists. Built with coding agents; a second developer contributed the Live Activity and Siri features. Led architecture, data synchronization, and release verification. Core Data uses private and shared CloudKit stores with CKShare invitations. Edits persist locally before cloud propagation. The app handles membership changes, duplicate records, and recovery when cloud account deletion fails. WidgetKit snapshots and App Intents support widget actions. XCTest regression suites cover cart state, sharing, persistence, synchronization errors, and deletion recovery. I reviewed generated changes, investigated defects, and verified releases. Released on the App Store.
 
 - Built and released a shared shopping app with coding agents
 - Implemented Core Data and CloudKit persistence, CKShare invitations, and offline edits
@@ -348,6 +350,19 @@ OneCart Family is a family shopping app with shared iCloud lists. Built independ
 **Technologies:** Swift · SwiftUI · Swift Concurrency · Core Data · CloudKit · CKShare · WidgetKit · App Intents · XCTest · Offline Persistence · Synchronization Recovery · AI-Assisted Development · Agentic SDLC · Dependency Injection · Claude Code · Codex · Coding Agents · Agentic Workflows · Deterministic Verification · UserNotifications · Actors · Sendable
 
 [App Store](https://apps.apple.com/app/id6793219621) · [Source code](https://github.com/vil4max/onecart-ios)
+
+### Stampwork
+
+Spec-driven iOS feature delivery with coding agents · Jul 2026 - Present
+
+Stampwork is a kit for spec-driven iOS feature delivery with coding agents. Built by one engineer directing coding agents; a person approves the requirements and each iteration's plan, authorizes commits and accepts each feature. The same engineer designs the process and builds its toolkit: task briefs, the runtime, the automated gate and the independent review. A writer agent implements each task in its own worktree, the verify gate (format, lint, build, tests) runs locally and in hosted CI, and an independent review checks what the change introduced. The runtime each app installs is readable in its Tooling directory; the method, the tracing and brief tools, and the Claude Code plugin are private. Three public apps ship through it and are the evidence: DriveCheckUA and OneCart Family on the App Store, PitStop on TestFlight.
+
+- Milestones, as first commits in git: Oct 2025 rules for an AI coding assistant; Jan 2026 Cursor agents, rules and skills; Apr 2026 DriveCheckUA; Jul 2026 iOS Engineering Runtime 0.1.0 and the first App Store release; Sep 2026 requirement ids and the method repository
+- Oct 2026, one gate run per app: 1,863 tests executed, 1,860 passed, 3 skipped, none failed
+- Approved requirements cited by a passing test: 57 of 57 (OneCart Family), 51 of 53 (PitStop), 39 of 40 (DriveCheckUA)
+- Caught by independent review before merge: in OneCart Family at accessibility text sizes, VoiceOver read a cart row's checkbox before the item name; the fix added a test of the reading order at three sizes
+
+**Technologies:** Agentic SDLC · AI-Assisted Development · Coding Agents · Claude Code · Codex · Model Context Protocol (MCP) · Deterministic Verification
 
 ## Education
 
