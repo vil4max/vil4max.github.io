@@ -81,7 +81,7 @@ PLAYHERA was an international esports platform for organizing online tournaments
 
 Swift, UIKit, Auto Layout, Code Review
 
-### iOS Developer | Contract | Jul 2018 - Nov 2018
+### iOS Developer | Alchemy (contract) | Jul 2018 - Nov 2018
 
 Alchemy | Physical gold trading app
 
