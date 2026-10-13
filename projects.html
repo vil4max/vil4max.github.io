@@ -4,22 +4,26 @@
   <meta charset="UTF-8">
   <title>Max Vilchevskiy - Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="iOS case studies: Birmarket subscription SDK, Drinkit coffee ordering, an Apple Watch voice assistant, and the released apps DriveCheckUA and OneCart Family.">
+  <meta name="description" content="iOS case studies: Agentic SDLC for iOS with DriveCheckUA and OneCart Family, the Birmarket subscription SDK, Drinkit, and an Apple Watch voice assistant.">
   <meta name="theme-color" content="#f6f8fa">
   <link rel="canonical" href="https://vil4max.github.io/projects.html">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta property="og:title" content="Max Vilchevskiy - Projects">
-  <meta property="og:description" content="iOS case studies: Birmarket subscription SDK, Drinkit coffee ordering, an Apple Watch voice assistant, and the released apps DriveCheckUA and OneCart Family.">
+  <meta property="og:description" content="iOS case studies: Agentic SDLC for iOS with DriveCheckUA and OneCart Family, the Birmarket subscription SDK, Drinkit, and an Apple Watch voice assistant.">
   <meta property="og:image" content="https://vil4max.github.io/assets/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Max Vilchevskiy - Senior iOS Engineer">
+  <meta property="og:site_name" content="Max Vilchevskiy">
   <meta property="og:url" content="https://vil4max.github.io/projects.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Max Vilchevskiy - Projects">
-  <meta name="twitter:description" content="iOS case studies: Birmarket subscription SDK, Drinkit coffee ordering, an Apple Watch voice assistant, and the released apps DriveCheckUA and OneCart Family.">
+  <meta name="twitter:description" content="iOS case studies: Agentic SDLC for iOS with DriveCheckUA and OneCart Family, the Birmarket subscription SDK, Drinkit, and an Apple Watch voice assistant.">
   <meta name="twitter:image" content="https://vil4max.github.io/assets/og-preview.jpg">
   <link rel="stylesheet" href="resume.css?v=20261006">
-  <script src="portfolio.js?v=20260818hire" defer></script>
+  <script src="portfolio.js?v=20261013" defer></script>
 </head>
 <body class="cover-page projects-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -33,182 +37,20 @@
     </header>
 
     <main id="main" class="cover-main projects-main" aria-label="Projects">
-      <section class="projects-featured" aria-label="Featured projects">
+      <section class="projects-personal" aria-label="Independent work" id="personal-projects">
 
-        <article class="case-study case-study--featured case-study--media" id="project-watch-ai-assistant">
-          <div class="case-study__copy">
-            <!-- PROJECT:project-watch-ai-assistant:CONTENT:START -->
-<h3 class="case-title">Apple Watch Voice AI (R&amp;D / demo)</h3><p class="case-era"><a href="index.html#milestone-globallogic">GlobalLogic (contract)</a></p>
-<p class="case-narrative">An R&amp;D demo for the customer's executives explored a hands-free voice assistant on Apple Watch for field workers. Owned the Apple Watch client and its iPhone relay end to end in a team of seven. Designed and implemented watchOS interaction flows, an iPhone relay for live audio and WebSocket traffic, and structured-response mapping within agreed contracts. Implemented a custom emergency flow and Work Point details, hazards, maps, and navigation across the watch and phone. Structured replies selected known screens and actions rather than executing arbitrary model instructions. After delivering the demo, evaluated an internal AI-assisted iOS development workflow using Jira requirements and visual references. Delivered a TestFlight demo package with codebase and documentation.</p>
-<ul class="case-signals"><li>Implemented a custom emergency flow on watchOS</li><li>Built the voice conversation interface and an iPhone relay for WebSocket communication and live audio</li><li>Translated structured AI commands into UI actions on the device</li><li>Implemented Work Point maps, hazards, and navigation across the watch and phone</li></ul><p class="case-stack">SwiftUI · WatchKit · Swift Concurrency · WatchConnectivity · URLSessionWebSocketTask · AVFoundation · Audio Streaming · Structured AI Responses · watchOS · AI-Assisted Development · VelocityAI · Git · Xcode · TestFlight · Structured Outputs</p>
-<!-- PROJECT:project-watch-ai-assistant:CONTENT:END -->
-          </div>
-          <div class="case-study__media" data-tile-pattern="device-hero" aria-label="Apple Watch Voice AI screenshots">
-            <img src="assets/watch-ai/watch-detail-finish.jpg" alt="Apple Watch - Work order finish for today and activities" loading="lazy" width="184" height="520" data-media-kind="ui">
-            <img src="assets/watch-ai/watch-work-orders.jpg" alt="Apple Watch - Work orders list with Morning Briefing" loading="lazy" width="184" height="260" data-media-kind="ui">
-            <img src="assets/watch-ai/watch-detail-progress.jpg" alt="Apple Watch - Work order in progress" loading="lazy" width="184" height="260" data-media-kind="ui">
-          </div>
-        </article>
-
-        <article class="case-study case-study--featured case-study--media" id="project-birmarket">
-          <div class="case-study__copy">
-            <!-- PROJECT:project-birmarket:CONTENT:START -->
-<h3 class="case-title">Birmarket: Marketplace &amp; Loyalty</h3><p class="case-era"><a href="index.html#milestone-pasha">PASHA Holding</a></p>
-<p class="case-narrative">Umico was an existing PASHA-ecosystem marketplace, later renamed Birmarket, with over 2 million customers. Worked in the loyalty team alongside mobile, backend, QA, and product specialists while the iOS team grew from about five to twenty developers. Developed shopping and loyalty features, extracted shared modules, and later owned the multi-host Premium Subscription SDK on iOS. Competo became a PASHA Holding subsidiary in March 2020, before this role began. The Birmarket name followed in July 2025. <a href="https://pasha-holding.az/en/ecosystem/competo/">Company context</a> · <a href="https://bir.az/en/news/bir-ecosystem-strengthens-its-position-with-birmarket-the-countrys-largest-e-commerce-platform">About Birmarket</a>. Birmarket, Birbank, and M10 integrated the same remote Swift Package. Each host handled authentication, session lifecycle, and token refresh, then passed a scoped access token through a small public API. The SDK managed its own networking. Worked on shared analytics and modularization of the larger UIKit app. Feature development involved mobile and backend engineers, QA, business analysts, and product owners across several product teams. Used A/B tests, feature flags, and remote configuration during product development. Worked with host-level Firebase analytics and independently designed the subscription SDK analytics layer with PostHog, keeping it separate from the host analytics setup. Handed the SDK over while it was live in production in all three host apps.</p>
-<ul class="case-signals"><li>Reimplemented Premium Subscription as a configurable multi-host SPM SDK</li><li>Defined host/SDK API boundaries with backend and platform teams</li><li>Diagnosed memory leaks, retain cycles, and UI hangs in production using Xcode Instruments</li><li>Worked on modularizing a large production iOS codebase</li></ul><p class="case-stack">UIKit · Auto Layout · SwiftUI · Swift Concurrency · Swift Package Manager (SPM) · Modular Architecture · Clean Architecture · SDK Development · Unit Testing · Integration Testing · CI/CD · Xcode Instruments · A/B Testing · Agile · Feature Flags · Remote Configuration · APNs · LocalAuthentication · Face ID · Product Analytics · Firebase · PostHog · Dependency Injection · Crash Analysis · AI-Assisted Development · Git · Xcode · XCTest · Memory Management · Performance Optimization · Background Tasks · UserNotifications · Combine</p>
-<p class="case-links"><a href="https://apps.apple.com/us/app/birmarket-online-shopping-app/id1458111389">App Store</a></p>
-<!-- PROJECT:project-birmarket:CONTENT:END -->
-          </div>
-          <div class="case-study__media" data-tile-pattern="row-3" aria-label="Birmarket screenshots">
-            <img src="assets/birmarket/birmarket-premium-home.webp" alt="Birmarket - premium marketplace home" loading="lazy" width="600" height="1300" data-media-kind="ui">
-            <img src="assets/birmarket/birmarket-loyalty.webp" alt="Birmarket - loyalty state" loading="lazy" width="600" height="1300" data-media-kind="ui">
-            <img src="assets/birmarket/birmarket-product-state.webp" alt="Birmarket - contrasting product state" loading="lazy" width="600" height="1300" data-media-kind="ui">
-          </div>
-        </article>
-
-        <article class="case-study case-study--featured case-study--media case-study--reverse" id="project-drinkit">
-          <div class="case-study__copy">
-            <!-- PROJECT:project-drinkit:CONTENT:START -->
-<h3 class="case-title">Drinkit: Coffee Ordering App</h3><p class="case-era"><a href="index.html#milestone-drinkit">Drinkit</a></p>
-<p class="case-narrative">Drinkit is a digital coffee shop product within Dodo Brands, connecting mobile ordering with preparation and pickup. Worked in a product team of about twenty people across mobile, backend, design, QA, product, and hardware. Developed the iOS app, organized the mobile team's arrival, and shaped features and architecture collaboratively. The mobile group had three iOS and two Android engineers. Worked with product management and the team on features and the initial technical approach. Drink customization depended on ingredient relationships, shop availability, and backend pricing parameters. Implemented much of that functionality, integrated backend-selected offers, and displayed order status through polling. Implemented looping menu videos, offline data caching, and host-side payment SDK integration. The app connected customer orders to backend preparation state and in-shop pickup displays. Used A/B tests, feature flags, and remote configuration during product development. Launched the app with the first coffee shop, and the chain grew to eight locations during two years of development.</p>
-<ul class="case-signals"><li>Built and released the iOS app with two other iOS engineers for the first coffee-shop launch</li><li>Developed the product for two years, connecting ordering in the app with preparation and pickup in the shop</li><li>Developed and refined drink customization as the product grew</li><li>Integrated contextual offers using shared client and backend data</li><li>Displayed order-preparation status through backend polling</li></ul><p class="case-stack">Swift · UIKit · Auto Layout · Combine · Swift Package Manager (SPM) · GCD · OperationQueue · MVP · Coordinator · AVFoundation · AVPlayer · File-system Caching · Payment SDK Integration · Unit Testing · Integration Testing · URLSession · REST APIs · APNs · LocalAuthentication · Face ID · A/B Testing · Agile · Feature Flags · Remote Configuration · Alamofire · Dependency Injection · Swinject · GitLab CI · CI/CD · App Store Delivery · Git · Xcode · XCTest · TestFlight · Background Tasks · UserNotifications</p>
-<p class="case-links"><a href="https://apps.apple.com/us/app/drinkit-order-your-coffee/id1495622004">App Store</a></p>
-<!-- PROJECT:project-drinkit:CONTENT:END -->
-          </div>
-          <div class="case-study__media" data-tile-pattern="hero-details" aria-label="Drinkit screenshots and pickup station">
-            <img src="assets/drinkit/drinkit-pickup-station.jpg" alt="Drinkit smart pickup counter with order displays" loading="lazy" width="900" height="367" data-media-kind="photo" data-tile-hero-shape="square">
-            <img src="assets/drinkit/drinkit-order.webp" alt="Drinkit - order screen" loading="lazy" width="300" height="650" data-media-kind="ui">
-            <img src="assets/drinkit/drinkit-customization.webp" alt="Drinkit - drink customization" loading="lazy" width="300" height="650" data-media-kind="ui">
-          </div>
-        </article>
-
-        <article class="case-study case-study--featured case-study--media" id="project-playhera">
-          <div class="case-study__copy">
-            <!-- PROJECT:project-playhera:CONTENT:START -->
-<h3 class="case-title">PLAYHERA: esports tournaments</h3><p class="case-era"><a href="index.html#milestone-solvve">SOLVVE</a></p>
-<p class="case-narrative">PLAYHERA was an established international esports platform for managing tournaments, teams, players, and results. Worked in the iOS team at SOLVVE within an existing architecture and review process. Developed tournament tables and standings, profiles and settings, and news features in a Swift/UIKit application using RxSwift. Changes went through the team's code review. Shipped the features in App Store updates to the existing esports application.</p>
-<ul class="case-signals"><li>Shipped features and updates for an esports app already on the App Store</li><li>Developed tournament-management features within the existing architecture</li><li>Implemented UIKit features using RxSwift</li></ul><p class="case-stack">Swift · UIKit · Auto Layout · RxSwift · Reactive UI · Production Maintenance · Code Review · Alamofire · VIPER · Dependency Injection · Swinject</p>
-<p class="case-links"><a href="https://apps.apple.com/ua/app/playhera/id1449021935">App Store</a></p>
-<!-- PROJECT:project-playhera:CONTENT:END -->
-          </div>
-          <div class="case-study__media" data-tile-pattern="row-3" aria-label="PlayHera screenshots">
-            <img src="assets/playhera/playhera-tournament.png" alt="PlayHera - primary tournament screen" loading="lazy" width="392" height="696" data-media-kind="ui">
-            <img src="assets/playhera/playhera-detail.png" alt="PlayHera - detail state" loading="lazy" width="392" height="696" data-media-kind="ui">
-            <img src="assets/playhera/playhera-secondary.png" alt="PlayHera - secondary state" loading="lazy" width="392" height="696" data-media-kind="ui">
-          </div>
-        </article>
-      </section>
-
-      <section class="projects-additional" aria-label="Fintech, earlier and other projects">
-
-        <h3 class="projects-group-title">Fintech</h3>
-
-        <article class="case-study case-study--featured" id="project-fintech-rd">
-          <div class="case-study__copy">
-            <!-- PROJECT:project-fintech-rd:CONTENT:START -->
-<h3 class="case-title">Alchemy: physical gold trading</h3><p class="case-era"><a href="index.html#milestone-alchemy">Alchemy (contract)</a></p>
-<p class="case-narrative">Alchemy is an app for trading physical gold, redeemable at the company's branches. Was the sole iOS developer for the first version, then handed it over to a new iOS developer. Worked alongside backend engineers. Owned the client app across KYC onboarding, portfolio tracking, and buy/sell flows. The app used the backend API for business operations and displayed gold balances from it. Integrated third-party KYC, Stripe, and Apple Pay into the beta purchase flow. The UIKit client also displayed portfolio balances and price charts and supported selling gold. Handed over an app ready for production, with Stripe and Apple Pay checkout.</p>
-<ul class="case-signals"><li>Implemented the UIKit iOS application</li><li>Delivered a beta with authorization, KYC, gold balances, price charts, and buy/sell flows, with Stripe and Apple Pay for purchases</li><li>Displayed gold balances from the backend API</li><li>Integrated customer flows with the backend API</li></ul><p class="case-stack">Swift · UIKit · Auto Layout · Combine · MVVM · KYC SDK Integration · Stripe · Apple Pay · APNs · LocalAuthentication · Face ID · REST APIs · Alamofire · Dependency Injection · Swinject</p>
-<!-- PROJECT:project-fintech-rd:CONTENT:END -->
-          </div>
-        </article>
-
-        <article class="case-study case-study--featured case-study--media case-study--reverse" id="project-electus">
-          <div class="case-study__copy">
-            <!-- PROJECT:project-electus:CONTENT:START -->
-<h3 class="case-title">Electus mobile wallet</h3><p class="case-era">Startup project, 2018</p>
-<p class="case-narrative">Electus was an early-stage startup developing a mobile wallet app. Worked as the primary iOS developer within the startup team. Built the application from scratch, including wallet creation, import, balances, secure storage, and transaction data. Protected wallet creation, import, and balances with Touch ID and Face ID, and tracked transaction status against network data. Worked with the team on transfers shown in familiar currency amounts. Buying, swapping, and a broader portal remained product plans rather than delivered features. Delivered an internal TestFlight MVP with wallet functionality, market information, charts, and a news feed.</p>
-<ul class="case-signals"><li>Built the iOS app from scratch as the primary developer and worked with the team on product flows</li><li>Implemented wallet creation, import, and balances with Touch ID and Face ID</li><li>Displayed assets, balances, and charts</li><li>Tracked transaction status against network data</li><li>Delivered an internal pre-release build, with buying and swapping left as planned features</li></ul><p class="case-stack">Swift · UIKit · Auto Layout · Touch ID · LocalAuthentication · Face ID · APNs · Transaction Tracking · Alamofire</p>
-<!-- PROJECT:project-electus:CONTENT:END -->
-          </div>
-          <div class="case-study__media" data-tile-pattern="one-plus-2x2" data-tile-featured="0" aria-label="Electus design screenshots">
-            <img src="assets/electus/electus-login.png" alt="Electus login - design mock" loading="lazy" width="375" height="600" data-media-kind="ui">
-            <img src="assets/electus/electus-portfolio.png" alt="Electus portfolio - design mock" loading="lazy" width="375" height="386" data-media-kind="ui">
-            <img src="assets/electus/electus-rates.png" alt="Electus rates chart - design mock" loading="lazy" width="375" height="788" data-media-kind="ui">
-            <img src="assets/electus/electus-exchanger.png" alt="Electus exchanger - design mock" loading="lazy" width="375" height="761" data-media-kind="ui">
-            <img src="assets/electus/electus-transactions.png" alt="Electus transaction history - design mock" loading="lazy" width="375" height="599" data-media-kind="ui">
-          </div>
-        </article>
-
-        <h3 class="projects-group-title">Earlier client work</h3>
-
-        <article class="case-study case-study--featured case-study--media" id="project-alert">
-          <div class="case-study__copy">
-            <!-- PROJECT:project-alert:CONTENT:START -->
-<h3 class="case-title">ALERT: law enforcement resilience training</h3><p class="case-era"><a href="index.html#milestone-amconsoft">Amconsoft</a></p>
-<p class="case-narrative">ALERT provided resilience training for law-enforcement users through guided exercises, audio practice, and reminders. Implemented the iOS application independently as the sole mobile developer. Built restricted access, exercise categories, guided One Way practice, local audio playback controls, and configurable reminder frequency. Audio was stored on the device, and playback supported seeking. The application focused on resilience coaching. Dispatch and emergency-alert functionality were outside its scope. Completed the application and released it on the App Store with scheduled local reminders.</p>
-<ul class="case-signals"><li>Independently built the iOS app and released it on the App Store</li><li>Implemented restricted access, practice categories, and guided One Way exercises</li><li>Added local audio playback and configurable reminder frequency</li></ul><p class="case-stack">UIKit · Auto Layout · AVFoundation · Audio Playback · UserNotifications · Local Reminders · App Store Delivery</p>
-<!-- PROJECT:project-alert:CONTENT:END -->
-          </div>
-          <div class="case-study__media" data-tile-pattern="row-3" aria-label="ALERT app screenshots">
-            <img src="assets/alert/alert-splash.png" alt="ALERT splash - Advanced Law Enforcement Resilience Training" loading="lazy" width="375" height="742" data-media-kind="ui">
-            <img src="assets/alert/alert-categories.png" alt="ALERT category selection - design mock" loading="lazy" width="375" height="742" data-media-kind="ui">
-            <img src="assets/alert/alert-observe.png" alt="ALERT One Way Observe exercise with audio - design mock" loading="lazy" width="375" height="742" data-media-kind="ui">
-          </div>
-        </article>
-
-        <article class="case-study case-study--featured case-study--media" id="project-eastern-union">
-          <div class="case-study__copy">
-            <!-- PROJECT:project-eastern-union:CONTENT:START -->
-<h3 class="case-title">Eastern Union: CRE app</h3><p class="case-era"><a href="index.html#milestone-gbksoft">GBKSoft</a></p>
-<p class="case-narrative">Eastern Union was an established commercial real-estate app. Worked in the GBKSoft development team. Maintained the existing Swift/UIKit codebase. Changes were incremental additions and refinements. Delivered scoped maintenance and feature changes to the existing application.</p>
-<ul class="case-signals"><li>Turned real-estate documentation into screen behavior and information structure</li><li>Added features and fixed defects in the Swift/UIKit codebase</li></ul><p class="case-stack">Swift · UIKit · Auto Layout · Requirements Analysis · Feature Development · Production Maintenance</p>
-<p class="case-links"><a href="https://apps.apple.com/us/app/eastern-union/id1125123079">App Store</a></p>
-<!-- PROJECT:project-eastern-union:CONTENT:END -->
-            <p class="case-links"><a href="https://easternunion.com/">easternunion.com</a></p>
-          </div>
-          <div class="case-study__media" data-tile-pattern="row-3" aria-label="Eastern Union screenshots">
-            <img src="assets/eastern-union/eu-ecalc-home.png" alt="Eastern Union eCALC calculators - screenshot" loading="lazy" width="375" height="710" data-media-kind="ui">
-            <img src="assets/eastern-union/eu-blended-mortgages.png" alt="Eastern Union Blended Mortgages - screenshot" loading="lazy" width="375" height="742" data-media-kind="ui">
-            <img src="assets/eastern-union/eu-irr.png" alt="Eastern Union IRR calculator - screenshot" loading="lazy" width="375" height="735" data-media-kind="ui">
-          </div>
-        </article>
-
-        <article class="case-study case-study--featured case-study--media" id="project-tap4parking">
-          <div class="case-study__copy">
-            <!-- PROJECT:project-tap4parking:CONTENT:START -->
-<h3 class="case-title">Tap4Parking</h3><p class="case-era"><a href="index.html#milestone-tap4parking">Tap4Parking</a></p>
-<p class="case-narrative">Tap4Parking was a Kyiv startup building a municipal parking app for finding facilities and checking available spaces. Developed the iOS app independently. Implemented the map interface, location handling, availability display, and directions to facilities. Displayed parking locations and available-space counts, including when approaching a facility. The released application did not include payments or guidance to individual parking spaces. Compared MapKit, Google Maps, and Yandex Maps. Explored indoor positioning with proposed floor-mounted transmitters in a separate prototype/beta. A deployed indoor-navigation system was not completed. Released the parking-search app on the App Store.</p>
-<ul class="case-signals"><li>Released a parking-search app on the App Store</li><li>Displayed parking availability and directions to a facility</li><li>Compared map providers and explored indoor positioning in a prototype</li></ul><p class="case-stack">Objective-C · UIKit · Auto Layout · Google Maps SDK · Core Location · MapKit Evaluation · Parking Availability · Indoor Positioning Prototype</p>
-<!-- PROJECT:project-tap4parking:CONTENT:END -->
-            <p class="case-links"><a href="https://www.facebook.com/tap4parking/">Facebook</a> · <a href="https://web.archive.org/web/20150505080103/http://tap4parking.com/">tap4parking.com (archive)</a></p>
-          </div>
-          <div class="case-study__media" data-tile-pattern="product-context" aria-label="Tap4Parking product visuals">
-            <img src="assets/tap4parking/t4p-promo-car.jpg" alt="Tap4Parking - map search in car context (product photo)" loading="lazy" width="456" height="168" data-media-kind="photo">
-            <img src="assets/tap4parking/t4p-map.jpg" alt="Tap4Parking iOS map - parking clusters and pins in Kyiv" loading="lazy" width="375" height="714" data-media-kind="ui">
-            <img src="assets/tap4parking/t4p-promo-desk.jpg" alt="Tap4Parking - find parking on map (product photo)" loading="lazy" width="512" height="296" data-media-kind="photo">
-          </div>
-        </article>
-
-        <article class="case-study case-study--featured case-study--media" id="project-green-riding-hood">
-          <div class="case-study__copy">
-            <!-- PROJECT:project-green-riding-hood:CONTENT:START -->
-<h3 class="case-title">Green Riding Hood: interactive book</h3><p class="case-era">Early career · App Store release</p>
-<p class="case-narrative">Green Riding Hood was an interactive read-aloud children's book for iOS, with animated fairy-tale scenes and activities. Contributed to the iOS app during early commercial work. Built the book's iMessage app. The book combined play and healthy-living themes in illustrated interactive scenes. The app was released on the App Store.</p>
-<ul class="case-signals"><li>Built the book's iMessage app</li></ul><p class="case-stack">iOS · Interactive book</p>
-<p class="case-links"><a href="https://apps.apple.com/us/app/green-riding-hood-read-aloud/id977242839">App Store</a></p>
-<!-- PROJECT:project-green-riding-hood:CONTENT:END -->
-          </div>
-          <div class="case-study__media" data-tile-pattern="product-context" aria-label="Green Riding Hood screenshots">
-            <img src="assets/green-riding-hood/grh-1.jpg" alt="Green Riding Hood - interactive story scene" loading="lazy" width="1200" height="675" data-media-kind="photo">
-            <img src="assets/green-riding-hood/grh-2.jpg" alt="Green Riding Hood - illustrated story scene" loading="lazy" width="1200" height="675" data-media-kind="photo">
-            <img src="assets/green-riding-hood/grh-3.jpg" alt="Green Riding Hood - read-aloud story scene" loading="lazy" width="1200" height="675" data-media-kind="photo">
-          </div>
-        </article>
-      </section>
-
-      <section class="projects-personal" aria-label="Pet projects" id="personal-projects">
+        <h3 class="projects-group-title">Independent work</h3>
 
         <article class="case-study case-study--featured case-study--media" id="project-agentic-sdlc">
           <div class="case-study__copy">
             <!-- PROJECT:project-agentic-sdlc:CONTENT:START -->
-<h3 class="case-title">Agentic SDLC for iOS</h3><p class="case-era">Spec-driven iOS feature delivery with coding agents · Jul 2026 - Present</p>
-<p class="case-narrative">A system that lets AI agents take each feature of an iOS app from plan to App Store release. Approves the requirements and each iteration's plan. Designed the process and its toolkit: task briefs, the runtime, the automated gate, and the review step. A writer agent implements each task in its own worktree, the verify gate (format, lint, build, tests) runs locally and in hosted CI, and an independent review checks what the change introduced. The runtime each app installs is readable in its Tooling directory. The method, the tracing and brief tools, and the Claude Code plugin are private. DriveCheckUA and OneCart Family shipped to the App Store through it, and PitStop is on TestFlight.</p>
-<ul class="case-signals"><li>Enforcement layer: one gate per repository runs format, lint, build, tests, and a requirement trace. In DriveCheckUA any approved requirement without a test fails the build, and Claude Code must ask a person before editing the gate's own files</li><li>Two model families with roles: Claude Code plans, decomposes, and reviews, and Codex implements scoped tasks over a typed task protocol. No change merges on its author's review alone</li><li>A versioned iOS toolkit in all three apps drives Xcode and the simulator for parallel agents, and DriveCheckUA updates shipped to the App Store through it</li><li>Milestones, as first commits in git: Oct 2025, rules for an AI coding assistant. Jan 2026, Cursor agents, rules, and skills. Apr 2026, DriveCheckUA. Jul 2026, iOS Engineering Runtime 0.1.0 and the first App Store release. Sep 2026, requirement IDs and the method repository</li><li>Oct 2026, one gate run per app: 1,863 tests executed, 1,860 passed, 3 skipped, none failed</li><li>Approved requirements cited by a test on 2026-10-05: 57 of 57 (OneCart Family), 51 of 53 (PitStop), 40 of 40 (DriveCheckUA)</li><li>Caught by independent review before merge: in OneCart Family at accessibility text sizes, VoiceOver read a cart row's checkbox before the item name. The fix added a test of the reading order at three sizes</li></ul><p class="case-stack">Agentic SDLC · Agentic Engineering · AI-Assisted Development · Coding Agents · Claude Code · Codex · MCP · Deterministic Verification</p>
+<h3 class="case-title">Agentic SDLC for iOS</h3><p class="case-era">A framework for AI-driven iOS development · Jul 2026 - Present</p>
+<p class="case-narrative">A system that lets AI agents take each feature of an iOS app from plan to App Store release. Approved the requirements and each iteration's plan before agents implemented them. Designed the process and its tooling: task briefs, the runtime, the automated gate, and the review step. A writer agent implements each task, the gate runs locally and in hosted CI, and an independent review checks what the change introduced. The runtime each app installs is public, for example in <a href="https://github.com/vil4max/onecart-ios/tree/main/Tooling">OneCart Family's Tooling directory</a>. DriveCheckUA and OneCart Family shipped to the App Store through it, and <a href="https://github.com/vil4max/pitstop-ios">PitStop</a> is on TestFlight.</p>
+<ul class="case-signals"><li>One gate per repository runs format, lint, build, and tests. In DriveCheckUA the gate also runs a requirement trace and fails on any approved requirement without a test, and Claude Code must ask a person before editing the gate's own files.</li><li>Since October 2026, agents from two model families have their own roles: Claude Code plans, decomposes, and reviews, and Codex implements scoped tasks over a typed task protocol. No change merges without a reviewer other than its author.</li><li>A versioned iOS runtime in all three apps drives Xcode and the simulator for parallel agents, and DriveCheckUA updates shipped to the App Store through it</li><li>Milestones, dated by first commit in Git: Oct 2025, rules for an AI coding assistant. Jan 2026, Cursor agents, rules, and skills. Apr 2026, DriveCheckUA. Jul 2026, iOS Engineering Runtime 0.1.0 and the first App Store release. Sep 2026, requirement IDs and the method repository.</li><li>Oct 2026, one gate run per app: 1,863 tests executed, 1,860 passed, 3 skipped, none failed</li><li>Approved requirements cited by a test on Oct 5, 2026: 57 of 57 (OneCart Family), 51 of 53 (PitStop), 40 of 40 (DriveCheckUA)</li><li>Caught by independent review before merge: in OneCart Family at accessibility text sizes, VoiceOver read a cart row's checkbox before the item name. The fix added a test of the reading order at three sizes.</li></ul><p class="case-stack">Agentic SDLC · Agentic Engineering · AI-Assisted Development · Coding Agents · Claude Code · Codex · MCP · Deterministic Verification</p>
 <!-- PROJECT:project-agentic-sdlc:CONTENT:END -->
           </div>
           <div class="case-study__media" aria-label="Agentic SDLC for iOS diagram">
-            <img src="assets/stampwork/stampwork-flow.svg" alt="Agentic SDLC for iOS flow: the owner approves a numbered requirement, a task brief cites it, a writer agent implements it in its own worktree, the automated gate runs locally and in hosted CI, an independent review follows, and a person authorizes the commit" loading="lazy" width="720" height="340" data-media-kind="diagram">
+            <img src="assets/stampwork/stampwork-flow.svg" alt="Agentic SDLC for iOS flow: the owner approves a numbered requirement, a task brief cites it, a writer agent implements it, the automated gate runs locally and in hosted CI, an independent review follows, and a person accepts the feature after reviewing the evidence" loading="lazy" width="720" height="340" data-media-kind="diagram">
           </div>
         </article>
 
@@ -216,8 +58,8 @@
           <div class="case-study__copy">
             <!-- PROJECT:project-regional-check:CONTENT:START -->
 <h3 class="case-title">DriveCheckUA</h3><p class="case-era">Personal project · App Store release</p>
-<p class="case-narrative">DriveCheckUA shows regional safety alerts on iPhone and CarPlay, with an on-device AI summary. Built with Agentic SDLC for iOS to test the system on a published app. Developed with coding agents. Architected the client, on-device AI integration, and CarPlay UI. Swift code classifies alert status before the model receives supplied facts. The AI integration checks model availability, limits generation time, handles cancellation, validates output, and falls back deterministically. Also built a bounded Swift agent/tool runtime with a 38-case scripted evaluation corpus and documented real-device validation. Checks covered tool selection, execution budgets, malformed results, injection-like inputs, cancellation, deadlines, and fallback behavior. This runtime was separate from the released country-summary feature and has since been removed from the app. Released on the App Store.</p>
-<ul class="case-signals"><li>Shipped the CarPlay and iPhone app with coding agents</li><li>Integrated an on-device Foundation Models summary with validation and fallback</li><li>Built a separate bounded agent/tool runtime with an evaluation corpus and device checks (since removed from the app)</li></ul><p class="case-stack">SwiftUI · Swift Concurrency · CarPlay · Core Location · MapKit · URLSession · Apple Foundation Models · LLM Integration · Structured Outputs · Tool Calling · Guardrails · Prompt Injection Testing · Cancellation · Evaluation Corpus · AI Evaluation · Swift Testing · StoreKit 2 · In-App Subscriptions · AI-Assisted Development · Agentic SDLC · Dependency Injection · Claude Code · Codex · Coding Agents · Context Engineering · Deterministic Verification · Human-in-the-Loop Engineering · WidgetKit · Live Activities · App Intents · Actors · Sendable · Swift 6</p>
+<p class="case-narrative">DriveCheckUA shows regional safety alerts on iPhone and CarPlay, with an on-device AI summary. Built with Agentic SDLC for iOS to test the system on a published app. Directed the coding agents, reviewed their changes, and verified behavior with deterministic tests and device checks before release. Architected the client, on-device AI integration, and CarPlay UI. Swift code classifies the alert status, and the model writes the summary text from the facts it is given. The AI integration checks model availability, limits generation time, handles cancellation, validates output, and falls back deterministically. Also built home-screen and secondary-region widgets, a Control Center control, App Shortcuts, a Live Activity, and StoreKit 2 subscriptions with purchase verification and unit tests. All targets build in Swift 6 language mode with complete data-race checking. An earlier bounded agent/tool runtime, tested by a 38-case scripted evaluation corpus covering tool selection, execution budgets, malformed results, injection-like inputs, cancellation, and deadlines, was later removed from the app. Released on the App Store.</p>
+<ul class="case-signals"><li>Integrated an on-device Foundation Models summary with validation and fallback</li><li>Added widgets, a Live Activity, and StoreKit 2 subscriptions in Swift 6 language mode</li></ul><p class="case-stack">SwiftUI · Swift Concurrency · CarPlay · Core Location · MapKit · URLSession · Apple Foundation Models · LLM Integration · Structured Outputs · Tool Calling · Guardrails · Prompt Injection Testing · AI Evaluation · Swift Testing · StoreKit 2 · In-App Subscriptions · AI-Assisted Development · Agentic SDLC · Dependency Injection · Claude Code · Codex · Coding Agents · Context Engineering · Deterministic Verification · Human-in-the-Loop Engineering · WidgetKit · Live Activities · App Intents · Actors · Sendable · Swift 6</p>
 <p class="case-links"><a href="https://apps.apple.com/app/id6793023910">App Store</a> · <a href="https://github.com/vil4max/regional-check">GitHub</a></p>
 <!-- PROJECT:project-regional-check:CONTENT:END -->
             <p class="case-links"><a href="regional-check/privacy-policy.html">Privacy</a></p>
@@ -233,15 +75,167 @@
           <div class="case-study__copy">
             <!-- PROJECT:project-onecart:CONTENT:START -->
 <h3 class="case-title">OneCart Family</h3><p class="case-era">Personal project · App Store release</p>
-<p class="case-narrative">OneCart Family is a shopping list that a family shares through iCloud. Built to prove out Agentic SDLC for iOS. Developed with coding agents. Led architecture, data synchronization, and release verification. Core Data uses private and shared CloudKit stores with CKShare invitations. Edits persist locally before cloud propagation. The app handles membership changes, duplicate records, and recovery when cloud account deletion fails. WidgetKit snapshots and App Intents support widget actions. XCTest regression suites cover cart state, sharing, persistence, synchronization errors, and deletion recovery. Reviewed generated changes and investigated defects. Released on the App Store.</p>
-<ul class="case-signals"><li>Released a shared shopping app built with coding agents</li><li>Implemented Core Data and CloudKit persistence, CKShare invitations, and offline edits</li><li>Added widget actions and account-lifecycle flows with regression tests</li></ul><p class="case-stack">Swift · SwiftUI · Swift Concurrency · Core Data · CloudKit · CKShare · WidgetKit · App Intents · XCTest · Offline Persistence · Synchronization Recovery · AI-Assisted Development · Agentic SDLC · Dependency Injection · Claude Code · Codex · Coding Agents · Agentic Workflows · Deterministic Verification · UserNotifications · Actors · Sendable</p>
+<p class="case-narrative">OneCart Family is a shopping list that a family shares through iCloud. Built to prove out Agentic SDLC for iOS. Led the coding agents that built it, reviewed their changes, and investigated defects. Led architecture, data synchronization, and release verification. Core Data uses private and shared CloudKit stores with CKShare invitations. Edits are saved locally first, then synced to iCloud. The app handles membership changes, duplicate records, and recovery when cloud account deletion fails. WidgetKit snapshots and App Intents support widget actions. XCTest regression suites cover cart state, sharing, persistence, synchronization errors, and deletion recovery. Released on the App Store.</p>
+<ul class="case-signals"><li>Implemented Core Data and CloudKit persistence, CKShare invitations, and offline edits</li><li>Added widget actions and account-lifecycle flows with regression tests</li></ul><p class="case-stack">Swift · SwiftUI · Swift Concurrency · Core Data · CloudKit · CKShare · WidgetKit · App Intents · XCTest · Offline Persistence · Synchronization Recovery · AI-Assisted Development · Agentic SDLC · Dependency Injection · Claude Code · Codex · Coding Agents · Agentic Workflows · Deterministic Verification · UserNotifications · Actors · Sendable</p>
 <p class="case-links"><a href="https://apps.apple.com/app/id6793219621">App Store</a> · <a href="https://github.com/vil4max/onecart-ios">GitHub</a></p>
 <!-- PROJECT:project-onecart:CONTENT:END -->
           </div>
           <div class="case-study__media" data-tile-pattern="row-3" aria-label="OneCart Family screenshots">
             <img src="assets/onecart/oc-welcome.jpg" alt="OneCart Family - Welcome and Sign in with Apple" loading="lazy" width="369" height="800" data-media-kind="ui">
             <img src="assets/onecart/oc-cart.jpg" alt="OneCart Family - Shared cart grouped by category with completed items" loading="lazy" width="369" height="800" data-media-kind="ui">
-            <img src="assets/onecart/oc-settings.jpg" alt="OneCart Family - Settings with cart sharing, invite link and app icon choice" loading="lazy" width="369" height="800" data-media-kind="ui">
+            <img src="assets/onecart/oc-settings.jpg" alt="OneCart Family - Settings with cart sharing, an invite link, and app icon choice" loading="lazy" width="369" height="800" data-media-kind="ui">
+          </div>
+        </article>
+      </section>
+
+      <section class="projects-featured" aria-label="Featured projects">
+
+        <article class="case-study case-study--featured" id="project-watch-ai-assistant">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-watch-ai-assistant:CONTENT:START -->
+<h3 class="case-title">Apple Watch Voice AI: R&amp;D demo</h3><p class="case-era"><a href="index.html#milestone-globallogic">GlobalLogic (contract)</a></p>
+<p class="case-narrative">An R&amp;D demo for the customer's executives explored a hands-free voice assistant on Apple Watch for field workers. Owned the Apple Watch client and its iPhone relay end to end in a team of seven. Designed and implemented watchOS interaction flows, an iPhone relay for live audio and WebSocket traffic, and structured-response mapping within the output format agreed with the AI team. Each structured reply mapped to a known screen or action. After delivering the demo, evaluated an AI-assisted iOS development workflow, checking agent-generated code against Jira requirements and visual references. Delivered the final TestFlight build with its codebase and project documentation.</p>
+<ul class="case-signals"><li>Implemented a custom emergency flow on watchOS</li><li>Built the voice conversation interface and an iPhone relay for WebSocket communication and live audio</li><li>Translated structured AI commands into UI actions on the device</li><li>Implemented work-site maps, hazards, and navigation across the watch and iPhone</li></ul><p class="case-stack">SwiftUI · WatchKit · Swift Concurrency · WatchConnectivity · URLSessionWebSocketTask · AVFoundation · Audio Streaming · watchOS · AI-Assisted Development · VelocityAI · Xcode · TestFlight · Structured Outputs</p>
+<!-- PROJECT:project-watch-ai-assistant:CONTENT:END -->
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-birmarket">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-birmarket:CONTENT:START -->
+<h3 class="case-title">Birmarket: marketplace and loyalty</h3><p class="case-era"><a href="index.html#milestone-pasha">PASHA Holding</a></p>
+<p class="case-narrative">Birmarket, called Umico until July 2025, is a PASHA-ecosystem marketplace with over 2 million customers. Its operator, Competo, has been a PASHA Holding subsidiary since March 2020. Worked on the Loyalty team alongside mobile, backend, QA, and product specialists while the iOS team grew from about five to twenty developers. Developed shopping and loyalty features, extracted shared modules, and later owned the multi-host Premium Subscription SDK on iOS. <a href="https://pasha-holding.az/en/ecosystem/competo/">Company context</a> · <a href="https://bir.az/en/news/bir-ecosystem-strengthens-its-position-with-birmarket-the-countrys-largest-e-commerce-platform">About Birmarket</a>. Birmarket, the Birbank banking app, and the M10 payment wallet integrated the same remote Swift package. Each host handled authentication, session lifecycle, and token refresh, then passed a scoped access token through a small public API. The SDK managed its own networking. Proposed PostHog and designed the subscription SDK's own analytics layer, separate from the hosts' Firebase analytics. Built the slide-based subscription onboarding that replaced a long scrolling page. A/B tests cut it from five screens to three, which raised new-subscriber conversion. Created remote-configuration flags and handled them in code, such as the flag that switched between payment-gateway versions. Redesigned screens shipped behind kill switches that could return a single screen to its old design. Wrote unit and integration tests covering how subscription and loyalty benefits change prices, cart state, and final totals. Configured Bitrise build, test, and code-signing steps in the development, testing, and release workflows. Handed the SDK over while it was live in production in all three host apps.</p>
+<ul class="case-signals"><li>Reimplemented Premium Subscription as a configurable multi-host SDK distributed as a Swift package</li><li>Defined host/SDK API boundaries with backend and other teams</li><li>Carried about seven of the app's 30+ feature modules through extraction, and broke cyclic dependencies by moving shared business logic, such as discount recalculation, into small modules behind protocols</li><li>Traced an abrupt crash to a retain cycle between a timer and a player delegate with the Memory Graph Debugger and the Leaks instrument, and removed scroll freezes by moving network calls off the main thread</li></ul><p class="case-stack">UIKit · Auto Layout · SwiftUI · Swift Concurrency · Swift Package Manager (SPM) · Modular Architecture · Clean Architecture · MVVM · SDK Development · Unit Testing · Integration Testing · CI/CD · Xcode Instruments · A/B Testing · Agile · Feature Flags · Remote Configuration · APNs · LocalAuthentication · Face ID · Product Analytics · Firebase · PostHog · Dependency Injection · Crash Analysis · AI-Assisted Development · Xcode · XCTest · Memory Management · Performance Optimization · Background Tasks · UserNotifications · Combine</p>
+<p class="case-links"><a href="https://apps.apple.com/us/app/birmarket-online-shopping-app/id1458111389">App Store</a></p>
+<!-- PROJECT:project-birmarket:CONTENT:END -->
+          </div>
+          <div class="case-study__media" data-tile-pattern="row-3" aria-label="Birmarket screenshots">
+            <img src="assets/birmarket/birmarket-premium-home.webp" alt="Birmarket - premium marketplace home" loading="lazy" width="600" height="1300" data-media-kind="ui">
+            <img src="assets/birmarket/birmarket-loyalty.webp" alt="Birmarket - loyalty state" loading="lazy" width="600" height="1300" data-media-kind="ui">
+            <img src="assets/birmarket/birmarket-product-state.webp" alt="Birmarket - contrasting product state" loading="lazy" width="600" height="1300" data-media-kind="ui">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media case-study--reverse" id="project-drinkit">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-drinkit:CONTENT:START -->
+<h3 class="case-title">Drinkit: coffee ordering app</h3><p class="case-era"><a href="index.html#milestone-drinkit">Drinkit</a></p>
+<p class="case-narrative">Drinkit is an app-first coffee brand within Dodo Brands. Worked in a product team of about twenty people across mobile, backend, design, QA, product, and hardware. Brought an existing mobile team of three iOS and two Android engineers into Drinkit and built the iOS app with them. Shaped features with product management and chose the initial architecture together with the other iOS engineers. The app used MVP with coordinators, repository and service layers, and Swift Package Manager modules. Owned the dynamic menu, the app's signature feature: the backend held a deliberately rich catalog, and a client-side constructor composed each customer's menu from it by time of day and by preferences collected at first launch and after orders. Implemented its looping drink videos, offline caching of menu data and videos, and background downloads through a background URLSession. Drink customization relied on ingredient dependencies, option availability, and backend pricing parameters. Implemented much of that functionality, integrated backend-selected offers, and displayed order status through polling. Integrated a payment SDK built by another engineer. The app connected customer orders to backend preparation state and in-shop pickup displays. Worked with A/B tests, feature flags, and remote configuration, and took part in the business decisions made from A/B test results. Launched the app with the first coffee shop, and the chain grew to eight locations during two years of development.</p>
+<ul class="case-signals"><li>Built and released the iOS app with two other iOS engineers for the first coffee-shop launch</li><li>Developed and refined drink customization as the product grew</li><li>Integrated contextual offers using shared client and backend data</li><li>Displayed order-preparation status through backend polling</li></ul><p class="case-stack">Swift · UIKit · Auto Layout · Combine · Swift Package Manager (SPM) · GCD · OperationQueue · MVP · Coordinator · AVFoundation · AVPlayer · File-system Caching · Payment SDK Integration · Unit Testing · Integration Testing · URLSession · REST APIs · APNs · LocalAuthentication · Face ID · A/B Testing · Feature Flags · Remote Configuration · Alamofire · Dependency Injection · Swinject · GitLab CI · CI/CD · App Store Delivery · Xcode · XCTest · Background Tasks · UserNotifications</p>
+<p class="case-links"><a href="https://apps.apple.com/us/app/drinkit-order-your-coffee/id1495622004">App Store</a></p>
+<!-- PROJECT:project-drinkit:CONTENT:END -->
+          </div>
+          <div class="case-study__media" data-tile-pattern="hero-details" aria-label="Drinkit screenshots and pickup station">
+            <img src="assets/drinkit/drinkit-pickup-station.jpg" alt="Drinkit smart pickup counter with order displays" loading="lazy" width="900" height="367" data-media-kind="photo" data-tile-hero-shape="square">
+            <img src="assets/drinkit/drinkit-order.webp" alt="Drinkit - order screen" loading="lazy" width="300" height="650" data-media-kind="ui">
+            <img src="assets/drinkit/drinkit-customization.webp" alt="Drinkit - drink customization" loading="lazy" width="300" height="650" data-media-kind="ui">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-playhera">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-playhera:CONTENT:START -->
+<h3 class="case-title">PLAYHERA: esports tournaments</h3><p class="case-era"><a href="index.html#milestone-solvve">SOLVVE</a></p>
+<p class="case-narrative">PLAYHERA was an established international esports platform for managing tournaments, teams, players, and results. Worked in the SOLVVE iOS team on the existing app. Developed tournament standings, profiles, and news features in Swift and UIKit with RxSwift. Reviewed teammates' code. Shipped the features in App Store updates.</p>
+<ul class="case-signals"><li>Developed tournament-management features within the established feature architecture</li></ul><p class="case-stack">Swift · UIKit · Auto Layout · RxSwift · Reactive UI · Code Review · Alamofire · VIPER · Dependency Injection · Swinject</p>
+<p class="case-links"><a href="https://apps.apple.com/ua/app/playhera/id1449021935">App Store</a></p>
+<!-- PROJECT:project-playhera:CONTENT:END -->
+          </div>
+          <div class="case-study__media" data-tile-pattern="row-3" aria-label="PLAYHERA screenshots">
+            <img src="assets/playhera/playhera-tournament.png" alt="PLAYHERA - primary tournament screen" loading="lazy" width="392" height="696" data-media-kind="ui">
+            <img src="assets/playhera/playhera-detail.png" alt="PLAYHERA - detail state" loading="lazy" width="392" height="696" data-media-kind="ui">
+            <img src="assets/playhera/playhera-secondary.png" alt="PLAYHERA - secondary state" loading="lazy" width="392" height="696" data-media-kind="ui">
+          </div>
+        </article>
+      </section>
+
+      <section class="projects-additional" aria-label="Fintech, earlier and other projects">
+
+        <h3 class="projects-group-title">Fintech</h3>
+
+        <article class="case-study case-study--featured" id="project-fintech-rd">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-fintech-rd:CONTENT:START -->
+<h3 class="case-title">Alchemy: physical gold trading</h3><p class="case-era"><a href="index.html#milestone-alchemy">Alchemy (contract)</a></p>
+<p class="case-narrative">Alchemy was an app for trading physical gold, redeemable at the company's branches. As the only iOS developer, built the first version with the backend team, then handed it over to a new iOS developer. Owned the client app across KYC onboarding, portfolio tracking, and buy and sell flows. Integrated a third-party KYC SDK, Stripe, and Apple Pay into the purchase flow. Handed over an app ready for production.</p>
+<ul class="case-signals"><li>Built authorization, KYC onboarding, gold balances, price charts, and buy and sell flows in UIKit</li><li>Configured push notifications and Face ID authentication</li></ul><p class="case-stack">Swift · UIKit · Auto Layout · Combine · MVVM · KYC SDK Integration · Stripe · Apple Pay · APNs · LocalAuthentication · Face ID · REST APIs · Alamofire · Dependency Injection · Swinject</p>
+<!-- PROJECT:project-fintech-rd:CONTENT:END -->
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured" id="project-electus">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-electus:CONTENT:START -->
+<h3 class="case-title">Electus: mobile wallet</h3><p class="case-era">Startup project, 2018</p>
+<p class="case-narrative">Electus was an early-stage startup building a mobile wallet app. Built the iOS app from scratch within the startup team. Implemented wallet creation, import, and balances behind Touch ID and Face ID, and tracked transaction status against network data. Exchange features and a broader portal stayed product plans outside the delivered MVP. Delivered an internal TestFlight MVP with wallet functionality, charts, and a news feed.</p>
+<ul class="case-signals"><li>Mentored a junior developer</li><li>Displayed assets, balances, and charts</li></ul><p class="case-stack">Swift · UIKit · Auto Layout · Touch ID · LocalAuthentication · Face ID · APNs · Transaction Tracking · Alamofire</p>
+<!-- PROJECT:project-electus:CONTENT:END -->
+          </div>
+        </article>
+
+        <h3 class="projects-group-title">Earlier client work</h3>
+
+        <article class="case-study case-study--featured case-study--media" id="project-alert">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-alert:CONTENT:START -->
+<h3 class="case-title">ALERT: law-enforcement resilience training</h3><p class="case-era"><a href="index.html#milestone-amconsoft">Amconsoft</a></p>
+<p class="case-narrative">ALERT provided resilience training for law-enforcement users through guided exercises, audio practice, and reminders. Developed the iOS app independently from the supplied flow, design, and audio assets. Implemented the guided exercises and their audio in UIKit. The audio content was stored on the device. Released the app on the App Store.</p>
+<ul class="case-signals"><li>Built audio playback with seeking on AVFoundation</li><li>Scheduled local reminders with UserNotifications</li></ul><p class="case-stack">UIKit · Auto Layout · AVFoundation · Audio Playback · UserNotifications · Local Reminders · App Store Delivery</p>
+<!-- PROJECT:project-alert:CONTENT:END -->
+          </div>
+          <div class="case-study__media" data-tile-pattern="row-3" aria-label="ALERT app screenshots">
+            <img src="assets/alert/alert-splash.png" alt="ALERT splash - Advanced Law Enforcement Resilience Training" loading="lazy" width="375" height="742" data-media-kind="ui">
+            <img src="assets/alert/alert-categories.png" alt="ALERT category selection - design mockup" loading="lazy" width="375" height="742" data-media-kind="ui">
+            <img src="assets/alert/alert-observe.png" alt="ALERT One Way Observe exercise with audio - design mockup" loading="lazy" width="375" height="742" data-media-kind="ui">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-eastern-union">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-eastern-union:CONTENT:START -->
+<h3 class="case-title">Eastern Union: commercial real-estate app</h3><p class="case-era"><a href="index.html#milestone-gbksoft">GBKSoft</a></p>
+<p class="case-narrative">Eastern Union was an established commercial real-estate app. Worked in the GBKSoft development team. Made scoped feature changes and fixes in its Swift/UIKit codebase. Worked from the client's real-estate documentation and requirements. Delivered client-requested changes to the live app.</p>
+<ul class="case-signals"><li>Translated domain documentation and client requirements into screen behavior</li></ul><p class="case-stack">Swift · UIKit · Auto Layout</p>
+<p class="case-links"><a href="https://apps.apple.com/us/app/eastern-union/id1125123079">App Store</a></p>
+<!-- PROJECT:project-eastern-union:CONTENT:END -->
+            <p class="case-links"><a href="https://easternunion.com/">easternunion.com</a></p>
+          </div>
+          <div class="case-study__media" data-tile-pattern="row-3" aria-label="Eastern Union screenshots">
+            <img src="assets/eastern-union/eu-ecalc-home.png" alt="Eastern Union eCALC calculators - screenshot" loading="lazy" width="375" height="710" data-media-kind="ui">
+            <img src="assets/eastern-union/eu-blended-mortgages.png" alt="Eastern Union Blended Mortgages - screenshot" loading="lazy" width="375" height="742" data-media-kind="ui">
+            <img src="assets/eastern-union/eu-irr.png" alt="Eastern Union IRR calculator - screenshot" loading="lazy" width="375" height="735" data-media-kind="ui">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-tap4parking">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-tap4parking:CONTENT:START -->
+<h3 class="case-title">Tap4Parking</h3><p class="case-era"><a href="index.html#milestone-tap4parking">Tap4Parking</a></p>
+<p class="case-narrative">Tap4Parking was a municipal parking app for Kyiv that helped drivers find facilities and check available spaces. Developed the iOS app independently. Implemented the map interface, location handling, availability display, and directions to facilities. Showed parking locations and free-space counts on the map and as the driver approached a facility. Chose Google Maps SDK after comparing MapKit, Google Maps, and Yandex Maps for map detail and coverage. Explored indoor positioning with proposed floor-mounted transmitters in a separate prototype. Released the parking-search app on the App Store.</p>
+<ul class="case-signals"><li>Displayed parking availability and directions to a facility</li><li>Compared map providers and explored indoor positioning in a prototype</li></ul><p class="case-stack">Objective-C · UIKit · Auto Layout · Google Maps SDK · Core Location</p>
+<!-- PROJECT:project-tap4parking:CONTENT:END -->
+            <p class="case-links"><a href="https://www.facebook.com/tap4parking/">Facebook</a> · <a href="https://web.archive.org/web/20150505080103/http://tap4parking.com/">tap4parking.com (archive)</a></p>
+          </div>
+          <div class="case-study__media" data-tile-pattern="product-context" aria-label="Tap4Parking product visuals">
+            <img src="assets/tap4parking/t4p-promo-car.jpg" alt="Tap4Parking - map search in a car (product photo)" loading="lazy" width="456" height="168" data-media-kind="photo">
+            <img src="assets/tap4parking/t4p-map.jpg" alt="Tap4Parking iOS map - parking clusters and pins in Kyiv" loading="lazy" width="375" height="714" data-media-kind="ui">
+            <img src="assets/tap4parking/t4p-promo-desk.jpg" alt="Tap4Parking - find parking on map (product photo)" loading="lazy" width="512" height="296" data-media-kind="photo">
+          </div>
+        </article>
+
+        <article class="case-study case-study--featured case-study--media" id="project-green-riding-hood">
+          <div class="case-study__copy">
+            <!-- PROJECT:project-green-riding-hood:CONTENT:START -->
+<h3 class="case-title">Green Riding Hood: interactive book</h3><p class="case-era">App Store release</p>
+<p class="case-narrative">Green Riding Hood is an interactive read-aloud children's book for iOS. Contributed to the iOS app. Built the book's iMessage app. The iMessage app extended the book to Messages. The app was released on the App Store.</p>
+<ul class="case-signals"><li>Built the book's iMessage app</li></ul><p class="case-stack">iOS</p>
+<p class="case-links"><a href="https://apps.apple.com/us/app/green-riding-hood-read-aloud/id977242839">App Store</a></p>
+<!-- PROJECT:project-green-riding-hood:CONTENT:END -->
+          </div>
+          <div class="case-study__media" data-tile-pattern="product-context" aria-label="Green Riding Hood screenshots">
+            <img src="assets/green-riding-hood/grh-1.jpg" alt="Green Riding Hood - interactive story scene" loading="lazy" width="1200" height="675" data-media-kind="photo">
+            <img src="assets/green-riding-hood/grh-2.jpg" alt="Green Riding Hood - illustrated story scene" loading="lazy" width="1200" height="675" data-media-kind="photo">
+            <img src="assets/green-riding-hood/grh-3.jpg" alt="Green Riding Hood - read-aloud story scene" loading="lazy" width="1200" height="675" data-media-kind="photo">
           </div>
         </article>
       </section>

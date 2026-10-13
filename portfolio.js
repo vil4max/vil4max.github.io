@@ -54,7 +54,7 @@
         // that follows it in the list).
         const yearTops = new Map();
         for (const entry of entries) {
-            if (entry.classList.contains("experience-entry--current") && entries.length > 1) {
+            if (entry.dataset.current === "true" && entries.length > 1) {
                 continue;
             }
             const startYear = Number(entry.dataset.startYear);
