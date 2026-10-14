@@ -1,6 +1,3 @@
 node_modules/
 .DS_Store
 .tmp-visual-review/
-/profile-autofill.html
-
-.agents/project-context.yaml
