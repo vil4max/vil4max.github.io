@@ -1,6 +1,6 @@
 # Max Vilchevskiy
 
-Senior iOS Engineer | AI-Assisted & Agentic Engineering | LLM Integration
+Senior iOS Engineer | Product-minded | Agentic Engineering
 
 Kyiv, Ukraine | Open to remote
 
@@ -8,7 +8,7 @@ Kyiv, Ukraine | Open to remote
 
 ## Summary
 
-Senior iOS Engineer with 13 years of experience in consumer apps, from new products built from scratch to a large-scale app used by millions of people. Takes features from product idea through architecture to App Store release, and extracts existing ones into separate modules and an SDK shared across apps. Now focused on AI on iOS: LLM-powered app features and a system for building iOS apps with AI agents.
+Senior iOS Engineer with 13 years of experience in consumer apps, from new products built from scratch to a large-scale app used by millions of people. Takes features from product idea through architecture to App Store release, and extracts existing ones into separate modules and an SDK shared across apps. Now focused on product work: owning iOS features from the business goal to measured results, with AI agents across the delivery cycle.
 
 ## Skills
 
@@ -20,15 +20,16 @@ Senior iOS Engineer with 13 years of experience in consumer apps, from new produ
 
 ## Experience
 
-### Senior iOS Engineer | Independent | Kyiv, Remote | Jul 2026 - Present
+### Senior iOS Engineer | Independent (self-employed) | Kyiv, Remote | Jul 2026 - Present
 
-Agentic SDLC for iOS | A framework for AI-driven iOS development
+Own iOS apps | Built with AI agents
 
-AI agents plan, implement, and test each iOS feature through to App Store release. Designed and built the system.
+Works on own iOS products, built with AI agents across the whole cycle: planning, implementation, tests, review, and release. Owns the product and technical decisions and reviews each feature for quality and logic.
 
-- Used it to ship two App Store apps: [DriveCheckUA](https://apps.apple.com/app/id6793023910), a CarPlay safety app with an on-device AI summary, and [OneCart Family](https://apps.apple.com/us/app/onecart-family/id6793219621), a family shopping list shared through iCloud.
-- Set up one build-and-test gate that runs every iOS change the same way locally and in CI.
-- Accepted each feature only after checking its test evidence and a separate agent's review. In DriveCheckUA, a requirement without a test fails the build.
+- Shipped [DriveCheckUA](https://apps.apple.com/app/id6793023910), a CarPlay safety app with an on-device AI summary, to the App Store.
+- Released [OneCart Family](https://apps.apple.com/us/app/onecart-family/id6793219621), a family shopping list shared through iCloud, and keeps developing it.
+- Brought PitStop, a car-maintenance app, to TestFlight.
+- Built a Claude Code plugin of skills, rules, and checks and a build-and-test gate in each app, so agents deliver tested, self-reviewed code.
 
 Swift, SwiftUI, Agentic Engineering, Coding Agents, LLM Integration
 
